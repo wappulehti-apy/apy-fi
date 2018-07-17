@@ -1,0 +1,67 @@
+{
+  "name": "apy-verkkosivu",
+  "description": "Wappulehti Äpy - verkkosivu",
+  "version": "1.0.0",
+  "author": "Timo Riski",
+  "dependencies": {
+    "delay": "^3.0.0",
+    "emotion": "^9.2.4",
+    "emotion-server": "^9.2.4",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gatsby": "next",
+    "gatsby-image": "next",
+    "gatsby-plugin-emotion": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sass": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-remark": "^1.7.44",
+    "gatsby-transformer-sharp": "next",
+    "glslify": "^6.2.1",
+    "glslify-loader": "^1.0.2",
+    "hamburgers": "^0.9.3",
+    "history": "^4.7.2",
+    "imports-loader": "^0.8.0",
+    "include-media": "^1.4.9",
+    "node-sass": "^4.9.0",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-anchor-link-smooth-scroll": "^1.0.10",
+    "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.4",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^2.2.7",
+    "react-responsive-carousel": "^3.1.41",
+    "react-spring": "^5.3.18",
+    "react-transition-group": "^2.4.0",
+    "sharp": "^0.20.5",
+    "styled-components": "^3.3.3",
+    "three": "^0.93.0",
+    "url-loader": "^1.0.1",
+    "zooming": "^2.1.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "lint:dry": "eslint --fix-dry-run --ext .js src"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.5",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-react": "^7.10.0",
+    "prettier": "^1.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/"
+  }
+}
