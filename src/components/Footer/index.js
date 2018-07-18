@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import FaFacebook from 'react-icons/lib/fa/facebook';
 import FaInstagram from 'react-icons/lib/fa/instagram';
@@ -58,5 +57,3 @@ const Footer = () => (
 );
 
 export default Footer;
-
-Footer.propTypes = {};

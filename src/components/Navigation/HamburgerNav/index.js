@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Trail, Spring, animated } from 'react-spring';
 import styled, { css } from 'react-emotion';
-import { HamburgerToggle } from '../../Toggle';
+import HamburgerToggle from './Toggle';
 
 const NavContainer = styled.div`
   display: flex;
@@ -97,3 +97,7 @@ class HamburgerNav extends React.Component {
 }
 
 export default HamburgerNav;
+
+HamburgerNav.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.element).isRequired
+};

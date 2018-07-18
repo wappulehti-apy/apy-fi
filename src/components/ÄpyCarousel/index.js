@@ -14,40 +14,19 @@ const StyledApyCarouselContainer = styled.div`
 
   /* iPhone X */
   @media (min-width: 812px) and (max-height: 375px) and (orientation: landscape) {
-    flex: 0 0 40%;
-  }
-
-  & > div {
-    display: flex;
-    flex-direction: row;
-
-    @media (max-width: 1025px) and (orientation: portrait) {
-      flex-direction: column;
-    }
-
-    @media (max-height: 1025px) and (orientation: landscape) {
-      flex-direction: row;
-    }
-  }
-
-  /* Make preview image flex container the size of it's contents */
-  & > div > div:nth-child(2) {
-    width: auto;
+    flex: 0 0 50%;
   }
 
   & .thumbs-wrapper,
   .thumbs.animated {
-    padding-left: 5px;
+    padding: 5px 5px 0 0;
     margin: 0;
 
     @media (max-width: 1025px) and (orientation: landscape) {
       .thumb {
         width: 50px;
       }
-
-      display: inline-block;
     }
-
 
     @media (max-width: 1025px) and (orientation: portrait) {
       .thumb {
@@ -55,15 +34,13 @@ const StyledApyCarouselContainer = styled.div`
       }
 
       padding: 3px 0 0 0;
-      display: inline-block;
     }
   }
 `;
 
-const StyledImageContainer = styled.div`
-`;
+const StyledImageContainer = styled.div``;
 
-const ApyCarousel = ({ src }) => (
+const ApyCarousel = ({ imgData }) => (
   <StyledApyCarouselContainer>
     <Carousel
       showStatus={false}
@@ -71,9 +48,11 @@ const ApyCarousel = ({ src }) => (
       useKeyboardArrows
       emulateTouch
     >
-      <StyledImageContainer>
-        <img src={src} alt="äpy"/>
-      </StyledImageContainer>
+      {imgData.map((img, i) => (
+        <StyledImageContainer key={i}>
+          <img key={i} src={img.node.original.src} alt="äpy" />
+        </StyledImageContainer>
+      ))}
     </Carousel>
   </StyledApyCarouselContainer>
 );
@@ -81,5 +60,14 @@ const ApyCarousel = ({ src }) => (
 export default ApyCarousel;
 
 ApyCarousel.propTypes = {
-  src: PropTypes.string.isRequired
+  imgData: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        original: PropTypes.shape({
+          src: PropTypes.string
+        }),
+        sizes: PropTypes.object
+      })
+    })
+  ).isRequired
 };

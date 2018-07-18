@@ -60,5 +60,3 @@ class ThreeDots extends React.PureComponent {
 }
 
 export default ThreeDots;
-
-ThreeDots.propTypes = {};

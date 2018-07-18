@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
 import ApyCarousel from '../ÄpyCarousel';
-import { ModalToggle } from '../Toggle';
+import ModalToggle from './Toggle';
 import { media, breakpoints } from '../../styles/main';
 import Logo from '../../../assets/images/äpyLogo.png';
 
@@ -51,18 +51,28 @@ const ModalMain = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  padding: 1em;
+  padding: 2.5em;
+
+  @media (max-height: 1023px) and (orientation: landscape) {
+    padding: 1em;
+  }
+
+  @media (max-width: 1025px) and (orientation: portrait) {
+    padding: 1em;
+  }
 `;
 
 const ModalContent = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 1025px) and (orientation: landscape) {
+    flex-direction: row;
+  }
 
   @media only screen and (min-device-width: 1366px) {
     justify-content: start;
-    flex-wrap: nowrap;
   }
 
   @media only screen and (max-device-width: 1366px) and (orientation: landscape) {
@@ -74,22 +84,16 @@ const ModalContent = styled.div`
 const ModalKuvaus = styled.p`
   width: 100%;
   margin: 0;
-  padding: 0 1.5em;
+  padding: 1em 0 2.5em 0em;
   font-family: 'Lato Light';
-  font-size: 1.1em;
+  font-size: 1em;
 
-  ${media.desktop(css`
-    font-size: 1.5em;
-  `)};
-
-  @media (max-height: 1023px) and (orientation: landscape) {
-    font-size: 1.1em;
+  @media (max-width: 1025px) and (orientation: landscape) {
+    padding: 0 0 0 1em;
   }
 
   @media (max-width: 1025px) and (orientation: portrait) {
-    flex: 0 0 90%;
-    padding-left: 0;
-    padding-bottom: 2em;
+    padding: 1em 0;
   }
 
   @media (max-width: 736px) {
@@ -115,7 +119,7 @@ const ModalHeader = styled.h3`
 const Divider = styled.hr`
   width: 60%;
   color: grey;
-  margin: 1em 20% 2em 20%;
+  margin: 1em 20%;
   height: 2px;
 
   ${media.tablet(css`
@@ -207,7 +211,7 @@ class ApyModal extends React.PureComponent {
   };
 
   render() {
-    const { apy, imgSizes, handleModalClose, modalState } = this.props;
+    const { apy, imgData, handleModalClose, modalState } = this.props;
     const { modalWidth, modalHeight } = this.state;
     const transition = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
@@ -227,7 +231,7 @@ class ApyModal extends React.PureComponent {
           </ModalHeader>
           <Divider />
           <ModalContent>
-            <ApyCarousel src={imgSizes.src} />
+            <ApyCarousel imgData={imgData} />
             <ModalKuvaus>{apy.lyhytKuvaus}</ModalKuvaus>
           </ModalContent>
           <LogoModal key="logo" src={Logo} alt="äpy" />
@@ -245,15 +249,7 @@ ApyModal.propTypes = {
     lehti: PropTypes.string,
     vuosi: PropTypes.number
   }).isRequired,
-  imgSizes: PropTypes.shape({
-    aspectRatio: PropTypes.number,
-    sizes: PropTypes.string,
-    src: PropTypes.string,
-    srcSet: PropTypes.string,
-    srcSetWebp: PropTypes.string,
-    srcWebp: PropTypes.string,
-    tracedSVG: PropTypes.string
-  }).isRequired,
+  imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleModalClose: PropTypes.func.isRequired,
   modalState: PropTypes.string.isRequired
 };

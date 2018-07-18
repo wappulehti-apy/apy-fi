@@ -118,3 +118,7 @@ class Navigation extends React.Component {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  pathname: PropTypes.string.isRequired
+};

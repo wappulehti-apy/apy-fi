@@ -67,3 +67,7 @@ class NormalNav extends React.PureComponent {
 }
 
 export default NormalNav;
+
+NormalNav.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.element).isRequired
+};

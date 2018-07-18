@@ -49,11 +49,7 @@ const ApyName = styled.span`
   right: 0;
   width: 95%;
   bottom: 3px;
-  z-index: 2;
-
-  background: white;
-  border-radius: 3px;
-  padding: 3px 2px;
+  z-index: 3;
 
   text-align: center;
   font-size: 0.7em;
@@ -77,12 +73,12 @@ class Apy extends React.PureComponent {
   };
 
   render() {
-    const { apy, imgSizes } = this.props;
+    const { apy, imgData } = this.props;
     const { modalState, hovering } = this.state;
     const handleModalClose = this.hideModal;
     const apyKuvaus = `${apy.vuosi} - ${apy.lehti}`;
     const display = hovering ? 'inline-block' : 'none';
-    const modalProps = { apy, imgSizes, handleModalClose, modalState };
+    const modalProps = { apy, imgData, handleModalClose, modalState };
     const showModal =
       modalState === 'open' || modalState === 'closing' ? true : false;
 
@@ -95,7 +91,8 @@ class Apy extends React.PureComponent {
           onClick={this.openModal}
         >
           <ApyName {...display}>{apyKuvaus}</ApyName>
-          <Img sizes={imgSizes} alt={apyKuvaus} />
+          <ApyNameGradientBackground />
+          <Img sizes={imgData[0].node.sizes} alt={apyKuvaus} />
         </ApyContainer>
         {showModal && <ApyModal {...modalProps} />}
       </Fragment>
@@ -111,13 +108,5 @@ Apy.propTypes = {
     lehti: PropTypes.string,
     vuosi: PropTypes.number
   }).isRequired,
-  imgSizes: PropTypes.shape({
-    aspectRatio: PropTypes.number,
-    sizes: PropTypes.string,
-    src: PropTypes.string,
-    srcSet: PropTypes.string,
-    srcSetWebp: PropTypes.string,
-    srcWebp: PropTypes.string,
-    tracedSVG: PropTypes.string.isRequired
-  }).isRequired
+  imgData: PropTypes.arrayOf(PropTypes.object).isRequired
 };

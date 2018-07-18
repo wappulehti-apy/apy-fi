@@ -37,7 +37,7 @@ const InformationContainer = styled.div`
   padding: 1em;
 `;
 
-const ApyGrid = styled.div`
+const Grid = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -68,24 +68,22 @@ const ApyGrid = styled.div`
   `)};
 `;
 
-class ApyGridComponent extends React.Component {
+class ApyGrid extends React.Component {
   constructor(props) {
     super(props);
     const { imgData, html } = this.props;
+    console.log(imgData)
     const apys = ApyData.map(apy => (
       <Apy
-        imgSizes={
-          imgData.filter(x =>
-            x.node.original.src.startsWith(`/static/${apy.vuosi}`)
-          )[0].node.sizes
-        }
+        imgData={imgData.filter(x =>
+          x.node.original.src.startsWith(`/static/${apy.vuosi}`)
+        )}
         apy={apy}
         key={apy.vuosi}
       />
     ));
     this.state = { apys, html };
   }
-
 
   render() {
     const { apys, html } = this.state;
@@ -96,13 +94,16 @@ class ApyGridComponent extends React.Component {
             id="äpy__info"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-          <ApyGrid className="äpy__grid">{apys}</ApyGrid>
+          <Grid className="äpy__grid">{apys}</Grid>
         </GridContainer>
       </Fragment>
     );
   }
 }
 
-export default ApyGridComponent;
+export default ApyGrid;
 
-ApyGridComponent.propTypes = {};
+ApyGrid.propTypes = {
+  imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  html: PropTypes.string.isRequired
+};
