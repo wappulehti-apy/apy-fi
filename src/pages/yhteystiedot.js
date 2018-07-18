@@ -15,7 +15,7 @@ const YhteystiedotContainer = styled.div`
 
 function YhteystiedotPage({ data, ...props }) {
   const { markdownRemark } = data; // data.markdownRemark holds our post data
-  const { frontmatter, html } = markdownRemark;
+  const { html } = markdownRemark;
   return (
     <Layout {...props}>
       <YhteystiedotContainer id="page__yhteystiedot">
@@ -29,7 +29,11 @@ function YhteystiedotPage({ data, ...props }) {
 export default YhteystiedotPage;
 
 YhteystiedotPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string
+    })
+  }).isRequired
 };
 
 export const pageQuery = graphql`

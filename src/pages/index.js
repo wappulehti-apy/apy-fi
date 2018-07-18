@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import styled from 'react-emotion';
-import Logo from '../components/Logo3D';
+import Logo from '../components/Logo';
 import ApyGrid from '../components/ÄpyGrid';
 import Layout from '../components/layout';
 
-const IndexContainer = styled.div`
-`;
+const IndexContainer = styled.div``;
 
 class IndexPage extends React.PureComponent {
   render() {
@@ -25,6 +25,14 @@ class IndexPage extends React.PureComponent {
 }
 
 export default IndexPage;
+
+IndexPage.propTypes = {
+  data: PropTypes.shape({
+    allImageSharp: PropTypes.shape({
+      edges: PropTypes.array
+    })
+  }).isRequired
+};
 
 export const pageQuery = graphql`
   query IndexPageQuery {

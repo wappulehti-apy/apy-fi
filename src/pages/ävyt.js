@@ -27,7 +27,11 @@ class ApyPage extends React.PureComponent {
 export default ApyPage;
 
 ApyPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.shape({
+    allImageSharp: PropTypes.shape({
+      edges: PropTypes.array
+    })
+  }).isRequired
 };
 
 export const pageQuery = graphql`
