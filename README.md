@@ -37,6 +37,12 @@ yarn develop
 
 Tiedosto .eslintrc sisältää koodin tyylimäärittelyjä. Käytössä on [ESLint](https://eslint.org/) ja [Prettier](https://prettier.io/)
 
+## Konfigurointi
+
+Nettisivujen ilmettä on mahdollista muuttaa .env tiedoston muuttujien avulla. `GATSBY_THEME` muuttuja kontrolloi etusin logokomponenttia (<Logo /> vs <Logo2019 />) sekä modalin ja navbarin logoa.
+
+Jos halutaan vuosittain vaihtuva teema, on luotava uusi komponentti.
+
 ## Käyttöönotto
 
 Gatsby production build ja servaus
