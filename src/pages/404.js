@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'react-emotion';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 
 const Container404 = styled.div`
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: center;
   height: 100%;
