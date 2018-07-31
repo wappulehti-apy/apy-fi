@@ -18,7 +18,9 @@
     "prettier/prettier": ["error", { "singleQuote": true }],
     "import/no-extraneous-dependencies": "off",
     "react/jsx-filename-extension": "off",
-    "jsx-a11y/anchor-is-valid": "off"
+    "react/jsx-pascal-case": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-for": "off"
   },
   "extends": [
     "airbnb",
