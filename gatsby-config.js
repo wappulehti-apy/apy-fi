@@ -1,10 +1,4 @@
 module.exports = {
-  siteMetadata: {
-    title: 'Äpy',
-    description: 'Äpy - Neljä kirjainta joihin voit luottaa!',
-    keywords: 'Äpy, vappulehti, teekkarit',
-    url: 'https://www.äpy.fi'
-  },
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

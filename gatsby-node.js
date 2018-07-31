@@ -1,5 +1,9 @@
 const path = require('path');
 
+// Initialize .env file
+require('dotenv').config();
+
+// Required for emotion (css in js lib) to work
 exports.onCreateBabelConfig = ({ actions: { setBabelPlugin } }) => {
   setBabelPlugin({ name: 'babel-plugin-emotion' });
 };
@@ -18,7 +22,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           test: /three\/examples\/js/,
           use: 'imports-loader?THREE=three'
         },
-        { test: /\.(fs|vs)$/,
+        {
+          test: /\.(fs|vs)$/,
           exclude: /node_modules/,
           use: 'raw-loader'
         }
