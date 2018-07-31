@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Carousel } from 'react-responsive-carousel';
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const StyledApyCarouselContainer = styled.div`
+const CarouselContainer = styled.div`
   flex: 0 0 60%;
   overflow: hidden;
 
@@ -38,28 +38,28 @@ const StyledApyCarouselContainer = styled.div`
   }
 `;
 
-const StyledImageContainer = styled.div``;
+const ImageContainer = styled.div``;
 
-const ApyCarousel = ({ imgData }) => (
-  <StyledApyCarouselContainer>
+const ÄpyCarousel = ({ imgData }) => (
+  <CarouselContainer>
     <Carousel
       showStatus={false}
       showIndicators={false}
       useKeyboardArrows
       emulateTouch
     >
-      {imgData.map((img, i) => (
-        <StyledImageContainer key={i}>
-          <img key={i} src={img.node.original.src} alt="äpy" />
-        </StyledImageContainer>
+      {imgData.map(img => (
+        <ImageContainer key={img.node.id}>
+          <img key={img.node.id} src={img.node.original.src} alt="äpy" />
+        </ImageContainer>
       ))}
     </Carousel>
-  </StyledApyCarouselContainer>
+  </CarouselContainer>
 );
 
-export default ApyCarousel;
+export default ÄpyCarousel;
 
-ApyCarousel.propTypes = {
+ÄpyCarousel.propTypes = {
   imgData: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({

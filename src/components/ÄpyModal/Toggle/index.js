@@ -48,13 +48,12 @@ const ToggleModal = styled.div`
   }
 `;
 
-const ModalToggle = ({ toggle, classActive }) => (
-  <ToggleModal className={`modal__close ${classActive}`} onClick={toggle} />
+const ModalToggle = ({ toggle }) => (
+  <ToggleModal className="modal__close" onClick={toggle} />
 );
 
 export default ModalToggle;
 
 ModalToggle.propTypes = {
-  //toggle: PropTypes.function.isRequired,
-  classActive: PropTypes.string.isRequired
+  toggle: PropTypes.func.isRequired
 };

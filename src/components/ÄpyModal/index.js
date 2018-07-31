@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'react-emotion';
-import ApyCarousel from '../ÄpyCarousel';
+import ÄpyCarousel from '../ÄpyCarousel';
 import ModalToggle from './Toggle';
 import { media, breakpoints } from '../../styles/main';
-import Logo from '../../../assets/images/äpyLogo.png';
+import Logo from '../../../assets/logos/logo-ajaton-musta.png';
 
 const fadeShow = keyframes`
   from {
@@ -30,6 +30,37 @@ const fadeHide = keyframes`
   }
 `;
 
+const fadeShowBackdrop = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeHideBackdrop = keyframes`
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+`;
+
+const ModalBackdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: ${p => p.transition} 0.35s ease-in-out;
+`;
+
 const Modal = styled.div`
   position: fixed;
   top: 0;
@@ -37,8 +68,7 @@ const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 3;
-  background-color: rgba(0, 0, 0, 0.7);
-  animation: ${props => props.transition} 0.35s ease-in-out;
+  animation: ${p => p.transition} 0.35s ease-in-out;
   transform-origin: center bottom;
 `;
 
@@ -46,11 +76,11 @@ const ModalMain = styled.div`
   position: fixed;
   background: white;
   margin 0 auto;
-  width: ${props => props.modalWidth};
+  width: ${p => p.modalWidth};
   height: auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   padding: 2.5em;
 
   @media (max-height: 1023px) and (orientation: landscape) {
@@ -84,26 +114,26 @@ const ModalContent = styled.div`
 const ModalKuvaus = styled.p`
   width: 100%;
   margin: 0;
-  padding: 1em 0 2.5em 0em;
-  font-family: 'Lato Light';
-  font-size: 1em;
+  padding: 1em 0 2.6em 0em;
+  font-size: 0.8em;
+  line-height: 1.5;
 
   @media (max-width: 1025px) and (orientation: landscape) {
     padding: 0 0 0 1em;
   }
 
   @media (max-width: 1025px) and (orientation: portrait) {
-    padding: 1em 0;
+    padding: 1em 0 1.5 0;
   }
 
-  @media (max-width: 736px) {
-    font-size: 0.8em;
-  }
+  ${media.phone(css`
+    font-size: 0.6em;
+  `)};
 `;
 
 const ModalHeader = styled.h3`
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-family: 'Lato Black';
   margin: 0;
 
@@ -148,11 +178,11 @@ const cssHideModal = css`
   display: none;
 `;
 
-class ApyModal extends React.PureComponent {
+class ÄpyModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.ModalRef = React.createRef();
-    this.state = { modalWidth: '90%', modalHeight: '90%' };
+    this.state = { modalWidth: '90%' };
   }
 
   componentDidMount() {
@@ -182,20 +212,20 @@ class ApyModal extends React.PureComponent {
   handleWindowSizeChange = () => {
     const width = window.innerWidth;
     if (width < breakpoints.desktop) {
-      this.setState({ modalWidth: '90%', modalHeight: '90%' });
+      this.setState({ modalWidth: '90%' });
     } else {
-      this.setState({ modalWidth: '50%', modalHeight: '50%' });
+      this.setState({ modalWidth: '40%' });
     }
   };
 
   transitionSwitch = state => {
     switch (state) {
       case 'open':
-        return fadeShow;
+        return { transMain: fadeShow, transBackdrop: fadeShowBackdrop };
       case 'closing':
-        return fadeHide;
+        return { transMain: fadeHide, transBackdrop: fadeHideBackdrop };
       case 'hidden':
-        return undefined;
+        return { transMain: undefined, transBackdrop: undefined };
     }
   };
 
@@ -211,40 +241,46 @@ class ApyModal extends React.PureComponent {
   };
 
   render() {
-    const { apy, imgData, handleModalClose, modalState } = this.props;
-    const { modalWidth, modalHeight } = this.state;
-    const transition = this.transitionSwitch(modalState);
+    const { äpy, imgData, handleModalClose, modalState } = this.props;
+    const { modalWidth } = this.state;
+    const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
-    const modalProps = { modalWidth, modalHeight };
-    const classActive = modalState === 'open' ? 'is-active' : '';
+    const modalProps = { modalWidth };
 
     return (
-      <Modal
-        innerRef={this.ModalRef}
-        transition={transition}
-        className={`äpy__modal ${showHideClassName}`}
-      >
-        <ModalMain {...modalProps}>
-          <ModalToggle classActive={classActive} toggle={handleModalClose} />
-          <ModalHeader>
-            {apy.vuosi} - {apy.lehti}
-          </ModalHeader>
-          <Divider />
-          <ModalContent>
-            <ApyCarousel imgData={imgData} />
-            <ModalKuvaus>{apy.lyhytKuvaus}</ModalKuvaus>
-          </ModalContent>
-          <LogoModal key="logo" src={Logo} alt="äpy" />
-        </ModalMain>
-      </Modal>
+      <Fragment>
+        <Modal
+          innerRef={this.ModalRef}
+          transition={transMain}
+          className={`äpy__modal ${showHideClassName}`}
+          style={{ pointerEvents: 'auto' }}
+        >
+          <ModalMain {...modalProps}>
+            <ModalToggle toggle={handleModalClose} />
+            <ModalHeader>
+              {äpy.vuosi} - {äpy.lehti}
+            </ModalHeader>
+            <Divider />
+            <ModalContent>
+              <ÄpyCarousel imgData={imgData} />
+              <ModalKuvaus>{äpy.lyhytKuvaus}</ModalKuvaus>
+            </ModalContent>
+            <LogoModal key="logo" src={Logo} alt="äpy" />
+          </ModalMain>
+        </Modal>
+        <ModalBackdrop
+          className={showHideClassName}
+          transition={transBackdrop}
+        />
+      </Fragment>
     );
   }
 }
 
-export default ApyModal;
+export default ÄpyModal;
 
-ApyModal.propTypes = {
-  apy: PropTypes.shape({
+ÄpyModal.propTypes = {
+  äpy: PropTypes.shape({
     lyhytKuvaus: PropTypes.string,
     lehti: PropTypes.string,
     vuosi: PropTypes.number

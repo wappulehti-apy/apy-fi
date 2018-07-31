@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
-import Apy from '../Äpy';
-import ApyData from '../../../assets/ävyt.json';
+import Äpy from '../Äpy';
+import ÄpyData from '../../../assets/ävyt.json';
 import { media } from '../../styles/main';
 
 const GridContainer = styled.div`
@@ -26,8 +26,8 @@ const GridContainer = styled.div`
     margin: 0% 5%;
   `)};
 
-  ${media.tablet(css`
-    margin: 0% 3%;
+  ${media.phone(css`
+    margin: 0%;
   `)};
 `;
 
@@ -35,6 +35,10 @@ const InformationContainer = styled.div`
   background-color: white;
   border-radius: 2px;
   padding: 1em;
+
+  ${media.phone(css`
+    font-size: 0.8em;
+  `)};
 `;
 
 const Grid = styled.div`
@@ -60,7 +64,7 @@ const Grid = styled.div`
   `)};
 
   ${media.tablet(css`
-    grid-template-columns: repeat3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   `)};
 
   ${media.phone(css`
@@ -68,25 +72,24 @@ const Grid = styled.div`
   `)};
 `;
 
-class ApyGrid extends React.Component {
+class ÄpyGrid extends React.Component {
   constructor(props) {
     super(props);
     const { imgData, html } = this.props;
-    console.log(imgData)
-    const apys = ApyData.map(apy => (
-      <Apy
+    const äpys = ÄpyData.map(äpy => (
+      <Äpy
         imgData={imgData.filter(x =>
-          x.node.original.src.startsWith(`/static/${apy.vuosi}`)
+          x.node.original.src.startsWith(`/static/${äpy.vuosi}`)
         )}
-        apy={apy}
-        key={apy.vuosi}
+        äpy={äpy}
+        key={äpy.vuosi}
       />
     ));
-    this.state = { apys, html };
+    this.state = { äpys, html };
   }
 
   render() {
-    const { apys, html } = this.state;
+    const { äpys, html } = this.state;
     return (
       <Fragment>
         <GridContainer>
@@ -94,16 +97,16 @@ class ApyGrid extends React.Component {
             id="äpy__info"
             dangerouslySetInnerHTML={{ __html: html }}
           />
-          <Grid className="äpy__grid">{apys}</Grid>
+          <Grid id="äpy__grid">{äpys}</Grid>
         </GridContainer>
       </Fragment>
     );
   }
 }
 
-export default ApyGrid;
+export default ÄpyGrid;
 
-ApyGrid.propTypes = {
+ÄpyGrid.propTypes = {
   imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
   html: PropTypes.string.isRequired
 };
