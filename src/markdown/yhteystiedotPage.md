@@ -1,9 +1,8 @@
 ---
+title: yhteystiedot
 path: "/yhteystiedot"
 ---
 
 # Yhteystiedot
 
-Äpyn toimitukseen voi rohkeasti ottaa yhteyttä.
-
-Oli asiasi sitten mainokset, mediatiedot tai sunnuntai-illan viininmaistelukutsu, tavoitat meidät osoitteesta **toimitus@apy.fi**
+Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Helpoiten tavoitat Wappulehtiasiantuntijasi osoitteessa toimitus@apy.fi.
