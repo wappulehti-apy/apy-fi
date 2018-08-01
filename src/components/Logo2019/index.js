@@ -232,7 +232,7 @@ class Logo extends React.Component {
           <p>Neljä kirjainta, joihon voit luottaa.</p>
           <p>
             Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
-            ilmestyy vuonna 2019.
+            ilmestyy Wappuna 2019.
           </p>
           <SocialIcons />
         </IndexInfo>
