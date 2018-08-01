@@ -67,32 +67,42 @@ const specialCss2007 = css`
 `;
 
 class Äpy extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.modal = React.createRef();
-  }
+  state = { modalState: 'hidden' };
 
-  showModal = () => {
-    this.modal.current.openModal();
+  hideModal = () => {
+    const äpyGrid = document.getElementById('äpy__grid');
+    äpyGrid.style.cssText = 'pointer-events: auto';
+    this.setState({ modalState: 'closing' });
+    setTimeout(() => this.setState({ modalState: 'hidden' }), 350);
+  };
+
+  openModal = () => {
+    const äpyGrid = document.getElementById('äpy__grid');
+    // Prevents ÄpyNameGradientBackground and ÄpyName hover effects
+    äpyGrid.style.cssText = 'pointer-events: none;';
+    this.setState({ modalState: 'open' });
   };
 
   render() {
     const { äpy, imgData } = this.props;
+    const { modalState } = this.state;
     const handleModalClose = this.hideModal;
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
     // 'Finnish Design Äpy' is a long name and to
     // prevent overflow make it's font smaller
     const css2007 = äpy.vuosi === 2007 ? specialCss2007 : undefined;
-    const modalProps = { äpy, imgData, handleModalClose };
+    const modalProps = { äpy, imgData, handleModalClose, modalState };
+    const showModal =
+      modalState === 'open' || modalState === 'closing' ? true : false;
 
     return (
       <Fragment>
-        <ÄpyModal ref={this.modal} {...modalProps} />
-        <ÄpyContainer className="äpy__container" onClick={this.showModal}>
+        <ÄpyContainer className="äpy__container" onClick={this.openModal}>
           <ÄpyName className={css2007}>{äpyLehtiVuosi}</ÄpyName>
           <ÄpyNameGradientBackground />
           <Img sizes={imgData[0].node.sizes} alt={äpyLehtiVuosi} />
         </ÄpyContainer>
+        {showModal && <ÄpyModal {...modalProps} />}
       </Fragment>
     );
   }
