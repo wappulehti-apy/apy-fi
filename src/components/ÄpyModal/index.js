@@ -182,7 +182,7 @@ class ÄpyModal extends React.PureComponent {
   constructor(props) {
     super(props);
     this.ModalRef = React.createRef();
-    this.state = { modalWidth: '90%' };
+    this.state = { modalWidth: '90%', modalState: 'hidden' };
   }
 
   componentDidMount() {
@@ -196,16 +196,32 @@ class ÄpyModal extends React.PureComponent {
     document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
-  handleClickOutside = e => {
-    const clientX = e.clientX;
-    const clientY = e.clientY;
-    const bRect = this.ModalRef.current.firstChild.getBoundingClientRect();
-    const x = clientX > bRect.right || clientX < bRect.left;
-    const y = clientY < bRect.top || clientY > bRect.bottom;
+  hideModal = () => {
+    const äpyGrid = document.getElementById('äpy__grid');
+    äpyGrid.style.cssText = 'pointer-events: auto';
+    this.setState({ modalState: 'closing' });
+    setTimeout(() => this.setState({ modalState: 'hidden' }), 349);
+  };
 
-    if (x || y) {
-      const { handleModalClose } = this.props;
-      handleModalClose();
+  openModal = () => {
+    const äpyGrid = document.getElementById('äpy__grid');
+    // Prevents ÄpyNameGradientBackground and ÄpyName hover effects
+    äpyGrid.style.cssText = 'pointer-events: none;';
+    this.setState({ modalState: 'open' });
+  };
+
+  handleClickOutside = e => {
+    const { modalState } = this.state;
+    if (modalState === 'open') {
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      const bRect = this.ModalRef.current.firstChild.getBoundingClientRect();
+      const x = clientX > bRect.right || clientX < bRect.left;
+      const y = clientY < bRect.top || clientY > bRect.bottom;
+
+      if (x || y) {
+        this.hideModal();
+      }
     }
   };
 
@@ -218,8 +234,8 @@ class ÄpyModal extends React.PureComponent {
     }
   };
 
-  transitionSwitch = state => {
-    switch (state) {
+  transitionSwitch = modalState => {
+    switch (modalState) {
       case 'open':
         return { transMain: fadeShow, transBackdrop: fadeShowBackdrop };
       case 'closing':
@@ -229,8 +245,8 @@ class ÄpyModal extends React.PureComponent {
     }
   };
 
-  displaySwitch = state => {
-    switch (state) {
+  displaySwitch = modalState => {
+    switch (modalState) {
       case 'open':
         return cssShowModal;
       case 'closing':
@@ -241,8 +257,8 @@ class ÄpyModal extends React.PureComponent {
   };
 
   render() {
-    const { äpy, imgData, handleModalClose, modalState } = this.props;
-    const { modalWidth } = this.state;
+    const { äpy, imgData } = this.props;
+    const { modalWidth, modalState } = this.state;
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
     const modalProps = { modalWidth };
@@ -256,7 +272,7 @@ class ÄpyModal extends React.PureComponent {
           style={{ pointerEvents: 'auto' }}
         >
           <ModalMain {...modalProps}>
-            <ModalToggle toggle={handleModalClose} />
+            <ModalToggle toggle={this.hideModal} />
             <ModalHeader>
               {äpy.vuosi} - {äpy.lehti}
             </ModalHeader>
@@ -285,7 +301,5 @@ export default ÄpyModal;
     lehti: PropTypes.string,
     vuosi: PropTypes.number
   }).isRequired,
-  imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleModalClose: PropTypes.func.isRequired,
-  modalState: PropTypes.string.isRequired
+  imgData: PropTypes.arrayOf(PropTypes.object).isRequired
 };
