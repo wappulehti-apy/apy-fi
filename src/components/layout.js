@@ -19,7 +19,7 @@ const PageWrapper = styled.div`
 
   background-color: ${p =>
     p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : 'rgb(156, 34, 62)'};
-  transition: background 0.35s ease-in-out;
+  transition: background-color 0.35s;
 
   background-image: ${p =>
     p.theme.mode === 'ajaton' ? 'none' : `url(${äpyKuosi})`};
