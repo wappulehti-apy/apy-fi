@@ -10,6 +10,54 @@ const expand = keyframes`
   }
 `;
 
+const load = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const LoadingSpinner = styled.div`
+  font-size: 5px;
+  text-indent: -9999em;
+  width: 4em;
+  height: 4em;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #ffffff;
+  background: linear-gradient(to right, #ffffff 10%, rgba(36, 42, 43, 0) 42%);
+  right: 0;
+  animation: ${load} 1.4s infinite linear;
+  transform: translateZ(0);
+
+  &:before {
+    width: 50%;
+    height: 50%;
+    background: #ffffff;
+    border-radius: 100% 0 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+  }
+
+  &:after {
+    background: #333;
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    content: '';
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+`;
+
 const Form = styled.form`
   margin-top: 30px;
   max-width: 650px;
@@ -32,23 +80,38 @@ const Form = styled.form`
   input:focus {
     outline: none;
   }
+
+  ${media.phone(css`
+    input[type='file'] {
+      margin-top: 6px;
+    }
+  `)};
 `;
 
-const Button = styled.button`
-  margin-left: auto;
-  margin-top: 10px;
-  padding: 8px 16px;
+const ButtonBackground = styled.button`
   border: none;
   background: #333;
-  color: #f2f2f2;
-  text-transform: uppercase;
   letter-spacing: 0.09em;
   border-radius: 2px;
-  font-weight: 900;
+  min-width: 8em;
+  min-height: 3.5em;
+  padding: 5px 0;
+  float: right;
+
+  ${media.phone(css`
+    float: left;
+    margin-top: 20px;
+  `)};
 
   &:disabled {
-    display: none;
+    background: #d1cdcd;
   }
+`;
+
+const ButtonText = styled.span`
+  color: #f2f2f2;
+  text-transform: uppercase;
+  font-weight: 900;
 `;
 
 const Ul = styled.ul`
@@ -59,9 +122,11 @@ const Ul = styled.ul`
   & li {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
     padding: 8px 0 8px 0;
+
+    &:last-child {
+      padding: 0;
+    }
 
     label {
       flex: 1 0 ${breakpoints.tablet}px;
@@ -70,9 +135,9 @@ const Ul = styled.ul`
     }
 
     label + * {
-      flex: 1 0 180px;
+      flex: 1 0 100%;
       flex-wrap: nowrap;
-      max-width: 500px;
+      max-width: 400px;
     }
   }
 `;
@@ -95,16 +160,27 @@ const Info = styled.div`
   }
 `;
 
-const FormError = styled.p`
+const FormError = styled.span`
   font-size: 0.8em;
   font-style: italic;
   color: red;
   margin: 10px 0;
 `;
 
+const Small = styled.span`
+  font-size: 0.8em;
+  color: grey;
+  margin: 10px 0;
+  font-style: italic;
+
+  ${media.phone(css`
+    margin-left: 10px;
+  `)};
+`;
+
 const SuccessMessage = styled.p`
-  margin: 10px auto 10px auto;
-  font-size: 1em;
+  margin: 0;
+  font-size: 0.9em;
   font-style: italic;
   opacity: 0.8;
   color: #26a65b;
@@ -116,8 +192,8 @@ const SuccessMessage = styled.p`
 `;
 
 const ErrorMessage = styled.p`
-  margin: 10px auto 10px auto;
-  font-size: 1em;
+  margin: 0;
+  font-size: 0.9em;
   font-style: italic;
   opacity: 0.8;
   color: #dc3023;
@@ -152,11 +228,16 @@ class ContactForm extends React.Component {
       subjectValid: undefined,
       emailValid: undefined,
       messageValid: undefined,
+      filesValid: true,
       formValid: undefined,
-      emailSent: undefined,
+      formSubmitted: false,
+      emailSent: false,
+      submitError: false,
       htmlToimitus,
       htmlRahasto
     };
+
+    this.FormRef = React.createRef();
 
     this.handleChange = this.handleChange;
     this.handleSubmit = this.handleSubmit;
@@ -171,36 +252,50 @@ class ContactForm extends React.Component {
     e.preventDefault();
     const { formValid } = this.state;
     if (formValid) {
+      this.setState({ formSubmitted: true });
       const formData = new FormData(e.target);
       const about = formData.get('about');
       formData.delete('about');
       const to =
-        about === 'rähästö' ? 'timo.risk@gmail.com' : 'timo.h.risk@gmail.com';
+        about === 'rähästö' ? 'timo.h.risk@gmail.com' : 'timo.h.risk@gmail.com';
       formData.set('to', to);
 
-      this.setState({ emailSent: true });
+      //this.setState({ emailSent: true });
 
-      /*fetch('https://sendemail.apy.fi/', {
+      fetch('https://sendemail.apy.fi/', {
         method: 'post',
         mode: 'cors',
         body: formData
-      }).then(r => r.json())
+      })
+        .then(r => r.json())
         .then(responseJson => {
           if (responseJson.status === 1) {
-            this.setState({ emailSent: true });
+            // Clear form fields and reset to initial state
+            this.FormRef.current.reset();
+            this.setState({ emailSent: true, formSubmitted: false });
+            // Reset the success message after a timeout
+            setTimeout(() => {
+              this.setState({ emailSent: false });
+            }, 6000);
           } else {
             this.setState({ emailSent: false });
           }
         })
         .catch(error => {
-          this.setState({ emailSent: false });
-        });*/
+          this.setState({ submitError: true });
+        });
     }
   };
 
   validateField = e => {
     const value = e.target.value;
-    let { aboutValid, subjectValid, emailValid, messageValid } = this.state;
+    let {
+      aboutValid,
+      subjectValid,
+      emailValid,
+      messageValid,
+      filesValid
+    } = this.state;
 
     switch (e.target.name) {
       case 'about': {
@@ -221,17 +316,56 @@ class ContactForm extends React.Component {
         messageValid = value ? true : false;
         break;
       }
+      case 'files[]': {
+        const value = e.target.value;
+        if (!value) {
+          filesValid = true;
+        } else {
+          var ext = value.match(/\.([^\.]+)$/)[1];
+          switch (ext) {
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+            case 'tif':
+            case 'gif':
+            case 'mov':
+            case 'mp4':
+            case 'm4p':
+            case 'm4v':
+            case 'avi':
+            case 'wmv':
+            case 'pdf':
+            case 'txt':
+            case 'rtf':
+            case 'doc':
+            case 'docx':
+            case 'zip':
+              filesValid = true;
+              break;
+            default:
+              filesValid = false;
+          }
+        }
+        break;
+      }
     }
     this.setState(
-      { aboutValid, subjectValid, emailValid, messageValid },
+      { aboutValid, subjectValid, emailValid, messageValid, filesValid },
       this.validateForm
     );
   };
 
   validateForm() {
-    const { aboutValid, subjectValid, emailValid, messageValid } = this.state;
+    const {
+      aboutValid,
+      subjectValid,
+      emailValid,
+      messageValid,
+      filesValid
+    } = this.state;
     this.setState({
-      formValid: aboutValid && subjectValid && emailValid && messageValid
+      formValid:
+        aboutValid && subjectValid && emailValid && messageValid && filesValid
     });
   }
 
@@ -242,15 +376,23 @@ class ContactForm extends React.Component {
       subjectValid,
       emailValid,
       messageValid,
+      filesValid,
       formValid,
+      formSubmitted,
       emailSent,
+      submitError,
       htmlToimitus,
       htmlRahasto
     } = this.state;
 
     return (
       <Fragment>
-        <Form onSubmit={this.handleSubmit} noValidate autoComplete="off">
+        <Form
+          innerRef={this.FormRef}
+          onSubmit={this.handleSubmit}
+          noValidate
+          autoComplete="off"
+        >
           <Ul>
             <li>
               <label>Asiani koskee</label>
@@ -332,18 +474,46 @@ class ContactForm extends React.Component {
               </div>
             </li>
             <li>
+              <label htmlFor="attachment">
+                Liitteet <Small>Vapaaehtoinen</Small>
+              </label>
+              <div>
+                <input
+                  id="attachment"
+                  name="files[]"
+                  type="file"
+                  accept="image/*,video/*,.pdf,.txt,.rtf,.doc,.docx,.zip"
+                  onChange={this.validateField}
+                  multiple
+                />
+                <ButtonBackground
+                  disabled={formValid === undefined || formValid === false}
+                >
+                  {formSubmitted ? (
+                    <LoadingSpinner />
+                  ) : (
+                    <ButtonText>Lähetä</ButtonText>
+                  )}
+                </ButtonBackground>
+                {filesValid === false && (
+                  <FormError>
+                    Valitsemasi tiedostotyyppi ei ole tuettu. Vaihtoehdot ovat
+                    .jpg, .jpeg, .png .tif, .gif, .mov, .mp4, .m4p, .m4v, .avi,
+                    .wmv, .pdf, .txt, .rtf, .doc, .docx, ja .zip.
+                  </FormError>
+                )}
+              </div>
+            </li>
+            <li>
               <label htmlFor="dummy" />
               {emailSent && (
                 <SuccessMessage>Viesti lähetetty onnistuneesti!</SuccessMessage>
               )}
-              {emailSent === false && (
+              {submitError === true && (
                 <ErrorMessage>
                   Jotain meni pieleen - yritä uudestaan.
                 </ErrorMessage>
               )}
-              <Button disabled={formValid === undefined || formValid === false}>
-                Lähetä
-              </Button>
             </li>
           </Ul>
         </Form>
@@ -359,22 +529,6 @@ class ContactForm extends React.Component {
     );
   }
 }
-
-/*
-<li>
-  <label htmlFor="attachment">Liitteet</label>
-  <div>
-    <input
-      id="attachment"
-      name="file"
-      type="file"
-      accept="application/pdf"
-      onBlur={this.validateField}
-    />
-    <Small>Vapaaehtoinen</Small>
-  </div>
-</li>
-*/
 
 export default ContactForm;
 
