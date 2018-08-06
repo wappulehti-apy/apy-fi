@@ -28,7 +28,7 @@ const LogoNav = styled.img`
 `;
 
 const cssNavMain = css`
-  width: 15%;
+  width: 20%;
   display: inline-flex;
   justify-content: center;
 
