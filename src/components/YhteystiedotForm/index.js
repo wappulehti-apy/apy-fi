@@ -44,7 +44,7 @@ const LoadingSpinner = styled.div`
   }
 
   &:after {
-    background: #333;
+    background: #d1cdcd;
     width: 75%;
     height: 75%;
     border-radius: 50%;
@@ -84,6 +84,7 @@ const Form = styled.form`
   ${media.phone(css`
     input[type='file'] {
       margin-top: 6px;
+      width: 100%;
     }
   `)};
 `;
@@ -272,7 +273,11 @@ class ContactForm extends React.Component {
           if (responseJson.status === 1) {
             // Clear form fields and reset to initial state
             this.FormRef.current.reset();
-            this.setState({ emailSent: true, formSubmitted: false });
+            this.setState({
+              emailSent: true,
+              formSubmitted: false,
+              formValid: false
+            });
             // Reset the success message after a timeout
             setTimeout(() => {
               this.setState({ emailSent: false });
@@ -487,7 +492,11 @@ class ContactForm extends React.Component {
                   multiple
                 />
                 <ButtonBackground
-                  disabled={formValid === undefined || formValid === false}
+                  disabled={
+                    formValid === undefined ||
+                    formValid === false ||
+                    formSubmitted === true
+                  }
                 >
                   {formSubmitted ? (
                     <LoadingSpinner />
