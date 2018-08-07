@@ -50,7 +50,7 @@ const ÄpyCarousel = ({ imgData }) => (
     >
       {imgData.map(img => (
         <ImageContainer key={img.node.id}>
-          <img key={img.node.id} src={img.node.original.src} alt="äpy" />
+          <img key={img.node.id} src={img.node.original.src} />
         </ImageContainer>
       ))}
     </Carousel>

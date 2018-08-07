@@ -3,6 +3,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import styled, { css } from 'react-emotion';
 import ÄpyModal from '../ÄpyModal';
+import { media, breakpoints } from '../../styles/main';
 
 const ÄpyContainer = styled.div`
   position: relative;
@@ -28,38 +29,48 @@ const ÄpyContainer = styled.div`
 const ÄpyNameGradientBackground = styled.div`
   position: absolute;
   width: 100%;
-  height: 2em;
+  height: 100%;
   bottom: 0;
   z-index: 2;
 
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 1) 60%,
-    rgba(255, 255, 255, 0)
-  );
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 
   opacity: 0;
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
 `;
 
 const ÄpyName = styled.span`
   position: absolute;
-  margin-left: auto;
-  margin-right: auto;
   left: 0;
+  top: 1em;
   right: 0;
-  width: 95%;
-  bottom: 3px;
   z-index: 3;
+  width: 100%;
 
-  text-align: center;
-  font-size: 0.65em;
-  font-weight: 300;
+  font-weight: 600;
+  font-family: 'Montserrat Bold';
+  color: white;
   white-space: nowrap;
+  text-align: center;
 
   opacity: 0;
-  transition: all 0.2s ease-out;
+
+  ${media.giant(css`
+    font-size: 0.9em;
+  `)};
+
+  ${media.desktop(css`
+    font-size: 0.85em;
+  `)};
+
+  ${media.tablet(css`
+    font-size: 0.6em;
+  `)};
+
+  ${media.phone(css`
+    font-size: 0.5em;
+  `)};
 `;
 
 const specialCss2007 = css`
@@ -69,11 +80,16 @@ const specialCss2007 = css`
 class Äpy extends React.PureComponent {
   state = { modalState: 'hidden' };
 
+  componentDidMount() {
+    const onTouchDevice = window.width <= breakpoints.tablet;
+    this.setState({ onTouchDevice });
+  }
+
   hideModal = () => {
     const äpyGrid = document.getElementById('äpy__grid');
     äpyGrid.style.cssText = 'pointer-events: auto';
     this.setState({ modalState: 'closing' });
-    setTimeout(() => this.setState({ modalState: 'hidden' }), 350);
+    setTimeout(() => this.setState({ modalState: 'hidden' }), 349);
   };
 
   openModal = () => {
@@ -85,7 +101,7 @@ class Äpy extends React.PureComponent {
 
   render() {
     const { äpy, imgData } = this.props;
-    const { modalState } = this.state;
+    const { modalState, onTouchDevice } = this.state;
     const handleModalClose = this.hideModal;
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
     // 'Finnish Design Äpy' is a long name and to
@@ -98,9 +114,13 @@ class Äpy extends React.PureComponent {
     return (
       <Fragment>
         <ÄpyContainer className="äpy__container" onClick={this.openModal}>
-          <ÄpyName className={css2007}>{äpyLehtiVuosi}</ÄpyName>
-          <ÄpyNameGradientBackground />
-          <Img sizes={imgData[0].node.sizes} alt={äpyLehtiVuosi} />
+          {!onTouchDevice && (
+            <Fragment>
+              <ÄpyName className={css2007}>{äpyLehtiVuosi}</ÄpyName>
+              <ÄpyNameGradientBackground />
+            </Fragment>
+          )}
+          <Img sizes={imgData[0].node.sizes} />
         </ÄpyContainer>
         {showModal && <ÄpyModal {...modalProps} />}
       </Fragment>

@@ -1,20 +1,18 @@
 import React, { Fragment } from 'react';
 import * as THREE from 'three';
 import styled, { css } from 'react-emotion';
-import SocialIcons from '../SocialIcons';
 import { media, breakpoints } from '../../styles/main';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';
 
-const IndexInfo = styled.div`
-  position: absolute;
-  top: 75%;
-  left: 50%;
-  width: 70%;
-  transform: translateX(-50%) translateY(-50%) translateZ(-50px);
+const LogoContainer = styled.div`
+  flex-grow: 1;
+`;
 
+const IndexInfo = styled.div`
+  margin: 0 25% 5% 25%;
   font-family: 'Montserrat Black';
   font-size: 1.9em;
   text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
@@ -22,7 +20,6 @@ const IndexInfo = styled.div`
   color: white;
 
   text-align: center;
-  justify-content: center;
 
   a {
     font-size: 0.8em;
@@ -32,28 +29,31 @@ const IndexInfo = styled.div`
     font-size: 0.9em;
   }
 
-  ${media.phone(css`
+  ${media.desktop(css`
+    font-size: 1.5em;
+    margin: 0 15% 5% 15%;
+  `)};
+
+  ${media.tablet(css`
     font-size: 0.9em;
-    width: 90%;
+    margin: 0 10% 5% 10%;
   `)};
 `;
 
 class Logo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: '100vw',
-      height: '100vh',
-      hasWebGL: null
-    };
+    this.canvasRef = React.createRef();
+    this.state = { hasWebGL: null };
   }
 
   componentDidMount() {
     const hasWebGL = this.hasWebGL();
     if (hasWebGL) {
       // Setup
-      const width = this.mount.clientWidth;
-      const height = this.mount.clientHeight;
+
+      const width = window.innerWidth;
+      const height = this.canvasRef.current.clientHeight;
 
       // Scene
       const scene = new THREE.Scene();
@@ -64,20 +64,21 @@ class Logo extends React.Component {
       camera.position.y = 0;
       camera.position.x = 0;
 
-      // Controls
-      const controls = new THREE.OrbitControls(camera);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.04;
-      controls.rotateSpeed = 0.07;
-      controls.enablePan = false;
-      controls.enableZoom = false;
-      controls.update();
-
       // Renderer
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
         alpha: true
       });
+
+      // Controls
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.04;
+      controls.rotateSpeed = 0.07;
+      controls.enablePan = false;
+      controls.enableZoom = false;
+      controls.minPolarAngle = Math.PI / 4;
+      controls.update();
 
       // Load logo
       var loader = new THREE.OBJLoader();
@@ -89,9 +90,10 @@ class Logo extends React.Component {
           // Shift and scale the logo
           const width = window.innerWidth;
           // Make the logo smaller on tablet's and phones
-          const s = width < breakpoints.desktop ? 1.3 : 2.3;
+          const s = width < breakpoints.desktop ? 2 : 3;
           object.scale.set(s, s, s);
-          object.translateY(1.5);
+          const dY = -6;
+          object.translateY(dY);
           scene.add(object);
         }
       );
@@ -113,11 +115,12 @@ class Logo extends React.Component {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       // Add the renderer domElement (canvas) to this mounted component
-      this.mount.appendChild(renderer.domElement);
+      this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.
       this.setState({ renderer, camera, scene, controls });
       window.addEventListener('resize', this.onWindowResize);
+
       // Call start and start rendering stuff on the screen
       this.start();
     } else {
@@ -134,13 +137,13 @@ class Logo extends React.Component {
         align-items: center; \
         height: 100%;\
       ';
-      this.mount.style.cssText = 'height: 50vh;';
+      this.canvasRef.current.style.cssText = 'height: 50vh;';
       var p = document.createElement('p');
       p.style.cssText = 'margin: 0;';
       var äpyText = document.createTextNode('äpy');
       p.appendChild(äpyText);
       DivNoWebGL.appendChild(p);
-      this.mount.appendChild(DivNoWebGL);
+      this.canvasRef.current.appendChild(DivNoWebGL);
       this.setState({ DivNoWebGL });
     }
   }
@@ -152,24 +155,21 @@ class Logo extends React.Component {
       controls.enabled = false;
     }
     if (hasWebGL) {
-      this.mount.removeChild(renderer.domElement);
+      this.canvasRef.current.removeChild(renderer.domElement);
     } else {
-      this.mount.removeChild(DivNoWebGL);
+      this.canvasRef.current.removeChild(DivNoWebGL);
     }
     window.removeEventListener('resize', this.onWindowResize, false);
-    window.removeEventListener('scroll', this.onWindowScroll, false);
   }
 
   onWindowResize = () => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = this.canvasRef.current.clientHeight;
     const { camera, renderer } = this.state;
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
-
-    this.setState({ width, height });
   };
 
   hasWebGL = () => {
@@ -211,30 +211,19 @@ class Logo extends React.Component {
     camera.lookAt(z);
     controls.update();
 
-    // Disable controls when we have scrolled down a bit.
-    // The controls interfere with pointer events.
-    controls.enabled = window.pageYOffset > 500 ? false : true;
-
     renderer.render(scene, camera);
   };
 
   render() {
-    const { width, height } = this.state;
     return (
       <Fragment>
-        <div
-          style={{ margin: '0', width, height }}
-          ref={mount => {
-            this.mount = mount;
-          }}
-        />
+        <LogoContainer innerRef={this.canvasRef} />
         <IndexInfo>
           <p>Neljä kirjainta, joihon voit luottaa.</p>
           <p>
             Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
             ilmestyy Wappuna 2019.
           </p>
-          <SocialIcons />
         </IndexInfo>
       </Fragment>
     );

@@ -10,7 +10,7 @@ const Video = () => (
   <ReactPlayer
     url="https://vimeo.com/213825989"
     width="100vw"
-    height="70vh"
+    height="75vh"
     playing
   />
 );

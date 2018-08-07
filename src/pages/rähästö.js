@@ -5,7 +5,7 @@ import styled, { css } from 'react-emotion';
 import Layout from '../components/Layout';
 import { media } from '../styles/main';
 
-const ContainerYhteystiedot = styled.div`
+const ContainerRähästö = styled.div`
   background-color: white;
   border-radius: 2px;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
@@ -41,22 +41,22 @@ const ContainerYhteystiedot = styled.div`
   `)};
 `;
 
-function YhteystiedotPage({ data, ...props }) {
+function RähästöPage({ data, ...props }) {
   const { markdownRemark } = data;
-  const htmlYhteystiedot = markdownRemark.html;
+  const htmlRahasto = markdownRemark.html;
 
   return (
     <Layout {...props}>
-      <ContainerYhteystiedot id="page__yhteystiedot">
-        <div dangerouslySetInnerHTML={{ __html: htmlYhteystiedot }} />
-      </ContainerYhteystiedot>
+      <ContainerRähästö id="page__rähästö">
+        <div dangerouslySetInnerHTML={{ __html: htmlRahasto }} />
+      </ContainerRähästö>
     </Layout>
   );
 }
 
-export default YhteystiedotPage;
+export default RähästöPage;
 
-YhteystiedotPage.propTypes = {
+RähästöPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       html: PropTypes.string
@@ -65,8 +65,8 @@ YhteystiedotPage.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query YhteystiedotPageQuery {
-    markdownRemark(frontmatter: { path: { eq: "/yhteystiedot" } }) {
+  query RahastoPageQuery {
+    markdownRemark(frontmatter: { path: { eq: "/rähästö" } }) {
       html
     }
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import { animated } from 'react-spring';
 import styled, { css } from 'react-emotion';
 import DurationTrail from '../DurationTrail';
@@ -12,9 +13,10 @@ const NavContainer = styled.div`
   justify-content: center;
   width: 100%;
   padding: 20px;
+  z-index: 2;
 
   font-family: ${p =>
-    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Montserrat'};
+    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Montserrat Black'};
 `;
 
 const LogoNav = styled.img`
@@ -28,7 +30,6 @@ const LogoNav = styled.img`
 `;
 
 const cssNavMain = css`
-  width: 20%;
   display: inline-flex;
   justify-content: center;
 
@@ -49,16 +50,6 @@ const cssNavMain = css`
 `;
 
 class NormalNav extends React.PureComponent {
-  scrollToViewAvyt = () => {
-    const elem = document.getElementById('äpy__info');
-    var elemPosition = elem.getBoundingClientRect().top;
-    var offsetPosition = elemPosition - 100;
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  };
-
   render() {
     /* There is an issue in gatsby v2 that causes the navigation component
      * to mount and unmount on page changes. This means that animating the
@@ -74,7 +65,9 @@ class NormalNav extends React.PureComponent {
       process.env.GATSBY_THEME === 'ajaton' ? LogoWhite : Logo2019White;
     return (
       <NavContainer>
-        <LogoNav key="logo" src={Logo} />
+        <Link key="etusivu" to="/">
+          <LogoNav key="logo" src={Logo} />
+        </Link>
         <DurationTrail
           native
           delay={0}

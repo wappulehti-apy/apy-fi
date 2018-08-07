@@ -3,26 +3,33 @@ import * as THREE from 'three';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
+import styled from 'react-emotion';
 import logoOBJ from '../../../assets/logos/3d/logo3d-ajaton.obj';
 import vs from './shaders/ground.vs';
 import fs from './shaders/ground.fs';
 
+const LogoContainer = styled.div`
+  flex: 1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
 class Logo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      width: '100vw',
-      height: '100vh',
-      hasWebGL: null
-    };
+    this.canvasRef = React.createRef();
+    this.state = { hasWebGL: null };
   }
 
   componentDidMount() {
     const hasWebGL = this.hasWebGL();
     if (hasWebGL) {
       // Setup
-      const width = this.mount.clientWidth;
-      const height = this.mount.clientHeight;
+      const width = window.innerWidth;
+      const height = this.canvasRef.current.clientHeight;
 
       // Scene
       const scene = new THREE.Scene();
@@ -41,6 +48,7 @@ class Logo extends React.Component {
       controls.rotateSpeed = 0.07;
       controls.enablePan = false;
       controls.enableZoom = false;
+      controls.minPolarAngle = Math.PI / 4;
       controls.update();
 
       // Renderer
@@ -103,7 +111,7 @@ class Logo extends React.Component {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       // Add the renderer domElement (canvas) to this mounted component
-      this.mount.appendChild(renderer.domElement);
+      this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.
       this.setState({ renderer, camera, scene, clock, ground, controls });
@@ -124,13 +132,13 @@ class Logo extends React.Component {
         align-items: center; \
         height: 100%;\
       ';
-      this.mount.style.cssText = 'height: 50vh;';
+      this.canvasRef.current.style.cssText = 'height: 50vh;';
       var p = document.createElement('p');
       p.style.cssText = 'margin: 0;';
       var äpyText = document.createTextNode('äpy');
       p.appendChild(äpyText);
       DivNoWebGL.appendChild(p);
-      this.mount.appendChild(DivNoWebGL);
+      this.canvasRef.current.appendChild(DivNoWebGL);
       this.setState({ DivNoWebGL });
     }
   }
@@ -142,23 +150,21 @@ class Logo extends React.Component {
       controls.enabled = false;
     }
     if (hasWebGL) {
-      this.mount.removeChild(renderer.domElement);
+      this.canvasRef.current.removeChild(renderer.domElement);
     } else {
-      this.mount.removeChild(DivNoWebGL);
+      this.canvasRef.current.removeChild(DivNoWebGL);
     }
     window.removeEventListener('resize', this.onWindowResize, false);
   }
 
   onWindowResize = () => {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = this.canvasRef.current.clientHeight;
     const { camera, renderer } = this.state;
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
-
-    this.setState({ width, height });
   };
 
   hasWebGL = () => {
@@ -201,24 +207,12 @@ class Logo extends React.Component {
     camera.lookAt(z);
     controls.update();
 
-    // Disable controls when we have scrolled down a bit.
-    // The controls interfere with pointer events.
-    controls.enabled = window.pageYOffset > 500 ? false : true;
-
     ground.material.uniforms.time.value += time; // Update raw shader uniform time
     renderer.render(scene, camera);
   };
 
   render() {
-    const { width, height } = this.state;
-    return (
-      <div
-        style={{ margin: '0', width, height }}
-        ref={mount => {
-          this.mount = mount;
-        }}
-      />
-    );
+    return <LogoContainer innerRef={this.canvasRef} />;
   }
 }
 

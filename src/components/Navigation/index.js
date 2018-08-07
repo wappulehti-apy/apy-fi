@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { css } from 'react-emotion';
-import smoothscroll from 'smoothscroll-polyfill';
 import { breakpoints, media } from '../../styles/main';
 import HamburgerNav from './HamburgerNav';
 import NormalNav from './NormalNav';
@@ -50,7 +48,7 @@ const cssNavLink = css`
   `)};
 
   ${media.tablet(css`
-    font-size: 1.1em;
+    font-size: 1.4em;
   `)};
 
   ${media.phone(css`
@@ -58,37 +56,29 @@ const cssNavLink = css`
   `)};
 `;
 
+const items = [
+  <Link key="etusivu" className={cssNavLink} to="/">
+    Etusivu
+  </Link>,
+  <Link key="äpyt" className={cssNavLink} to="/äpyt">
+    Äpyt
+  </Link>,
+  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot">
+    Yhteystiedot
+  </Link>,
+  <Link key="rähästö" className={cssNavLink} to="/rähästö">
+    Rähästö
+  </Link>
+];
+
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    const itemsIndex = [
-      <a
-        onClick={this.onÄpylinkClick}
-        key="ävyt"
-        className={cssNavLink}
-        href="#äpy__info"
-      >
-        Äpyt
-      </a>,
-      <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot/">
-        Yhteystiedot
-      </Link>
-    ];
-
-    const itemsNotIndex = [
-      <Link key="etusivu" className={cssNavLink} to="/">
-        Etusivu
-      </Link>,
-      <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot/">
-        Yhteystiedot
-      </Link>
-    ];
     this.childNav = React.createRef();
-    this.state = { navType: 'normal', itemsIndex, itemsNotIndex };
+    this.state = { navType: 'normal' };
   }
 
   componentDidMount() {
-    smoothscroll.polyfill();
     this.setNavType();
     window.addEventListener('resize', this.setNavType);
   }
@@ -97,14 +87,6 @@ class Navigation extends React.Component {
     this.setNavType();
     window.removeEventListener('resize', this.setNavType);
   }
-
-  onÄpylinkClick = e => {
-    e.preventDefault();
-    // Calls childNav's scrollToViewÄvyt method.
-    // This is needed because hamburger menu needs to close before scrolling
-    // ävyt to view, while in normalNav's case no such thing is needed.
-    this.childNav.current.scrollToViewAvyt();
-  };
 
   setNavType = () => {
     const width = window.innerWidth;
@@ -116,22 +98,15 @@ class Navigation extends React.Component {
   };
 
   render() {
-    const { pathname } = this.props;
-    const { navType, itemsIndex, itemsNotIndex } = this.state;
-    const items = pathname === '/' ? itemsIndex : itemsNotIndex;
-    const navProps = { items };
+    const { navType } = this.state;
     const nav =
       navType === 'normal' ? (
-        <NormalNav ref={this.childNav} {...navProps} />
+        <NormalNav ref={this.childNav} items={items} />
       ) : (
-        <HamburgerNav ref={this.childNav} {...navProps} />
+        <HamburgerNav ref={this.childNav} items={items} />
       );
     return nav;
   }
 }
 
 export default Navigation;
-
-Navigation.propTypes = {
-  pathname: PropTypes.string.isRequired
-};

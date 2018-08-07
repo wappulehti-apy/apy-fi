@@ -5,36 +5,12 @@ import Äpy from '../Äpy';
 import ÄpyData from '../../../assets/ävyt.json';
 import { media } from '../../styles/main';
 
-const GridContainer = styled.div`
-  margin: 0% 10%;
-  border-radius: 2px;
-  padding: 1em;
-
-  ${media.giant(css`
-    margin: 0% 20%;
-  `)};
-
-  ${media.overdesktop(css`
-    margin: 0% 20%;
-  `)};
-
-  ${media.desktop(css`
-    margin: 0% 10%;
-  `)};
-
-  ${media.tablet(css`
-    margin: 0% 5%;
-  `)};
-
-  ${media.phone(css`
-    margin: 0%;
-  `)};
-`;
-
 const InformationContainer = styled.div`
   background-color: white;
   border-radius: 2px;
   padding: 1em;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
 
   ${media.phone(css`
     font-size: 0.8em;
@@ -55,7 +31,7 @@ const Grid = styled.div`
   }
 
   ${media.giant(css`
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     font-size: 20px;
   `)};
 
@@ -92,13 +68,11 @@ class ÄpyGrid extends React.Component {
     const { äpys, html } = this.state;
     return (
       <Fragment>
-        <GridContainer>
-          <InformationContainer
-            id="äpy__info"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-          <Grid id="äpy__grid">{äpys}</Grid>
-        </GridContainer>
+        <InformationContainer
+          id="äpy__info"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+        <Grid id="äpy__grid">{äpys}</Grid>
       </Fragment>
     );
   }

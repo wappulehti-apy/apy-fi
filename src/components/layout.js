@@ -13,13 +13,8 @@ const PageWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh;
 
-  &.animate-bg {
-    background-color: rgb(22, 23, 25);
-  }
-
   background-color: ${p =>
     p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : 'rgb(156, 34, 62)'};
-  transition: background-color 0.35s;
 
   background-image: ${p =>
     p.theme.mode === 'ajaton' ? 'none' : `url(${äpyKuosi})`};
@@ -28,8 +23,7 @@ const PageWrapper = styled.div`
 
 class Layout extends React.PureComponent {
   render() {
-    const { children, location } = this.props;
-    const pathname = location.pathname;
+    const { children } = this.props;
     // Specifies either a yearly or a classical theme.
     // Used to conditionally render fonts/components etc.
     // Theming provided by emotion-theming.
@@ -39,7 +33,7 @@ class Layout extends React.PureComponent {
         <SEO />
         <ThemeProvider theme={{ mode: theme }}>
           <PageWrapper id="page__wrapper">
-            <Navigation pathname={pathname} />
+            <Navigation />
             {children}
             <SocialIcons />
           </PageWrapper>
@@ -53,12 +47,7 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element)
-  ]).isRequired,
-  location: PropTypes.shape({
-    hash: PropTypes.string,
-    key: PropTypes.string,
-    pathname: PropTypes.string
-  }).isRequired
+  ]).isRequired
 };
 
 export default Layout;

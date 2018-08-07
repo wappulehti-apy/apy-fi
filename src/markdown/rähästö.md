@@ -1,9 +1,8 @@
 ---
-title: rähästö
-path: "/yhteystiedot"
+path: "/rähästö"
 ---
 
-## Rähästö
+# Rähästö
 
 Äpyn ollessa paras ja himotuin kontinentiaalinen Wappulehti on sillä mahdollisuus osallistua aktiivisesti opiskelijayhteisön kehittämiseen tukemalla teekkari- ja opiskelijakulttuurin ilmentymiä Aalto-yhteisössä.
 

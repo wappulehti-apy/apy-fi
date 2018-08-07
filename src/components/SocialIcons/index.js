@@ -8,7 +8,7 @@ const Ul = styled.ul`
   display: flex;
   justify-content: center;
   list-style: none;
-  margin: 0 0 30px 0;
+  padding: 0 0 30px 0;
 
   li {
     font-size: 3em;
@@ -20,6 +20,7 @@ const A = styled.a`
   text-decoration: none;
   color: white;
   transition: all 0.4s ease-in-out;
+  outline: none;
 
   svg {
     transition: all 0.2s ease-in-out;

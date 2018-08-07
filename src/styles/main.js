@@ -4,7 +4,9 @@ import {
   LatoLight,
   LatoRegular,
   LatoBlack,
-  MontserratBlack
+  MontserratBlack,
+  MontserratBold,
+  MontserratRegular
 } from './fonts';
 
 injectGlobal`
@@ -37,6 +39,20 @@ injectGlobal`
   }
 
   @font-face {
+    font-family: "Montserrat Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url(${MontserratRegular}) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Montserrat Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url(${MontserratBold}) format("woff2");
+  }
+
+  @font-face {
     font-family: "Montserrat Black";
     font-style: normal;
     font-weight: normal;
@@ -47,6 +63,7 @@ injectGlobal`
     box-sizing: inherit;
     letter-spacing: .01em;
   }
+
   html {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;

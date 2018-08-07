@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import { Spring, animated } from 'react-spring';
 import styled, { css } from 'react-emotion';
 import HamburgerToggle from './Toggle';
@@ -55,17 +56,6 @@ class HamburgerNav extends React.Component {
     document.body.style.overflow = 'visible';
   }
 
-  scrollToViewAvyt = () => {
-    this.toggleNav();
-    const elem = document.getElementById('äpy__info');
-    var elemPosition = elem.getBoundingClientRect().top;
-    var offsetPosition = elemPosition - 100;
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
-  };
-
   toggleNav = () => {
     this.setState(prevState => ({
       isOpen: !prevState.isOpen
@@ -85,7 +75,9 @@ class HamburgerNav extends React.Component {
       process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonWhite : Logo2019White;
     return (
       <Fragment>
-        <LogoNav key="logo" src={isOpen ? LogoBlack : LogoWhite} />
+        <Link key="etusivu" to="/">
+          <LogoNav key="logo" src={isOpen ? LogoBlack : LogoWhite} />
+        </Link>
         <HamburgerToggle classActive={classActive} toggle={this.toggleNav} />
         <Spring
           from={{ opacity: 0 }}
