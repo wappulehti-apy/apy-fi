@@ -220,7 +220,7 @@ class ContactForm extends React.Component {
     )[0].node.html;
 
     const htmlRahasto = markdown.filter(
-      e => e.node.frontmatter.title === 'rähästö'
+      e => e.node.frontmatter.title === 'ävystykset'
     )[0].node.html;
 
     this.state = {
@@ -258,7 +258,7 @@ class ContactForm extends React.Component {
       const about = formData.get('about');
       formData.delete('about');
       const to =
-        about === 'rähästö' ? 'timo.h.risk@gmail.com' : 'timo.h.risk@gmail.com';
+        about === 'ävystykset' ? 'timo.h.risk@gmail.com' : 'timo.h.risk@gmail.com';
       formData.set('to', to);
 
       //this.setState({ emailSent: true });
@@ -416,14 +416,16 @@ class ContactForm extends React.Component {
                 <br />
                 <input
                   type="radio"
-                  id="radio-rähästö"
+                  id="radio-ävystykset"
                   name="about"
-                  value="rähästö"
+                  value="ävystykset"
                   className={RadioInput}
-                  checked={selectedOption === 'rähästö'}
+                  checked={selectedOption === 'ävystykset'}
                   onChange={this.handleRadioChange}
                 />
-                <label htmlFor="radio-rähästö">Rähästöä / avustushakemus</label>
+                <label htmlFor="radio-ävystykset">
+                  Ävystyksiä (avustushakemus)
+                </label>
                 <br />
                 {aboutValid === false && (
                   <FormError>Valitse mitä asiasi koskee.</FormError>
@@ -532,7 +534,7 @@ class ContactForm extends React.Component {
         />
         <Info
           dangerouslySetInnerHTML={{ __html: htmlRahasto }}
-          className={selectedOption === 'rähästö' ? 'active' : null}
+          className={selectedOption === 'ävystykset' ? 'active' : null}
         />
       </Fragment>
     );

@@ -23,7 +23,8 @@ const PageWrapper = styled.div`
 
 class Layout extends React.PureComponent {
   render() {
-    const { children } = this.props;
+    const { children, location } = this.props;
+    const pathname = location.pathname;
     // Specifies either a yearly or a classical theme.
     // Used to conditionally render fonts/components etc.
     // Theming provided by emotion-theming.
@@ -33,7 +34,7 @@ class Layout extends React.PureComponent {
         <SEO />
         <ThemeProvider theme={{ mode: theme }}>
           <PageWrapper id="page__wrapper">
-            <Navigation />
+            <Navigation pathname={pathname} />
             {children}
             <SocialIcons />
           </PageWrapper>
@@ -47,7 +48,12 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element)
-  ]).isRequired
+  ]).isRequired,
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+    key: PropTypes.string,
+    pathname: PropTypes.string
+  }).isRequired
 };
 
 export default Layout;

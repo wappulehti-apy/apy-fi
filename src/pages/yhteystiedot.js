@@ -14,28 +14,27 @@ const ContainerYhteystiedot = styled.div`
     p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Montserrat Regular'};
 
   ${media.giant(css`
-    margin: auto 400px auto 400px;
+    margin: auto 20% auto 20%;
     padding: 2em 5em;
   `)};
 
   ${media.overdesktop(css`
-    margin: auto 200px auto 200px;
+    margin: auto 20% auto 20%;
     padding: 3em;
   `)};
 
   ${media.desktop(css`
-    margin: auto 120px auto 120px;
+    margin: auto 15% auto 15%;
     padding: 3em;
   `)};
 
   ${media.tablet(css`
-    margin: auto 90px auto 90px;
+    margin: auto 10% auto 10%;
     padding: 2em;
   `)};
 
   ${media.phone(css`
-    margin: auto 10px auto 10px;
-    max-width: 95%;
+    margin: auto 2% auto 2%;
     font-size: 0.7em;
     padding: 1em;
   `)};

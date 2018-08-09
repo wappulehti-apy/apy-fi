@@ -7,6 +7,19 @@ import DurationTrail from '../DurationTrail';
 import LogoWhite from '../../../../assets/logos/logo-ajaton-valko.png';
 import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
 
+const activeNavElement = css`
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: -2px;
+    background: white;
+    border-radius: 5px;
+  }
+`;
+
 const NavContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -21,7 +34,7 @@ const NavContainer = styled.div`
 
 const LogoNav = styled.img`
   position: absolute;
-  top: 2px;
+  top: 0;
   left: 0;
   z-index: 2;
 
@@ -41,7 +54,7 @@ const cssNavMain = css`
     margin-right: 0;
   }
 
-  margin-right: 40px;
+  margin-right: 2em;
 
   img {
     width: 50px;
@@ -81,7 +94,11 @@ class NormalNav extends React.PureComponent {
         >
           {items.map(item => ({ y, x, ...props }) => (
             <animated.div
-              className={cssNavMain}
+              className={
+                item.props.isActiveNav
+                  ? `${cssNavMain} ${activeNavElement}`
+                  : cssNavMain
+              }
               style={{
                 transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
                 ...props

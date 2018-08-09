@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Spring, animated } from 'react-spring';
@@ -10,7 +10,11 @@ import LogoAjatonWhite from '../../../../assets/logos/logo-ajaton-valko.png';
 import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
 import Logo2019Black from '../../../../assets/logos/logo-2019-musta.png';
 
-const NavContainer = styled.div`
+const activeNavElement = css`
+  text-decoration: underline;
+`;
+
+const TrailContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +23,10 @@ const NavContainer = styled.div`
   background: white;
   font-family: ${p =>
     p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
+`;
+
+const ContainerNav = styled.div`
+  min-height: 85px;
 `;
 
 const LogoNav = styled.img`
@@ -74,7 +82,7 @@ class HamburgerNav extends React.Component {
     const LogoWhite =
       process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonWhite : Logo2019White;
     return (
-      <Fragment>
+      <ContainerNav>
         <Link key="etusivu" to="/">
           <LogoNav key="logo" src={isOpen ? LogoBlack : LogoWhite} />
         </Link>
@@ -98,7 +106,7 @@ class HamburgerNav extends React.Component {
                 ...styles
               }}
             >
-              <NavContainer>
+              <TrailContainer>
                 {isOpen && (
                   <DurationTrail
                     native
@@ -110,7 +118,11 @@ class HamburgerNav extends React.Component {
                   >
                     {items.map(item => ({ y, x, ...props }) => (
                       <animated.div
-                        className={cssNavMain}
+                        className={
+                          item.props.isActiveNav
+                            ? `${cssNavMain} ${activeNavElement}`
+                            : cssNavMain
+                        }
                         style={{
                           transform: x.interpolate(
                             x => `translate3d(${x}px,0,0)`
@@ -123,11 +135,11 @@ class HamburgerNav extends React.Component {
                     ))}
                   </DurationTrail>
                 )}
-              </NavContainer>
+              </TrailContainer>
             </animated.div>
           )}
         </Spring>
-      </Fragment>
+      </ContainerNav>
     );
   }
 }

@@ -4,8 +4,14 @@ path: "/yhteystiedot"
 
 # Yhteystiedot
 
-Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Helpoiten tavoitat Wappulehtiasiantuntijasi osoitteessa toimitus@apy.fi.
+## Toimitus
 
-## Toimitukseen
+Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Toimituksen tavoitat lukuvuoden aikana lukuisista tapahtumista tai osoitteesta toimitus@apy.fi.
 
-Äpyn toimituksen kokoaa päätoimittaja ja arkkitehti Laulikki Äpy, joka myös jatkuvasti etsii uusia talentteja! Mikäli haluat tuoda olemassaolosi ilmi ja koet omaavasi Äpyn toimittamisen vaatimat luonteen- ja sielunpiirteet ja -kaarteet (tai jos haluat ilmiantaa kaverisi), voit ottaa yhteyttä toimitukseen osoitteessa toimitus@apy.fi.
+Äpyn julkaisija
+
+Suomen Äpy-lehtien liitto ry.
+PL 58, 02151 Espoo
+Y-tunnus: 10519041
+
+Yhteyden Suomen Äpy-lehtien liittoon saat parhaiten osoitteesta sallit@apy.fi

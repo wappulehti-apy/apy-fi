@@ -9,10 +9,15 @@ const Ul = styled.ul`
   justify-content: center;
   list-style: none;
   padding: 0 0 30px 0;
+  margin: 0;
 
   li {
     font-size: 3em;
     padding-right: 50px;
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 `;
 

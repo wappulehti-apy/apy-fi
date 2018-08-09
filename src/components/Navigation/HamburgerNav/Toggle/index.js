@@ -7,6 +7,7 @@ const ToggleHamburger = styled.button`
   top: 20px;
   right: 20px;
   z-index: 2;
+  outline: none;
 
   .hamburger-inner {
     background-color: white;

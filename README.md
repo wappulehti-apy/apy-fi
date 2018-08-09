@@ -41,7 +41,25 @@ Tiedosto .eslintrc sisältää koodin tyylimäärittelyjä. Käytössä on [ESLi
 
 Nettisivujen ilmettä on mahdollista muuttaa .env tiedoston muuttujien avulla. `GATSBY_THEME` muuttuja kontrolloi etusin logokomponenttia (<Logo /> vs <Logo2019 />) sekä modalin ja navbarin logoa.
 
-Jos halutaan vuosittain vaihtuva teema, on luotava uusi komponentti.
+Sivujen ulkonäkö eri `.env` tiedoston konfiguraatioilla:
+```
+# Used throughout different components to use a yearly logo/textures
+GATSBY_THEME='ajaton'
+# Whether to show the logo or a video on index
+GATSBY_INDEX_VIDEO=false
+```
+
+![.env tiedosto esimerkkikuva](docs/env-example-ajaton-1.png)
+
+```
+# Used throughout different components to use a yearly logo/textures
+GATSBY_THEME='2019'
+# Whether to show the logo or a video on index
+GATSBY_INDEX_VIDEO=false
+```
+
+![.env tiedosto esimerkkikuva](docs/env-example-2019-1.png)
+![.env tiedosto esimerkkikuva](docs/env-example-2019-2.png)
 
 ## Käyttöönotto
 

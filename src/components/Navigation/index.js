@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { css } from 'react-emotion';
 import { breakpoints, media } from '../../styles/main';
@@ -8,17 +9,7 @@ import NormalNav from './NormalNav';
 const cssNavLink = css`
   position: relative;
   text-decoration: none;
-  margin-right: 10px;
-  margin-left: 10px;
   font-weight: 900;
-
-  &:link,
-  &:visited,
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none !important;
-  }
 
   &:after {
     content: '';
@@ -56,25 +47,44 @@ const cssNavLink = css`
   `)};
 `;
 
-const items = [
-  <Link key="etusivu" className={cssNavLink} to="/">
-    Etusivu
-  </Link>,
-  <Link key="äpyt" className={cssNavLink} to="/äpyt">
-    Äpyt
-  </Link>,
-  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot">
-    Yhteystiedot
-  </Link>,
-  <Link key="rähästö" className={cssNavLink} to="/rähästö">
-    Rähästö
-  </Link>
-];
-
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
-    this.childNav = React.createRef();
+    const { pathname } = this.props;
+    this.items = [
+      <Link
+        key="etusivu"
+        isActiveNav={pathname === '/' ? true : false}
+        className={cssNavLink}
+        to="/"
+      >
+        Etusivu
+      </Link>,
+      <Link
+        key="äpyt"
+        isActiveNav={pathname === '/äpyt' ? true : false}
+        className={cssNavLink}
+        to="/äpyt"
+      >
+        Äpyt
+      </Link>,
+      <Link
+        key="yhteystiedot"
+        isActiveNav={pathname === '/yhteystiedot' ? true : false}
+        className={cssNavLink}
+        to="/yhteystiedot"
+      >
+        Yhteystiedot
+      </Link>,
+      <Link
+        key="ävystykset"
+        isActiveNav={pathname === '/ävystykset' ? true : false}
+        className={cssNavLink}
+        to="/ävystykset"
+      >
+        Ävystykset
+      </Link>
+    ];
     this.state = { navType: 'normal' };
   }
 
@@ -101,12 +111,16 @@ class Navigation extends React.Component {
     const { navType } = this.state;
     const nav =
       navType === 'normal' ? (
-        <NormalNav ref={this.childNav} items={items} />
+        <NormalNav items={this.items} />
       ) : (
-        <HamburgerNav ref={this.childNav} items={items} />
+        <HamburgerNav items={this.items} />
       );
     return nav;
   }
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+  pathname: PropTypes.string.isRequired
+};

@@ -20,15 +20,15 @@ const ContainerApyt = styled.div`
   `)};
 
   ${media.desktop(css`
-    margin: 2% 10% 5% 10%;
+    margin: 2% 15%;
   `)};
 
   ${media.tablet(css`
-    margin: 13% 10% 5% 10%;
+    margin: 0% 10%;
   `)};
 
   ${media.phone(css`
-    margin: 25% 2% 5% 2%;
+    margin: 2%;
   `)};
 `;
 
@@ -40,7 +40,7 @@ class ÄpyPage extends React.PureComponent {
 
     return (
       <Layout {...props}>
-        <ContainerApyt id="page_apyt">
+        <ContainerApyt id="page_äpyt">
           <ÄpyGrid html={html} imgData={imgData} />
         </ContainerApyt>
       </Layout>
@@ -60,7 +60,7 @@ export default ÄpyPage;
 
 export const pageQuery = graphql`
   query ApyPageQuery {
-    markdownRemark(frontmatter: { path: { eq: "/apy" } }) {
+    markdownRemark(frontmatter: { path: { eq: "/äpy" } }) {
       html
     }
     allImageSharp {

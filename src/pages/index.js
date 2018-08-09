@@ -9,7 +9,7 @@ const ContainerIndex = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 75vh;
 `;
 
 class IndexPage extends React.PureComponent {
@@ -17,7 +17,7 @@ class IndexPage extends React.PureComponent {
     const Logo =
       process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2019 />;
     return (
-      <Layout>
+      <Layout {...this.props}>
         <ContainerIndex id="page__index" innerRef={this.indexRef}>
           {process.env.GATSBY_INDEX_VIDEO === 'true' ? <Video /> : Logo}
         </ContainerIndex>
