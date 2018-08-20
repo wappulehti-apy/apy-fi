@@ -11,6 +11,7 @@ const InformationContainer = styled.div`
   padding: 1em;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
     0px 18px 23px rgba(0, 0, 0, 0.1);
+  margin-top: 1.5em;
 
   ${media.phone(css`
     font-size: 0.8em;
@@ -25,14 +26,8 @@ const Grid = styled.div`
   width: 100%;
   padding-top: 20px;
 
-  @media (min-width: 1440px) {
-    grid-template-columns: repeat(5, 1fr);
-    font-size: 20px;
-  }
-
   ${media.giant(css`
-    grid-template-columns: repeat(3, 1fr);
-    font-size: 20px;
+    grid-template-columns: repeat(4, 1fr);
   `)};
 
   ${media.desktop(css`
@@ -46,16 +41,23 @@ const Grid = styled.div`
   ${media.phone(css`
     grid-template-columns: repeat(2, 1fr);
   `)};
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 `;
 
 class ÄpyGrid extends React.Component {
   constructor(props) {
     super(props);
-    const { imgData, html } = this.props;
+    const { imgGrid, imgCarousel, html } = this.props;
     const äpys = ÄpyData.map(äpy => (
       <Äpy
-        imgData={imgData.filter(x =>
-          x.node.original.src.startsWith(`/static/${äpy.vuosi}`)
+        imgGrid={imgGrid.filter(x =>
+          x.node.childImageSharp.sizes.src.startsWith(`/static/${äpy.vuosi}`)
+        )}
+        imgCarousel={imgCarousel.filter(x =>
+          x.node.childImageSharp.sizes.src.startsWith(`/static/${äpy.vuosi}`)
         )}
         äpy={äpy}
         key={äpy.vuosi}
@@ -81,6 +83,7 @@ class ÄpyGrid extends React.Component {
 export default ÄpyGrid;
 
 ÄpyGrid.propTypes = {
-  imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imgGrid: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
   html: PropTypes.string.isRequired
 };

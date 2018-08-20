@@ -5,7 +5,7 @@ import styled, { css } from 'react-emotion';
 import Layout from '../components/Layout';
 import { media } from '../styles/main';
 
-const ContainerRähästö = styled.div`
+const ContainerÄvystykset = styled.div`
   background-color: white;
   border-radius: 2px;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
@@ -38,24 +38,28 @@ const ContainerRähästö = styled.div`
     font-size: 0.7em;
     padding: 1em;
   `)};
+
+  a * {
+    border-radius: 2px;
+  }
 `;
 
-function RähästöPage({ data, ...props }) {
+function ÄvystyksetPage({ data, ...props }) {
   const { markdownRemark } = data;
   const htmlRahasto = markdownRemark.html;
 
   return (
     <Layout {...props}>
-      <ContainerRähästö id="page__ävystykset">
+      <ContainerÄvystykset id="page__ävystykset">
         <div dangerouslySetInnerHTML={{ __html: htmlRahasto }} />
-      </ContainerRähästö>
+      </ContainerÄvystykset>
     </Layout>
   );
 }
 
-export default RähästöPage;
+export default ÄvystyksetPage;
 
-RähästöPage.propTypes = {
+ÄvystyksetPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       html: PropTypes.string

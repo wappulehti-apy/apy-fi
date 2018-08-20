@@ -35,13 +35,14 @@ const ContainerApyt = styled.div`
 class ÄpyPage extends React.PureComponent {
   render() {
     const { data, ...props } = this.props;
-    const imgData = data.allImageSharp.edges;
+    const imgGrid = data.imgGrid.edges;
+    const imgCarousel = data.imgCarousel.edges;
     const html = data.markdownRemark.html;
 
     return (
       <Layout {...props}>
-        <ContainerApyt id="page_äpyt">
-          <ÄpyGrid html={html} imgData={imgData} />
+        <ContainerApyt id="page__äpyt">
+          <ÄpyGrid html={html} imgGrid={imgGrid} imgCarousel={imgCarousel} />
         </ContainerApyt>
       </Layout>
     );
@@ -63,16 +64,29 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: "/äpy" } }) {
       html
     }
-    allImageSharp {
+    imgCarousel: allFile(
+      filter: { sourceInstanceName: { eq: "img-carousel" } }
+    ) {
       edges {
         node {
           id
-          ... on ImageSharp {
-            sizes(maxWidth: 500) {
+          sourceInstanceName
+          childImageSharp {
+            sizes(maxWidth: 1000) {
               ...GatsbyImageSharpSizes_withWebp_tracedSVG
             }
-            original {
-              src
+          }
+        }
+      }
+    }
+    imgGrid: allFile(filter: { sourceInstanceName: { eq: "img-grid" } }) {
+      edges {
+        node {
+          id
+          sourceInstanceName
+          childImageSharp {
+            sizes(maxWidth: 400) {
+              ...GatsbyImageSharpSizes_withWebp_tracedSVG
             }
           }
         }

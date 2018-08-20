@@ -22,7 +22,6 @@ const ÄpyContainer = styled.div`
 
   img {
     border-radius: 2px;
-    object-fit: cover;
   }
 `;
 
@@ -100,14 +99,14 @@ class Äpy extends React.PureComponent {
   };
 
   render() {
-    const { äpy, imgData } = this.props;
+    const { äpy, imgGrid, imgCarousel } = this.props;
     const { modalState, onTouchDevice } = this.state;
     const handleModalClose = this.hideModal;
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
     // 'Finnish Design Äpy' is a long name and to
     // prevent overflow make it's font smaller
     const css2007 = äpy.vuosi === 2007 ? specialCss2007 : undefined;
-    const modalProps = { äpy, imgData, handleModalClose, modalState };
+    const modalProps = { äpy, imgCarousel, handleModalClose, modalState };
     const showModal =
       modalState === 'open' || modalState === 'closing' ? true : false;
 
@@ -120,7 +119,7 @@ class Äpy extends React.PureComponent {
               <ÄpyNameGradientBackground />
             </Fragment>
           )}
-          <Img sizes={imgData[0].node.sizes} />
+          <Img sizes={imgGrid[0].node.childImageSharp.sizes} />
         </ÄpyContainer>
         {showModal && <ÄpyModal {...modalProps} />}
       </Fragment>
@@ -136,5 +135,6 @@ export default Äpy;
     lehti: PropTypes.string,
     vuosi: PropTypes.number
   }).isRequired,
-  imgData: PropTypes.arrayOf(PropTypes.object).isRequired
+  imgGrid: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired
 };

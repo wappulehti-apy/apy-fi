@@ -85,7 +85,7 @@ class Navigation extends React.Component {
         Ävystykset
       </Link>
     ];
-    this.state = { navType: 'normal' };
+    this.state = { navType: undefined };
   }
 
   componentDidMount() {
@@ -115,7 +115,11 @@ class Navigation extends React.Component {
       ) : (
         <HamburgerNav items={this.items} />
       );
-    return nav;
+    if (!navType) {
+      return null;
+    } else {
+      return nav;
+    }
   }
 }
 

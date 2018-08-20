@@ -12,15 +12,24 @@ const CarouselContainer = styled.div`
     flex: 0 0 90%;
   }
 
+  @media only screen and (min-device-width: 768px) and (orientation: landscape) {
+    flex: 0 0 70%;
+  }
+
   /* iPhone X */
   @media (min-width: 812px) and (max-height: 375px) and (orientation: landscape) {
     flex: 0 0 50%;
   }
 
+  & .carousel * {
+    user-select: none;
+  }
+
   & .thumbs-wrapper,
+  .thumbs,
   .thumbs.animated {
     padding: 5px 5px 0 0;
-    margin: 0;
+    margin: 0 !important;
 
     @media (max-width: 1025px) and (orientation: landscape) {
       .thumb {
@@ -40,7 +49,7 @@ const CarouselContainer = styled.div`
 
 const ImageContainer = styled.div``;
 
-const ÄpyCarousel = ({ imgData }) => (
+const ÄpyCarousel = ({ imgCarousel }) => (
   <CarouselContainer>
     <Carousel
       showStatus={false}
@@ -48,9 +57,9 @@ const ÄpyCarousel = ({ imgData }) => (
       useKeyboardArrows
       emulateTouch
     >
-      {imgData.map(img => (
-        <ImageContainer key={img.node.id}>
-          <img key={img.node.id} src={img.node.original.src} />
+      {imgCarousel.map(img => (
+        <ImageContainer key={img.node.childImageSharp.id}>
+          <img key={img.node.id} src={img.node.childImageSharp.sizes.src} />
         </ImageContainer>
       ))}
     </Carousel>
@@ -60,7 +69,7 @@ const ÄpyCarousel = ({ imgData }) => (
 export default ÄpyCarousel;
 
 ÄpyCarousel.propTypes = {
-  imgData: PropTypes.arrayOf(
+  imgCarousel: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
         original: PropTypes.shape({

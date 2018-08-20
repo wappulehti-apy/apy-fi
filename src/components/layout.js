@@ -12,6 +12,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: auto;
 
   background-color: ${p =>
     p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : 'rgb(156, 34, 62)'};
@@ -36,7 +37,7 @@ class Layout extends React.PureComponent {
           <PageWrapper id="page__wrapper">
             <Navigation pathname={pathname} />
             {children}
-            <SocialIcons />
+            {pathname != '/' ? <SocialIcons /> : undefined}
           </PageWrapper>
         </ThemeProvider>
       </Fragment>

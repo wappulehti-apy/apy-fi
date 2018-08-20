@@ -27,6 +27,7 @@ const TrailContainer = styled.div`
 
 const ContainerNav = styled.div`
   min-height: 85px;
+  z-index: 2;
 `;
 
 const LogoNav = styled.img`
@@ -34,7 +35,7 @@ const LogoNav = styled.img`
   top: 30px;
   left: 30px;
   width: 4em;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const cssNavMain = css`
@@ -69,8 +70,11 @@ class HamburgerNav extends React.Component {
       isOpen: !prevState.isOpen
     }));
     const { isOpen } = this.state;
-    const overflow = isOpen ? 'visible' : 'hidden';
-    document.body.style.overflow = overflow;
+    const css = isOpen ? 'visible' : 'hidden';
+    document.body.style.overflow = css;
+    // Hide the main content to prevent for example opening a modal
+    // while the hamburgernav is open
+    document.getElementById('page__wrapper').children[1].style.visibility = css;
   };
 
   render() {

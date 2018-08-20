@@ -83,11 +83,7 @@ const ModalMain = styled.div`
   transform: translate(-50%, -50%);
   padding: 2.5em;
 
-  @media (max-height: 1023px) and (orientation: landscape) {
-    padding: 1em;
-  }
-
-  @media (max-width: 1025px) and (orientation: portrait) {
+  @media (max-height: 1023px) {
     padding: 1em;
   }
 `;
@@ -99,6 +95,7 @@ const ModalContent = styled.div`
 
   @media (max-width: 1025px) and (orientation: landscape) {
     flex-direction: row;
+    font-size: 0.8em;
   }
 
   @media only screen and (min-device-width: 1366px) {
@@ -114,8 +111,8 @@ const ModalContent = styled.div`
 const ModalKuvaus = styled.p`
   width: 100%;
   margin: 0;
-  padding: 1em 0 2.6em 0em;
-  font-size: 0.8em;
+  padding: 1em 0;
+  font-size: 1.2em;
   line-height: 1.5;
 
   @media (max-width: 1025px) and (orientation: landscape) {
@@ -123,11 +120,11 @@ const ModalKuvaus = styled.p`
   }
 
   @media (max-width: 1025px) and (orientation: portrait) {
-    padding: 1em 0 1.5 0;
+    padding: 1em 0 0 0;
   }
 
   ${media.phone(css`
-    font-size: 0.6em;
+    font-size: 1em;
   `)};
 `;
 
@@ -241,7 +238,7 @@ class ÄpyModal extends React.PureComponent {
   };
 
   render() {
-    const { äpy, imgData, handleModalClose, modalState } = this.props;
+    const { äpy, imgCarousel, handleModalClose, modalState } = this.props;
     const { modalWidth } = this.state;
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
@@ -262,7 +259,7 @@ class ÄpyModal extends React.PureComponent {
             </ModalHeader>
             <Divider />
             <ModalContent>
-              <ÄpyCarousel imgData={imgData} />
+              <ÄpyCarousel imgCarousel={imgCarousel} />
               <ModalKuvaus>{äpy.lyhytKuvaus}</ModalKuvaus>
             </ModalContent>
             <LogoModal key="logo" src={Logo} alt="äpy" />
@@ -285,7 +282,7 @@ export default ÄpyModal;
     lehti: PropTypes.string,
     vuosi: PropTypes.number
   }).isRequired,
-  imgData: PropTypes.arrayOf(PropTypes.object).isRequired,
+  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleModalClose: PropTypes.func.isRequired,
   modalState: PropTypes.string.isRequired
 };

@@ -3,8 +3,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/assets/images`
+        name: 'img-carousel',
+        path: `${__dirname}/assets/images/ävyt/carousel`
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'img-grid',
+        path: `${__dirname}/assets/images/ävyt/grid`
       }
     },
     {
@@ -18,7 +25,19 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
-    `gatsby-transformer-remark`,
-    'gatsby-transformer-sharp'
+    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1024
+            }
+          }
+        ]
+      }
+    }
   ]
 };

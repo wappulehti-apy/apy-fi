@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import * as THREE from 'three';
 import styled, { css } from 'react-emotion';
+import SocialIcons from '../SocialIcons';
 import { media, breakpoints } from '../../styles/main';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
@@ -223,6 +224,7 @@ class Logo extends React.Component {
             Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
             ilmestyy Wappuna 2019.
           </p>
+          <SocialIcons />
         </IndexInfo>
       </Fragment>
     );
