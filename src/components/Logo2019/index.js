@@ -9,16 +9,16 @@ import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';
 
 const LogoContainer = styled.div`
-  flex-grow: 1;
+  height: 50%;
 `;
 
 const IndexInfo = styled.div`
-  margin: 0 25% 5% 25%;
+  margin: 0 25% 0 25%;
   font-family: 'Montserrat Black';
   font-size: 1.9em;
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
-    0px 18px 23px rgba(0, 0, 0, 0.1);
   color: white;
+  display: inline-block;
+  overflow: auto;
 
   text-align: center;
 
@@ -32,12 +32,12 @@ const IndexInfo = styled.div`
 
   ${media.desktop(css`
     font-size: 1.5em;
-    margin: 0 15% 5% 15%;
+    margin: 0 15% 0 15%;
   `)};
 
   ${media.tablet(css`
     font-size: 0.9em;
-    margin: 0 10% 5% 10%;
+    margin: 0 10% 0 10%;
   `)};
 `;
 
@@ -78,6 +78,8 @@ class Logo extends React.Component {
       controls.rotateSpeed = 0.07;
       controls.enablePan = false;
       controls.enableZoom = false;
+      controls.minPolarAngle = Math.PI / 2;
+      controls.maxPolarAngle = Math.PI / 2;
       controls.update();
 
       // Load logo
@@ -90,9 +92,9 @@ class Logo extends React.Component {
           // Shift and scale the logo
           const width = window.innerWidth;
           // Make the logo smaller on tablet's and phones
-          const s = width < breakpoints.desktop ? 2 : 3;
+          const s = width < breakpoints.desktop ? 3 : 4;
           object.scale.set(s, s, s);
-          const dY = -6;
+          const dY = width < breakpoints.desktop ? -3 : -6;
           object.translateY(dY);
           scene.add(object);
         }

@@ -12,7 +12,6 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: auto;
 
   background-color: ${p =>
     p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : 'rgb(156, 34, 62)'};

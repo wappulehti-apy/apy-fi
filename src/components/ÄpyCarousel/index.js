@@ -12,7 +12,7 @@ const CarouselContainer = styled.div`
     flex: 0 0 90%;
   }
 
-  @media only screen and (min-device-width: 768px) and (orientation: landscape) {
+  @media only screen and (min-device-width: 768px) and (min-device-height: 768px) and (orientation: landscape) {
     flex: 0 0 70%;
   }
 

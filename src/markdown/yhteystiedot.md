@@ -8,7 +8,7 @@ path: "/yhteystiedot"
 
 Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Toimituksen tavoitat lukuvuoden aikana lukuisista tapahtumista tai osoitteesta toimitus@apy.fi.
 
-Äpyn julkaisija
+## Äpyn julkaisija
 
 Suomen Äpy-lehtien liitto ry.
 PL 58, 02151 Espoo

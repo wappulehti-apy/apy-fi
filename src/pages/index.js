@@ -6,10 +6,7 @@ import LogoAjaton from '../components/Logo';
 import Logo2019 from '../components/Logo2019';
 
 const ContainerIndex = styled.div`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  height: 75vh;
+  flex: 1;
 `;
 
 class IndexPage extends React.PureComponent {

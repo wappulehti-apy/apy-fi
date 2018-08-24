@@ -48,7 +48,8 @@ class Logo extends React.Component {
       controls.rotateSpeed = 0.07;
       controls.enablePan = false;
       controls.enableZoom = false;
-      controls.minPolarAngle = Math.PI / 4;
+      controls.minPolarAngle = Math.PI / 2;
+      controls.maxPolarAngle = Math.PI / 2;
       controls.update();
 
       // Renderer

@@ -83,8 +83,10 @@ const ModalMain = styled.div`
   transform: translate(-50%, -50%);
   padding: 2.5em;
 
-  @media (max-height: 1023px) {
+  @media (max-height: 1170px) {
     padding: 1em;
+    max-height: 100vh;
+    font-size: 0.8em;
   }
 `;
 
@@ -93,16 +95,15 @@ const ModalContent = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  @media (max-width: 1025px) and (orientation: landscape) {
+  @media (max-width: 1170px) and (orientation: landscape) {
     flex-direction: row;
-    font-size: 0.8em;
   }
 
-  @media only screen and (min-device-width: 1366px) {
+  @media only screen and (min-device-width: 1170px) {
     justify-content: start;
   }
 
-  @media only screen and (max-device-width: 1366px) and (orientation: landscape) {
+  @media only screen and (max-device-width: 1170px) and (orientation: landscape) {
     justify-content: start;
     flex-wrap: nowrap;
   }
@@ -111,16 +112,16 @@ const ModalContent = styled.div`
 const ModalKuvaus = styled.p`
   width: 100%;
   margin: 0;
-  padding: 1em 0;
+  padding: 1em 0 2em 0;
   font-size: 1.2em;
   line-height: 1.5;
 
-  @media (max-width: 1025px) and (orientation: landscape) {
+  @media (max-width: 1170px) and (orientation: landscape) {
     padding: 0 0 0 1em;
   }
 
-  @media (max-width: 1025px) and (orientation: portrait) {
-    padding: 1em 0 0 0;
+  @media (max-width: 1170px) and (orientation: portrait) {
+    padding: 1em 0 1em 0;
   }
 
   ${media.phone(css`
@@ -186,12 +187,22 @@ class ÄpyModal extends React.PureComponent {
     this.handleWindowSizeChange();
     window.addEventListener('resize', this.handleWindowSizeChange);
     document.addEventListener('mousedown', this.handleClickOutside);
+    document.addEventListener('keydown', this.handleEscClick);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
     document.removeEventListener('mousedown', this.handleClickOutside);
+    document.removeEventListener('keydown', this.handleEscClick);
   }
+
+  handleEscClick = e => {
+    // 'esc' key maps to keycode 27
+    if (e.keyCode == 27) {
+      const { handleModalClose } = this.props;
+      handleModalClose();
+    }
+  };
 
   handleClickOutside = e => {
     const clientX = e.clientX;

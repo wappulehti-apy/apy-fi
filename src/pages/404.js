@@ -12,7 +12,8 @@ const Container404 = styled.div`
 
 const LargeText = styled.div`
   font-size: 10em;
-  font-family: 'Lato Black';
+  font-family: ${p =>
+    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
   color: white;
 `;
 
