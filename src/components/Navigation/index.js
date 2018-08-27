@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { css } from 'react-emotion';
 import { breakpoints, media } from '../../styles/main';
@@ -47,46 +46,23 @@ const cssNavLink = css`
   `)};
 `;
 
+const items = [
+  <Link key="etusivu" className={cssNavLink} to="/" exact>
+    Etusivu
+  </Link>,
+  <Link key="äpyt" className={cssNavLink} to="/äpyt" exact>
+    Äpyt
+  </Link>,
+  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot" exact>
+    Yhteystiedot
+  </Link>,
+  <Link key="ävystykset" className={cssNavLink} to="/ävystykset" exact>
+    Ävystykset
+  </Link>
+];
+
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-    const { pathname } = this.props;
-    this.items = [
-      <Link
-        key="etusivu"
-        isActiveNav={pathname === '/' ? true : false}
-        className={cssNavLink}
-        to="/"
-      >
-        Etusivu
-      </Link>,
-      <Link
-        key="äpyt"
-        isActiveNav={pathname === '/äpyt' ? true : false}
-        className={cssNavLink}
-        to="/äpyt"
-      >
-        Äpyt
-      </Link>,
-      <Link
-        key="yhteystiedot"
-        isActiveNav={pathname === '/yhteystiedot' ? true : false}
-        className={cssNavLink}
-        to="/yhteystiedot"
-      >
-        Yhteystiedot
-      </Link>,
-      <Link
-        key="ävystykset"
-        isActiveNav={pathname === '/ävystykset' ? true : false}
-        className={cssNavLink}
-        to="/ävystykset"
-      >
-        Ävystykset
-      </Link>
-    ];
-    this.state = { navType: undefined };
-  }
+  state = { navType: undefined };
 
   componentDidMount() {
     this.setNavType();
@@ -111,9 +87,9 @@ class Navigation extends React.Component {
     const { navType } = this.state;
     const nav =
       navType === 'normal' ? (
-        <NormalNav items={this.items} />
+        <NormalNav items={items} />
       ) : (
-        <HamburgerNav items={this.items} />
+        <HamburgerNav items={items} />
       );
     if (!navType) {
       return null;
@@ -124,7 +100,3 @@ class Navigation extends React.Component {
 }
 
 export default Navigation;
-
-Navigation.propTypes = {
-  pathname: PropTypes.string.isRequired
-};

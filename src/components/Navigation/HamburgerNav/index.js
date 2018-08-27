@@ -11,7 +11,7 @@ import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
 import Logo2019Black from '../../../../assets/logos/logo-2019-musta.png';
 
 const activeNavElement = css`
-  text-decoration: underline;
+  text-decoration: underline !important;
 `;
 
 const TrailContainer = styled.div`
@@ -61,7 +61,8 @@ class HamburgerNav extends React.Component {
   state = { isOpen: false };
 
   componentWillUnmount() {
-    // Reintroduce overflow if it was disabled by hamburger menu
+    // Reintroduce overflow on unmount
+    document.html.style.overflow = 'visible';
     document.body.style.overflow = 'visible';
   }
 
@@ -71,6 +72,7 @@ class HamburgerNav extends React.Component {
     }));
     const { isOpen } = this.state;
     const css = isOpen ? 'visible' : 'hidden';
+    document.html.style.overflow = css;
     document.body.style.overflow = css;
     // Hide the main content to prevent for example opening a modal
     // while the hamburgernav is open
@@ -122,11 +124,7 @@ class HamburgerNav extends React.Component {
                   >
                     {items.map(item => ({ y, x, ...props }) => (
                       <animated.div
-                        className={
-                          item.props.isActiveNav
-                            ? `${cssNavMain} ${activeNavElement}`
-                            : cssNavMain
-                        }
+                        className={cssNavMain}
                         style={{
                           transform: x.interpolate(
                             x => `translate3d(${x}px,0,0)`
@@ -134,7 +132,9 @@ class HamburgerNav extends React.Component {
                           ...props
                         }}
                       >
-                        {item}
+                        {React.cloneElement(item, {
+                          activeClassName: activeNavElement
+                        })}
                       </animated.div>
                     ))}
                   </DurationTrail>

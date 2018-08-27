@@ -2,8 +2,6 @@
 path: "/ävystykset"
 ---
 
-![äpy-ävystää](ävystykset-1.jpg)
-
 ## Äpy tukee teekkari- ja opiskelijakulttuurin ilmentymiä!
 
 Opiskelijoiden Wappuisin myymä Äpy myymä tukee opiskeliajyhteistöä myös Wapunajan ulkopuolella.

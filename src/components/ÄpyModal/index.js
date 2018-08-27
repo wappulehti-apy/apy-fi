@@ -68,7 +68,7 @@ const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 3;
-  animation: ${p => p.transition} 0.35s ease-in-out;
+  animation: ${p => p.transition} 0.34s ease-in-out;
   transform-origin: center bottom;
 `;
 

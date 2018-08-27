@@ -102,15 +102,22 @@ class Logo extends React.Component {
 
       // Add light
       var light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(-1, 0, 1);
+      light.position.set(0, 0, 1);
       scene.add(light);
 
-      // Add light
       light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(-1, 1, -1);
+      light.position.set(0, 0, -1);
       scene.add(light);
 
-      light = new THREE.AmbientLight(0xffffff, 0.3);
+      light = new THREE.DirectionalLight(0xffffff, 0.8);
+      light.position.set(1, 0, 0);
+      scene.add(light);
+
+      light = new THREE.DirectionalLight(0xffffff, 0.8);
+      light.position.set(-1, 0, 0);
+      scene.add(light);
+
+      light = new THREE.AmbientLight(0xffffff, 0.1);
       scene.add(light);
 
       renderer.setSize(width, height);

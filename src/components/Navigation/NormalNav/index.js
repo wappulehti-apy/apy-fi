@@ -94,17 +94,15 @@ class NormalNav extends React.PureComponent {
         >
           {items.map(item => ({ y, x, ...props }) => (
             <animated.div
-              className={
-                item.props.isActiveNav
-                  ? `${cssNavMain} ${activeNavElement}`
-                  : cssNavMain
-              }
+              className={cssNavMain}
               style={{
                 transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
                 ...props
               }}
             >
-              {item}
+              {React.cloneElement(item, {
+                activeClassName: `${cssNavMain} ${activeNavElement}`
+              })}
             </animated.div>
           ))}
         </DurationTrail>

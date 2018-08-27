@@ -7,6 +7,7 @@ import Logo2019 from '../components/Logo2019';
 
 const ContainerIndex = styled.div`
   flex: 1;
+  overflow: auto;
 `;
 
 class IndexPage extends React.PureComponent {

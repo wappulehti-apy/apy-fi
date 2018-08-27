@@ -3,15 +3,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'img-carousel',
-        path: `${__dirname}/assets/images/ävyt/carousel`
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'img-grid',
-        path: `${__dirname}/assets/images/ävyt/grid`
+        name: 'images',
+        path: `${__dirname}/assets/images`
       }
     },
     {

@@ -22,13 +22,15 @@ const PageWrapper = styled.div`
 `;
 
 class Layout extends React.PureComponent {
+  state = { theme: process.env.GATSBY_THEME };
+
   render() {
     const { children, location } = this.props;
+    const { theme } = this.state;
     const pathname = location.pathname;
     // Specifies either a yearly or a classical theme.
     // Used to conditionally render fonts/components etc.
     // Theming provided by emotion-theming.
-    const theme = process.env.GATSBY_THEME;
     return (
       <Fragment>
         <SEO />

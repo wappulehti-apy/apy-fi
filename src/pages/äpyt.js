@@ -64,13 +64,22 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: "/äpy" } }) {
       html
     }
+    imgHero: file(relativePath: { eq: "pages/äpyt/äpyt-hero-img.jpg" }) {
+      childImageSharp {
+        sizes(maxWidth: 1000) {
+          ...GatsbyImageSharpSizes_withWebp_tracedSVG
+        }
+      }
+    }
     imgCarousel: allFile(
-      filter: { sourceInstanceName: { eq: "img-carousel" } }
+      filter: {
+        extension: { eq: "jpg" }
+        relativeDirectory: { eq: "apyt/carousel" }
+      }
     ) {
       edges {
         node {
           id
-          sourceInstanceName
           childImageSharp {
             sizes(maxWidth: 1000) {
               ...GatsbyImageSharpSizes_withWebp_tracedSVG
@@ -79,11 +88,15 @@ export const pageQuery = graphql`
         }
       }
     }
-    imgGrid: allFile(filter: { sourceInstanceName: { eq: "img-grid" } }) {
+    imgGrid: allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        relativeDirectory: { eq: "apyt/grid" }
+      }
+    ) {
       edges {
         node {
           id
-          sourceInstanceName
           childImageSharp {
             sizes(maxWidth: 400) {
               ...GatsbyImageSharpSizes_withWebp_tracedSVG

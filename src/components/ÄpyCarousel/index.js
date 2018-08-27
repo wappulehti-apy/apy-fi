@@ -58,7 +58,7 @@ const ÄpyCarousel = ({ imgCarousel }) => (
       emulateTouch
     >
       {imgCarousel.map(img => (
-        <ImageContainer key={img.node.childImageSharp.id}>
+        <ImageContainer key={img.node.id}>
           <img key={img.node.id} src={img.node.childImageSharp.sizes.src} />
         </ImageContainer>
       ))}
@@ -72,11 +72,11 @@ export default ÄpyCarousel;
   imgCarousel: PropTypes.arrayOf(
     PropTypes.shape({
       node: PropTypes.shape({
-        original: PropTypes.shape({
-          src: PropTypes.string
+        childImageSharp: PropTypes.shape({
+          sizes: PropTypes.object.isRequired
         }),
-        sizes: PropTypes.object
-      })
+        id: PropTypes.string.isRequired
+      }).isRequired
     })
   ).isRequired
 };
