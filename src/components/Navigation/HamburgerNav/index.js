@@ -62,7 +62,6 @@ class HamburgerNav extends React.Component {
 
   componentWillUnmount() {
     // Reintroduce overflow on unmount
-    document.html.style.overflow = 'visible';
     document.body.style.overflow = 'visible';
   }
 
@@ -72,7 +71,6 @@ class HamburgerNav extends React.Component {
     }));
     const { isOpen } = this.state;
     const css = isOpen ? 'visible' : 'hidden';
-    document.html.style.overflow = css;
     document.body.style.overflow = css;
     // Hide the main content to prevent for example opening a modal
     // while the hamburgernav is open

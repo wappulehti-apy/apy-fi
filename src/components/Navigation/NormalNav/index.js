@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { animated } from 'react-spring';
 import styled, { css } from 'react-emotion';
+import { media } from '../../../styles/main';
 import DurationTrail from '../DurationTrail';
 import LogoWhite from '../../../../assets/logos/logo-ajaton-valko.png';
 import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
@@ -60,6 +61,10 @@ const cssNavMain = css`
     width: 50px;
     margin: 20px auto 20px 20px;
   }
+
+  ${media.tablet(css`
+    font-size: 0.9em;
+  `)};
 `;
 
 class NormalNav extends React.PureComponent {

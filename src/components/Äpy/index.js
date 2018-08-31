@@ -73,7 +73,7 @@ const ÄpyName = styled.span`
 `;
 
 const specialCss2007 = css`
-  font-size: 0.6em;
+  font-size: 0.6em !important;
 `;
 
 class Äpy extends React.PureComponent {
@@ -88,7 +88,9 @@ class Äpy extends React.PureComponent {
     const äpyGrid = document.getElementById('äpy__grid');
     äpyGrid.style.cssText = 'pointer-events: auto';
     this.setState({ modalState: 'closing' });
-    setTimeout(() => this.setState({ modalState: 'hidden' }), 349);
+    // The timeout below isn't the same as in ÄpyModal css animation
+    // because on chrome setting them equal produces flickering on modal close
+    setTimeout(() => this.setState({ modalState: 'hidden' }), 230);
   };
 
   openModal = () => {

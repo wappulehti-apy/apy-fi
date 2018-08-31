@@ -12,7 +12,7 @@ const ContainerApyt = styled.div`
   border-radius: 2px;
 
   ${media.giant(css`
-    margin: 2% 20%;
+    margin: 2% 25%;
   `)};
 
   ${media.overdesktop(css`
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
     imgHero: file(relativePath: { eq: "pages/äpyt/äpyt-hero-img.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1000) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
@@ -82,7 +82,7 @@ export const pageQuery = graphql`
           id
           childImageSharp {
             sizes(maxWidth: 1000) {
-              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+              ...GatsbyImageSharpSizes_tracedSVG
             }
           }
         }
@@ -99,7 +99,7 @@ export const pageQuery = graphql`
           id
           childImageSharp {
             sizes(maxWidth: 400) {
-              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+              ...GatsbyImageSharpSizes_tracedSVG
             }
           }
         }

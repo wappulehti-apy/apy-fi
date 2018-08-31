@@ -29,7 +29,7 @@ const ToggleModal = styled.div`
     height: 3px;
     width: 30px;
     background-color: black;
-    transition: all 0.25s ease-out;
+    transition: all 0.18s ease-out;
 
     ${media.tablet(css`
       width: 20px;

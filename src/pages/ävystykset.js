@@ -65,7 +65,7 @@ const HeroImgContainer = styled.div`
   `)};
 
   ${media.phone(css`
-    margin: 1em 2% 0 2%;
+    margin: 0 2% 0 2%;
   `)};
 `;
 
@@ -111,7 +111,7 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             sizes(maxWidth: 1000) {
-              ...GatsbyImageSharpSizes_withWebp_tracedSVG
+              ...GatsbyImageSharpSizes_tracedSVG
             }
           }
         }

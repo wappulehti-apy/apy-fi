@@ -9,7 +9,7 @@ import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';
 
 const LogoContainer = styled.div`
-  height: 50%;
+  height: 50vh;
 `;
 
 const IndexInfo = styled.div`
@@ -36,6 +36,11 @@ const IndexInfo = styled.div`
   `)};
 
   ${media.tablet(css`
+    font-size: 1.5em;
+    margin: 0 10% 0 10%;
+  `)};
+
+  ${media.phone(css`
     font-size: 0.9em;
     margin: 0 10% 0 10%;
   `)};
@@ -54,6 +59,7 @@ class Logo extends React.Component {
       // Setup
 
       const width = window.innerWidth;
+      console.log(this.canvasRef.current)
       const height = this.canvasRef.current.clientHeight;
 
       // Scene
@@ -124,6 +130,7 @@ class Logo extends React.Component {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       // Add the renderer domElement (canvas) to this mounted component
+      console.log(renderer.domElement)
       this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.

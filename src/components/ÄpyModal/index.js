@@ -4,7 +4,8 @@ import styled, { css, keyframes } from 'react-emotion';
 import ÄpyCarousel from '../ÄpyCarousel';
 import ModalToggle from './Toggle';
 import { media, breakpoints } from '../../styles/main';
-import Logo from '../../../assets/logos/logo-ajaton-musta.png';
+import LogoAjatonBlack from '../../../assets/logos/logo-ajaton-musta.png';
+import Logo2019Black from '../../../assets/logos/logo-2019-musta.png';
 
 const fadeShow = keyframes`
   from {
@@ -56,9 +57,9 @@ const ModalBackdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${p => p.transition} 0.35s ease-in-out;
+  animation: ${p => p.transition} 0.25s ease-in-out;
 `;
 
 const Modal = styled.div`
@@ -67,8 +68,8 @@ const Modal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3;
-  animation: ${p => p.transition} 0.34s ease-in-out;
+  z-index: 101;
+  animation: ${p => p.transition} 0.25s ease-in-out;
   transform-origin: center bottom;
 `;
 
@@ -254,6 +255,8 @@ class ÄpyModal extends React.PureComponent {
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
     const modalProps = { modalWidth };
+    const Logo =
+      process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonBlack : Logo2019Black;
 
     return (
       <Fragment>

@@ -40,10 +40,6 @@ const ContainerYhteystiedot = styled.div`
     padding: 1em;
     font-size: 0.7em;
   `)};
-
-  a * {
-    border-radius: 2px;
-  }
 `;
 
 const HeroImgContainer = styled.div`
@@ -69,7 +65,7 @@ const HeroImgContainer = styled.div`
   `)};
 
   ${media.phone(css`
-    margin: 1em 2% 0 2%;
+    margin: 0 2% 0 2%;
   `)};
 `;
 
@@ -107,7 +103,7 @@ export const pageQuery = graphql`
     imgHero: file(relativePath: { eq: "pages/yhteystiedot/hero-img.jpg" }) {
       childImageSharp {
         sizes(maxWidth: 1000) {
-          ...GatsbyImageSharpSizes_withWebp_tracedSVG
+          ...GatsbyImageSharpSizes_tracedSVG
         }
       }
     }
