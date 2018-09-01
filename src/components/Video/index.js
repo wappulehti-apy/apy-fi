@@ -6,6 +6,7 @@ import { media } from '../../styles/main';
 
 const PlayerContainer = styled.div`
   display: flex;
+  z-index: 1;
   justify-content: center;
 `;
 
@@ -55,10 +56,7 @@ const IndexInfo = styled.div`
 const Video = () => (
   <Fragment>
     <PlayerContainer>
-      <ReactPlayer
-        url="https://vimeo.com/213825989"
-        playing
-      />
+      <ReactPlayer url="https://vimeo.com/213825989" playing />
     </PlayerContainer>
     <IndexInfo>
       <p>Neljä kirjainta, joihin voit luottaa.</p>

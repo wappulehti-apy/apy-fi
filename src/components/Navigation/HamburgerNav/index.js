@@ -85,8 +85,6 @@ class HamburgerNav extends React.Component {
     const { items } = this.props;
     const { isOpen } = this.state;
     const classActive = isOpen ? 'is-active' : '';
-    const height = isOpen ? '100vh' : 'auto';
-    const overflow = isOpen ? 'hidden' : 'visible';
     const LogoBlack =
       process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonBlack : Logo2019Black;
     const LogoWhite =

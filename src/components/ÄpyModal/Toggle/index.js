@@ -11,7 +11,7 @@ const ToggleModal = styled.div`
   right: 1.35em;
 
   ${media.tablet(css`
-    top: 1.1em;
+    top: 0.7em;
     right: 0.3em;
   `)};
 

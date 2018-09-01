@@ -41,8 +41,19 @@ const ContainerÄvystykset = styled.div`
     font-size: 0.7em;
   `)};
 
-  hr {
-    width: 20%;
+  .dot-container {
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 0;
+  }
+
+  .dot {
+    height: 5px;
+    width: 5px;
+    margin-right: 5px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
   }
 `;
 

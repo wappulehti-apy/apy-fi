@@ -63,7 +63,6 @@ class Logo extends React.Component {
       // Setup
 
       const width = window.innerWidth;
-      console.log(this.canvasRef.current)
       const height = this.canvasRef.current.clientHeight;
 
       // Scene
@@ -134,7 +133,6 @@ class Logo extends React.Component {
       renderer.setPixelRatio(window.devicePixelRatio);
 
       // Add the renderer domElement (canvas) to this mounted component
-      console.log(renderer.domElement)
       this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.

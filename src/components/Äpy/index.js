@@ -56,11 +56,11 @@ const ÄpyName = styled.span`
   opacity: 0;
 
   ${media.giant(css`
-    font-size: 0.9em;
+    font-size: 0.75em;
   `)};
 
   ${media.desktop(css`
-    font-size: 0.85em;
+    font-size: 0.7em;
   `)};
 
   ${media.tablet(css`
@@ -80,7 +80,7 @@ class Äpy extends React.PureComponent {
   state = { modalState: 'hidden' };
 
   componentDidMount() {
-    const onTouchDevice = window.width <= breakpoints.tablet;
+    const onTouchDevice = window.innerWidth <= breakpoints.tablet;
     this.setState({ onTouchDevice });
   }
 
@@ -107,7 +107,10 @@ class Äpy extends React.PureComponent {
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
     // 'Finnish Design Äpy' is a long name and to
     // prevent overflow make it's font smaller
-    const css2007 = äpy.vuosi === 2007 ? specialCss2007 : undefined;
+    const css2007 =
+      äpy.vuosi === 2007 || äpy.vuosi === 1985 || äpy.vuosi === 1993
+        ? specialCss2007
+        : undefined;
     const modalProps = { äpy, imgCarousel, handleModalClose, modalState };
     const showModal =
       modalState === 'open' || modalState === 'closing' ? true : false;

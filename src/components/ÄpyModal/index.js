@@ -4,8 +4,6 @@ import styled, { css, keyframes } from 'react-emotion';
 import ÄpyCarousel from '../ÄpyCarousel';
 import ModalToggle from './Toggle';
 import { media, breakpoints } from '../../styles/main';
-import LogoAjatonBlack from '../../../assets/logos/logo-ajaton-musta.png';
-import Logo2019Black from '../../../assets/logos/logo-2019-musta.png';
 
 const fadeShow = keyframes`
   from {
@@ -59,7 +57,7 @@ const ModalBackdrop = styled.div`
   height: 100%;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${p => p.transition} 0.25s ease-in-out;
+  animation: ${p => p.animation} 0.25s ease-in-out;
 `;
 
 const Modal = styled.div`
@@ -69,7 +67,7 @@ const Modal = styled.div`
   width: 100%;
   height: 100%;
   z-index: 101;
-  animation: ${p => p.transition} 0.25s ease-in-out;
+  animation: ${p => p.animation} 0.25s ease-in-out;
   transform-origin: center bottom;
 `;
 
@@ -83,12 +81,27 @@ const ModalMain = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2.5em;
+  border-radius: 2px;
 
   @media (max-height: 1170px) {
-    padding: 1em;
     max-height: 100vh;
-    font-size: 0.8em;
   }
+
+  ${media.giant(css`
+    padding: 2.5em;
+  `)};
+
+  ${media.desktop(css`
+    padding: 1em;
+  `)};
+
+  ${media.tablet(css`
+    padding: 0.5em;
+  `)};
+
+  ${media.phone(css`
+    padding: 1em;
+  `)};
 `;
 
 const ModalContent = styled.div`
@@ -113,7 +126,7 @@ const ModalContent = styled.div`
 const ModalKuvaus = styled.p`
   width: 100%;
   margin: 0;
-  padding: 1em 0 2em 0;
+  padding: 1em 0 0 0;
   font-size: 1.2em;
   line-height: 1.5;
 
@@ -122,10 +135,10 @@ const ModalKuvaus = styled.p`
   }
 
   @media (max-width: 1170px) and (orientation: portrait) {
-    padding: 1em 0 1em 0;
+    padding: 1em 0 0 0;
   }
 
-  ${media.phone(css`
+  ${media.tablet(css`
     font-size: 1em;
   `)};
 `;
@@ -135,6 +148,7 @@ const ModalHeader = styled.h3`
   font-size: 1.8em;
   font-family: 'Lato Black';
   margin: 0;
+  padding-bottom: 1em;
 
   ${media.tablet(css`
     font-size: 1em;
@@ -142,30 +156,6 @@ const ModalHeader = styled.h3`
 
   ${media.phone(css`
     font-size: 0.8em;
-  `)};
-`;
-
-const Divider = styled.hr`
-  width: 60%;
-  color: grey;
-  margin: 1em 20%;
-  height: 2px;
-
-  ${media.tablet(css`
-    margin: 8px 20% 1em 20%;
-  `)};
-`;
-
-const LogoModal = styled.img`
-  position: absolute;
-  bottom: 1em;
-  right: 1em;
-  width: 3em;
-
-  ${media.tablet(css`
-    width: 2em;
-    bottom: 10px;
-    right: 10px;
   `)};
 `;
 
@@ -255,14 +245,12 @@ class ÄpyModal extends React.PureComponent {
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
     const modalProps = { modalWidth };
-    const Logo =
-      process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonBlack : Logo2019Black;
 
     return (
       <Fragment>
         <Modal
           innerRef={this.ModalRef}
-          transition={transMain}
+          animation={transMain}
           className={`äpy__modal ${showHideClassName}`}
           style={{ pointerEvents: 'auto' }}
         >
@@ -271,17 +259,15 @@ class ÄpyModal extends React.PureComponent {
             <ModalHeader>
               {äpy.vuosi} - {äpy.lehti}
             </ModalHeader>
-            <Divider />
             <ModalContent>
               <ÄpyCarousel imgCarousel={imgCarousel} />
               <ModalKuvaus>{äpy.lyhytKuvaus}</ModalKuvaus>
             </ModalContent>
-            <LogoModal key="logo" src={Logo} alt="äpy" />
           </ModalMain>
         </Modal>
         <ModalBackdrop
           className={showHideClassName}
-          transition={transBackdrop}
+          animation={transBackdrop}
         />
       </Fragment>
     );

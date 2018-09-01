@@ -6,7 +6,7 @@ path: "/yhteystiedot"
 
 ## Toimitus
 
-Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Toimituksen tavoitat lukuvuoden aikana lukuisista tapahtumista tai osoitteesta toimitus@apy.fi.
+Äpyn toimitukseen voi ja kannattaa ottaa rohkeasti yhteyttä asiaan kuin asiaan liittyen. Toimituksen tavoitat lukuvuoden aikana lukuisista tapahtumista tai osoitteesta **toimitus@apy.fi.**
 
 ## Äpyn julkaisija
 
