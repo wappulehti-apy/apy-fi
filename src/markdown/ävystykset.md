@@ -10,4 +10,11 @@ path: "/ävystykset"
 
 **Äpy etsii tuettavia kohteita!** Vinkkaa myös koirasi kaiman projekti, jotta voimme auttaa nostamaan sen uudelle tasolle.
 
-<div class="dot-container"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+**Hae Ävystystä lähettämällä hakemuksesi osoitteeseen avystykset@apy.fi**
+
+Hakemuksesta tulee käydä ilmi:
+
+  - Mihin ävystystä haetaan?
+  - Minkälaista tukea kaivataan (rahallista/jotain muuta) ja kuinka paljon?
+  - Miten Äpy voisi saada näkyvyyttä hankkeessa? sekä
+  - Yhteyshenkilön yhteystiedot

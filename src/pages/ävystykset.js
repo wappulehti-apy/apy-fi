@@ -41,19 +41,19 @@ const ContainerÄvystykset = styled.div`
     font-size: 0.7em;
   `)};
 
-  .dot-container {
-    display: flex;
-    justify-content: center;
-    padding: 0.5em 0;
-  }
+  ul {
+    background-color: ${p => (p.theme.mode === 'ajaton' ? 'black' : '#9c223e')};
+    opacity: 0.9;
+    color: white;
+    padding: 1em 2em;
+    border-radius 2px;
+    font-size: 1.5em;
+    font-family: ${p =>
+      p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
 
-  .dot {
-    height: 5px;
-    width: 5px;
-    margin-right: 5px;
-    background-color: black;
-    border-radius: 50%;
-    display: inline-block;
+    li {
+      margin-bottom: 0.5em;
+    }
   }
 `;
 

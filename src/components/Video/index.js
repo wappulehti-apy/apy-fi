@@ -59,7 +59,10 @@ const Video = () => (
       <ReactPlayer url="https://vimeo.com/213825989" playing />
     </PlayerContainer>
     <IndexInfo>
-      <p>Neljä kirjainta, joihin voit luottaa.</p>
+      <p>
+        {process.env.GATSBY_INDEX_VIDEO === 'true' ? 'Äpy - ' : ''} Neljä
+        kirjainta, joihin voit luottaa.
+      </p>
       <span>
         Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
         ilmestyy Wappuna 2019.
