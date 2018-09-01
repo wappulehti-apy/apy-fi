@@ -2,9 +2,11 @@
 path: "/ävystykset"
 ---
 
-## Äpy tukee teekkari- ja opiskelijakulttuurin ilmentymiä!
+# Ävystykset
 
-Opiskelijoiden Wappuisin myymä Äpy myymä tukee opiskeliajyhteistöä myös Wapunajan ulkopuolella.
+**Äpy tukee teekkari- ja opiskelijakulttuurin ilmentymiä!** Opiskelijoiden Wappuisin myymä Äpy tukee opiskeliajyhteistöä myös Wapunajan ulkopuolella.
+
+---
 
 **Avustusta voi hakea kuka ja mikä vain Aalto-yliopistossa toimiva elin!** Erityisesti haluamme tukea kohteita, joista on iloa mahdollisimman monelle mahdollisimman pitkään.
 

@@ -223,7 +223,7 @@ class ÄpyModal extends React.PureComponent {
     if (width < breakpoints.desktop) {
       this.setState({ modalWidth: '90%' });
     } else {
-      this.setState({ modalWidth: '40%' });
+      this.setState({ modalWidth: '50%' });
     }
   };
 

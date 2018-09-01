@@ -17,22 +17,22 @@ const ContainerÄvystykset = styled.div`
 
   ${media.giant(css`
     margin: 0 25% auto 25%;
-    padding: 2em 5em;
+    padding: 1.5em 3em;
   `)};
 
   ${media.overdesktop(css`
     margin: 0 20% auto 20%;
-    padding: 3em;
+    padding: 1.5em 3em;
   `)};
 
   ${media.desktop(css`
     margin: 0 15% auto 15%;
-    padding: 3em;
+    padding: 1em 3em;
   `)};
 
   ${media.tablet(css`
     margin: 0 10% auto 10%;
-    padding: 2em;
+    padding: 1em 2em;
   `)};
 
   ${media.phone(css`
@@ -40,6 +40,10 @@ const ContainerÄvystykset = styled.div`
     padding: 1em;
     font-size: 0.7em;
   `)};
+
+  hr {
+    width: 20%;
+  }
 `;
 
 const HeroImgContainer = styled.div`
@@ -76,7 +80,7 @@ function ÄvystyksetPage({ data, ...props }) {
 
   return (
     <Layout {...props}>
-      <HeroImgContainer id="">
+      <HeroImgContainer>
         <Img sizes={image.node.childImageSharp.sizes} />
       </HeroImgContainer>
       <ContainerÄvystykset id="page__ävystykset">
@@ -111,7 +115,7 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             sizes(maxWidth: 1000) {
-              ...GatsbyImageSharpSizes_tracedSVG
+              ...GatsbyImageSharpSizes
             }
           }
         }

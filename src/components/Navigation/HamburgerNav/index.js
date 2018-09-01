@@ -28,6 +28,7 @@ const TrailContainer = styled.div`
 const ContainerNav = styled.div`
   min-height: 85px;
   z-index: 2;
+  position: relative;
 `;
 
 const LogoNav = styled.img`
@@ -63,6 +64,7 @@ class HamburgerNav extends React.Component {
   componentWillUnmount() {
     // Reintroduce overflow on unmount
     document.body.style.overflow = 'visible';
+    document.body.style.position = 'static';
   }
 
   toggleNav = () => {
@@ -70,8 +72,10 @@ class HamburgerNav extends React.Component {
       isOpen: !prevState.isOpen
     }));
     const { isOpen } = this.state;
-    const css = isOpen ? 'visible' : 'hidden';
-    document.body.style.overflow = css;
+    const cssOverflow = isOpen ? 'visible' : 'hidden';
+    const cssPosition = isOpen ? 'static' : 'fixed';
+    document.body.style.overflow = cssOverflow;
+    document.body.style.position = cssPosition;
     // Hide the main content to prevent for example opening a modal
     // while the hamburgernav is open
     document.getElementById('page__wrapper').children[1].style.visibility = css;
@@ -81,6 +85,8 @@ class HamburgerNav extends React.Component {
     const { items } = this.props;
     const { isOpen } = this.state;
     const classActive = isOpen ? 'is-active' : '';
+    const height = isOpen ? '100vh' : 'auto';
+    const overflow = isOpen ? 'hidden' : 'visible';
     const LogoBlack =
       process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonBlack : Logo2019Black;
     const LogoWhite =

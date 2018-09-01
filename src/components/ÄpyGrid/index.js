@@ -8,11 +8,27 @@ import { media } from '../../styles/main';
 const InformationContainer = styled.div`
   background-color: white;
   border-radius: 2px;
-  padding: 1em;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
     0px 18px 23px rgba(0, 0, 0, 0.1);
 
+  ${media.giant(css`
+    padding: 1.5em 3em;
+  `)};
+
+  ${media.overdesktop(css`
+    padding: 1.5em 3em;
+  `)};
+
+  ${media.desktop(css`
+    padding: 1em 3em;
+  `)};
+
+  ${media.tablet(css`
+    padding: 1em 2em;
+  `)};
+
   ${media.phone(css`
+    padding: 1em;
     font-size: 0.8em;
   `)};
 `;

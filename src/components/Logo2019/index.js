@@ -22,6 +22,10 @@ const IndexInfo = styled.div`
 
   text-align: center;
 
+  span {
+    font-size 0.7em;
+  }
+
   a {
     font-size: 0.8em;
   }
@@ -41,7 +45,7 @@ const IndexInfo = styled.div`
   `)};
 
   ${media.phone(css`
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin: 0 10% 0 10%;
   `)};
 `;
@@ -235,11 +239,11 @@ class Logo extends React.Component {
       <Fragment>
         <LogoContainer innerRef={this.canvasRef} />
         <IndexInfo>
-          <p>Neljä kirjainta, joihon voit luottaa.</p>
-          <p>
+          <p>Neljä kirjainta, joihin voit luottaa.</p>
+          <span>
             Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
             ilmestyy Wappuna 2019.
-          </p>
+          </span>
           <SocialIcons />
         </IndexInfo>
       </Fragment>

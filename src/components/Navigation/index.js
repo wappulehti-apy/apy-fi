@@ -53,11 +53,11 @@ const items = [
   <Link key="äpyt" className={cssNavLink} to="/äpyt" exact>
     Äpyt
   </Link>,
-  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot" exact>
-    Yhteystiedot
-  </Link>,
   <Link key="ävystykset" className={cssNavLink} to="/ävystykset" exact>
     Ävystykset
+  </Link>,
+  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot" exact>
+    Yhteystiedot
   </Link>
 ];
 

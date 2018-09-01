@@ -17,22 +17,22 @@ const ContainerYhteystiedot = styled.div`
 
   ${media.giant(css`
     margin: 0 25% auto 25%;
-    padding: 2em 5em;
+    padding: 1.5em 3em;
   `)};
 
   ${media.overdesktop(css`
     margin: 0 20% auto 20%;
-    padding: 3em;
+    padding: 1.5em 3em;
   `)};
 
   ${media.desktop(css`
     margin: 0 15% auto 15%;
-    padding: 3em;
+    padding: 1em 3em;
   `)};
 
   ${media.tablet(css`
     margin: 0 10% auto 10%;
-    padding: 2em;
+    padding: 1em 2em;
   `)};
 
   ${media.phone(css`
@@ -70,13 +70,14 @@ const HeroImgContainer = styled.div`
 `;
 
 function YhteystiedotPage({ data, ...props }) {
-  const { markdownRemark, imgHero } = data;
+  const { markdownRemark, images } = data;
   const htmlYhteystiedot = markdownRemark.html;
+  const image = images.edges[Math.floor(Math.random() * images.edges.length)];
 
   return (
     <Layout {...props}>
-      <HeroImgContainer id="">
-        <Img sizes={imgHero.childImageSharp.sizes} />
+      <HeroImgContainer>
+        <Img sizes={image.node.childImageSharp.sizes} />
       </HeroImgContainer>
       <ContainerYhteystiedot id="page__yhteystiedot">
         <div dangerouslySetInnerHTML={{ __html: htmlYhteystiedot }} />
@@ -100,10 +101,19 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: "/yhteystiedot" } }) {
       html
     }
-    imgHero: file(relativePath: { eq: "pages/yhteystiedot/hero-img.jpg" }) {
-      childImageSharp {
-        sizes(maxWidth: 1000) {
-          ...GatsbyImageSharpSizes_tracedSVG
+    images: allFile(
+      filter: {
+        extension: { eq: "jpg" }
+        relativeDirectory: { eq: "pages/yhteystiedot" }
+      }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            sizes(maxWidth: 1000) {
+              ...GatsbyImageSharpSizes
+            }
+          }
         }
       }
     }
