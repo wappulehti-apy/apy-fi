@@ -43,11 +43,10 @@ const ContainerÄvystykset = styled.div`
 
   ul {
     background-color: ${p => (p.theme.mode === 'ajaton' ? 'black' : '#9c223e')};
-    opacity: 0.9;
     color: white;
     padding: 1em 2em;
     border-radius 2px;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: ${p =>
       p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
 

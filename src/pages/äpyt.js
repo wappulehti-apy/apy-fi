@@ -87,7 +87,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1000) {
+            sizes(maxWidth: 1500) {
               ...GatsbyImageSharpSizes
             }
           }

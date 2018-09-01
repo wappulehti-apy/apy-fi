@@ -47,5 +47,5 @@ module.exports = {
 
   // Manifest and Progress color
   themeColor: theme === 'ajaton' ? '#000000' : color2019,
-  backgroundColor: theme === 'ajaton' ? '#ffffff' : color2019 // Used for SEO and manifest
+  backgroundColor: theme === 'ajaton' ? '#ffffff' : color2019
 };

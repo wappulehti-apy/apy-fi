@@ -12,8 +12,8 @@ path: "/ävystykset"
 
 **Hae Ävystystä lähettämällä hakemuksesi osoitteeseen avystykset@apy.fi**
 
-Hakemuksesta tulee käydä ilmi:
 
+Hakemuksesta tulee käydä ilmi:
   - Mihin ävystystä haetaan?
   - Minkälaista tukea kaivataan (rahallista/jotain muuta) ja kuinka paljon?
   - Miten Äpy voisi saada näkyvyyttä hankkeessa? sekä
