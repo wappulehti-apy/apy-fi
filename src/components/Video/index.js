@@ -65,7 +65,7 @@ const Video = () => (
       </p>
       <span>
         Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
-        ilmestyy Wappuna 2019.
+        ilmestyy mahdollisena Wappuna 2019.
       </span>
       <SocialIcons />
     </IndexInfo>

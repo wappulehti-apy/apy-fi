@@ -41,18 +41,15 @@ const ContainerÄvystykset = styled.div`
     font-size: 0.7em;
   `)};
 
-  ul {
-    background-color: ${p => (p.theme.mode === 'ajaton' ? 'black' : '#9c223e')};
-    color: white;
-    padding: 1em 2em;
+  .avystykset-instructions {
+    border: 2px solid ${p => (p.theme.mode === 'ajaton' ? 'black' : '#9c223e')};
+    color: black;
+    padding: 2em;
+    margin: 2.5em 0;
     border-radius 2px;
-    font-size: 1.3em;
+    font-size: 0.9em;
     font-family: ${p =>
-      p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
-
-    li {
-      margin-bottom: 0.5em;
-    }
+      p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato'};
   }
 `;
 
