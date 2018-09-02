@@ -49,7 +49,7 @@ const ContainerÄvystykset = styled.div`
     border-radius 2px;
     font-size: 0.9em;
     font-family: ${p =>
-      p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato'};
+      p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Regular'};
   }
 `;
 
