@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 
 const Container404 = styled.div`
   display: flex;

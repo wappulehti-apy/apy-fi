@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import Layout from '../components/Layout';
+import Layout from '../components/layout';
 import Video from '../components/Video';
 import LogoAjaton from '../components/Logo';
 import Logo2019 from '../components/Logo2019';
