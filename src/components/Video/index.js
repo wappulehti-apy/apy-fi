@@ -56,7 +56,7 @@ const IndexInfo = styled.div`
 const Video = () => (
   <Fragment>
     <PlayerContainer>
-      <ReactPlayer url="https://vimeo.com/213825989" playing />
+      <ReactPlayer url="https://vimeo.com/288036715" />
     </PlayerContainer>
     <IndexInfo>
       <p>
