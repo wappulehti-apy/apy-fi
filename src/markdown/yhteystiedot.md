@@ -14,4 +14,4 @@ Suomen Äpy-lehtien liitto ry.
 PL 58, 02151 Espoo
 Y-tunnus: 10519041
 
-Yhteyden Suomen Äpy-lehtien liittoon saat parhaiten osoitteesta salli [ät] apy.fi
+Yhteyden Suomen Äpy-lehtien liittoon saat parhaiten osoitteesta **sallit [ät] apy.fi.**
