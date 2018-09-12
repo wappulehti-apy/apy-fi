@@ -50,10 +50,10 @@ const items = [
   <Link key="etusivu" className={cssNavLink} to="/" exact>
     Etusivu
   </Link>,
-  <Link key="äpyt" className={cssNavLink} to="/äpyt" exact>
+  <Link key="äpyt" className={cssNavLink} to="/apyt" exact>
     Äpyt
   </Link>,
-  <Link key="ävystykset" className={cssNavLink} to="/ävystykset" exact>
+  <Link key="ävystykset" className={cssNavLink} to="/avystykset" exact>
     Ävystykset
   </Link>,
   <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot" exact>
