@@ -72,7 +72,7 @@ const ÄpyName = styled.span`
   `)};
 `;
 
-const specialCss2007 = css`
+const specialCss = css`
   font-size: 0.6em !important;
 `;
 
@@ -109,7 +109,7 @@ class Äpy extends React.PureComponent {
     // prevent overflow make it's font smaller
     const css2007 =
       äpy.vuosi === 2007 || äpy.vuosi === 1985 || äpy.vuosi === 1993
-        ? specialCss2007
+        ? specialCss
         : undefined;
     const modalProps = { äpy, imgCarousel, handleModalClose, modalState };
     const showModal =

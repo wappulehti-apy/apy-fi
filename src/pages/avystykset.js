@@ -44,10 +44,10 @@ const ContainerÄvystykset = styled.div`
   .avystykset-instructions {
     border: 2px solid ${p => (p.theme.mode === 'ajaton' ? 'black' : '#9c223e')};
     color: black;
-    padding: 2em;
+    padding: 1.5em;
     margin: 2.5em 0;
     border-radius 2px;
-    font-size: 0.9em;
+    font-size: 1.1em;
     font-family: ${p =>
       p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Regular'};
   }
@@ -102,9 +102,9 @@ export default ÄvystyksetPage;
 ÄvystyksetPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      html: PropTypes.string
-    })
-  }).isRequired
+      html: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export const pageQuery = graphql`

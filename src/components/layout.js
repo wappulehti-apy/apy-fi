@@ -49,13 +49,13 @@ class Layout extends React.PureComponent {
 Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
   location: PropTypes.shape({
     hash: PropTypes.string,
     key: PropTypes.string,
-    pathname: PropTypes.string
-  }).isRequired
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export default Layout;

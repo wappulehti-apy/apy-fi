@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'react-emotion';
 import LipsumData from '../../../assets/vitsit.json';
 

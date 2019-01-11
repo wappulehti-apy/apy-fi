@@ -15,5 +15,5 @@ export {
   LatoBlack,
   MontserratBlack,
   MontserratBold,
-  MontserratRegular
+  MontserratRegular,
 };

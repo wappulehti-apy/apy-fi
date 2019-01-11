@@ -68,9 +68,9 @@ export default ÄpyPage;
 ÄpyPage.propTypes = {
   data: PropTypes.shape({
     allImageSharp: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  }).isRequired
+      edges: PropTypes.array,
+    }),
+  }).isRequired,
 };
 
 export const pageQuery = graphql`

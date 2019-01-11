@@ -91,9 +91,9 @@ export default YhteystiedotPage;
 YhteystiedotPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
-      html: PropTypes.string
-    })
-  }).isRequired
+      html: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export const pageQuery = graphql`
