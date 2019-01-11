@@ -11,9 +11,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node": true,
+    "node": true
   },
-  "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "import/no-extraneous-dependencies": "off",
@@ -24,9 +23,14 @@
     "jsx-a11y/alt-text": "off"
   },
   "extends": [
-    "airbnb",
     "eslint:recommended",
-    "prettier",
-    "prettier/react",
-  ]
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["prettier", "jsx-a11y"]
 }

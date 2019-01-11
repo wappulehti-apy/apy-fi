@@ -35,7 +35,7 @@ yarn develop
 
 ### Koodityyli
 
-Tiedosto .eslintrc sisältää koodin tyylimäärittelyjä. Käytössä on [ESLint](https://eslint.org/) ja [Prettier](https://prettier.io/)
+Tiedostot .eslintrc ja .prettierrc sisältävät koodin tyylimäärittelyjä. Käytössä on [ESLint](https://eslint.org/) ja [Prettier](https://prettier.io/)
 
 ## Konfigurointi
 
