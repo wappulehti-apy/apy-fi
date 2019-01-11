@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Layout from '../components/layout';
 import ÄpyGrid from '../components/ÄpyGrid';
 import { media } from '../styles/main';
@@ -88,6 +89,7 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             sizes(maxWidth: 1500) {
+              src
               ...GatsbyImageSharpSizes
             }
           }
@@ -105,6 +107,7 @@ export const pageQuery = graphql`
           id
           childImageSharp {
             sizes(maxWidth: 1500) {
+              src
               ...GatsbyImageSharpSizes_tracedSVG
             }
           }
@@ -122,6 +125,7 @@ export const pageQuery = graphql`
           id
           childImageSharp {
             sizes(maxWidth: 400) {
+              src
               ...GatsbyImageSharpSizes_tracedSVG
             }
           }

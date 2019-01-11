@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { css } from 'react-emotion';
+import { css } from 'emotion';
+import { css as css2 } from '@emotion/core';
 import { breakpoints, media } from '../../styles/main';
 import HamburgerNav from './HamburgerNav';
 import NormalNav from './NormalNav';
@@ -29,36 +30,36 @@ const cssNavLink = css`
     transform: scaleX(1);
   }
 
-  ${media.giant(css`
+  ${media.giant(css2`
     font-size: 1.8em;
   `)};
 
-  ${media.desktop(css`
+  ${media.desktop(css2`
     font-size: 1.5em;
   `)};
 
-  ${media.tablet(css`
+  ${media.tablet(css2`
     font-size: 1.4em;
   `)};
 
-  ${media.phone(css`
+  ${media.phone(css2`
     font-size: 1.1em;
   `)};
 `;
 
 const items = [
-  <Link key="etusivu" className={cssNavLink} to="/" exact>
+  <Link key="etusivu" className={cssNavLink} to="/">
     Etusivu
   </Link>,
-  <Link key="äpyt" className={cssNavLink} to="/apyt" exact>
+  <Link key="äpyt" className={cssNavLink} to="/apyt">
     Äpyt
   </Link>,
-  <Link key="ävystykset" className={cssNavLink} to="/avystykset" exact>
+  <Link key="ävystykset" className={cssNavLink} to="/avystykset">
     Ävystykset
   </Link>,
-  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot" exact>
+  <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot">
     Yhteystiedot
-  </Link>
+  </Link>,
 ];
 
 class Navigation extends React.Component {

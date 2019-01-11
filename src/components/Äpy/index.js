@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import ÄpyModal from '../ÄpyModal';
 import { media, breakpoints } from '../../styles/main';
 
@@ -138,8 +139,8 @@ export default Äpy;
   äpy: PropTypes.shape({
     lyhytKuvaus: PropTypes.string,
     lehti: PropTypes.string,
-    vuosi: PropTypes.number
+    vuosi: PropTypes.number,
   }).isRequired,
   imgGrid: PropTypes.arrayOf(PropTypes.object).isRequired,
-  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired
+  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
 };

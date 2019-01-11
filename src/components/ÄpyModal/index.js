@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, keyframes } from 'react-emotion';
+import styled from '@emotion/styled';
+import { keyframes } from 'emotion';
+import { css } from '@emotion/core';
 import ÄpyCarousel from '../ÄpyCarousel';
 import ModalToggle from './Toggle';
 import { media, breakpoints } from '../../styles/main';
+import getScrollbarWidth from 'get-scrollbar-width';
 
 const fadeShow = keyframes`
   from {
@@ -252,6 +255,8 @@ class ÄpyModal extends React.PureComponent {
   };
 
   disableScrolling(state) {
+    var currentBrowserScrollbarWidth = getScrollbarWidth();
+    console.log(currentBrowserScrollbarWidth); // value depends on browser, 15 pixels is common
     switch (state) {
       case 'open':
         document.body.style.overflow = 'hidden';
@@ -284,7 +289,7 @@ class ÄpyModal extends React.PureComponent {
     return (
       <Fragment>
         <Modal
-          innerRef={this.ModalRef}
+          ref={this.ModalRef}
           animation={transMain}
           className={`äpy__modal ${showHideClassName}`}
           style={{ pointerEvents: 'auto' }}

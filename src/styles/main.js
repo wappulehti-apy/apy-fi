@@ -1,4 +1,6 @@
-import { injectGlobal, css } from 'react-emotion';
+import { injectGlobal } from 'emotion';
+import { css } from '@emotion/core';
+
 import {
   LibreBaskervilleRegular,
   LatoLight,
@@ -81,7 +83,7 @@ injectGlobal`
 `;
 
 /**
- * Generate react-emotion media queries to be used in components.
+ * Generate @emotion/styled media queries to be used in components.
  */
 export const breakpoints = {
   giant: 9999,

@@ -31,10 +31,10 @@ DurationTrail.propTypes = {
   children: PropTypes.arrayOf(PropTypes.func).isRequired,
   delay: PropTypes.number,
   ms: PropTypes.number,
-  keys: PropTypes.arrayOf(PropTypes.string).isRequired
+  keys: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 DurationTrail.defaultProps = {
   delay: 1200,
-  ms: 200
+  ms: 200,
 };

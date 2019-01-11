@@ -1,5 +1,6 @@
 import React from 'react';
-import styled, { keyframes } from 'react-emotion';
+import styled from '@emotion/styled';
+import { keyframes } from 'emotion';
 import LipsumData from '../../../assets/vitsit.json';
 
 const LipsumContainer = styled.div`

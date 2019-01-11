@@ -1,8 +1,6 @@
 import React from 'react';
-import styled from 'react-emotion';
-import FaFacebook from 'react-icons/lib/fa/facebook';
-import FaInstagram from 'react-icons/lib/fa/instagram';
-import FaVimeo from 'react-icons/lib/fa/vimeo';
+import styled from '@emotion/styled';
+import { FaFacebook, FaInstagram, FaVimeo } from 'react-icons/fa';
 
 const Ul = styled.ul`
   display: flex;

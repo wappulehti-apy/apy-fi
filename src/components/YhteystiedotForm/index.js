@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css, keyframes } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { keyframes } from 'emotion';
 import { media, breakpoints } from '../../styles/main';
 
 const expand = keyframes`
@@ -235,7 +237,7 @@ class ContactForm extends React.Component {
       emailSent: false,
       submitError: false,
       htmlToimitus,
-      htmlRahasto
+      htmlRahasto,
     };
 
     this.FormRef = React.createRef();
@@ -258,7 +260,9 @@ class ContactForm extends React.Component {
       const about = formData.get('about');
       formData.delete('about');
       const to =
-        about === 'ävystykset' ? 'timo.h.risk@gmail.com' : 'timo.h.risk@gmail.com';
+        about === 'ävystykset'
+          ? 'timo.h.risk@gmail.com'
+          : 'timo.h.risk@gmail.com';
       formData.set('to', to);
 
       //this.setState({ emailSent: true });
@@ -266,7 +270,7 @@ class ContactForm extends React.Component {
       fetch('https://sendemail.apy.fi/', {
         method: 'post',
         mode: 'cors',
-        body: formData
+        body: formData,
       })
         .then(r => r.json())
         .then(responseJson => {
@@ -276,7 +280,7 @@ class ContactForm extends React.Component {
             this.setState({
               emailSent: true,
               formSubmitted: false,
-              formValid: false
+              formValid: false,
             });
             // Reset the success message after a timeout
             setTimeout(() => {
@@ -299,7 +303,7 @@ class ContactForm extends React.Component {
       subjectValid,
       emailValid,
       messageValid,
-      filesValid
+      filesValid,
     } = this.state;
 
     switch (e.target.name) {
@@ -366,11 +370,11 @@ class ContactForm extends React.Component {
       subjectValid,
       emailValid,
       messageValid,
-      filesValid
+      filesValid,
     } = this.state;
     this.setState({
       formValid:
-        aboutValid && subjectValid && emailValid && messageValid && filesValid
+        aboutValid && subjectValid && emailValid && messageValid && filesValid,
     });
   }
 
@@ -387,7 +391,7 @@ class ContactForm extends React.Component {
       emailSent,
       submitError,
       htmlToimitus,
-      htmlRahasto
+      htmlRahasto,
     } = this.state;
 
     return (
@@ -549,10 +553,10 @@ ContactForm.propTypes = {
       node: PropTypes.shape({
         frontmatter: PropTypes.shape({
           title: PropTypes.string,
-          path: PropTypes.string
+          path: PropTypes.string,
         }),
-        html: PropTypes.string
-      }).isRequired
+        html: PropTypes.string,
+      }).isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };

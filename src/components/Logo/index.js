@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import logoOBJ from '../../../assets/logos/3d/logo3d-ajaton.obj';
 import vs from './shaders/ground.vs';
 import fs from './shaders/ground.fs';

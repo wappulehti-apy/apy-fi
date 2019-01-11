@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import Äpy from '../Äpy';
 import ÄpyData from '../../../assets/ävyt.json';
 import { media } from '../../styles/main';
@@ -69,12 +70,18 @@ class ÄpyGrid extends React.Component {
     const { imgGrid, imgCarousel, html } = this.props;
     const äpys = ÄpyData.map(äpy => (
       <Äpy
-        imgGrid={imgGrid.filter(x =>
-          x.node.childImageSharp.sizes.src.startsWith(`/static/${äpy.vuosi}`)
-        )}
-        imgCarousel={imgCarousel.filter(x =>
-          x.node.childImageSharp.sizes.src.startsWith(`/static/${äpy.vuosi}`)
-        )}
+        imgGrid={imgGrid.filter(x => {
+          const last = x.node.childImageSharp.sizes.src.split('/').pop();
+          if (last.startsWith(`${äpy.vuosi}`)) {
+            return x;
+          }
+        })}
+        imgCarousel={imgCarousel.filter(x => {
+          const last = x.node.childImageSharp.sizes.src.split('/').pop();
+          if (last.startsWith(`${äpy.vuosi}`)) {
+            return x;
+          }
+        })}
         äpy={äpy}
         key={äpy.vuosi}
       />
@@ -101,5 +108,5 @@ export default ÄpyGrid;
 ÄpyGrid.propTypes = {
   imgGrid: PropTypes.arrayOf(PropTypes.object).isRequired,
   imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
-  html: PropTypes.string.isRequired
+  html: PropTypes.string.isRequired,
 };

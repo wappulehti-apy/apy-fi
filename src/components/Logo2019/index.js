@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import * as THREE from 'three';
-import styled, { css } from 'react-emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import SocialIcons from '../SocialIcons';
 import { media, breakpoints } from '../../styles/main';
 // See gatsby-node.js for explanation of how this works
@@ -77,7 +78,7 @@ class Logo extends React.Component {
       // Renderer
       const renderer = new THREE.WebGLRenderer({
         antialias: true,
-        alpha: true
+        alpha: true,
       });
 
       // Controls
@@ -235,7 +236,7 @@ class Logo extends React.Component {
   render() {
     return (
       <Fragment>
-        <LogoContainer innerRef={this.canvasRef} />
+        <LogoContainer ref={this.canvasRef} />
         <IndexInfo>
           <p>Neljä kirjainta, joihin voit luottaa.</p>
           <span>

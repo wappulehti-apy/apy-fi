@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import SEO from './SEO';
 import Navigation from './Navigation';
 import SocialIcons from './SocialIcons';
