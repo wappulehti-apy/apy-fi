@@ -69,7 +69,7 @@ class HamburgerNav extends React.Component {
 
   toggleNav = () => {
     this.setState(prevState => ({
-      isOpen: !prevState.isOpen
+      isOpen: !prevState.isOpen,
     }));
     const { isOpen } = this.state;
     const cssOverflow = isOpen ? 'visible' : 'hidden';
@@ -102,16 +102,16 @@ class HamburgerNav extends React.Component {
             zIndex: '1',
             position: 'fixed',
             width: '100%',
-            height: '100%'
+            height: '100%',
           }}
-          config={{ tension: 100, friction: 14, overshootClamping: true }}
+          config={{ tension: 90, friction: 14, overshootClamping: true }}
           toggle={isOpen}
         >
-          {({ y, ...styles }) => (
+          {({ ...styles }) => (
             <animated.div
               style={{
                 display: isOpen ? 'block' : 'none',
-                ...styles
+                ...styles,
               }}
             >
               <TrailContainer>
@@ -120,22 +120,22 @@ class HamburgerNav extends React.Component {
                     native
                     keys={items.map(i => i.key)}
                     delay={0}
-                    ms={50}
-                    from={{ opacity: 0, x: -20 }}
+                    ms={80}
+                    from={{ opacity: 0, x: 0 }}
                     to={{ opacity: 1, x: 0 }}
                   >
-                    {items.map(item => ({ y, x, ...props }) => (
+                    {items.map(item => ({ x, ...props }) => (
                       <animated.div
                         className={cssNavMain}
                         style={{
                           transform: x.interpolate(
-                            x => `translate3d(${x}px,0,0)`
+                            x => `translate3d(${x}px,0,0) ease-out`
                           ),
-                          ...props
+                          ...props,
                         }}
                       >
                         {React.cloneElement(item, {
-                          activeClassName: activeNavElement
+                          activeClassName: activeNavElement,
                         })}
                       </animated.div>
                     ))}
@@ -153,5 +153,5 @@ class HamburgerNav extends React.Component {
 export default HamburgerNav;
 
 HamburgerNav.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.element).isRequired
+  items: PropTypes.arrayOf(PropTypes.element).isRequired,
 };

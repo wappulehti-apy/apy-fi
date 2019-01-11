@@ -94,19 +94,19 @@ class NormalNav extends React.PureComponent {
           from={{ opacity: 1, y: 0 }}
           to={{
             opacity: 1,
-            y: 0
+            y: 0,
           }}
         >
-          {items.map(item => ({ y, x, ...props }) => (
+          {items.map(item => ({ y, ...props }) => (
             <animated.div
               className={cssNavMain}
               style={{
                 transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
-                ...props
+                ...props,
               }}
             >
               {React.cloneElement(item, {
-                activeClassName: `${cssNavMain} ${activeNavElement}`
+                activeClassName: `${cssNavMain} ${activeNavElement}`,
               })}
             </animated.div>
           ))}
@@ -119,5 +119,5 @@ class NormalNav extends React.PureComponent {
 export default NormalNav;
 
 NormalNav.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.element).isRequired
+  items: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
