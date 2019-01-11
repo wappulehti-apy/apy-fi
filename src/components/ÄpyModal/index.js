@@ -74,9 +74,11 @@ const Modal = styled.div`
 const ModalMain = styled.div`
   position: fixed;
   background: white;
-  margin 0 auto;
+  margin: 0 auto;
   width: ${p => p.modalWidth};
   height: auto;
+  max-height: 100vh;
+  overflow: hidden;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -105,21 +107,26 @@ const ModalMain = styled.div`
 `;
 
 const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-rows: fit-content(20%);
 
-  @media (max-width: 1170px) and (orientation: landscape) {
-    flex-direction: row;
-  }
+  grid-template-areas:
+    'carousel'
+    'text';
 
-  @media only screen and (min-device-width: 1170px) {
-    justify-content: start;
-  }
+  ${media.landscape(css`
+    grid-template-areas: 'carousel text';
+  `)};
 
-  @media only screen and (max-device-width: 1170px) and (orientation: landscape) {
-    justify-content: start;
-    flex-wrap: nowrap;
+  ${media.min_desktop(css`
+    grid-template-areas:
+      'carousel'
+      'text';
+  `)};
+
+  @media (min-aspect-ratio: 2/1) {
+    grid-template-areas: 'carousel text';
   }
 `;
 
@@ -129,6 +136,7 @@ const ModalKuvaus = styled.p`
   padding: 1em 0 0 0;
   font-size: 1.2em;
   line-height: 1.5;
+  grid-area: text;
 
   @media (max-width: 1170px) and (orientation: landscape) {
     padding: 0 0 0 1em;
@@ -136,6 +144,10 @@ const ModalKuvaus = styled.p`
 
   @media (max-width: 1170px) and (orientation: portrait) {
     padding: 1em 0 0 0;
+  }
+
+  @media (min-aspect-ratio: 2/1) {
+    padding: 0 0 0 1em;
   }
 
   ${media.tablet(css`
@@ -239,12 +251,35 @@ class ÄpyModal extends React.PureComponent {
     }
   };
 
+  disableScrolling(state) {
+    switch (state) {
+      case 'open':
+        document.body.style.overflow = 'hidden';
+        // Scrollbar is approximately 15px wide.
+        // It gets removed with overflow: hidden so we
+        // add margin to body to prevent it from jumping
+        // on modal open.
+        document.body.style.marginRight = '15px';
+        document.documentElement.style.overflow = 'hidden';
+        break;
+      case 'closing':
+        document.body.style.overflow = null;
+        document.body.style.marginRight = '0';
+        document.documentElement.style.overflow = null;
+        break;
+    }
+  }
+
   render() {
     const { äpy, imgCarousel, handleModalClose, modalState } = this.props;
     const { modalWidth } = this.state;
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
     const modalProps = { modalWidth };
+
+    if (typeof document !== 'undefined') {
+      this.disableScrolling(modalState);
+    }
 
     return (
       <Fragment>
@@ -280,9 +315,9 @@ export default ÄpyModal;
   äpy: PropTypes.shape({
     lyhytKuvaus: PropTypes.string,
     lehti: PropTypes.string,
-    vuosi: PropTypes.number
+    vuosi: PropTypes.number,
   }).isRequired,
   imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleModalClose: PropTypes.func.isRequired,
-  modalState: PropTypes.string.isRequired
+  modalState: PropTypes.string.isRequired,
 };

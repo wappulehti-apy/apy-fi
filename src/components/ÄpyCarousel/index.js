@@ -5,21 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselContainer = styled.div`
-  flex: 0 0 60%;
-  overflow: hidden;
-
-  @media (max-width: 1025px) and (orientation: portrait) {
-    flex: 0 0 90%;
-  }
-
-  @media only screen and (min-device-width: 768px) and (min-device-height: 768px) and (orientation: landscape) {
-    flex: 0 0 70%;
-  }
-
-  /* iPhone X */
-  @media (min-width: 812px) and (max-height: 375px) and (orientation: landscape) {
-    flex: 0 0 50%;
-  }
+  grid-area: carousel;
 
   & .carousel * {
     user-select: none;
@@ -73,10 +59,10 @@ export default ÄpyCarousel;
     PropTypes.shape({
       node: PropTypes.shape({
         childImageSharp: PropTypes.shape({
-          sizes: PropTypes.object.isRequired
+          sizes: PropTypes.object.isRequired,
         }),
-        id: PropTypes.string.isRequired
-      }).isRequired
+        id: PropTypes.string.isRequired,
+      }).isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };

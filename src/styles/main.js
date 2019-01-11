@@ -6,7 +6,7 @@ import {
   LatoBlack,
   MontserratBlack,
   MontserratBold,
-  MontserratRegular
+  MontserratRegular,
 } from './fonts';
 
 injectGlobal`
@@ -74,8 +74,6 @@ injectGlobal`
   }
 
   html, body {
-    width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Libre Baskerville', sans-serif;
@@ -91,7 +89,8 @@ export const breakpoints = {
   desktop: 1170,
   tablet: 768,
   phone: 576,
-  landscape: '(max-width: 768px) and (min-height: 319px)'
+  landscape: 'orientation: landscape',
+  min_desktop: 'min-width: 1170px',
 };
 
 export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
