@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FaFacebook, FaInstagram, FaVimeo } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaVimeoV } from 'react-icons/fa';
 
 const Ul = styled.ul`
   display: flex;
@@ -43,7 +43,7 @@ const Social = () => (
   <Ul>
     <li>
       <A href="https://www.facebook.com/wappulehti/">
-        <FaFacebook />
+        <FaFacebookF />
       </A>
     </li>
     <li>
@@ -53,7 +53,7 @@ const Social = () => (
     </li>
     <li>
       <A href="https://vimeo.com/laulikki">
-        <FaVimeo />
+        <FaVimeoV />
       </A>
     </li>
   </Ul>
