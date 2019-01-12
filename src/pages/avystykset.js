@@ -47,7 +47,7 @@ const ContainerÄvystykset = styled.div`
     color: black;
     padding: 1.5em;
     margin: 2.5em 0;
-    border-radius 2px;
+    border-radius: 2px;
     font-size: 1.1em;
     font-family: ${p =>
       p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Regular'};

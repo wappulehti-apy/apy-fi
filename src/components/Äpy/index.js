@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from 'emotion';
+import { css as css2 } from '@emotion/core';
 import ÄpyModal from '../ÄpyModal';
 import { media, breakpoints } from '../../styles/main';
 
@@ -32,10 +33,8 @@ const ÄpyNameGradientBackground = styled.div`
   height: 100%;
   bottom: 0;
   z-index: 2;
-
   background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-
   opacity: 0;
   transition: all 0.2s ease-out;
 `;
@@ -47,28 +46,26 @@ const ÄpyName = styled.span`
   right: 0;
   z-index: 3;
   width: 100%;
-
   font-weight: 600;
   font-family: 'Montserrat Bold';
   color: white;
   white-space: nowrap;
   text-align: center;
-
   opacity: 0;
 
-  ${media.giant(css`
+  ${media.giant(css2`
     font-size: 0.75em;
   `)};
 
-  ${media.desktop(css`
+  ${media.desktop(css2`
     font-size: 0.7em;
   `)};
 
-  ${media.tablet(css`
+  ${media.tablet(css2`
     font-size: 0.6em;
   `)};
 
-  ${media.phone(css`
+  ${media.phone(css2`
     font-size: 0.5em;
   `)};
 `;
@@ -108,7 +105,7 @@ class Äpy extends React.PureComponent {
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
     // 'Finnish Design Äpy' is a long name and to
     // prevent overflow make it's font smaller
-    const css2007 =
+    const nameCss =
       äpy.vuosi === 2007 || äpy.vuosi === 1985 || äpy.vuosi === 1993
         ? specialCss
         : undefined;
@@ -121,7 +118,7 @@ class Äpy extends React.PureComponent {
         <ÄpyContainer className="äpy__container" onClick={this.openModal}>
           {!onTouchDevice && (
             <Fragment>
-              <ÄpyName className={css2007}>{äpyLehtiVuosi}</ÄpyName>
+              <ÄpyName className={nameCss}>{äpyLehtiVuosi}</ÄpyName>
               <ÄpyNameGradientBackground />
             </Fragment>
           )}

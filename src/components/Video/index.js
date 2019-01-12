@@ -22,7 +22,7 @@ const IndexInfo = styled.div`
   text-align: center;
 
   span {
-    font-size 0.7em;
+    font-size: 0.7em;
   }
 
   a {

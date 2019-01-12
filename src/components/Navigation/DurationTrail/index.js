@@ -8,7 +8,7 @@ import { Spring } from 'react-spring';
 class DurationTrail extends React.Component {
   getValues = () => this.ref.getValues();
   render() {
-    const { children, delay = 1200, ms = 200, keys, ...props } = this.props;
+    const { children, delay = 0, ms = 50, keys, onRest, ...props } = this.props;
     return children.map((child, i) => {
       return (
         <Spring
@@ -16,7 +16,7 @@ class DurationTrail extends React.Component {
           key={keys[i]}
           {...props}
           delay={delay + i * ms}
-          config={{ tension: 1, friction: 0.5, overshootClamping: true }}
+          onRest={i === children.length - 1 ? onRest : null}
         >
           {child}
         </Spring>
@@ -30,11 +30,12 @@ export default DurationTrail;
 DurationTrail.propTypes = {
   children: PropTypes.arrayOf(PropTypes.func).isRequired,
   delay: PropTypes.number,
+  onRest: PropTypes.object,
   ms: PropTypes.number,
   keys: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 DurationTrail.defaultProps = {
   delay: 1200,
-  ms: 200,
+  ms: 80,
 };

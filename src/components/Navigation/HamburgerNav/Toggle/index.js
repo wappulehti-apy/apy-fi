@@ -42,7 +42,7 @@ const HamburgerToggle = ({ toggle, classActive }) => (
 
 HamburgerToggle.propTypes = {
   toggle: PropTypes.func.isRequired,
-  classActive: PropTypes.string.isRequired
+  classActive: PropTypes.string.isRequired,
 };
 
 export default HamburgerToggle;

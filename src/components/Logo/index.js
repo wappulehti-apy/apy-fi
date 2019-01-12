@@ -90,11 +90,11 @@ class Logo extends React.Component {
       // Use raw shaders to draw the mesh ground
       const shaders = new THREE.RawShaderMaterial({
         uniforms: {
-          time: { value: 0 }
+          time: { value: 0 },
         },
         vertexShader: vs,
         fragmentShader: fs,
-        transparent: true
+        transparent: true,
       });
 
       var ground = new THREE.LineSegments(wireframe, shaders);
