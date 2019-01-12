@@ -71,7 +71,7 @@ const Modal = styled.div`
   height: 100%;
   z-index: 101;
   animation: ${p => p.animation} 0.25s ease-in-out;
-  transform-origin: center bottom;
+  transform-origin: 0 0;
 `;
 
 const ModalMain = styled.div`
@@ -86,6 +86,8 @@ const ModalMain = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 2.5em;
+  margin-left: ${p =>
+    p.modalState === 'closing' ? p.scrollbarWidth / 2 + 'px' : 0};
   border-radius: 2px;
 
   @media (max-height: 1170px) {
@@ -255,21 +257,20 @@ class ÄpyModal extends React.PureComponent {
   };
 
   disableScrolling(state) {
-    var currentBrowserScrollbarWidth = getScrollbarWidth();
-    console.log(currentBrowserScrollbarWidth); // value depends on browser, 15 pixels is common
+    const scrollbarWidth = getScrollbarWidth();
     switch (state) {
       case 'open':
-        document.body.style.overflow = 'hidden';
         // Scrollbar is approximately 15px wide.
         // It gets removed with overflow: hidden so we
         // add margin to body to prevent it from jumping
         // on modal open.
-        document.body.style.marginRight = '15px';
+        document.body.style.marginRight = scrollbarWidth + 'px';
+        document.body.style.overflow = 'hidden';
         document.documentElement.style.overflow = 'hidden';
         break;
       case 'closing':
+        document.body.style.marginRight = '0px';
         document.body.style.overflow = null;
-        document.body.style.marginRight = '0';
         document.documentElement.style.overflow = null;
         break;
     }
@@ -280,7 +281,8 @@ class ÄpyModal extends React.PureComponent {
     const { modalWidth } = this.state;
     const { transMain, transBackdrop } = this.transitionSwitch(modalState);
     const showHideClassName = this.displaySwitch(modalState);
-    const modalProps = { modalWidth };
+    const scrollbarWidth = getScrollbarWidth();
+    const modalProps = { modalWidth, modalState, scrollbarWidth };
 
     if (typeof document !== 'undefined') {
       this.disableScrolling(modalState);

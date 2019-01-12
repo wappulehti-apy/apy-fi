@@ -56,5 +56,5 @@ const ModalToggle = ({ toggle }) => (
 export default ModalToggle;
 
 ModalToggle.propTypes = {
-  toggle: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired,
 };
