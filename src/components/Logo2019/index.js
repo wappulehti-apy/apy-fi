@@ -148,7 +148,7 @@ class Logo extends React.Component {
       DivNoWebGL.style.cssText =
         'margin: 0; \
         font-size: 10em; \
-        font-family: "Lato Black"; \
+        font-family: "Comfortaa Bold"; \
         color: white; \
         display: flex; \
         flex-direction: column; \

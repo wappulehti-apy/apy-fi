@@ -1,14 +1,16 @@
 import { injectGlobal } from 'emotion';
 import { css } from '@emotion/core';
 
+const theme = process.env.GATSBY_THEME;
+
 import {
   LibreBaskervilleRegular,
-  LatoLight,
-  LatoRegular,
-  LatoBlack,
   MontserratBlack,
   MontserratBold,
   MontserratRegular,
+  ComfortaaLight,
+  ComfortaaRegular,
+  ComfortaaBold,
 } from './fonts';
 
 injectGlobal`
@@ -17,27 +19,6 @@ injectGlobal`
     font-style: normal;
     font-weight: normal;
     src: url(${LibreBaskervilleRegular}) format("woff2");
-  }
-
-  @font-face {
-    font-family: "Lato Regular";
-    font-style: normal;
-    font-weight: normal;
-    src: url(${LatoRegular}) format("woff2");
-  }
-
-  @font-face {
-    font-family: "Lato Light";
-    font-style: normal;
-    font-weight: normal;
-    src: url(${LatoLight}) format("woff2");
-  }
-
-  @font-face {
-    font-family: "Lato Black";
-    font-style: normal;
-    font-weight: normal;
-    src: url(${LatoBlack}) format("woff2");
   }
 
   @font-face {
@@ -61,6 +42,27 @@ injectGlobal`
     src: url(${MontserratBlack}) format("woff2");
   }
 
+  @font-face {
+    font-family: "Comfortaa Light";
+    font-style: normal;
+    font-weight: normal;
+    src: url(${ComfortaaLight}) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Comfortaa Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url(${ComfortaaRegular}) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Comfortaa Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url(${ComfortaaBold}) format("woff2");
+  }
+
   *, *:before, *:after {
     box-sizing: inherit;
     letter-spacing: .01em;
@@ -78,7 +80,9 @@ injectGlobal`
   html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Libre Baskerville', sans-serif;
+    font-family: ${
+      theme === 'ajaton' ? 'Libre Baskerville' : 'Comfortaa Regular'
+    };
   }
 `;
 
