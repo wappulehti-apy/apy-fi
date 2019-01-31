@@ -49,12 +49,12 @@ const ToggleModal = styled.div`
   }
 `;
 
-const ModalToggle = ({ toggle }) => (
-  <ToggleModal className="modal__close" onClick={toggle} />
+const ModalToggle = ({ hideModal }) => (
+  <ToggleModal className="modal__close" onClick={hideModal} />
 );
 
 export default ModalToggle;
 
 ModalToggle.propTypes = {
-  toggle: PropTypes.func.isRequired,
+  hideModal: PropTypes.func.isRequired,
 };

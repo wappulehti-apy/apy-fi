@@ -2,62 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { Spring, animated } from 'react-spring';
-import styled from '@emotion/styled';
 import { css } from 'emotion';
 import HamburgerToggle from './Toggle';
 import DurationTrail from '../DurationTrail';
+import {
+  TrailContainer,
+  ContainerNav,
+  LogoNav,
+  cssNavMain,
+  activeNavElement,
+} from './index.css';
 import LogoAjatonBlack from '../../../../assets/logos/logo-ajaton-musta.png';
 import LogoAjatonWhite from '../../../../assets/logos/logo-ajaton-valko.png';
 import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
 import Logo2019Black from '../../../../assets/logos/logo-2019-musta.png';
-
-const activeNavElement = css`
-  text-decoration: underline !important;
-`;
-
-const TrailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  background: white;
-  font-family: ${p =>
-    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
-`;
-
-const ContainerNav = styled.div`
-  min-height: 85px;
-  z-index: 2;
-  position: relative;
-`;
-
-const LogoNav = styled.img`
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  width: 4em;
-  z-index: 3;
-`;
-
-const cssNavMain = css`
-  display: inline-flex;
-  margin: 30px 0 30px 40px;
-  font-size: 1.5em;
-
-  & > a {
-    color: black;
-  }
-
-  img {
-    width: 50px;
-    margin: 20px auto 20px 20px;
-  }
-
-  @media (max-height: 576px) and (orientation: landscape) {
-    margin-bottom: 0px;
-  }
-`;
 
 class HamburgerNav extends React.Component {
   state = { isOpen: false };

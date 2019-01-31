@@ -2,71 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { animated } from 'react-spring';
-import styled from '@emotion/styled';
-import { css } from 'emotion';
-import { media } from '../../../styles/main';
 import DurationTrail from '../DurationTrail';
 import LogoWhite from '../../../../assets/logos/logo-ajaton-valko.png';
 import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
-
-const activeNavElement = css`
-  &:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: -2px;
-    background: white;
-    border-radius: 5px;
-  }
-`;
-
-const NavContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  padding: 20px;
-  z-index: 2;
-
-  font-family: ${p =>
-    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Montserrat Black'};
-`;
-
-const LogoNav = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-
-  width: 60px;
-  margin: 20px auto 20px 20px;
-`;
-
-const cssNavMain = css`
-  display: inline-flex;
-  justify-content: center;
-
-  & > a {
-    color: white;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
-
-  margin-right: 2em;
-
-  img {
-    width: 50px;
-    margin: 20px auto 20px 20px;
-  }
-
-  ${media.tablet(css`
-    font-size: 0.9em;
-  `)};
-`;
+import {
+  NavContainer,
+  LogoNav,
+  cssNavMain,
+  activeNavElement,
+} from './index.css';
 
 class NormalNav extends React.PureComponent {
   render() {

@@ -1,21 +1,12 @@
 import React from 'react';
 import * as THREE from 'three';
+import { LogoContainer } from './index.css';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
-import styled from '@emotion/styled';
 import logoOBJ from '../../../assets/logos/3d/logo3d-ajaton.obj';
 import vs from './shaders/ground.vs';
 import fs from './shaders/ground.fs';
-
-const LogoContainer = styled.div`
-  flex: 1;
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
 
 class Logo extends React.Component {
   constructor(props) {

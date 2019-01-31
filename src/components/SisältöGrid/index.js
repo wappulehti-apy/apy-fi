@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { GridContainer } from './index.css';
 
-class ÄpyGrid extends React.Component {
+class SisältöGrid extends React.Component {
   render() {
     const { children } = this.props;
     return <GridContainer>{children}</GridContainer>;
   }
 }
 
-export default ÄpyGrid;
+export default SisältöGrid;
 
-ÄpyGrid.propTypes = {
+SisältöGrid.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };
