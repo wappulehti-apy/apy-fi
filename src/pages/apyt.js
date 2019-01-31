@@ -4,26 +4,29 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import Layout from '../components/layout';
 import ÄpyGrid from '../components/ÄpyGrid';
+import Äpy from '../components/Äpy';
 import { PageContent, HeroImgContainer } from '../constants/styled';
 
 class ÄpyPage extends React.PureComponent {
   render() {
     const { data, ...props } = this.props;
-    const { images } = data;
-    const imgGrid = data.imgGrid.edges;
-    const imgCarousel = data.imgCarousel.edges;
+    const { images, allAvytJson } = data;
     const image = images.edges[Math.floor(Math.random() * images.edges.length)];
     const html = data.markdownRemark.html;
 
     return (
       <Layout {...props}>
         <HeroImgContainer>
-          <Img sizes={image.node.childImageSharp.sizes} />
+          <Img fluid={image.node.childImageSharp.fluid} />
         </HeroImgContainer>
-        <PageContent id="page__äpyt">
+        <PageContent>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </PageContent>
-        <ÄpyGrid imgGrid={imgGrid} imgCarousel={imgCarousel} />
+        <ÄpyGrid>
+          {allAvytJson.edges.map(äpy => (
+            <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
+          ))}
+        </ÄpyGrid>
       </Layout>
     );
   }
@@ -47,51 +50,41 @@ export const pageQuery = graphql`
     images: allFile(
       filter: {
         extension: { eq: "jpg" }
-        relativeDirectory: { eq: "pages/apyt" }
+        relativeDirectory: { eq: "images/apyt" }
       }
     ) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1500) {
+            fluid(maxWidth: 1500) {
               src
-              ...GatsbyImageSharpSizes
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }
     }
-    imgCarousel: allFile(
-      filter: {
-        extension: { eq: "jpg" }
-        relativeDirectory: { eq: "apyt/carousel" }
-      }
-    ) {
+    allAvytJson {
       edges {
         node {
-          id
-          childImageSharp {
-            sizes(maxWidth: 1500) {
-              src
-              ...GatsbyImageSharpSizes_tracedSVG
+          vuosi
+          lehti
+          kuvaus
+          imgGrid {
+            childImageSharp {
+              fluid(maxWidth: 400) {
+                src
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
             }
           }
-        }
-      }
-    }
-    imgGrid: allFile(
-      filter: {
-        extension: { eq: "jpg" }
-        relativeDirectory: { eq: "apyt/grid" }
-      }
-    ) {
-      edges {
-        node {
-          id
-          childImageSharp {
-            sizes(maxWidth: 400) {
-              src
-              ...GatsbyImageSharpSizes_tracedSVG
+          imgCarousel {
+            id
+            childImageSharp {
+              fluid(maxWidth: 1500) {
+                src
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }

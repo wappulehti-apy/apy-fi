@@ -17,7 +17,7 @@ const LargeText = styled.div`
 
 const NotFoundPage = ({ ...props }) => (
   <Layout {...props}>
-    <Container404 id="page__404">
+    <Container404>
       <LargeText>404</LargeText>
     </Container404>
   </Layout>

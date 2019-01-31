@@ -16,7 +16,7 @@ class IndexPage extends React.PureComponent {
       process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2019 />;
     return (
       <Layout {...this.props}>
-        <ContainerIndex id="page__index" innerRef={this.indexRef}>
+        <ContainerIndex innerRef={this.indexRef}>
           {process.env.GATSBY_INDEX_VIDEO === 'true' ? <Video /> : Logo}
         </ContainerIndex>
       </Layout>

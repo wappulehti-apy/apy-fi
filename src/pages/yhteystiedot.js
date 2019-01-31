@@ -13,9 +13,9 @@ function YhteystiedotPage({ data, ...props }) {
   return (
     <Layout {...props}>
       <HeroImgContainer>
-        <Img sizes={image.node.childImageSharp.sizes} />
+        <Img fluid={image.node.childImageSharp.fluid} />
       </HeroImgContainer>
-      <PageContent id="page__yhteystiedot">
+      <PageContent>
         <div dangerouslySetInnerHTML={{ __html: htmlYhteystiedot }} />
       </PageContent>
     </Layout>
@@ -40,14 +40,14 @@ export const pageQuery = graphql`
     images: allFile(
       filter: {
         extension: { eq: "jpg" }
-        relativeDirectory: { eq: "pages/yhteystiedot" }
+        relativeDirectory: { eq: "images/yhteystiedot" }
       }
     ) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1000) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

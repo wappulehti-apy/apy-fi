@@ -2,20 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { css } from '@emotion/core';
 import Layout from '../components/layout';
-import { PageContent, HeroImgContainer } from '../constants/styled';
-
-const styleInstructions = p => css`
-  .avystykset-instructions {
-    border: 2px solid ${p.mode === 'ajaton' ? 'black' : '#9c223e'};
-    color: black;
-    padding: 1.5em;
-    margin: 2.5em 0;
-    border-radius: 2px;
-    font-size: 1.1em;
-  }
-`;
+import {
+  PageContent,
+  HeroImgContainer,
+  styleInstructions,
+} from '../constants/styled';
 
 function ÄvystyksetPage({ data, ...props }) {
   const { markdownRemark, images } = data;
@@ -25,12 +17,9 @@ function ÄvystyksetPage({ data, ...props }) {
   return (
     <Layout {...props}>
       <HeroImgContainer>
-        <Img sizes={image.node.childImageSharp.sizes} />
+        <Img fluid={image.node.childImageSharp.fluid} />
       </HeroImgContainer>
-      <PageContent
-        css={props => styleInstructions(props)}
-        id="page__ävystykset"
-      >
+      <PageContent css={props => styleInstructions(props)}>
         <div dangerouslySetInnerHTML={{ __html: htmlRahasto }} />
       </PageContent>
     </Layout>
@@ -55,14 +44,14 @@ export const pageQuery = graphql`
     images: allFile(
       filter: {
         extension: { eq: "jpg" }
-        relativeDirectory: { eq: "pages/avystykset" }
+        relativeDirectory: { eq: "images/avystykset" }
       }
     ) {
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 1000) {
-              ...GatsbyImageSharpSizes
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
