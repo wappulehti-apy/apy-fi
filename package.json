@@ -21,6 +21,7 @@
     "gatsby-plugin-sitemap": "^2.0.4",
     "gatsby-remark-images": "^3.0.1",
     "gatsby-source-filesystem": "^2.0.1-rc.6",
+    "gatsby-transformer-json": "^2.1.7",
     "gatsby-transformer-remark": "^2.2.0",
     "gatsby-transformer-sharp": "2.1.10",
     "get-scrollbar-width": "^1.0.4",
@@ -50,7 +51,10 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "lint:dry": "eslint --fix-dry-run --ext .js src",
+    "lint:eslint": "./node_modules/.bin/eslint --ext .js .",
+    "lint:eslint-fix": "./node_modules/.bin/eslint --ext .js --fix .",
+    "lint:stylelint": "./node_modules/.bin/stylelint '**/*css.js'",
+    "lint:stylelint-fix": "./node_modules/.bin/stylelint '**/*css.js' --fix",
     "format": "prettier --config ./.prettierrc --write src/**/*.js"
   },
   "devDependencies": {
@@ -61,7 +65,14 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.0",
+    "postcss-jsx": "^0.36.0",
     "prettier": "^1.15.3",
+    "stylelint": "github:stylelint/stylelint",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-rational-order": "0.0.4",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.5.2",
     "url-loader": "^1.1.2"
   },
   "repository": {

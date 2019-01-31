@@ -4,10 +4,10 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'images',
-        path: `${__dirname}/assets/images`,
+        name: `assets`,
+        path: `${__dirname}/assets`,
       },
     },
     {
@@ -17,12 +17,11 @@ module.exports = {
         path: `${__dirname}/src/markdown/`,
       },
     },
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
-    'gatsby-plugin-sass',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-json`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -36,10 +35,12 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-133338473-1',
+        trackingId: `UA-133549073-1`,
         anonymize: true,
         respectDNT: true,
       },
