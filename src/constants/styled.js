@@ -62,3 +62,77 @@ export const HeroImgContainer = styled.div`
     margin: 0 2% 0 2%;
   `)};
 `;
+
+export const ModalKuvaus = styled.p`
+  width: 100%;
+  margin: 0;
+  padding: 1em 0 0 0;
+  font-size: 1.2em;
+  line-height: 1.5;
+
+  @media (max-width: 1170px) and (orientation: landscape) {
+    padding: 0 0 0 1em;
+  }
+
+  @media (max-width: 1170px) and (orientation: portrait) {
+    padding: 1em 0 0 0;
+  }
+
+  @media (min-aspect-ratio: 2/1) {
+    padding: 0 0 0 1em;
+  }
+
+  ${media.tablet(css`
+    font-size: 1em;
+  `)};
+`;
+
+export const ModalContentGrid = styled.div`
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-areas:
+    'image'
+    'text';
+
+  @media (min-aspect-ratio: 2/1) {
+    grid-template-areas: 'image text';
+  }
+
+  ${media.landscape(css`
+    grid-template-areas: 'image text';
+  `)};
+
+  ${media.min_desktop(css`
+    grid-template-areas:
+      'image'
+      'text';
+  `)};
+
+  & > div {
+    ${media.min_desktop(css`
+      width: 80%;
+      margin: 0 auto;
+    `)};
+
+    grid-area: image;
+  }
+
+  & > p {
+    grid-area: text;
+  }
+`;
+
+export const styleInstructions = p => css`
+  .avystykset-instructions {
+    border: 3px solid ${p.mode === 'ajaton' ? 'black' : '#9c223e'};
+    color: black;
+    padding: 1em;
+    margin: 1.5em 0;
+    border-radius: 2px;
+    font-size: 1.1em;
+  }
+`;
+
+export const marginTop = css`
+  margin-top: 1.5em !important;
+`;
