@@ -32,5 +32,6 @@ export const GridContainer = styled.div`
   ${media.phone(css`
     margin: 0 2% auto 2%;
     grid-template-columns: repeat(1, 1fr);
+    font-size: 0.7em;
   `)};
 `;
