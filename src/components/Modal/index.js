@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ModalContainer,
@@ -10,10 +10,10 @@ import {
 import ModalToggle from './toggle';
 import getScrollbarWidth from 'get-scrollbar-width';
 
-export default class Modal extends PureComponent {
+export default class Modal extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.ModalRef = React.createRef();
+    this.modalRef = React.createRef();
   }
 
   componentDidMount() {
@@ -29,13 +29,12 @@ export default class Modal extends PureComponent {
   handleClickOutside = e => {
     const clientX = e.clientX;
     const clientY = e.clientY;
-    const bRect = this.ModalRef.current.firstChild.getBoundingClientRect();
+    const bRect = this.modalRef.current.firstChild.getBoundingClientRect();
     const x = clientX > bRect.right || clientX < bRect.left;
     const y = clientY < bRect.top || clientY > bRect.bottom;
 
     if (x || y) {
-      const { hideModal } = this.props;
-      hideModal();
+      this.props.hideModal();
     }
   };
 
@@ -46,13 +45,13 @@ export default class Modal extends PureComponent {
   };
 
   render() {
-    const { children, open, hideModal, title } = this.props;
+    const { children, title, open, hideModal } = this.props;
     const scrollbarWidth = getScrollbarWidth();
     const modalProps = { open, scrollbarWidth };
 
     return (
       <>
-        <ModalContainer ref={this.ModalRef} open={open}>
+        <ModalContainer ref={this.modalRef} open={open}>
           <ModalMain {...modalProps}>
             <ModalHeader>
               <ModalToggle hideModal={hideModal} />

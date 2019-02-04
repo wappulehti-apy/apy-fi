@@ -2,7 +2,6 @@ import React from 'react';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import ÄpyModal from './ÄpyModal';
-import ModalItem from '../ModalItem';
 import {
   ÄpyContainer,
   ÄpyNameGradientBackground,
@@ -10,32 +9,59 @@ import {
   specialCss,
 } from './index.css';
 import { breakpoints } from '../../styles/main';
+import getScrollbarWidth from 'get-scrollbar-width';
 
 class Äpy extends React.PureComponent {
-  state = { onTouchDevice: false };
+  constructor(props) {
+    super(props);
+    this.state = { onTouchDevice: false, modalOpen: false };
+  }
 
   componentDidMount() {
     const onTouchDevice = window.innerWidth <= breakpoints.tablet;
     this.setState({ onTouchDevice });
   }
 
+  showModal = () => this.setState({ modalOpen: true });
+  hideModal = () => this.setState({ modalOpen: false });
+
+  disableScrolling(open) {
+    const scrollbarWidth = getScrollbarWidth();
+    if (open) {
+      // Scrollbar is approximately 15px wide.
+      // It gets removed with overflow: hidden so we
+      // add margin to body to prevent it from jumping
+      // on modal open.
+      document.body.style.marginRight = scrollbarWidth + 'px';
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.marginRight = '0px';
+      document.body.style.overflow = null;
+      document.documentElement.style.overflow = null;
+    }
+  }
+
   render() {
-    const { onTouchDevice } = this.state;
+    const { onTouchDevice, modalOpen } = this.state;
     const { äpy } = this.props;
     const äpyLehtiVuosi = `${äpy.vuosi} - ${äpy.lehti}`;
-    const modal = <ÄpyModal äpy={äpy} />;
     const nameCss = [2007, 1985, 1993].includes(äpy.vuosi)
       ? specialCss
       : undefined;
     const modalProps = {
       title: äpyLehtiVuosi,
-      content: modal,
-      ...this.props,
+      open: modalOpen,
+      hideModal: this.hideModal,
     };
 
+    if (typeof document !== 'undefined') {
+      this.disableScrolling(modalOpen);
+    }
+
     return (
-      <ModalItem {...modalProps}>
-        <ÄpyContainer>
+      <>
+        <ÄpyContainer onClick={this.showModal}>
           {!onTouchDevice && (
             <>
               <ÄpyName className={nameCss}>{äpyLehtiVuosi}</ÄpyName>
@@ -44,7 +70,8 @@ class Äpy extends React.PureComponent {
           )}
           <Img fluid={äpy.imgGrid.childImageSharp.fluid} />
         </ÄpyContainer>
-      </ModalItem>
+        {modalOpen && <ÄpyModal äpy={äpy} modalProps={modalProps} />}
+      </>
     );
   }
 }
