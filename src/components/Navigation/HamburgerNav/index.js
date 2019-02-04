@@ -8,7 +8,7 @@ import DurationTrail from '../DurationTrail';
 import {
   TrailContainer,
   ContainerNav,
-  LogoNav,
+  cssLogo,
   cssNavMain,
   activeNavElement,
 } from './index.css';
@@ -49,9 +49,9 @@ class HamburgerNav extends React.Component {
     const LogoWhite =
       process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonWhite : Logo2019White;
     return (
-      <ContainerNav>
+      <ContainerNav isOpen={isOpen}>
         <Link key="etusivu" to="/">
-          <LogoNav key="logo" src={isOpen ? LogoBlack : LogoWhite} />
+          <img className={cssLogo} src={isOpen ? LogoBlack : LogoWhite} />
         </Link>
         <HamburgerToggle classActive={classActive} toggle={this.toggleNav} />
         <Spring
@@ -59,9 +59,6 @@ class HamburgerNav extends React.Component {
           to={{
             opacity: 1,
             zIndex: '1',
-            position: 'fixed',
-            width: '100%',
-            height: '100%',
           }}
           config={{ tension: 90, friction: 14, overshootClamping: true }}
           toggle={isOpen}
@@ -79,7 +76,7 @@ class HamburgerNav extends React.Component {
                     native
                     keys={items.map(i => i.key)}
                     delay={0}
-                    ms={80}
+                    ms={50}
                     from={{ opacity: 0, x: 0 }}
                     to={{ opacity: 1, x: 0 }}
                   >

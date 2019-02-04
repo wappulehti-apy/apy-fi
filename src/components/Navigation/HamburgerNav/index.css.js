@@ -1,52 +1,38 @@
 import styled from '@emotion/styled';
 import { css } from 'emotion';
-import { media } from '../../../styles/main';
+import {
+  headingFontBoldTheme,
+  headingFontNormal,
+} from '../../../styles/variables';
 
 export const TrailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   background: white;
   font-family: ${p =>
-    p.theme.mode === 'ajaton' ? 'Libre Baskerville' : 'Lato Black'};
+    p.theme.mode === 'ajaton'
+      ? `${headingFontNormal}`
+      : `${headingFontBoldTheme}`};
+  overflow-y: scroll;
+  height: 80vh;
 `;
 
 export const ContainerNav = styled.div`
-  min-height: 85px;
-  z-index: 2;
-  position: relative;
-
-  ${media.phone(css`
-    font-size: 0.9rem;
-  `)};
+  min-height: ${p => (p.isOpen ? '100vh' : 0)};
+  background: ${p => (p.isOpen ? 'white' : 'none')};
 `;
 
-export const LogoNav = styled.img`
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  width: 4em;
-  z-index: 3;
+export const cssLogo = css`
+  width: 70px;
+  margin: 30px 0 30px 40px;
 `;
 
 export const cssNavMain = css`
   display: inline-flex;
-  margin: 30px 0 30px 40px;
-  font-size: 1.5em;
+  margin: 20px 0 20px 40px;
 
   & > a {
     color: black;
-  }
-
-  img {
-    width: 50px;
-    margin: 20px auto 20px 20px;
-  }
-
-  @media (max-height: 576px) and (orientation: landscape) {
-    margin-bottom: 0px;
   }
 `;
 

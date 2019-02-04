@@ -1,51 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { css } from 'emotion';
-import { css as css2 } from '@emotion/core';
-import { breakpoints, media } from '../../styles/main';
+import { breakpoints } from '../../styles/main';
 import HamburgerNav from './HamburgerNav';
 import NormalNav from './NormalNav';
-
-const cssNavLink = css`
-  position: relative;
-  text-decoration: none;
-  font-weight: 900;
-
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    left: 0;
-    bottom: -2px;
-    background: white;
-    visibility: hidden;
-    border-radius: 5px;
-    transform: scaleX(0);
-    transition: 0.2s ease-out;
-  }
-
-  &:hover:after {
-    visibility: visible;
-    transform: scaleX(1);
-  }
-
-  ${media.giant(css2`
-    font-size: 1.8em;
-  `)};
-
-  ${media.desktop(css2`
-    font-size: 1.5em;
-  `)};
-
-  ${media.tablet(css2`
-    font-size: 1.4em;
-  `)};
-
-  ${media.phone(css2`
-    font-size: 1.1em;
-  `)};
-`;
+import { cssNavLink } from './index.css';
 
 const items = [
   <Link key="etusivu" className={cssNavLink} to="/">

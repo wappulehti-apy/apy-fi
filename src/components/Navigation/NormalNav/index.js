@@ -8,6 +8,7 @@ import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
 import {
   NavContainer,
   LogoNav,
+  cssLogo,
   cssNavMain,
   activeNavElement,
 } from './index.css';
@@ -28,9 +29,11 @@ class NormalNav extends React.PureComponent {
       process.env.GATSBY_THEME === 'ajaton' ? LogoWhite : Logo2019White;
     return (
       <NavContainer>
-        <Link key="etusivu" to="/">
-          <LogoNav key="logo" src={Logo} />
-        </Link>
+        <LogoNav key="logo" src={Logo}>
+          <Link key="etusivu" to="/">
+            <img className={cssLogo} src={Logo} />
+          </Link>
+        </LogoNav>
         <DurationTrail
           native
           delay={0}
