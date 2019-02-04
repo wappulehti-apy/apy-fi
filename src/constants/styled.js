@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../styles/main';
+import { highlightColor } from '../styles/variables';
 
 export const PageContent = styled.div`
   background-color: white;
@@ -124,7 +125,7 @@ export const ModalContentGrid = styled.div`
 
 export const styleInstructions = p => css`
   .avystykset-instructions {
-    border: 3px solid ${p.mode === 'ajaton' ? 'black' : '#9c223e'};
+    border: 3px solid ${p.mode === 'ajaton' ? 'black' : `${highlightColor}`};
     color: black;
     padding: 1em;
     margin: 1.5em 0;
