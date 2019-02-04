@@ -26,12 +26,10 @@ export default ÄpyCarousel;
 ÄpyCarousel.propTypes = {
   imgCarousel: PropTypes.arrayOf(
     PropTypes.shape({
-      node: PropTypes.shape({
-        childImageSharp: PropTypes.shape({
-          sizes: PropTypes.object.isRequired,
-        }),
-        id: PropTypes.string.isRequired,
-      }).isRequired,
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+      id: PropTypes.string,
     })
   ).isRequired,
 };

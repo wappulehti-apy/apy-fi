@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { keyframes } from 'emotion';
 import { css } from '@emotion/core';
 import { media } from '../../styles/main';
+import { headingFontBlackTheme } from '../../styles/variables';
 
 const showContainer = keyframes`
   from {
@@ -105,7 +106,7 @@ export const ModalMain = styled.div`
 export const ModalHeader = styled.div`
   text-align: center;
   font-size: 1.8em;
-  font-family: 'Montserrat Black';
+  font-family: ${headingFontBlackTheme};
   margin: 0;
   padding: 1em;
 

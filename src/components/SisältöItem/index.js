@@ -28,9 +28,9 @@ SisältöItem.propTypes = {
     kuvaus: PropTypes.string.isRequired,
     imgGrid: PropTypes.shape({
       childImageSharp: PropTypes.shape({
-        fluid: PropTypes.object.isRequired,
+        fluid: PropTypes.object,
       }),
-    }),
+    }).isRequired,
     imgModal: PropTypes.shape(),
   }).isRequired,
 };

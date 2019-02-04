@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from 'emotion';
 import { css as css2 } from '@emotion/core';
-import { media, headingBold } from '../../styles/main';
+import { media } from '../../styles/main';
+import { headingFontBoldTheme } from '../../styles/variables';
 
 export const ÄpyContainer = styled.div`
   position: relative;
@@ -43,7 +44,7 @@ export const ÄpyName = styled.span`
   z-index: 3;
   width: 100%;
   font-weight: 600;
-  font-family: ${headingBold};
+  font-family: ${headingFontBoldTheme};
   color: white;
   white-space: nowrap;
   text-align: center;

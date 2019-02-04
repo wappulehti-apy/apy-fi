@@ -56,7 +56,18 @@ export default Äpy;
     lyhytKuvaus: PropTypes.string,
     lehti: PropTypes.string,
     vuosi: PropTypes.number,
-    imgGrid: PropTypes.arrayOf(PropTypes.array),
-    imgCarousel: PropTypes.arrayOf(PropTypes.array),
+    imgCarousel: PropTypes.arrayOf(
+      PropTypes.shape({
+        childImageSharp: PropTypes.shape({
+          fluid: PropTypes.object,
+        }),
+        id: PropTypes.string,
+      })
+    ).isRequired,
+    imgGrid: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+    }).isRequired,
   }).isRequired,
 };

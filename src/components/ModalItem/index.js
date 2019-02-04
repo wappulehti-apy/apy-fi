@@ -40,7 +40,7 @@ class ModalItem extends React.PureComponent {
     }
 
     return (
-      <div onClick={this.showModal} role="button" tabIndex={0}>
+      <div onClick={this.showModal}>
         {children}
         {open && <Modal {...modalProps}>{content}</Modal>}
       </div>
@@ -51,6 +51,6 @@ class ModalItem extends React.PureComponent {
 export default ModalItem;
 
 ModalItem.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  content: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.element.isRequired,
+  content: PropTypes.element.isRequired,
 };

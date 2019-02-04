@@ -19,9 +19,21 @@ export default class ÄpyModal extends PureComponent {
 
 ÄpyModal.propTypes = {
   äpy: PropTypes.shape({
+    imgCarousel: PropTypes.arrayOf(
+      PropTypes.shape({
+        childImageSharp: PropTypes.shape({
+          fluid: PropTypes.object,
+        }),
+        id: PropTypes.string,
+      })
+    ).isRequired,
+    imgGrid: PropTypes.shape({
+      childImageSharp: PropTypes.shape({
+        fluid: PropTypes.object,
+      }),
+    }),
     kuvaus: PropTypes.string,
     lehti: PropTypes.string,
     vuosi: PropTypes.number,
   }).isRequired,
-  imgCarousel: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
