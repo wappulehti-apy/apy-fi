@@ -110,6 +110,3 @@ export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
     `;
   return accumulator;
 }, {});
-
-export const headingBold = 'Montserrat Bold, sans-serif';
-export const headingBlack = 'Montserrat Black, sans-serif';
