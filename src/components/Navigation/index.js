@@ -18,9 +18,6 @@ const items = [
   <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot">
     Yhteystiedot
   </Link>,
-  <Link key="sisalto" className={cssNavLink} to="/sisalto">
-    ÄPYÄ!
-  </Link>,
 ];
 
 class Navigation extends React.Component {
