@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalBackground,
 } from './index.css';
-import ModalToggle from './toggle';
+import ModalToggle from './Toggle';
 import getScrollbarWidth from 'get-scrollbar-width';
 
 export default class Modal extends React.PureComponent {
