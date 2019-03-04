@@ -3,12 +3,8 @@ const path = require('path');
 // Initialize .env file
 require('dotenv').config();
 
-// Implement the Gatsby API “createPages”. This is called once the
-// data layer is bootstrapped to let plugins create pages from data.
+// Netlify redirect rules
 exports.createPages = ({ actions, graphql }) => {
-  // need createRedirect action in actions collection
-  // to make the redirection magic happen.
-  // https://www.gatsbyjs.org/docs/bound-action-creators/
   const { createRedirect } = actions;
 
   createRedirect({
