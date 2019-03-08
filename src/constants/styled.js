@@ -33,7 +33,7 @@ export const PageContent = styled.div`
   ${media.phone(css`
     margin: 0 2% auto 2%;
     padding: 1em;
-    font-size: 0.7em;
+    font-size: 0.9em;
   `)};
 `;
 
