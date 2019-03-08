@@ -130,7 +130,6 @@ export const styleInstructions = p => css`
     padding: 1em;
     margin: 1.5em 0;
     border-radius: 2px;
-    font-size: 1.1em;
   }
 `;
 
