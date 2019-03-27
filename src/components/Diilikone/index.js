@@ -14,7 +14,8 @@ const Diilikone = () => {
         </a>
       </ImgContainer>
       <H1>
-        Tee diili osoitteessa <a href="https://diili.apy.fi">diili.apy.fi</a>
+        Lähde Äpy-myyjäksi ja tee Äpy-diili osoitteessa{' '}
+        <a href="https://diili.apy.fi">diili.apy.fi</a>
       </H1>
       <IndexInfo>
         <SocialIcons />
