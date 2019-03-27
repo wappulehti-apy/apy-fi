@@ -4,7 +4,6 @@ import Layout from '../components/layout';
 import Video from '../components/Video';
 import LogoAjaton from '../components/Logo';
 import Logo2019 from '../components/Logo2019';
-import Wappu from '../components/Wappu';
 import Diilikone from '../components/Diilikone';
 
 const ContainerIndex = styled.div`
@@ -27,8 +26,6 @@ class IndexPage extends React.PureComponent {
           return <Video />;
         case 'diilikone':
           return <Diilikone />;
-        case 'wappu':
-          return <Wappu />;
         default:
           return Logo;
       }
