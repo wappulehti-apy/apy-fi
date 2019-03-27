@@ -14,7 +14,7 @@ const PageWrapper = styled.div`
   min-height: 100vh;
 
   background-color: ${p =>
-    p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : 'rgb(156, 34, 62)'};
+    p.theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : '#ae3753'};
 
   background-image: ${p =>
     p.theme.mode === 'ajaton' ? 'none' : `url(${äpyKuosi})`};
