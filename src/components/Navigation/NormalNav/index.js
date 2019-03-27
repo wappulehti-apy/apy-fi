@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { animated } from 'react-spring';
 import DurationTrail from '../DurationTrail';
-import LogoWhite from '../../../../assets/logos/logo-ajaton-valko.png';
-import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
+import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
+import Logo2019 from '../../../../assets/logos/logo-2019.svg';
 import {
   NavContainer,
   LogoNav,
-  cssLogo,
+  Img,
   cssNavMain,
   activeNavElement,
 } from './index.css';
@@ -25,13 +25,12 @@ class NormalNav extends React.PureComponent {
      * https://github.com/gatsbyjs/gatsby/issues/6127
      */
     const { items } = this.props;
-    const Logo =
-      process.env.GATSBY_THEME === 'ajaton' ? LogoWhite : Logo2019White;
+    const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
     return (
       <NavContainer>
         <LogoNav key="logo" src={Logo}>
           <Link key="etusivu" to="/">
-            <img className={cssLogo} src={Logo} />
+            <Img src={Logo} />
           </Link>
         </LogoNav>
         <DurationTrail

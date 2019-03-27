@@ -7,6 +7,7 @@ import Navigation from './Navigation';
 import SocialIcons from './SocialIcons';
 import äpyKuosi from '../../assets/kuosi-2019-pieni-mustavalko.svg';
 import '../styles/vendor.scss';
+import '../styles/global.scss';
 
 const PageWrapper = styled.div`
   display: flex;

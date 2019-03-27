@@ -22,7 +22,10 @@ export const ContainerNav = styled.div`
   background: ${p => (p.isOpen ? 'white' : 'none')};
 `;
 
-export const cssLogo = css`
+export const Img = styled.img`
+  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
+    brightness(119%) contrast(100%);
+  filter: ${p => (p.isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
   width: 70px;
   margin: 30px 0 30px 40px;
 `;

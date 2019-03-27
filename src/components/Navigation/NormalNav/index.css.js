@@ -24,7 +24,10 @@ export const LogoNav = styled.div`
   width: 60px;
 `;
 
-export const cssLogo = css`
+export const Img = styled.img`
+  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
+    brightness(119%) contrast(100%);
+  filter: var(--filter-to-white);
   width: 60px;
 `;
 
@@ -33,6 +36,10 @@ export const cssNavMain = css`
 
   & > a {
     color: white;
+  }
+
+  &:first-of-type {
+    margin-left: 20px;
   }
 
   &:last-child {

@@ -22,10 +22,14 @@ export const H1 = styled.h1`
   font-family: ${headingFontBlackTheme};
   font-size: 1.6em;
   color: white;
-  margin: 30px 0;
+  margin: 30px;
   text-align: center;
 
   a {
     color: white;
   }
+
+  ${media.tablet(css`
+    font-size: 1.1em;
+  `)};
 `;

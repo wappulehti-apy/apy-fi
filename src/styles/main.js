@@ -63,23 +63,7 @@ injectGlobal`
     src: url(${ComfortaaBold}) format("woff2");
   }
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-    letter-spacing: .01em;
-  }
-
-  html {
-    text-rendering: optimizeLegibility;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   html, body {
-    margin: 0;
-    padding: 0;
     font-family: ${
       theme === 'ajaton' ? 'Libre Baskerville' : 'Comfortaa Regular'
     };

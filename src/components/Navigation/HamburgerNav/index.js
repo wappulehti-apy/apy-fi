@@ -8,14 +8,12 @@ import DurationTrail from '../DurationTrail';
 import {
   TrailContainer,
   ContainerNav,
-  cssLogo,
+  Img,
   cssNavMain,
   activeNavElement,
 } from './index.css';
-import LogoAjatonBlack from '../../../../assets/logos/logo-ajaton-musta.png';
-import LogoAjatonWhite from '../../../../assets/logos/logo-ajaton-valko.png';
-import Logo2019White from '../../../../assets/logos/logo-2019-valko.png';
-import Logo2019Black from '../../../../assets/logos/logo-2019-musta.png';
+import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
+import Logo2019 from '../../../../assets/logos/logo-2019.svg';
 
 class HamburgerNav extends React.Component {
   state = { isOpen: false };
@@ -44,14 +42,11 @@ class HamburgerNav extends React.Component {
     const { items } = this.props;
     const { isOpen } = this.state;
     const classActive = isOpen ? 'is-active' : '';
-    const LogoBlack =
-      process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonBlack : Logo2019Black;
-    const LogoWhite =
-      process.env.GATSBY_THEME === 'ajaton' ? LogoAjatonWhite : Logo2019White;
+    const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
     return (
       <ContainerNav isOpen={isOpen}>
         <Link key="etusivu" to="/">
-          <img className={cssLogo} src={isOpen ? LogoBlack : LogoWhite} />
+          <Img src={Logo} isOpen={isOpen} />
         </Link>
         <HamburgerToggle classActive={classActive} toggle={this.toggleNav} />
         <Spring
