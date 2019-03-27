@@ -2,7 +2,8 @@ import React, { Fragment } from 'react';
 import * as THREE from 'three';
 import SocialIcons from '../SocialIcons';
 import { breakpoints } from '../../styles/main';
-import { LogoContainer, IndexInfo } from './index.css';
+import { LogoContainer } from './index.css';
+import { IndexInfo } from '../../constants/styled';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';

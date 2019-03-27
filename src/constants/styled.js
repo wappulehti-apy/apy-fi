@@ -2,6 +2,48 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../styles/main';
 import { highlightColor } from '../styles/variables';
+import { headingFontBlackTheme } from '../styles/variables';
+
+export const IndexInfo = styled.div`
+  font-family: ${headingFontBlackTheme};
+  font-size: 1.9em;
+  color: white;
+  display: inline-block;
+  overflow: auto;
+  text-align: center;
+
+  span {
+    font-size: 0.7em;
+  }
+
+  a {
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 768px) and (orientation: landscape) {
+    font-size: 0.9em;
+  }
+
+  ${media.desktop(css`
+    font-size: 1.5em;
+  `)};
+
+  ${media.tablet(css`
+    font-size: 1.5em;
+  `)};
+
+  ${media.phone(css`
+    font-size: 1.1em;
+  `)};
+
+  ${media.tablet(css`
+    font-size: 1.5em;
+  `)};
+
+  ${media.phone(css`
+    font-size: 1.1em;
+  `)};
+`;
 
 export const PageContent = styled.div`
   background-color: white;
