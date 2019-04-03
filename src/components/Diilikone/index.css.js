@@ -5,12 +5,12 @@ import { headingFontBlackTheme } from '../../styles/variables';
 
 export const ImgContainer = styled.div`
   display: block;
-  width: 500px;
+  width: 400px;
   margin: 20px auto;
   transition: 0.1s ease-in;
 
-  ${media.tablet(css`
-    width: 300px;
+  ${media.phone(css`
+    width: 200px;
   `)};
 
   &:hover {
