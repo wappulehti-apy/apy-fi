@@ -24,6 +24,7 @@ export const H1 = styled.h1`
   color: white;
   margin: 30px;
   text-align: center;
+  padding: 0 20%;
 
   a {
     color: white;
@@ -31,5 +32,7 @@ export const H1 = styled.h1`
 
   ${media.tablet(css`
     font-size: 1.1em;
+    padding: 0;
+    margin: 0 10px;
   `)};
 `;
