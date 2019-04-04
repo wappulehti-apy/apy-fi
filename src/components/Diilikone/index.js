@@ -13,10 +13,6 @@ const Diilikone = () => {
           Äpy-Gaalassa
         </a>
       </H1>
-      <ImgContainer>
-        {' '}
-        <img src={apyLogo} />
-      </ImgContainer>
       <H1>
         Äpyn painos on nyt loppuunmyyty ja myyjärekisteröinti on sulkeutunut. Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
       </H1>
