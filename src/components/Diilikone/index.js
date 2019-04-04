@@ -2,7 +2,7 @@ import React from 'react';
 import SocialIcons from '../SocialIcons';
 import { ImgContainer, H1 } from './index.css';
 import { IndexInfo } from '../../constants/styled';
-import diilikoneLogo from '../../../assets/images/diilikone/diilikone-logo.svg';
+import apyLogo from '../../../assets/logos/logo-2019.png';
 
 const Diilikone = () => {
   return (
@@ -15,13 +15,10 @@ const Diilikone = () => {
       </H1>
       <ImgContainer>
         {' '}
-        <a href="https://diili.apy.fi">
-          <img src={diilikoneLogo} />
-        </a>
+        <img src={apyLogo} />
       </ImgContainer>
       <H1>
-        Lähde Äpy-myyjäksi ja tee Äpy-diili osoitteessa{' '}
-        <a href="https://diili.apy.fi">diili.apy.fi</a>
+        Äpyn painos on nyt loppuunmyyty ja myyjärekisteröinti on sulkeutunut. Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
       </H1>
       <IndexInfo>
         <SocialIcons />
