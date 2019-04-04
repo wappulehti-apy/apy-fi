@@ -15,7 +15,7 @@ const Diilikone = () => {
       </H1>
       <Logo />
       <H1>
-        Äpyn painos on nyt loppuunmyyty ja myyjärekisteröinti on sulkeutunut.
+        Äpyn painos on nyt loppuundiilattu ja myyjärekisteröinti on sulkeutunut.
         Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
       </H1>
       <IndexInfo>
