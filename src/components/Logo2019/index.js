@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import * as THREE from 'three';
-import SocialIcons from '../SocialIcons';
 import { breakpoints } from '../../styles/main';
 import { LogoContainer } from './index.css';
-import { IndexInfo } from '../../constants/styled';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
@@ -193,17 +191,9 @@ class Logo extends React.Component {
 
   render() {
     return (
-      <Fragment>
+      <>
         <LogoContainer ref={this.canvasRef} />
-        <IndexInfo>
-          <p>Neljä kirjainta, joihin voit luottaa.</p>
-          <span>
-            Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy
-            ilmestyy Wappuna 2019.
-          </span>
-          <SocialIcons />
-        </IndexInfo>
-      </Fragment>
+      </>
     );
   }
 }

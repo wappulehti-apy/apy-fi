@@ -1,8 +1,8 @@
 import React from 'react';
 import SocialIcons from '../SocialIcons';
-import { ImgContainer, H1 } from './index.css';
+import { H1 } from './index.css';
 import { IndexInfo } from '../../constants/styled';
-import apyLogo from '../../../assets/logos/logo-2019.png';
+import Logo from '../Logo2019';
 
 const Diilikone = () => {
   return (
@@ -13,8 +13,10 @@ const Diilikone = () => {
           Äpy-Gaalassa
         </a>
       </H1>
+      <Logo />
       <H1>
-        Äpyn painos on nyt loppuunmyyty ja myyjärekisteröinti on sulkeutunut. Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
+        Äpyn painos on nyt loppuunmyyty ja myyjärekisteröinti on sulkeutunut.
+        Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
       </H1>
       <IndexInfo>
         <SocialIcons />
