@@ -15,7 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
 
   createRedirect({
     fromPath: `/osta`,
-    toPath: `https://www.osta.apy.fi/`,
+    toPath: `https://osta.apy.fi/`,
     isPermanent: true,
   });
 };
