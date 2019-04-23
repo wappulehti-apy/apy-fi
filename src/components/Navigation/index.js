@@ -18,9 +18,9 @@ const items = [
   <Link key="yhteystiedot" className={cssNavLink} to="/yhteystiedot">
     Yhteystiedot
   </Link>,
-  <a key="diilikone" className={cssNavLink} href="https://diili.apy.fi">
-    Diilikone
-  </a>,
+  <Link key="ohjeet" className={cssNavLink} to="/ohjeet">
+    Ohjeet
+  </Link>,
 ];
 
 class Navigation extends React.Component {

@@ -5,6 +5,8 @@ import Video from '../components/Video';
 import LogoAjaton from '../components/Logo';
 import Logo2019 from '../components/Logo2019';
 import Diilikone from '../components/Diilikone';
+import Wappu from '../components/Wappu';
+import IndexFooter from '../components/IndexFooter';
 
 const ContainerIndex = styled.div`
   display: flex;
@@ -21,11 +23,23 @@ class IndexPage extends React.PureComponent {
     const mainElement = () => {
       switch (process.env.GATSBY_INDEX_ELEMENT) {
         case 'logo':
-          return Logo;
+          return (
+            <>
+              {Logo}
+              <IndexFooter />
+            </>
+          );
         case 'video':
-          return <Video />;
+          return (
+            <>
+              <Video src={'https://vimeo.com/288036715'} />
+              <IndexFooter />
+            </>
+          );
         case 'diilikone':
           return <Diilikone />;
+        case 'wappu':
+          return <Wappu />;
         default:
           return Logo;
       }

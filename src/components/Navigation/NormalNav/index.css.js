@@ -38,10 +38,6 @@ export const cssNavMain = css`
     color: white;
   }
 
-  &:first-of-type {
-    margin-left: 20px;
-  }
-
   &:last-child {
     margin-right: auto;
   }

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
@@ -395,7 +395,7 @@ class ContactForm extends React.Component {
     } = this.state;
 
     return (
-      <Fragment>
+      <>
         <Form
           innerRef={this.FormRef}
           onSubmit={this.handleSubmit}
@@ -540,7 +540,7 @@ class ContactForm extends React.Component {
           dangerouslySetInnerHTML={{ __html: htmlRahasto }}
           className={selectedOption === 'ävystykset' ? 'active' : null}
         />
-      </Fragment>
+      </>
     );
   }
 }

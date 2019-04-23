@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
@@ -33,7 +33,7 @@ class Layout extends React.PureComponent {
     // Used to conditionally render fonts/components etc.
     // Theming provided by emotion-theming.
     return (
-      <Fragment>
+      <>
         <SEO />
         <ThemeProvider theme={{ mode: theme }}>
           <PageWrapper id="page__wrapper">
@@ -42,7 +42,7 @@ class Layout extends React.PureComponent {
             {pathname != '/' ? <SocialIcons /> : undefined}
           </PageWrapper>
         </ThemeProvider>
-      </Fragment>
+      </>
     );
   }
 }

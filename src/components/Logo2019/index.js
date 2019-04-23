@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import * as THREE from 'three';
 import { breakpoints } from '../../styles/main';
 import { LogoContainer } from './index.css';

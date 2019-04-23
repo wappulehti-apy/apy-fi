@@ -165,6 +165,11 @@ export const ModalContentGrid = styled.div`
   }
 `;
 
+export const H2 = styled.h2`
+  text-align: center;
+  margin: 20px 0;
+`;
+
 export const styleInstructions = p => css`
   .avystykset-instructions {
     border: 3px solid ${p.mode === 'ajaton' ? 'black' : `${highlightColor}`};

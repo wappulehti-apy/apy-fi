@@ -1,7 +1,6 @@
 import React from 'react';
 import SocialIcons from '../SocialIcons';
 import { H1 } from './index.css';
-import { IndexInfo } from '../../constants/styled';
 import Logo from '../Logo2019';
 
 const Diilikone = () => {
@@ -18,9 +17,7 @@ const Diilikone = () => {
         Äpyn painos on nyt loppuundiilattu ja myyjärekisteröinti on sulkeutunut.
         Saat Äpyn käsiisi myyjiltä julkaisun jälkeen. Nähdään gaalassa!
       </H1>
-      <IndexInfo>
-        <SocialIcons />
-      </IndexInfo>
+      <SocialIcons />
     </>
   );
 };
