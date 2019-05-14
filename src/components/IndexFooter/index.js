@@ -12,7 +12,7 @@ const IndexFooter = () => (
     <p>Äpy - Neljä kirjainta, joihin voit luottaa.</p>
     <span>
       Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      mahdollisena Wappuna 2019.
+      mahdollisena Wappuna 2021.
     </span>
     <SocialIcons />
   </IndexInfo>
