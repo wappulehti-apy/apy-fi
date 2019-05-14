@@ -3,6 +3,15 @@
   "description": "Wappulehti Äpy - verkkosivu",
   "version": "1.0.0",
   "author": "Timo Riski",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "lint:eslint": "./node_modules/.bin/eslint --ext .js .",
+    "lint:eslint-fix": "./node_modules/.bin/eslint --ext .js --fix .",
+    "lint:stylelint": "./node_modules/.bin/stylelint '**/*css.js'",
+    "lint:stylelint-fix": "./node_modules/.bin/stylelint '**/*css.js' --fix",
+    "format": "prettier --config ./.prettierrc --write src/**/*.js"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
@@ -49,15 +58,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "lint:eslint": "./node_modules/.bin/eslint --ext .js .",
-    "lint:eslint-fix": "./node_modules/.bin/eslint --ext .js --fix .",
-    "lint:stylelint": "./node_modules/.bin/stylelint '**/*css.js'",
-    "lint:stylelint-fix": "./node_modules/.bin/stylelint '**/*css.js' --fix",
-    "format": "prettier --config ./.prettierrc --write src/**/*.js"
-  },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.12.0",
