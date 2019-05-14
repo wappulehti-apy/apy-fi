@@ -1,7 +1,7 @@
 import React from 'react';
 import SocialIcons from '../SocialIcons';
 import Img from 'gatsby-image';
-import { WappuContainer, H1, H2, ImgContainer } from './index.css';
+import { WappuContainer, H1, ImgContainer } from './index.css';
 import { IndexInfo } from '../../constants/styled';
 import { StaticQuery, graphql } from 'gatsby';
 
@@ -18,10 +18,6 @@ const Wappu = ({ data }) => {
           </ImgContainer>
         ))}
       </WappuContainer>
-      <H2>
-        Löydä Äpy-myyjä osoitteesta{' '}
-        <a href="https://osta.apy.fi">osta.apy.fi</a>
-      </H2>
       <IndexInfo>
         <SocialIcons />
       </IndexInfo>
