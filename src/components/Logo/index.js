@@ -1,12 +1,11 @@
 import React from 'react';
 import * as THREE from 'three';
 import { LogoContainer } from './index.css';
+import { breakpoints } from '../../styles/main';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-ajaton.obj';
-import vs from './shaders/ground.vs';
-import fs from './shaders/ground.fs';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -55,9 +54,10 @@ class Logo extends React.Component {
         object => {
           // Rotate the logo upright, shift it upwards, scale and add it to the scene
           object.rotation.x = Math.PI / 2;
-          const s = 1.2;
+          const s = width < breakpoints.desktop ? 2 : 2.5;
           object.scale.set(s, s, s);
           object.translateZ(-1);
+          // Make the logo smaller on tablet's and phones
           scene.add(object);
         }
       );
@@ -75,29 +75,6 @@ class Logo extends React.Component {
       light = new THREE.AmbientLight(0xffffff, 0.3);
       scene.add(light);
 
-      // Add ground
-      var geometry = new THREE.PlaneBufferGeometry(128, 128, 128, 128);
-      var wireframe = new THREE.WireframeGeometry(geometry);
-      // Use raw shaders to draw the mesh ground
-      const shaders = new THREE.RawShaderMaterial({
-        uniforms: {
-          time: { value: 0 },
-        },
-        vertexShader: vs,
-        fragmentShader: fs,
-        transparent: true,
-      });
-
-      var ground = new THREE.LineSegments(wireframe, shaders);
-      // Make the ground wireframe
-      ground.material.opacity = 0.8;
-      ground.material.transparent = true;
-      // Rotate ground to right position
-      ground.rotation.x = Math.PI / 2;
-      ground.rotation.z = Math.PI / 2;
-      ground.translateZ(10); // Move ground down a bit
-      scene.add(ground);
-
       const clock = new THREE.Clock();
       renderer.setSize(width, height);
       renderer.setPixelRatio(window.devicePixelRatio);
@@ -106,7 +83,7 @@ class Logo extends React.Component {
       this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.
-      this.setState({ renderer, camera, scene, clock, ground, controls });
+      this.setState({ renderer, camera, scene, clock, controls });
       window.addEventListener('resize', this.onWindowResize);
       // Call start and start rendering stuff on the screen
       this.start();
@@ -192,14 +169,12 @@ class Logo extends React.Component {
   };
 
   renderScene = () => {
-    const { renderer, camera, scene, clock, ground, controls } = this.state;
+    const { renderer, camera, scene, controls } = this.state;
 
-    const time = clock.getDelta();
     var z = new THREE.Vector3(0, 0, -1);
     camera.lookAt(z);
     controls.update();
 
-    ground.material.uniforms.time.value += time; // Update raw shader uniform time
     renderer.render(scene, camera);
   };
 
