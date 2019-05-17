@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import { PlayerContainer, playerStyle } from './index.css';
 
@@ -14,5 +15,9 @@ const Video = ({ src }) => (
     </PlayerContainer>
   </>
 );
+
+Video.propTypes = {
+  src: PropTypes.string.isRequired,
+};
 
 export default Video;

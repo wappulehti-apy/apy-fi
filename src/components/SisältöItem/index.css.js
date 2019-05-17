@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
+import { borderRadius } from '../../styles/variables';
 
 export const Container = styled.div`
   background-color: white;
-  border-radius: 2px;
+  border-radius: ${borderRadius};
   padding: 1rem;
 `;
 

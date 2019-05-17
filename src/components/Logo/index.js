@@ -1,6 +1,6 @@
 import React from 'react';
 import * as THREE from 'three';
-import { LogoContainer } from './index.css';
+import { LogoContainer } from '../../constants/styled';
 import { breakpoints } from '../../styles/main';
 // See gatsby-node.js for explanation of how this works
 import 'three-examples/loaders/OBJLoader';
@@ -179,7 +179,7 @@ class Logo extends React.Component {
   };
 
   render() {
-    return <LogoContainer innerRef={this.canvasRef} />;
+    return <LogoContainer ref={this.canvasRef} />;
   }
 }
 

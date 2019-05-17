@@ -1,5 +1,12 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import {
+  marginGiant,
+  marginDesktop,
+  marginOverdesktop,
+  marginTablet,
+  marginPhone,
+} from '../../styles/variables';
 import { media } from '../../styles/main';
 
 export const GridContainer = styled.div`
@@ -10,28 +17,27 @@ export const GridContainer = styled.div`
   margin: 0 25%;
 
   ${media.giant(css`
-    margin: 0 25% auto 25%;
+    margin: ${marginGiant};
     grid-template-columns: repeat(2, 1fr);
   `)};
 
   ${media.overdesktop(css`
-    margin: 0 20% auto 20%;
+    margin: ${marginOverdesktop};
     grid-template-columns: repeat(2 1fr);
   `)};
 
   ${media.desktop(css`
-    margin: 0 15% auto 15%;
+    margin: ${marginDesktop};
     grid-template-columns: repeat(2, 1fr);
   `)};
 
   ${media.tablet(css`
-    margin: 0 10% auto 10%;
+    margin: ${marginTablet};
     grid-template-columns: repeat(2, 1fr);
   `)};
 
   ${media.phone(css`
-    margin: 0 2% auto 2%;
+    margin: ${marginPhone};
     grid-template-columns: repeat(1, 1fr);
-    font-size: 0.7em;
   `)};
 `;

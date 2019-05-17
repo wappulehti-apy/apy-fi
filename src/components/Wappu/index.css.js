@@ -37,14 +37,3 @@ export const H1 = styled.h1`
   text-align: center;
   margin-bottom: 40px;
 `;
-
-export const H2 = styled.h1`
-  font-family: ${headingFontBlackTheme};
-  font-size: 1.6em;
-  color: white;
-  text-align: center;
-
-  a {
-    color: white;
-  }
-`;

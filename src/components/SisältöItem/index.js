@@ -3,22 +3,15 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import { Container, Heading, Description } from './index.css';
 
-class SisältöItem extends React.PureComponent {
-  render() {
-    const { item } = this.props;
-
-    return (
-      <Container>
-        <Img
-          onClick={this.showTooltip}
-          fluid={item.imgModal.childImageSharp.fluid}
-        />
-        <Heading>{item.tyyppi}</Heading>
-        <Description>{item.kuvaus}</Description>
-      </Container>
-    );
-  }
-}
+const SisältöItem = ({ item }) => {
+  return (
+    <Container>
+      <Img fluid={item.imgModal.childImageSharp.fluid} />
+      <Heading>{item.tyyppi}</Heading>
+      <Description>{item.kuvaus}</Description>
+    </Container>
+  );
+};
 
 export default SisältöItem;
 

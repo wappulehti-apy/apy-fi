@@ -1,8 +1,8 @@
 import React from 'react';
 import * as THREE from 'three';
+import { LogoContainer } from '../../constants/styled';
 import { breakpoints } from '../../styles/main';
-import { LogoContainer } from './index.css';
-// See gatsby-node.js for explanation of how this works
+// See gatsby-node.js for explanation of how this worksz
 import 'three-examples/loaders/OBJLoader';
 import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';

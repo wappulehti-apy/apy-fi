@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { keyframes } from 'emotion';
 import { headingBold } from '../../styles/main';
+import { borderRadius } from '../../styles/variables';
 
 export const LipsumContainer = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ export const Button = styled.div`
   background-color: #d0d0d0;
   color: #111;
   font-weight: bold;
-  border-radius: 4px;
+  border-radius: ${borderRadius};
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
   border-bottom: 1px solid #aaa;
   outline: none;
@@ -24,7 +25,7 @@ export const Button = styled.div`
   overflow: hidden;
   cursor: pointer;
   display: inline-block;
-  animation: ${p => p.animation} 0.25s ease-in-out;
+  animation: ${({ animation }) => animation} 0.25s ease-in-out;
 
   &.clicked {
     top: 10px;

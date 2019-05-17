@@ -1,24 +1,19 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from '../../Modal';
 import ÄpyCarousel from '../../ÄpyCarousel';
-import { CarouselStyle } from './index.css';
 import { ModalContentGrid, ModalKuvaus } from '../../../constants/styled';
 
-export default class ÄpyModal extends PureComponent {
-  render() {
-    const { äpy, modalProps } = this.props;
+const ÄpyModal = ({ äpy, modalProps }) => (
+  <Modal {...modalProps}>
+    <ModalContentGrid>
+      <ÄpyCarousel imgCarousel={äpy.imgCarousel} />
+      <ModalKuvaus>{äpy.kuvaus}</ModalKuvaus>
+    </ModalContentGrid>
+  </Modal>
+);
 
-    return (
-      <Modal {...modalProps}>
-        <ModalContentGrid>
-          <ÄpyCarousel css={CarouselStyle} imgCarousel={äpy.imgCarousel} />
-          <ModalKuvaus>{äpy.kuvaus}</ModalKuvaus>
-        </ModalContentGrid>
-      </Modal>
-    );
-  }
-}
+export default ÄpyModal;
 
 ÄpyModal.propTypes = {
   äpy: PropTypes.shape({

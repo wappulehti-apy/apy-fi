@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { css } from 'emotion';
 import { css as css2 } from '@emotion/core';
 import { media } from '../../styles/main';
-import { headingFontBoldTheme } from '../../styles/variables';
+import { headingFontBoldTheme, borderRadius } from '../../styles/variables';
 
 export const ÄpyContainer = styled.div`
   position: relative;
@@ -20,7 +20,7 @@ export const ÄpyContainer = styled.div`
   }
 
   img {
-    border-radius: 2px;
+    border-radius: ${borderRadius};
   }
 `;
 
@@ -31,7 +31,7 @@ export const ÄpyNameGradientBackground = styled.div`
   bottom: 0;
   z-index: 2;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
+  border-radius: ${borderRadius};
   opacity: 0;
   transition: all 0.2s ease-out;
 `;

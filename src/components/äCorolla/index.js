@@ -213,7 +213,7 @@ class äCorolla extends React.Component {
   };
 
   render() {
-    return <CorollaContainer innerRef={this.canvasRef} />;
+    return <CorollaContainer ref={this.canvasRef} />;
   }
 }
 

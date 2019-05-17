@@ -87,6 +87,7 @@ class HamburgerNav extends React.Component {
                       >
                         {React.cloneElement(item, {
                           activeClassName: activeNavElement,
+                          onClick: () => this.toggleNav(),
                         })}
                       </animated.div>
                     ))}

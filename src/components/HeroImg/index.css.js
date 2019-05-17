@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { media } from '../../styles/main';
 import {
   marginGiant,
   marginDesktop,
@@ -7,36 +8,30 @@ import {
   marginTablet,
   marginPhone,
 } from '../../styles/variables';
-import { media } from '../../styles/main';
 
-export const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  padding-top: 20px;
+export const HeroImgContainer = styled.div`
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
 
   ${media.giant(css`
     margin: ${marginGiant};
-    grid-template-columns: repeat(5, 1fr);
   `)};
 
   ${media.overdesktop(css`
     margin: ${marginOverdesktop};
-    grid-template-columns: repeat(4 1fr);
   `)};
 
   ${media.desktop(css`
     margin: ${marginDesktop};
-    grid-template-columns: repeat(3, 1fr);
   `)};
 
   ${media.tablet(css`
     margin: ${marginTablet};
-    grid-template-columns: repeat(3, 1fr);
   `)};
 
   ${media.phone(css`
     margin: ${marginPhone};
-    grid-template-columns: repeat(3, 1fr);
   `)};
 `;

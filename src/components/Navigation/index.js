@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'gatsby';
 import { breakpoints } from '../../styles/main';
 import HamburgerNav from './HamburgerNav';
@@ -20,42 +20,38 @@ const items = [
   </Link>,
 ];
 
-class Navigation extends React.Component {
-  state = { navType: undefined };
+const Navigation = () => {
+  const [navType, setNavType] = useState(undefined);
 
-  componentDidMount() {
-    this.setNavType();
-    window.addEventListener('resize', this.setNavType);
-  }
+  const handleWindowResize = useCallback(() => {
+    setNavTypeFunction();
+  }, []);
 
-  componentWillUnmount() {
-    this.setNavType();
-    window.removeEventListener('resize', this.setNavType);
-  }
-
-  setNavType = () => {
+  function setNavTypeFunction() {
     const width = window.innerWidth;
     if (width < breakpoints.tablet) {
-      this.setState({ navType: 'hamburger' });
+      setNavType('hamburger');
     } else {
-      this.setState({ navType: 'normal' });
-    }
-  };
-
-  render() {
-    const { navType } = this.state;
-    const nav =
-      navType === 'normal' ? (
-        <NormalNav items={items} />
-      ) : (
-        <HamburgerNav items={items} />
-      );
-    if (!navType) {
-      return null;
-    } else {
-      return nav;
+      setNavType('normal');
     }
   }
-}
+
+  useEffect(() => {
+    setNavTypeFunction();
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, [handleWindowResize]);
+
+  if (navType === 'normal') {
+    return <NormalNav items={items} />;
+  } else if (navType === 'hamburger') {
+    return <HamburgerNav items={items} />;
+  } else {
+    return null;
+  }
+};
 
 export default Navigation;

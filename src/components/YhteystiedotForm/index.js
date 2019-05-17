@@ -397,7 +397,7 @@ class ContactForm extends React.Component {
     return (
       <>
         <Form
-          innerRef={this.FormRef}
+          ref={this.FormRef}
           onSubmit={this.handleSubmit}
           noValidate
           autoComplete="off"

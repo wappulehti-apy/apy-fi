@@ -1,8 +1,7 @@
 import React from 'react';
-import SocialIcons from '../SocialIcons';
+import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import { WappuContainer, H1, ImgContainer } from './index.css';
-import { IndexInfo } from '../../constants/styled';
 import { StaticQuery, graphql } from 'gatsby';
 
 const Wappu = ({ data }) => {
@@ -18,11 +17,16 @@ const Wappu = ({ data }) => {
           </ImgContainer>
         ))}
       </WappuContainer>
-      <IndexInfo>
-        <SocialIcons />
-      </IndexInfo>
     </>
   );
+};
+
+Wappu.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default props => (

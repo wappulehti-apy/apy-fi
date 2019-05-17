@@ -4,7 +4,7 @@ export const Ul = styled.ul`
   display: flex;
   justify-content: center;
   list-style: none;
-  padding: 30px 0 30px 0;
+  padding: 30px 0;
   margin: 0;
 
   li {

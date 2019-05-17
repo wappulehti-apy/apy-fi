@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useLayoutEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   ModalContainer,
@@ -6,65 +6,78 @@ import {
   ModalHeader,
   ModalBody,
   ModalBackground,
+  ModalToggle,
 } from './index.css';
-import ModalToggle from './Toggle';
-import getScrollbarWidth from 'get-scrollbar-width';
 
-export default class Modal extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.modalRef = React.createRef();
-  }
+function useLockBodyScroll() {
+  useLayoutEffect(() => {
+    const originalStyle = window.getComputedStyle(document.body).overflow;
 
-  componentDidMount() {
-    document.addEventListener('keydown', this.onKeyDown);
-    document.addEventListener('mousedown', this.handleClickOutside);
-  }
+    // Prevent scrolling on mount
+    document.documentElement.style.overflow = 'hidden';
 
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKeyDown);
-    document.removeEventListener('mousedown', this.handleClickOutside);
-  }
-
-  handleClickOutside = e => {
-    const clientX = e.clientX;
-    const clientY = e.clientY;
-    const bRect = this.modalRef.current.firstChild.getBoundingClientRect();
-    const x = clientX > bRect.right || clientX < bRect.left;
-    const y = clientY < bRect.top || clientY > bRect.bottom;
-
-    if (x || y) {
-      this.props.hideModal();
-    }
-  };
-
-  onKeyDown = ({ key }) => {
-    if (key === 'Escape') {
-      this.props.open && this.props.hideModal();
-    }
-  };
-
-  render() {
-    const { children, title, open, hideModal } = this.props;
-    const scrollbarWidth = getScrollbarWidth();
-    const modalProps = { open, scrollbarWidth };
-
-    return (
-      <>
-        <ModalContainer ref={this.modalRef} open={open}>
-          <ModalMain {...modalProps}>
-            <ModalHeader>
-              <ModalToggle hideModal={hideModal} />
-              {title}
-            </ModalHeader>
-            <ModalBody>{children}</ModalBody>
-          </ModalMain>
-        </ModalContainer>
-        <ModalBackground open={open} />
-      </>
-    );
-  }
+    // Re-enable scrolling when component unmounts
+    return () => {
+      document.documentElement.style.overflow = originalStyle;
+    };
+  }, []);
 }
+
+const Modal = ({ children, title, open, hideModal }) => {
+  useLockBodyScroll();
+  const modalRef = useRef(null);
+
+  const handleUserKeyPress = useCallback(
+    e => {
+      if (e.key === 'Escape') {
+        open && hideModal();
+      }
+    },
+    [hideModal, open]
+  );
+
+  const handleUserMouseClick = useCallback(
+    e => {
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      const bRect = modalRef.current.firstChild.getBoundingClientRect();
+      const x = clientX > bRect.right || clientX < bRect.left;
+      const y = clientY < bRect.top || clientY > bRect.bottom;
+
+      if (x || y) {
+        hideModal();
+      }
+    },
+    [hideModal]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleUserKeyPress);
+    document.addEventListener('mousedown', handleUserMouseClick);
+
+    return () => {
+      document.removeEventListener('keydown', handleUserKeyPress);
+      document.removeEventListener('mousedown', handleUserMouseClick);
+    };
+  }, [handleUserKeyPress, handleUserMouseClick]);
+
+  return (
+    <>
+      <ModalContainer ref={modalRef} open={open}>
+        <ModalMain open={open}>
+          <ModalHeader>
+            <ModalToggle onClick={hideModal} />
+            {title}
+          </ModalHeader>
+          <ModalBody>{children}</ModalBody>
+        </ModalMain>
+      </ModalContainer>
+      <ModalBackground open={open} />
+    </>
+  );
+};
+
+export default Modal;
 
 Modal.propTypes = {
   children: PropTypes.node,

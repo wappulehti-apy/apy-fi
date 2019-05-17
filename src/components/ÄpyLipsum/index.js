@@ -1,5 +1,5 @@
 import React from 'react';
-import { LipsumContainer, Button, btnClick, LipsumText } from '.index.css';
+import { LipsumContainer, Button, btnClick, LipsumText } from './index.css';
 import LipsumData from '../../../assets/vitsit.json';
 
 class ÄpyLipsum extends React.PureComponent {

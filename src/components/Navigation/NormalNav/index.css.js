@@ -13,8 +13,8 @@ export const NavContainer = styled.div`
   padding: 20px;
   z-index: 2;
 
-  font-family: ${p =>
-    p.theme.mode === 'ajaton'
+  font-family: ${({ theme }) =>
+    theme.mode === 'ajaton'
       ? `${headingFontNormal}`
       : `${headingFontBlackTheme}`};
 `;
