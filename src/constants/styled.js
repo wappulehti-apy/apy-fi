@@ -1,48 +1,33 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../styles/main';
-import { highlightColor } from '../styles/variables';
-import { headingFontBlackTheme } from '../styles/variables';
+import äpyKuosi from '../../assets/kuosi-2019-pieni-mustavalko.svg';
+import {
+  marginGiant,
+  marginDesktop,
+  marginOverdesktop,
+  marginTablet,
+  marginPhone,
+  paddingGiant,
+  paddingOverdesktop,
+  paddingDesktop,
+  paddingTablet,
+  paddingPhone,
+  borderRadius,
+  highlightColor,
+} from '../styles/variables';
 
-export const IndexInfo = styled.div`
-  font-family: ${headingFontBlackTheme};
-  font-size: 1.9em;
-  color: white;
-  display: inline-block;
-  overflow: auto;
-  text-align: center;
+export const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 
-  span {
-    font-size: 0.7em;
-  }
+  background-color: ${({ theme }) =>
+    theme.mode === 'ajaton' ? 'rgb(22, 23, 25)' : highlightColor};
 
-  a {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 768px) and (orientation: landscape) {
-    font-size: 0.9em;
-  }
-
-  ${media.desktop(css`
-    font-size: 1.5em;
-  `)};
-
-  ${media.tablet(css`
-    font-size: 1.5em;
-  `)};
-
-  ${media.phone(css`
-    font-size: 1.1em;
-  `)};
-
-  ${media.tablet(css`
-    font-size: 1.5em;
-  `)};
-
-  ${media.phone(css`
-    font-size: 1.1em;
-  `)};
+  background-image: ${({ theme }) =>
+    theme.mode === 'ajaton' ? 'none' : `url(${äpyKuosi})`};
+  background-size: 50%;
 `;
 
 export const PageContent = styled.div`
@@ -53,56 +38,29 @@ export const PageContent = styled.div`
     0px 18px 23px rgba(0, 0, 0, 0.1);
 
   ${media.giant(css`
-    margin: 0 25% auto 25%;
-    padding: 1.5em 3em;
+    margin: ${marginGiant};
+    padding: ${paddingGiant};
   `)};
 
   ${media.overdesktop(css`
-    margin: 0 20% auto 20%;
-    padding: 1.5em 3em;
+    margin: ${marginOverdesktop};
+    padding: ${paddingOverdesktop};
   `)};
 
   ${media.desktop(css`
-    margin: 0 15% auto 15%;
-    padding: 1em 3em;
+    margin: ${marginDesktop};
+    padding: ${paddingDesktop};
   `)};
 
   ${media.tablet(css`
-    margin: 0 10% auto 10%;
-    padding: 1em 2em;
+    margin: ${marginTablet};
+    padding: ${paddingTablet};
   `)};
 
   ${media.phone(css`
-    margin: 0 2% auto 2%;
-    padding: 1em;
+    margin: ${marginPhone};
+    padding: ${paddingPhone};
     font-size: 0.9em;
-  `)};
-`;
-
-export const HeroImgContainer = styled.div`
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
-    0px 18px 23px rgba(0, 0, 0, 0.1);
-
-  ${media.giant(css`
-    margin: 2em 25% 0 25%;
-  `)};
-
-  ${media.overdesktop(css`
-    margin: 2em 20% 0 20%;
-  `)};
-
-  ${media.desktop(css`
-    margin: 2em 15% 0 15%;
-  `)};
-
-  ${media.tablet(css`
-    margin: 1em 10% 0 10%;
-  `)};
-
-  ${media.phone(css`
-    margin: 0 2% 0 2%;
   `)};
 `;
 
@@ -118,7 +76,7 @@ export const ModalKuvaus = styled.p`
   }
 
   @media (max-width: 1170px) and (orientation: portrait) {
-    padding: 1em 0 0 0;
+    padding: 0;
   }
 
   @media (min-aspect-ratio: 2/1) {
@@ -156,7 +114,6 @@ export const ModalContentGrid = styled.div`
       width: 80%;
       margin: 0 auto;
     `)};
-
     grid-area: image;
   }
 
@@ -165,21 +122,20 @@ export const ModalContentGrid = styled.div`
   }
 `;
 
-export const H2 = styled.h2`
-  text-align: center;
-  margin: 20px 0;
-`;
-
 export const styleInstructions = p => css`
   .avystykset-instructions {
-    border: 3px solid ${p.mode === 'ajaton' ? 'black' : `${highlightColor}`};
+    border: 3px solid ${p.mode === 'ajaton' ? 'black' : highlightColor};
     color: black;
     padding: 1em;
     margin: 1.5em 0;
-    border-radius: 2px;
+    border-radius: ${borderRadius};
   }
 `;
 
 export const marginTop = css`
   margin-top: 1.5em !important;
+`;
+
+export const LogoContainer = styled.div`
+  height: 50vh;
 `;
