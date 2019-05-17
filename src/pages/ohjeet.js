@@ -1,28 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import HeroImg from '../components/HeroImg';
 import Video from '../components/Video';
-import Layout from '../components/layout';
-import {
-  PageContent,
-  HeroImgContainer,
-  styleInstructions,
-  H2,
-} from '../constants/styled';
+import { PageContent, styleInstructions, H2 } from '../constants/styled';
 
-function OhjeetPage({ data, ...props }) {
+function OhjeetPage({ data }) {
   const { markdownRemark, images } = data;
-  const htmlOhjeet = markdownRemark.html;
-  const image = images.edges[Math.floor(Math.random() * images.edges.length)];
 
   return (
-    <Layout {...props}>
-      <HeroImgContainer>
-        <Img fluid={image.node.childImageSharp.fluid} />
-      </HeroImgContainer>
+    <>
+      <HeroImg images={images} />
       <PageContent css={props => styleInstructions(props)}>
-        <div dangerouslySetInnerHTML={{ __html: htmlOhjeet }} />
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
         <H2>Kettu - helppo</H2>
         <Video src={'https://vimeo.com/331432581'} />
         <H2>Saimaannorppa - keskivaikea</H2>
@@ -30,7 +20,7 @@ function OhjeetPage({ data, ...props }) {
         <H2>Joutsen - vaikea</H2>
         <Video src={'https://vimeo.com/331432407'} />
       </PageContent>
-    </Layout>
+    </>
   );
 }
 

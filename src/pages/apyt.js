@@ -1,36 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
 import ÄpyGrid from '../components/ÄpyGrid';
 import Äpy from '../components/Äpy';
-import { PageContent, HeroImgContainer } from '../constants/styled';
+import HeroImg from '../components/HeroImg';
+import { PageContent } from '../constants/styled';
 
-class ÄpyPage extends React.PureComponent {
-  render() {
-    const { data, ...props } = this.props;
-    const { images, allAvytJson } = data;
-    const image = images.edges[Math.floor(Math.random() * images.edges.length)];
-    const html = data.markdownRemark.html;
+const ÄpyPage = ({ data }) => {
+  const { markdownRemark, images, allAvytJson } = data;
 
-    return (
-      <Layout {...props}>
-        <HeroImgContainer>
-          <Img fluid={image.node.childImageSharp.fluid} />
-        </HeroImgContainer>
-        <PageContent>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </PageContent>
-        <ÄpyGrid>
-          {allAvytJson.edges.map(äpy => (
-            <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
-          ))}
-        </ÄpyGrid>
-      </Layout>
-    );
-  }
-}
+  return (
+    <>
+      <HeroImg images={images} />
+      <PageContent>
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+      </PageContent>
+      <ÄpyGrid>
+        {allAvytJson.edges.map(äpy => (
+          <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
+        ))}
+      </ÄpyGrid>
+    </>
+  );
+};
 
 export default ÄpyPage;
 

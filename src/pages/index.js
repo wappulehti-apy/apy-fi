@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
 import Video from '../components/Video';
 import LogoAjaton from '../components/Logo';
 import Logo2019 from '../components/Logo2019';
@@ -15,42 +14,36 @@ const ContainerIndex = styled.div`
   overflow: auto;
 `;
 
-class IndexPage extends React.PureComponent {
-  render() {
-    const Logo =
-      process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2019 />;
+const IndexPage = () => {
+  const Logo =
+    process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2019 />;
 
-    const mainElement = () => {
-      switch (process.env.GATSBY_INDEX_ELEMENT) {
-        case 'logo':
-          return (
-            <>
-              {Logo}
-              <IndexFooter />
-            </>
-          );
-        case 'video':
-          return (
-            <>
-              <Video src={'https://vimeo.com/288036715'} />
-              <IndexFooter />
-            </>
-          );
-        case 'diilikone':
-          return <Diilikone />;
-        case 'wappu':
-          return <Wappu />;
-        default:
-          return Logo;
-      }
-    };
+  const mainElement = () => {
+    switch (process.env.GATSBY_INDEX_ELEMENT) {
+      case 'logo':
+        return (
+          <>
+            {Logo}
+            <IndexFooter />
+          </>
+        );
+      case 'video':
+        return (
+          <>
+            <Video src={'https://vimeo.com/288036715'} />
+            <IndexFooter />
+          </>
+        );
+      case 'diilikone':
+        return <Diilikone />;
+      case 'wappu':
+        return <Wappu />;
+      default:
+        return Logo;
+    }
+  };
 
-    return (
-      <Layout {...this.props}>
-        <ContainerIndex>{mainElement()}</ContainerIndex>
-      </Layout>
-    );
-  }
-}
+  return <ContainerIndex>{mainElement()}</ContainerIndex>;
+};
 
 export default IndexPage;

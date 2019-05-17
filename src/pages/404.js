@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Layout from '../components/layout';
 
 const Container404 = styled.div`
   display: flex;
@@ -15,12 +14,10 @@ const LargeText = styled.div`
   color: white;
 `;
 
-const NotFoundPage = ({ ...props }) => (
-  <Layout {...props}>
-    <Container404>
-      <LargeText>404</LargeText>
-    </Container404>
-  </Layout>
+const NotFoundPage = () => (
+  <Container404>
+    <LargeText>404</LargeText>
+  </Container404>
 );
 
 export default NotFoundPage;

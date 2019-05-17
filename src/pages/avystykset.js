@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
-import {
-  PageContent,
-  HeroImgContainer,
-  styleInstructions,
-} from '../constants/styled';
+import HeroImg from '../components/HeroImg';
+import { PageContent, styleInstructions } from '../constants/styled';
 
-function ÄvystyksetPage({ data, ...props }) {
+function ÄvystyksetPage({ data }) {
   const { markdownRemark, images } = data;
-  const htmlRahasto = markdownRemark.html;
-  const image = images.edges[Math.floor(Math.random() * images.edges.length)];
 
   return (
-    <Layout {...props}>
-      <HeroImgContainer>
-        <Img fluid={image.node.childImageSharp.fluid} />
-      </HeroImgContainer>
+    <>
+      <HeroImg images={images} />
       <PageContent css={props => styleInstructions(props)}>
-        <div dangerouslySetInnerHTML={{ __html: htmlRahasto }} />
+        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </PageContent>
-    </Layout>
+    </>
   );
 }
 
