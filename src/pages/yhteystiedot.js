@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import HeroImg from '../components/HeroImg';
 import { PageContent } from '../constants/styled';
 
-function YhteystiedotPage({ data }) {
+const YhteystiedotPage = ({ data }) => {
   const { markdownRemark, images } = data;
 
   return (
@@ -15,7 +15,7 @@ function YhteystiedotPage({ data }) {
       </PageContent>
     </>
   );
-}
+};
 
 export default YhteystiedotPage;
 

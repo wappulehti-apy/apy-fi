@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import HeroImg from '../components/HeroImg';
 import { PageContent, styleInstructions } from '../constants/styled';
 
-function ÄvystyksetPage({ data }) {
+const ÄvystyksetPage = ({ data }) => {
   const { markdownRemark, images } = data;
 
   return (
@@ -15,7 +15,7 @@ function ÄvystyksetPage({ data }) {
       </PageContent>
     </>
   );
-}
+};
 
 export default ÄvystyksetPage;
 

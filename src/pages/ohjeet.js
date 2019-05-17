@@ -5,14 +5,15 @@ import HeroImg from '../components/HeroImg';
 import Video from '../components/Video';
 import { PageContent, styleInstructions, H2 } from '../constants/styled';
 
-function OhjeetPage({ data }) {
+const OhjeetPage = ({ data }) => {
   const { markdownRemark, images } = data;
+  const { html } = markdownRemark;
 
   return (
     <>
       <HeroImg images={images} />
       <PageContent css={props => styleInstructions(props)}>
-        <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
         <H2>Kettu - helppo</H2>
         <Video src={'https://vimeo.com/331432581'} />
         <H2>Saimaannorppa - keskivaikea</H2>
@@ -22,7 +23,7 @@ function OhjeetPage({ data }) {
       </PageContent>
     </>
   );
-}
+};
 
 export default OhjeetPage;
 
