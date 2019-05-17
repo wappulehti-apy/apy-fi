@@ -132,6 +132,11 @@ export const styleInstructions = p => css`
   }
 `;
 
+export const H2 = styled.h2`
+  text-align: center;
+  margin: 20px 0;
+`;
+
 export const marginTop = css`
   margin-top: 1.5em !important;
 `;
