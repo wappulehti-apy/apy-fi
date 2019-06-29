@@ -1,5 +1,12 @@
 [
 	{
+	  "vuosi": 2019,
+	  "lehti": "Luontoäpy",
+    "kuvaus": "Luontoäpy johdatteli lukijansa suomalaisen luontomaiseman kautta paperitaiteen ihmeellisen taitteelliseen maailmaan! Wappuisista arkeista muodostuvat norppa, joutsen ja kettu herättävät Äpyn eloon ennennäkemättömällä tavalla ja tarjoavat luonnollisesti loistavaa Wappu- ja arkkilukemista.",
+    "imgGrid": "../images/apyt/grid/2019.jpg",
+    "imgCarousel": ["../images/apyt/carousel/2019_1.jpg", "../images/apyt/carousel/2019_2.jpg", "../images/apyt/carousel/2019_3.jpg"]
+	},
+	{
 	  "vuosi": 2017,
 	  "lehti": "PassiÄpy",
     "kuvaus": "PassiÄpy rajattomaan matkailuun. Kevään 2017 Äpy näytti 100-vuotiaan Suomen juhlapassilta. Passin päällä tulivat joko tumman siniset tai valkoiset passinsuojukset.",
