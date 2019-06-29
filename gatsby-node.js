@@ -13,11 +13,11 @@ exports.createPages = ({ actions, graphql }) => {
     isPermanent: true,
   });
 
-  createRedirect({
-    fromPath: `/osta`,
-    toPath: `https://osta.apy.fi/`,
-    isPermanent: true,
-  });
+  // createRedirect({
+  //   fromPath: `/osta`,
+  //   toPath: `https://osta.apy.fi/`,
+  //   isPermanent: true,
+  // });
 };
 
 // Required for emotion (css in js lib) to work
