@@ -190,9 +190,7 @@ class Logo extends React.Component {
   };
 
   render() {
-    return (
-        <LogoContainer ref={this.canvasRef} />
-    );
+    return <LogoContainer ref={this.canvasRef} />;
   }
 }
 

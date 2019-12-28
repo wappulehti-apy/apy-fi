@@ -31,8 +31,11 @@ class Logo extends React.Component {
       camera.position.y = 0;
       camera.position.x = 0;
 
+      // Renderer
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+
       // Controls
-      const controls = new THREE.OrbitControls(camera);
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.04;
       controls.rotateSpeed = 0.07;
@@ -41,9 +44,6 @@ class Logo extends React.Component {
       controls.minPolarAngle = Math.PI / 2;
       controls.maxPolarAngle = Math.PI / 2;
       controls.update();
-
-      // Renderer
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
 
       // Load logo
       var loader = new THREE.OBJLoader();
