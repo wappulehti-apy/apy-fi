@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { animated } from 'react-spring';
-import DurationTrail from '../DurationTrail';
+import { useTransition, animated } from 'react-spring';
 import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
 import Logo2019 from '../../../../assets/logos/logo-2019.svg';
 import {
@@ -16,6 +15,12 @@ import {
 const NormalNav = ({ items }) => {
   const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
 
+  const transitions = useTransition(items, item => item.key, {
+    from: { transform: 'translate3d(0,-40px,0)' },
+    enter: { transform: 'translate3d(0,0px,0)' },
+    trail: 40,
+  });
+
   return (
     <NavContainer>
       <LogoNav key="logo" src={Logo}>
@@ -23,31 +28,13 @@ const NormalNav = ({ items }) => {
           <Img src={Logo} />
         </Link>
       </LogoNav>
-      <DurationTrail
-        native
-        delay={0}
-        duration={20}
-        keys={items.map(i => i.key)}
-        from={{ opacity: 1, y: -100 }}
-        to={{
-          opacity: 1,
-          y: 0,
-        }}
-      >
-        {items.map(item => ({ y, ...props }) => (
-          <animated.div
-            className={cssNavMain}
-            style={{
-              transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
-              ...props,
-            }}
-          >
-            {React.cloneElement(item, {
-              activeClassName: `${cssNavMain} ${activeNavElement}`,
-            })}
-          </animated.div>
-        ))}
-      </DurationTrail>
+      {transitions.map(({ item, props, key }) => (
+        <animated.div className={cssNavMain} key={key} style={props}>
+          {React.cloneElement(item, {
+            activeClassName: `${cssNavMain} ${activeNavElement}`,
+          })}
+        </animated.div>
+      ))}
     </NavContainer>
   );
 };

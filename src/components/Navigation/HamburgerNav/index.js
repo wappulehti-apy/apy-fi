@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { Spring, animated } from 'react-spring';
+import { useSpring, useTransition, animated } from 'react-spring';
 import { css } from 'emotion';
 import HamburgerToggle from './Toggle';
-import DurationTrail from '../DurationTrail';
 import {
   TrailContainer,
   ContainerNav,
@@ -15,20 +14,22 @@ import {
 import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
 import Logo2019 from '../../../../assets/logos/logo-2019.svg';
 
-class HamburgerNav extends React.Component {
-  state = { isOpen: false };
+const HamburgerNav = props => {
+  const { items } = props;
+  const [isOpen, setOpen] = useState(false);
 
-  componentWillUnmount() {
-    // Reintroduce overflow on unmount
-    document.body.style.overflow = 'visible';
-    document.body.style.position = 'static';
-  }
+  const transitions = useTransition(isOpen ? items : [], item => item.key, {
+    from: { transform: isOpen ? 'translate3d(-50px,0,0)' : '' },
+    enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
+    trail: 40,
+  });
+  const { opacity } = useSpring({
+    opacity: isOpen ? 1 : 0,
+    config: { tension: 90, friction: 14, overshootClamping: true },
+  });
 
-  toggleNav = () => {
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen,
-    }));
-    const { isOpen } = this.state;
+  const toggleNav = () => {
+    setOpen(!isOpen);
     const cssOverflow = isOpen ? 'visible' : 'hidden';
     const cssPosition = isOpen ? 'static' : 'fixed';
     document.body.style.overflow = cssOverflow;
@@ -38,69 +39,35 @@ class HamburgerNav extends React.Component {
     document.getElementById('page__wrapper').children[1].style.visibility = css;
   };
 
-  render() {
-    const { items } = this.props;
-    const { isOpen } = this.state;
-    const classActive = isOpen ? 'is-active' : '';
-    const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
-    return (
-      <ContainerNav isOpen={isOpen}>
-        <Link key="etusivu" to="/">
-          <Img src={Logo} isOpen={isOpen} />
-        </Link>
-        <HamburgerToggle classActive={classActive} toggle={this.toggleNav} />
-        <Spring
-          from={{ opacity: 0 }}
-          to={{
-            opacity: 1,
-            zIndex: '1',
-          }}
-          config={{ tension: 90, friction: 14, overshootClamping: true }}
-          toggle={isOpen}
-        >
-          {({ ...styles }) => (
-            <animated.div
-              style={{
-                display: isOpen ? 'block' : 'none',
-                ...styles,
-              }}
-            >
-              <TrailContainer>
-                {isOpen && (
-                  <DurationTrail
-                    native
-                    keys={items.map(i => i.key)}
-                    delay={0}
-                    ms={50}
-                    from={{ opacity: 0, x: 0 }}
-                    to={{ opacity: 1, x: 0 }}
-                  >
-                    {items.map(item => ({ x, ...props }) => (
-                      <animated.div
-                        className={cssNavMain}
-                        style={{
-                          transform: x.interpolate(
-                            x => `translate3d(${x}px,0,0) ease-out`
-                          ),
-                          ...props,
-                        }}
-                      >
-                        {React.cloneElement(item, {
-                          activeClassName: activeNavElement,
-                          onClick: () => this.toggleNav(),
-                        })}
-                      </animated.div>
-                    ))}
-                  </DurationTrail>
-                )}
-              </TrailContainer>
+  const classActive = isOpen ? 'is-active' : '';
+  const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
+
+  return (
+    <ContainerNav isOpen={isOpen}>
+      <Link key="etusivu" to="/">
+        <Img src={Logo} isOpen={isOpen} />
+      </Link>
+      <HamburgerToggle classActive={classActive} toggle={toggleNav} />
+      <animated.div
+        style={{
+          display: isOpen ? 'block' : 'none',
+          ...opacity,
+        }}
+      >
+        <TrailContainer>
+          {transitions.map(({ item, props, key }) => (
+            <animated.div className={cssNavMain} key={key} style={props}>
+              {React.cloneElement(item, {
+                activeClassName: activeNavElement,
+                onClick: () => toggleNav(),
+              })}
             </animated.div>
-          )}
-        </Spring>
-      </ContainerNav>
-    );
-  }
-}
+          ))}
+        </TrailContainer>
+      </animated.div>
+    </ContainerNav>
+  );
+};
 
 export default HamburgerNav;
 
