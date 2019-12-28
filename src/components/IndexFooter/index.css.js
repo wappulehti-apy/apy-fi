@@ -20,6 +20,11 @@ export const IndexInfo = styled.div`
   `)};
 `;
 
-export const Subtitle = styled.span`
+export const Subtitle = styled.p`
   font-size: 0.7em;
+
+  ${media.min_desktop(css`
+    max-width: 50vw;
+    margin: 0 auto;
+  `)};
 `;
