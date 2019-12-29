@@ -38,7 +38,7 @@ class Logo extends React.Component {
       const controls = new THREE.OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.04;
-      controls.rotateSpeed = 0.07;
+      controls.rotateSpeed = 0.7;
       controls.enablePan = false;
       controls.enableZoom = false;
       controls.minPolarAngle = Math.PI / 2;
