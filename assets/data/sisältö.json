@@ -1,36 +1,36 @@
 [
 	{
-	  "tyyppi": "Pilapiirros",
+	"tyyppi": "Pilapiirros",
     "kuvaus": "“Pilapiirros tai pilakuva on huvittavaksi tarkoitettu, usein karrikoitu piirros, joka voi olla visuaalista satiiria, kritiikkiä, huumoria ja ivaa.” (Wikipedia)",
     "imgGrid": "../images/sisalto/grid/kkk.png",
     "imgModal": "../images/sisalto/modal/kkk.png"
 	},
 	{
-	  "tyyppi": "Kuvavitsi",
+	"tyyppi": "Kuvavitsi",
     "kuvaus": "Äpyn tapauksessa usein sanaleikki, joka esitetään kuvallisesti.",
     "imgGrid": "../images/sisalto/grid/vaikuttaja.png",
     "imgModal": "../images/sisalto/modal/vaikuttaja.png"
 	},
 	{
-	  "tyyppi": "Erikoinen tarina",
+	"tyyppi": "Erikoinen tarina",
     "kuvaus": "Tietyn teeman ympärille rakennettu juttu, joka hyödyntää aiheesta löytyvää huumoria.",
     "imgGrid": "../images/sisalto/grid/maita.png",
     "imgModal": "../images/sisalto/modal/maita.png"
 	},
 	{
-	  "tyyppi": "Kokoelma",
+	"tyyppi": "Kokoelma",
     "kuvaus": "Teeman tai aiheen ympärille rakennettu kokonaisuus, joka on enemmän kuin osiensa summa.",
     "imgGrid": "../images/sisalto/grid/turvavali.png",
     "imgModal": "../images/sisalto/modal/turvavali.png"
 	},
 	{
-	  "tyyppi": "Parodia",
+	"tyyppi": "Parodia",
     "kuvaus": "“Parodia eli ivamukaelma on ivallinen, piikittelevä, liioitteleva tai koominen toisen (yleisön tunteman) teoksen jäljitelmä (myös pienet viittaukset kohteeseen riittävät).” (Wikipedia) Esimerkissä parodioidaan valokuva-albumia.",
     "imgGrid": "../images/sisalto/grid/pressat.png",
     "imgModal": "../images/sisalto/modal/pressat.png"
   },
   {
-	  "tyyppi": "Taideteos",
+	"tyyppi": "Taideteos",
     "kuvaus": "Kuvaa muokkaamalla tai piirtämällä tehty teos. Äpyn kohdalla usein sisältää vitsin. Esimerkki käy myös parodiasta.",
     "imgGrid": "../images/sisalto/grid/jussi.png",
     "imgModal": "../images/sisalto/modal/jussi.png"
