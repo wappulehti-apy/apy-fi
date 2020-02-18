@@ -1,7 +1,7 @@
 import LibreBaskervilleRegular from '../../assets/fonts/librebaskerville-regular.woff2';
 
 import MontserratBlack from '../../assets/fonts/montserrat-black.woff2';
-import MontserratBold from '../../assets/fonts/Montserrat-Bold.woff2';
+import MontserratBold from '../../assets/fonts/montserrat-bold.woff2';
 import MontserratRegular from '../../assets/fonts/montserrat-regular.woff2';
 
 import ComfortaaLight from '../../assets/fonts/comfortaa-light.woff2';
