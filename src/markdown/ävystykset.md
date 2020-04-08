@@ -10,7 +10,7 @@ path: "/ävystykset"
 
 **Ävystyssumma riippuu tuettavasta kohteesta**. Myöntämämme Ävystyksen suuruus voi vaihdella aina nollasta eurosta yli tuhanteen euroon. Myönnetyn Ävystyksen suuruus riippuu muun muassa siitä, miten laajasti koemme hankkeen tuottavan iloa, hämmennystä tai hauskuutusta yhteisölle, miten saamme Äpyn näkyviin osana hanketta. sekä miten suuri osuus hankkeen kokonaiskuluista Ävystys on – tahdomme erityisesti olla erilaisten projektien mahdollistaja.
 
-Hae Ävystystä lähettämällä vapaamuotoinen (mielellään ainakin osittain kirjallinen) hakemuksesi osoitteeseen **ävystykset [ät] apy.fi**.
+Hae Ävystystä lähettämällä vapaamuotoinen (mielellään ainakin osittain kirjallinen) hakemuksesi osoitteeseen **avystykset [ät] apy.fi**.
 
 <div class="avystykset-instructions">
 
