@@ -73,11 +73,11 @@ class äCorolla extends React.Component {
         // Resource URL, imported at top
         corollaOBJ,
         // Called when resource is loaded
-        object => {
+        (object) => {
           // Rotate the logo upright, shift it upwards, scale and add it to the scene
           //object.rotation.x = Math.PI / 2;
           const s = 2;
-          object.traverse(function(child) {
+          object.traverse(function (child) {
             if (child instanceof THREE.Mesh) {
               child.material = material;
             }

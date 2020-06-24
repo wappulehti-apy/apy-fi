@@ -53,7 +53,7 @@ class Logo extends React.Component {
         // Resource URL, imported at top
         logoOBJ,
         // Called when resource is loaded
-        object => {
+        (object) => {
           // Shift and scale the logo
           const width = window.innerWidth;
           // Make the logo smaller on tablet's and phones

@@ -218,11 +218,11 @@ class ContactForm extends React.Component {
     const { markdown } = props;
 
     const htmlToimitus = markdown.filter(
-      e => e.node.frontmatter.title === 'toimitus'
+      (e) => e.node.frontmatter.title === 'toimitus'
     )[0].node.html;
 
     const htmlRahasto = markdown.filter(
-      e => e.node.frontmatter.title === 'ävystykset'
+      (e) => e.node.frontmatter.title === 'ävystykset'
     )[0].node.html;
 
     this.state = {
@@ -246,12 +246,12 @@ class ContactForm extends React.Component {
     this.handleSubmit = this.handleSubmit;
   }
 
-  handleRadioChange = e => {
+  handleRadioChange = (e) => {
     this.validateField(e);
     this.setState({ selectedOption: e.target.value });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     const { formValid } = this.state;
     if (formValid) {
@@ -272,8 +272,8 @@ class ContactForm extends React.Component {
         mode: 'cors',
         body: formData,
       })
-        .then(r => r.json())
-        .then(responseJson => {
+        .then((r) => r.json())
+        .then((responseJson) => {
           if (responseJson.status === 1) {
             // Clear form fields and reset to initial state
             this.FormRef.current.reset();
@@ -290,13 +290,13 @@ class ContactForm extends React.Component {
             this.setState({ emailSent: false });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           this.setState({ submitError: true });
         });
     }
   };
 
-  validateField = e => {
+  validateField = (e) => {
     const value = e.target.value;
     let {
       aboutValid,

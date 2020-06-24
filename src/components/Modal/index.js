@@ -28,7 +28,7 @@ const Modal = ({ children, title, open, hideModal }) => {
   const modalRef = useRef(null);
 
   const handleUserKeyPress = useCallback(
-    e => {
+    (e) => {
       if (e.key === 'Escape') {
         open && hideModal();
       }
@@ -37,7 +37,7 @@ const Modal = ({ children, title, open, hideModal }) => {
   );
 
   const handleUserMouseClick = useCallback(
-    e => {
+    (e) => {
       const clientX = e.clientX;
       const clientY = e.clientY;
       const bRect = modalRef.current.firstChild.getBoundingClientRect();

@@ -23,15 +23,15 @@ function SisaltoPage({ data, ...props }) {
       <HeroImgContainer>
         <Img fluid={image.node.childImageSharp.fluid} />
       </HeroImgContainer>
-      <PageContent css={props => styleInstructions(props)}>
+      <PageContent css={(props) => styleInstructions(props)}>
         <div dangerouslySetInnerHTML={{ __html: sisalto_1_html }} />
       </PageContent>
       <SisältöGrid>
-        {allSisaltoJson.edges.map(item => (
+        {allSisaltoJson.edges.map((item) => (
           <SisältöItem key={item.node.id} item={item.node} />
         ))}
       </SisältöGrid>
-      <PageContent css={props => [styleInstructions(props), marginTop]}>
+      <PageContent css={(props) => [styleInstructions(props), marginTop]}>
         <div dangerouslySetInnerHTML={{ __html: sisalto_2_html }} />
       </PageContent>
     </Layout>

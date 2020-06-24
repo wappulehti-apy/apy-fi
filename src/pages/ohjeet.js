@@ -12,7 +12,7 @@ const OhjeetPage = ({ data }) => {
   return (
     <>
       <HeroImg images={images} />
-      <PageContent css={props => styleInstructions(props)}>
+      <PageContent css={(props) => styleInstructions(props)}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <H2>Kettu - helppo</H2>
         <Video src={'https://vimeo.com/331432581'} />

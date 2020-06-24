@@ -122,7 +122,7 @@ export const ModalContentGrid = styled.div`
   }
 `;
 
-export const styleInstructions = p => css`
+export const styleInstructions = (p) => css`
   .avystykset-instructions {
     border: 3px solid ${p.mode === 'ajaton' ? 'black' : highlightColor};
     color: black;

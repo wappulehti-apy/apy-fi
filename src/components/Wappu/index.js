@@ -10,7 +10,7 @@ const Wappu = ({ data }) => {
     <>
       <H1>Äpy 2019 on julkaistu!</H1>
       <WappuContainer>
-        {images.edges.map(img => (
+        {images.edges.map((img) => (
           <ImgContainer key={img.node.id}>
             {' '}
             <Img fluid={img.node.childImageSharp.fluid} />
@@ -29,7 +29,7 @@ Wappu.propTypes = {
   }).isRequired,
 };
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -52,6 +52,6 @@ export default props => (
         }
       }
     `}
-    render={data => <Wappu data={data} {...props} />}
+    render={(data) => <Wappu data={data} {...props} />}
   />
 );

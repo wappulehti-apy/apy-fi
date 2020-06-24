@@ -86,7 +86,7 @@ export const breakpoints = {
 export const media = Object.keys(breakpoints).reduce((accumulator, label) => {
   let prefix = typeof breakpoints[label] === 'string' ? '' : 'max-width:';
   let suffix = typeof breakpoints[label] === 'string' ? '' : 'px';
-  accumulator[label] = cls =>
+  accumulator[label] = (cls) =>
     css`
       @media (${prefix + breakpoints[label] + suffix}) {
         ${cls};

@@ -10,7 +10,7 @@ const ÄvystyksetPage = ({ data }) => {
   return (
     <>
       <HeroImg images={images} />
-      <PageContent css={props => styleInstructions(props)}>
+      <PageContent css={(props) => styleInstructions(props)}>
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </PageContent>
     </>

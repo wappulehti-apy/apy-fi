@@ -14,11 +14,11 @@ import {
 import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
 import Logo2019 from '../../../../assets/logos/logo-2019.svg';
 
-const HamburgerNav = props => {
+const HamburgerNav = (props) => {
   const { items } = props;
   const [isOpen, setOpen] = useState(false);
 
-  const transitions = useTransition(isOpen ? items : [], item => item.key, {
+  const transitions = useTransition(isOpen ? items : [], (item) => item.key, {
     from: { transform: isOpen ? 'translate3d(-50px,0,0)' : '' },
     enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
     trail: 40,

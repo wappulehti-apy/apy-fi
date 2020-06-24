@@ -16,7 +16,7 @@ const ÄpyPage = ({ data }) => {
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
       </PageContent>
       <ÄpyGrid>
-        {allAvytJson.edges.map(äpy => (
+        {allAvytJson.edges.map((äpy) => (
           <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
         ))}
       </ÄpyGrid>

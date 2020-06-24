@@ -12,7 +12,7 @@ const ÄpyCarousel = ({ imgCarousel }) => (
       useKeyboardArrows
       emulateTouch
     >
-      {imgCarousel.map(img => (
+      {imgCarousel.map((img) => (
         <div key={img.id}>
           <img key={img.id} src={img.childImageSharp.fluid.src} />
         </div>

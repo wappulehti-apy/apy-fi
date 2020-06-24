@@ -50,7 +50,7 @@ class Logo extends React.Component {
         // Resource URL, imported at top
         logoOBJ,
         // Called when resource is loaded
-        object => {
+        (object) => {
           // Rotate the logo upright, shift it upwards, scale and add it to the scene
           object.rotation.x = Math.PI / 2;
           const s = width < breakpoints.desktop ? 2 : 2.5;
