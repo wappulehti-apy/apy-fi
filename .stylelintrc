@@ -4,5 +4,8 @@
     "stylelint-config-prettier",
     "stylelint-config-styled-components",
     "stylelint-config-rational-order"
-  ]
+  ],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null
+  }
 }
