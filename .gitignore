@@ -1,5 +1,7 @@
-# Project dependencies
+# General
 .cache
+.eslintcache
+.stylelintcache
 node_modules
 yarn-error.log
 

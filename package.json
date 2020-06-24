@@ -69,6 +69,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "postcss-jsx": "^0.36.4",
     "prettier": "^2.0.5",
     "stylelint-config-prettier": "^8.0.2",
@@ -80,5 +82,14 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wappulehti-apy/apy-fi"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.css.js": "stylelint --cache --fix"
   }
 }
