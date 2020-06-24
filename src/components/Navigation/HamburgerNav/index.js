@@ -18,7 +18,7 @@ const HamburgerNav = (props) => {
   const { items } = props;
   const [isOpen, setOpen] = useState(false);
 
-  const transitions = useTransition(isOpen ? items : [], (item) => item.key, {
+  const transitions = useTransition(isOpen ? items : [], {
     from: { transform: isOpen ? 'translate3d(-50px,0,0)' : '' },
     enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
     trail: 40,
@@ -35,7 +35,7 @@ const HamburgerNav = (props) => {
     document.body.style.overflow = cssOverflow;
     document.body.style.position = cssPosition;
     // Hide the main content to prevent for example opening a modal
-    // while the hamburgernav is open
+    // while the HamburgerNav is open
     document.getElementById('page__wrapper').children[1].style.visibility = css;
   };
 
@@ -55,8 +55,8 @@ const HamburgerNav = (props) => {
         }}
       >
         <TrailContainer>
-          {transitions.map(({ item, props, key }) => (
-            <animated.div className={cssNavMain} key={key} style={props}>
+          {transitions((style, item) => (
+            <animated.div className={cssNavMain} style={style}>
               {React.cloneElement(item, {
                 activeClassName: activeNavElement,
                 onClick: () => toggleNav(),

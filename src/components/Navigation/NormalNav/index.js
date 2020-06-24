@@ -15,7 +15,7 @@ import {
 const NormalNav = ({ items }) => {
   const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
 
-  const transitions = useTransition(items, (item) => item.key, {
+  const transitions = useTransition(items, {
     from: { transform: 'translate3d(0,-40px,0)' },
     enter: { transform: 'translate3d(0,0px,0)' },
     trail: 40,
@@ -28,8 +28,8 @@ const NormalNav = ({ items }) => {
           <Img src={Logo} />
         </Link>
       </LogoNav>
-      {transitions.map(({ item, props, key }) => (
-        <animated.div className={cssNavMain} key={key} style={props}>
+      {transitions((style, item) => (
+        <animated.div className={cssNavMain} style={style}>
           {React.cloneElement(item, {
             activeClassName: `${cssNavMain} ${activeNavElement}`,
           })}

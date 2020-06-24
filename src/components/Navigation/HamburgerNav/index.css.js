@@ -18,18 +18,18 @@ export const TrailContainer = styled.div`
 `;
 
 export const ContainerNav = styled.div`
-  min-height: ${({ isopen }) => (isopen ? '100vh' : 0)};
-  background: ${({ isopen }) => (isopen ? 'white' : 'none')};
+  min-height: ${({ isOpen }) => (isOpen ? '100vh' : 0)};
+  background: ${({ isOpen }) => (isOpen ? 'white' : 'none')};
 `;
 
 export const Img = styled.img`
-
   --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
     brightness(119%) contrast(100%);
 
   width: 70px;
   margin: 30px 40px;
-  filter: ${({ isopen }) => (isopen ? 'invert(0)' : 'var(--filter-to-white)')};
+  /* stylelint-disable-line value-keyword-case */
+  filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
 `;
 
 export const cssNavMain = css`

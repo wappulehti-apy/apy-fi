@@ -24,6 +24,7 @@ const Navigation = () => {
   const [navType, setNavType] = useState(undefined);
 
   const handleWindowResize = useCallback(() => {
+    console.log('heeeeereeee');
     setNavTypeFunction();
   }, []);
 
