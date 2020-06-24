@@ -75,15 +75,15 @@ export const ModalContainer = styled.div`
 
 export const ModalMain = styled.div`
   position: fixed;
-  background: white;
-  margin: 0 auto;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: ${borderRadius};
   display: flex;
   flex-direction: column;
   max-height: 95vh;
+  margin: 0 auto;
+  background: white;
+  border-radius: ${borderRadius};
+  transform: translate(-50%, -50%);
 
   ${media.giant(css`
     width: 60vw;
@@ -103,11 +103,11 @@ export const ModalMain = styled.div`
 `;
 
 export const ModalHeader = styled.div`
-  text-align: center;
-  font-size: 1.8em;
-  font-family: ${headingFontBlackTheme};
   margin: 0;
   padding: 1em;
+  font-size: 1.8em;
+  font-family: ${headingFontBlackTheme};
+  text-align: center;
 
   ${media.tablet(css`
     font-size: 1em;
@@ -128,11 +128,11 @@ export const ModalBody = styled.div`
 `;
 
 export const ModalToggle = styled.div`
-  height: 20px;
-  width: 20px;
   position: absolute;
   top: 1.35em;
   right: 1.35em;
+  width: 20px;
+  height: 20px;
 
   ${media.tablet(css`
     top: 0.7em;
@@ -141,19 +141,19 @@ export const ModalToggle = styled.div`
 
   &::before,
   &::after {
-    border-radius: 3px;
-    transform: rotate(-45deg);
-    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
+    display: block;
+    width: 30px;
+    height: 3px;
     margin-top: -1.5px;
     margin-left: -15px;
-    display: block;
-    height: 3px;
-    width: 30px;
     background-color: black;
+    border-radius: 3px;
+    transform: rotate(-45deg);
     transition: all 0.18s ease-out;
+    content: '';
 
     ${media.tablet(css`
       width: 20px;

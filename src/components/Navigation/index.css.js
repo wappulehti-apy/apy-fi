@@ -4,8 +4,8 @@ import { media } from '../../styles/main';
 
 export const cssNavLink = css`
   position: relative;
-  text-decoration: none;
   font-weight: 900;
+  text-decoration: none;
 
   &::after {
     position: absolute;

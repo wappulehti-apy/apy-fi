@@ -11,8 +11,8 @@ import { media } from '../../styles/main';
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
   padding-top: 20px;
 
   ${media.giant(css`

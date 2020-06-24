@@ -38,14 +38,14 @@ export const ÄpyNameGradientBackground = styled.div`
 
 export const ÄpyName = styled.span`
   position: absolute;
-  left: 0;
   top: 1em;
   right: 0;
+  left: 0;
   z-index: 3;
   width: 100%;
+  color: white;
   font-weight: 600;
   font-family: ${headingFontBoldTheme};
-  color: white;
   white-space: nowrap;
   text-align: center;
   opacity: 0;

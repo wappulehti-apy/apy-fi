@@ -4,12 +4,12 @@ import { media } from '../../styles/main';
 import { headingFontBlackTheme } from '../../styles/variables';
 
 export const IndexInfo = styled.div`
-  font-family: ${headingFontBlackTheme};
   display: inline-block;
   overflow: auto;
-  text-align: center;
-  font-size: 1.9em;
   color: white;
+  font-size: 1.9em;
+  font-family: ${headingFontBlackTheme};
+  text-align: center;
 
   ${media.desktop(css`
     font-size: 1.5em;

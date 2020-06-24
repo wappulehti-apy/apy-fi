@@ -19,12 +19,12 @@ export const ImgContainer = styled.div`
 `;
 
 export const H1 = styled.h1`
-  font-family: ${headingFontBlackTheme};
-  font-size: 1.6em;
-  color: white;
   margin: 30px;
-  text-align: center;
   padding: 0 20%;
+  color: white;
+  font-size: 1.6em;
+  font-family: ${headingFontBlackTheme};
+  text-align: center;
 
   a {
     color: white;

@@ -11,10 +11,10 @@ import { media } from '../../styles/main';
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  padding-top: 20px;
+  grid-template-columns: repeat(2, 1fr);
   margin: 0 25%;
+  padding-top: 20px;
 
   ${media.giant(css`
     grid-template-columns: repeat(2, 1fr);
