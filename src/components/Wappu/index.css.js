@@ -31,9 +31,9 @@ export const ImgContainer = styled.div`
 `;
 
 export const H1 = styled.h1`
-  font-family: ${headingFontBlackTheme};
-  font-size: 1.9em;
-  color: white;
-  text-align: center;
   margin-bottom: 40px;
+  color: white;
+  font-size: 1.9em;
+  font-family: ${headingFontBlackTheme};
+  text-align: center;
 `;

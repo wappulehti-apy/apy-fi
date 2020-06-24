@@ -7,7 +7,6 @@ export const CarouselContainer = styled.div`
   }
 
   & .thumbs-wrapper,
-  .thumbs,
   .thumbs.animated {
     margin: 0 !important;
     padding: 5px 5px 0 0;

@@ -31,8 +31,8 @@ export const H1 = styled.h1`
   }
 
   ${media.tablet(css`
-    font-size: 1.1em;
-    padding: 0;
     margin: 0 10px;
+    padding: 0;
+    font-size: 1.1em;
   `)};
 `;

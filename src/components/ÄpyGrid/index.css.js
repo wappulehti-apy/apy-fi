@@ -16,27 +16,27 @@ export const GridContainer = styled.div`
   padding-top: 20px;
 
   ${media.giant(css`
-    margin: ${marginGiant};
     grid-template-columns: repeat(5, 1fr);
+    margin: ${marginGiant};
   `)};
 
   ${media.overdesktop(css`
-    margin: ${marginOverdesktop};
     grid-template-columns: repeat(4 1fr);
+    margin: ${marginOverdesktop};
   `)};
 
   ${media.desktop(css`
-    margin: ${marginDesktop};
     grid-template-columns: repeat(3, 1fr);
+    margin: ${marginDesktop};
   `)};
 
   ${media.tablet(css`
-    margin: ${marginTablet};
     grid-template-columns: repeat(3, 1fr);
+    margin: ${marginTablet};
   `)};
 
   ${media.phone(css`
-    margin: ${marginPhone};
     grid-template-columns: repeat(3, 1fr);
+    margin: ${marginPhone};
   `)};
 `;

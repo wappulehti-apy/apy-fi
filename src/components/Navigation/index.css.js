@@ -7,23 +7,23 @@ export const cssNavLink = css`
   text-decoration: none;
   font-weight: 900;
 
-  &:after {
-    content: '';
+  &::after {
     position: absolute;
+    bottom: -2px;
+    left: 0;
     width: 100%;
     height: 2px;
-    left: 0;
-    bottom: -2px;
     background: white;
-    visibility: hidden;
     border-radius: 5px;
     transform: scaleX(0);
+    visibility: hidden;
     transition: 0.2s ease-out;
+    content: '';
   }
 
-  &:hover:after {
-    visibility: visible;
+  &:hover::after {
     transform: scaleX(1);
+    visibility: visible;
   }
 
   ${media.giant(css2`

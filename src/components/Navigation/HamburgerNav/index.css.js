@@ -8,26 +8,28 @@ import {
 export const TrailContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: white;
+  height: 80vh;
+  overflow-y: scroll;
   font-family: ${({ theme }) =>
     theme.mode === 'ajaton'
       ? `${headingFontNormal}`
       : `${headingFontBoldTheme}`};
-  overflow-y: scroll;
-  height: 80vh;
+  background: white;
 `;
 
 export const ContainerNav = styled.div`
-  min-height: ${({ isOpen }) => (isOpen ? '100vh' : 0)};
-  background: ${({ isOpen }) => (isOpen ? 'white' : 'none')};
+  min-height: ${({ isopen }) => (isopen ? '100vh' : 0)};
+  background: ${({ isopen }) => (isopen ? 'white' : 'none')};
 `;
 
 export const Img = styled.img`
+
   --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
     brightness(119%) contrast(100%);
-  filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
+
   width: 70px;
   margin: 30px 40px;
+  filter: ${({ isopen }) => (isopen ? 'invert(0)' : 'var(--filter-to-white)')};
 `;
 
 export const cssNavMain = css`

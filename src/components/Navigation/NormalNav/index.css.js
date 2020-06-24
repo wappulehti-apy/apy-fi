@@ -6,13 +6,12 @@ import {
 } from '../../../styles/variables';
 
 export const NavContainer = styled.div`
+  z-index: 2;
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
   padding: 20px;
-  z-index: 2;
-
   font-family: ${({ theme }) =>
     theme.mode === 'ajaton'
       ? `${headingFontNormal}`
@@ -20,15 +19,17 @@ export const NavContainer = styled.div`
 `;
 
 export const LogoNav = styled.div`
-  margin-right: auto;
   width: 60px;
+  margin-right: auto;
 `;
 
 export const Img = styled.img`
+
   --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
     brightness(119%) contrast(100%);
-  filter: var(--filter-to-white);
+
   width: 60px;
+  filter: var(--filter-to-white);
 `;
 
 export const cssNavMain = css`

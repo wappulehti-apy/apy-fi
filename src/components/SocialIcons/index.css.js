@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 export const Ul = styled.ul`
   display: flex;
   justify-content: center;
-  list-style: none;
-  padding: 50px 0 30px 0;
   margin: 0;
+  padding: 50px 0 30px 0;
+  list-style: none;
 
   li {
-    font-size: 3em;
     padding-right: 50px;
+    font-size: 3em;
 
     &:last-child {
       padding-right: 0;
@@ -18,14 +18,14 @@ export const Ul = styled.ul`
 `;
 
 export const A = styled.a`
-  text-decoration: none;
   color: white;
-  transition: all 0.4s ease-in-out;
+  text-decoration: none;
   outline: none;
+  transition: all 0.4s ease-in-out;
 
   svg {
-    transition: all 0.2s ease-in-out;
     transform: scale(1);
+    transition: all 0.2s ease-in-out;
   }
 
   &:hover {

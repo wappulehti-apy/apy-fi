@@ -9,22 +9,22 @@ export const LipsumContainer = styled.div`
 `;
 
 export const Button = styled.div`
-  max-width: 120px;
   position: relative;
   top: 0;
-  border: none;
+  display: inline-block;
+  max-width: 120px;
   padding: 12px 16px;
-  background-color: #d0d0d0;
+  overflow: hidden;
   color: #111;
   font-weight: bold;
-  border-radius: ${borderRadius};
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
+  background-color: #d0d0d0;
+  border: none;
   border-bottom: 1px solid #aaa;
+  border-radius: ${borderRadius};
   outline: none;
-  transition: background-color 0.2s, box-shadow 02s;
-  overflow: hidden;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16);
   cursor: pointer;
-  display: inline-block;
+  transition: background-color 0.2s, box-shadow 02s;
   animation: ${({ animation }) => animation} 0.25s ease-in-out;
 
   &.clicked {
@@ -53,9 +53,9 @@ to {
 `;
 
 export const LipsumText = styled.div`
+  width: 80vw;
+  color: black;
   font-size: 3em;
   font-family: ${headingBold};
-  color: black;
-  width: 80vw;
   background-color: white;
 `;

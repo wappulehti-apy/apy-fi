@@ -52,11 +52,11 @@ export const ModalBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 100;
+  display: ${({ open }) => (open ? 'block' : 'none')};
   width: 100%;
   height: 100%;
-  z-index: 100;
   background-color: rgba(0, 0, 0, 0.7);
-  display: ${({ open }) => (open ? 'block' : 'none')};
   animation: ${({ open }) => (open ? showBackground : hideBackground)} 0.1s
     ease-out;
 `;
@@ -65,10 +65,10 @@ export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   z-index: 101;
   display: ${({ open }) => (open ? 'block' : 'none')};
+  width: 100%;
+  height: 100%;
   animation: ${({ open }) => (open ? showContainer : hideContainer)} 0.4s
     cubic-bezier(0.2, 0.87, 0.76, 0.98);
 `;
@@ -81,7 +81,6 @@ export const ModalMain = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: ${borderRadius};
-
   display: flex;
   flex-direction: column;
   max-height: 95vh;
@@ -140,8 +139,8 @@ export const ModalToggle = styled.div`
     right: 0.3em;
   `)};
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     border-radius: 3px;
     transform: rotate(-45deg);
     content: '';
@@ -161,13 +160,13 @@ export const ModalToggle = styled.div`
     `)};
   }
 
-  &:after {
+  &::after {
     transform: rotate(-135deg);
   }
 
   &:hover {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       transform: rotate(0deg);
     }
   }

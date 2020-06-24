@@ -26,10 +26,10 @@ export const ÄpyContainer = styled.div`
 
 export const ÄpyNameGradientBackground = styled.div`
   position: absolute;
-  width: 100%;
-  height: 100%;
   bottom: 0;
   z-index: 2;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.2);
   border-radius: ${borderRadius};
   opacity: 0;
