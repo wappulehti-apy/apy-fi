@@ -1,8 +1,5 @@
 import React from 'react';
 import * as THREE from 'three';
-// See gatsby-node.js for explanation of how this works
-import 'three-examples/loaders/OBJLoader';
-import 'three-examples/controls/OrbitControls';
 import styled from '@emotion/styled';
 import corollaOBJ from '../../../assets/corolla/corolla.obj';
 import diffuse from '../../../assets/corolla/diffuse.jpg';

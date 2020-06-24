@@ -29,6 +29,8 @@ Hae Ävystystä lähettämällä vapaamuotoinen (mielellään ainakin osittain k
   - Viestiä, joka on tarkoitettu äidillesi
 
 <strong>Esimerkkejä erilaisista myönnetyistä Ävystyksistä ja summista:</strong>  
+  - Wappuna 2020 jaettujen teekkarilakkien postittaminen - 850€
+  - PELMU ry:n kakkostreeniksen remontti - 800€
   - From ARTS with love -rakennelma – 400€ 
   - AS20-historiikki – 300€
   - Teekkarispeksi 30v – 500€

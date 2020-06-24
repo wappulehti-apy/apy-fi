@@ -1,10 +1,9 @@
 import React from 'react';
 import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { LogoContainer } from '../../constants/styled';
 import { breakpoints } from '../../styles/main';
-// See gatsby-node.js for explanation of how this worksz
-import 'three-examples/loaders/OBJLoader';
-import 'three-examples/controls/OrbitControls';
 import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';
 
 class Logo extends React.Component {
@@ -38,7 +37,7 @@ class Logo extends React.Component {
       });
 
       // Controls
-      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      const controls = new OrbitControls(camera, renderer.domElement);
       controls.enableDamping = true;
       controls.dampingFactor = 0.04;
       controls.rotateSpeed = 0.7;
@@ -49,7 +48,7 @@ class Logo extends React.Component {
       controls.update();
 
       // Load logo
-      var loader = new THREE.OBJLoader();
+      var loader = new OBJLoader();
       loader.load(
         // Resource URL, imported at top
         logoOBJ,

@@ -35,24 +35,11 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           use: 'url-loader',
         },
         {
-          // Used to load modules from the three.js examples folder
-          test: /three\/examples\/js/,
-          use: 'imports-loader?THREE=three',
-        },
-        {
           test: /\.(fs|vs)$/,
           exclude: /node_modules/,
           use: 'raw-loader',
         },
       ],
-    },
-    resolve: {
-      alias: {
-        'three-examples': path.join(
-          __dirname,
-          './node_modules/three/examples/js'
-        ),
-      },
     },
     devtool: 'source-map',
   });
