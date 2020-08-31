@@ -16,8 +16,8 @@ const NormalNav = ({ items }) => {
   const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2021;
 
   const transitions = useTransition(items, {
-    from: { transform: 'translate3d(0,-40px,0)' },
-    enter: { transform: 'translate3d(0,0px,0)' },
+    from: { transform: 'translate3d(0,0,0)' },
+    enter: { transform: 'translate3d(0,0,0)' },
     trail: 40,
   });
 

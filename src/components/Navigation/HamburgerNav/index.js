@@ -20,7 +20,7 @@ const HamburgerNav = (props) => {
   const [isOpen, setOpen] = useState(false);
 
   const transitions = useTransition(isOpen ? items : [], {
-    from: { transform: isOpen ? 'translate3d(-50px,0,0)' : '' },
+    from: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
     enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
     trail: 40,
   });
