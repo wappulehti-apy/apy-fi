@@ -53,12 +53,14 @@ export const ModalBackground = styled.div`
   top: 0;
   left: 0;
   z-index: 100;
-  display: ${({ open }) => (open ? 'block' : 'none')};
+  display: ${({ open, isClosing }) =>
+    isClosing ? 'block' : open ? 'block' : 'none'};
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  animation: ${({ open }) => (open ? showBackground : hideBackground)} 0.1s
-    ease-out;
+  animation: ${({ open, isClosing }) =>
+      isClosing ? hideBackground : open ? showBackground : hideBackground}
+    0.2s ease-out;
 `;
 
 export const ModalContainer = styled.div`
@@ -66,11 +68,13 @@ export const ModalContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 101;
-  display: ${({ open }) => (open ? 'block' : 'none')};
+  display: ${({ open, isClosing }) =>
+    isClosing ? 'block' : open ? 'block' : 'none'};
   width: 100%;
   height: 100%;
-  animation: ${({ open }) => (open ? showContainer : hideContainer)} 0.4s
-    cubic-bezier(0.2, 0.87, 0.76, 0.98);
+  animation: ${({ open, isClosing }) =>
+      isClosing ? hideContainer : open ? showContainer : hideContainer}
+    0.2s cubic-bezier(0.2, 0.87, 0.76, 0.98);
 `;
 
 export const ModalMain = styled.div`

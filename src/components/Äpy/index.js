@@ -27,7 +27,7 @@ const Äpy = ({ äpy }) => {
   const modalProps = {
     title: äpyLehtiVuosi,
     open: modalOpen,
-    hideModal: () => setModalOpen(false),
+    setIsOpen: setModalOpen,
   };
 
   return (
@@ -41,7 +41,7 @@ const Äpy = ({ äpy }) => {
         )}
         <Img fluid={imgGrid.childImageSharp.fluid} />
       </ÄpyContainer>
-      {modalOpen && <ÄpyModal äpy={äpy} modalProps={modalProps} />}
+      <ÄpyModal äpy={äpy} modalProps={modalProps} />
     </>
   );
 };

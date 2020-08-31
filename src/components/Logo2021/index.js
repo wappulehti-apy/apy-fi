@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { LogoContainer } from '../../constants/styled';
 import { breakpoints } from '../../styles/main';
-import logoOBJ from '../../../assets/logos/ajaton/3d/ajaton.obj';
+import logoOBJ from '../../../assets/logos/2021/3d/2021-2.obj';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class Logo extends React.Component {
 
       // Scene
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x161719);
 
       // Camera
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
@@ -31,7 +30,11 @@ class Logo extends React.Component {
       camera.position.x = 0;
 
       // Renderer
-      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        gammaOutput: true,
+      });
 
       // Controls
       const controls = new OrbitControls(camera, renderer.domElement);
@@ -46,35 +49,43 @@ class Logo extends React.Component {
 
       // Load logo
       var loader = new OBJLoader();
+      // var loader = new GLTFLoader();
       loader.load(
         // Resource URL, imported at top
         logoOBJ,
         // Called when resource is loaded
         (object) => {
-          // Rotate the logo upright, shift it upwards, scale and add it to the scene
-          object.rotation.x = Math.PI / 2;
-          const s = width < breakpoints.desktop ? 2 : 2.5;
-          object.scale.set(s, s, s);
-          object.translateZ(-1);
+          // Shift and scale the logo
+          const width = window.innerWidth;
           // Make the logo smaller on tablet's and phones
+          const s = width < breakpoints.desktop ? 3 : 4;
+          object.scale.set(s, s, s);
+          const dY = width < breakpoints.desktop ? 2 : -1;
+          object.translateY(dY);
           scene.add(object);
         }
       );
 
       // Add light
       var light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(-1, 0, 1);
+      light.position.set(0, 0, 1);
       scene.add(light);
 
-      // Add light
       light = new THREE.DirectionalLight(0xffffff, 1);
-      light.position.set(-1, 1, -1);
+      light.position.set(0, 0, -1);
       scene.add(light);
 
-      light = new THREE.AmbientLight(0xffffff, 0.3);
+      light = new THREE.DirectionalLight(0xffffff, 0.8);
+      light.position.set(1, 0, 0);
       scene.add(light);
 
-      const clock = new THREE.Clock();
+      light = new THREE.DirectionalLight(0xffffff, 0.8);
+      light.position.set(-1, 0, 0);
+      scene.add(light);
+
+      light = new THREE.AmbientLight(0xffffff, 0.1);
+      scene.add(light);
+
       renderer.setSize(width, height);
       renderer.setPixelRatio(window.devicePixelRatio);
 
@@ -82,8 +93,9 @@ class Logo extends React.Component {
       this.canvasRef.current.appendChild(renderer.domElement);
 
       // Set state variables and event listener for window resize.
-      this.setState({ renderer, camera, scene, clock, controls });
+      this.setState({ renderer, camera, scene, controls });
       window.addEventListener('resize', this.onWindowResize);
+
       // Call start and start rendering stuff on the screen
       this.start();
     } else {
@@ -92,7 +104,7 @@ class Logo extends React.Component {
       DivNoWebGL.style.cssText =
         'margin: 0; \
         font-size: 10em; \
-        font-family: "Libre Baskerville"; \
+        font-family: "Comfortaa Bold"; \
         color: white; \
         display: flex; \
         flex-direction: column; \

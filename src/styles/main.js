@@ -65,7 +65,7 @@ injectGlobal`
 
   html, body {
     font-family: ${
-      theme === 'ajaton' ? 'Libre Baskerville' : 'Comfortaa Regular'
+      theme === 'ajaton' ? 'Libre Baskerville' : 'Montserrat Regular'
     };
   }
 `;

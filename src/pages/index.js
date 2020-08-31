@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Video from '../components/Video';
 import LogoAjaton from '../components/Logo';
-import Logo2019 from '../components/Logo2019';
+import Logo2021 from '../components/Logo2021';
 import Diilikone from '../components/Diilikone';
 import Wappu from '../components/Wappu';
 import IndexFooter from '../components/IndexFooter';
@@ -16,7 +16,7 @@ const ContainerIndex = styled.div`
 
 const IndexPage = () => {
   const Logo =
-    process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2019 />;
+    process.env.GATSBY_THEME === 'ajaton' ? <LogoAjaton /> : <Logo2021 />;
 
   const mainElement = () => {
     switch (process.env.GATSBY_INDEX_ELEMENT) {
@@ -30,7 +30,7 @@ const IndexPage = () => {
       case 'video':
         return (
           <>
-            <Video src={'https://vimeo.com/288036715'} />
+            <Video src={'https://vimeo.com/453199585'} />
             <IndexFooter />
           </>
         );

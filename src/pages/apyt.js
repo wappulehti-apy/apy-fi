@@ -14,12 +14,12 @@ const ÄpyPage = ({ data }) => {
       <HeroImg images={images} />
       <PageContent>
         <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+        <ÄpyGrid>
+          {allAvytJson.edges.map((äpy) => (
+            <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
+          ))}
+        </ÄpyGrid>
       </PageContent>
-      <ÄpyGrid>
-        {allAvytJson.edges.map((äpy) => (
-          <Äpy key={äpy.node.vuosi} äpy={äpy.node} />
-        ))}
-      </ÄpyGrid>
     </>
   );
 };

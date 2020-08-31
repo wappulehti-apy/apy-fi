@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../styles/main';
-import äpyKuosi from '../../assets/kuosi-2019-pieni-mustavalko.svg';
+import äpyKuosi from '../../assets/backgrounds/2021/kuosi-2021-25.png';
 import {
   marginGiant,
   marginDesktop,
@@ -143,4 +143,8 @@ export const marginTop = css`
 
 export const LogoContainer = styled.div`
   height: 50vh;
+
+  & > canvas {
+    outline: none;
+  }
 `;

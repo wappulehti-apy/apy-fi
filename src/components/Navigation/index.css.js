@@ -1,11 +1,13 @@
 import { css } from 'emotion';
 import { css as css2 } from '@emotion/core';
 import { media } from '../../styles/main';
+import { textColor } from '../../styles/variables';
 
 export const cssNavLink = css`
   position: relative;
   font-weight: 900;
   text-decoration: none;
+  color: ${textColor};
 
   &::after {
     position: absolute;
@@ -13,7 +15,7 @@ export const cssNavLink = css`
     left: 0;
     width: 100%;
     height: 2px;
-    background: white;
+    background: ${textColor};
     border-radius: 5px;
     transform: scaleX(0);
     visibility: hidden;

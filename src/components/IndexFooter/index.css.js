@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../../styles/main';
-import { headingFontBlackTheme } from '../../styles/variables';
+import {
+  headingFontBlackTheme,
+  textColor,
+  textShadow,
+} from '../../styles/variables';
 
 export const IndexInfo = styled.div`
   display: inline-block;
   overflow: auto;
-  color: white;
+  color: ${textColor};
+  text-shadow: ${textShadow};
   font-size: 1.9em;
   font-family: ${headingFontBlackTheme};
   text-align: center;

@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { LogoContainer } from '../../constants/styled';
 import { breakpoints } from '../../styles/main';
-import logoOBJ from '../../../assets/logos/3d/logo3d-2019.obj';
+import logoOBJ from '../../../assets/logos/2019/3d/2019.obj';
 
 class Logo extends React.Component {
   constructor(props) {
@@ -17,7 +17,6 @@ class Logo extends React.Component {
     const hasWebGL = this.hasWebGL();
     if (hasWebGL) {
       // Setup
-
       const width = window.innerWidth;
       const height = this.canvasRef.current.clientHeight;
 

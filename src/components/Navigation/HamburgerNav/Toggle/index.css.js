@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { textColor } from '../../../../styles/variables';
 
 export const ToggleHamburger = styled.button`
   position: absolute;
@@ -8,11 +9,11 @@ export const ToggleHamburger = styled.button`
   outline: none;
 
   .hamburger-inner {
-    background-color: white;
+    background-color: ${textColor};
 
     &::before,
     &::after {
-      background-color: white;
+      background-color: ${textColor};
     }
   }
 

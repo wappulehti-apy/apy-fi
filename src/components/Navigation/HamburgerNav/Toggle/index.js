@@ -5,7 +5,7 @@ import { ToggleHamburger } from './index.css';
 const HamburgerToggle = ({ toggle, classActive }) => (
   <ToggleHamburger
     type="button"
-    className={`hamburger hamburger--squeeze ${classActive}`}
+    className={`hamburger hamburger--minus ${classActive}`}
     onClick={toggle}
   >
     <span className="hamburger-box">

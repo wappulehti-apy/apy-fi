@@ -35,8 +35,8 @@ export default ÄpyModal;
     vuosi: PropTypes.number,
   }).isRequired,
   modalProps: PropTypes.shape({
-    hideModal: PropTypes.func.isRequired,
     open: PropTypes.bool.isRequired,
     title: PropTypes.string.isRequired,
+    setIsOpen: PropTypes.func.isRequired,
   }).isRequired,
 };

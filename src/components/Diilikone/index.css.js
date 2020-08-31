@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { media } from '../../styles/main';
-import { headingFontBlackTheme } from '../../styles/variables';
+import { headingFontBlackTheme, textColor } from '../../styles/variables';
 
 export const ImgContainer = styled.div`
   display: block;
@@ -21,13 +21,13 @@ export const ImgContainer = styled.div`
 export const H1 = styled.h1`
   margin: 30px;
   padding: 0 20%;
-  color: white;
+  color: ${textColor};
   font-size: 1.6em;
   font-family: ${headingFontBlackTheme};
   text-align: center;
 
   a {
-    color: white;
+    color: ${textColor};
   }
 
   ${media.tablet(css`

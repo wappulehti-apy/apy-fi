@@ -3,6 +3,8 @@ import { css } from 'emotion';
 import {
   headingFontNormal,
   headingFontBlackTheme,
+  textColor,
+  textShadow,
 } from '../../../styles/variables';
 
 export const NavContainer = styled.div`
@@ -24,19 +26,19 @@ export const LogoNav = styled.div`
 `;
 
 export const Img = styled.img`
-
   --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
     brightness(119%) contrast(100%);
 
-  width: 60px;
+  width: 70px;
   filter: var(--filter-to-white);
 `;
 
 export const cssNavMain = css`
   display: inline-flex;
+  text-shadow: ${textShadow};
 
   & > a {
-    color: white;
+    color: ${textColor};
   }
 
   &:last-child {
@@ -53,7 +55,7 @@ export const activeNavElement = css`
     left: 0;
     width: 100%;
     height: 2px;
-    background: white;
+    background: ${textColor};
     border-radius: 5px;
     content: '';
   }

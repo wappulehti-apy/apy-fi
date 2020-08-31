@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { textColor } from '../../styles/variables';
 
 export const Ul = styled.ul`
   display: flex;
@@ -18,7 +19,7 @@ export const Ul = styled.ul`
 `;
 
 export const A = styled.a`
-  color: white;
+  color: ${textColor};
   text-decoration: none;
   outline: none;
   transition: all 0.4s ease-in-out;

@@ -1,10 +1,8 @@
-const path = require('path');
-
 // Initialize .env file
 require('dotenv').config();
 
 // Netlify redirect rules
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = ({ actions }) => {
   const { createRedirect } = actions;
 
   createRedirect({
@@ -30,7 +28,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     module: {
       rules: [
         {
-          test: /\.(obj|glb)$/,
+          test: /\.(obj|glb|gltf)$/,
           exclude: /node_modules/,
           use: 'url-loader',
         },

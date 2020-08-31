@@ -6,31 +6,13 @@ Wappulehti Äpyn verkkosivut.
 
 Alla ohjeet lokaaliajoon.
 
-### Vaatimukset
-
-Asenna Node.js (v8.11.3) ja yarn esim. homebrew'n avulla.
-
-```
-# Homebrew (valinnainen)
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-brew install node
-brew install yarn
-```
-
-Asenna gatsby-cli yarnin avulla.
-
-```
-yarn global add gatsby-cli
-```
-
 ### Asennus
 
 Paikallinen kehittäminen onnistuu seuraavilla komennoilla:
 
 ```
-yarn install
-yarn develop
+npm install
+npm develop
 ```
 
 ### Koodityyli
@@ -45,8 +27,8 @@ Sivujen ulkonäkö eri `.env` tiedoston konfiguraatioilla:
 ```
 # Used throughout different components to use a yearly logo/textures
 GATSBY_THEME='ajaton'
-# Whether to show the logo or a video on index
-GATSBY_INDEX_VIDEO=false
+# Supported values: 'logo', 'video', 'diilikone' or 'wappu'
+GATSBY_INDEX_ELEMENT='video
 ```
 
 ![.env tiedosto esimerkkikuva](docs/env-example-ajaton-1.png)
@@ -54,8 +36,8 @@ GATSBY_INDEX_VIDEO=false
 ```
 # Used throughout different components to use a yearly logo/textures
 GATSBY_THEME='2019'
-# Whether to show the logo or a video on index
-GATSBY_INDEX_VIDEO=false
+# Supported values: 'logo', 'video', 'diilikone' or 'wappu'
+GATSBY_INDEX_ELEMENT='video
 ```
 
 ![.env tiedosto esimerkkikuva](docs/env-example-2019-1.png)
@@ -68,8 +50,6 @@ Gatsby production build ja servaus
 ```
 gatsby build && gatsby serve
 ```
-
-*TODO deployaus*
 
 ## Rakennuspalikat
 

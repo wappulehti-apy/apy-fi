@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 import { useTransition, animated } from 'react-spring';
-import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
-import Logo2019 from '../../../../assets/logos/logo-2019.svg';
+import LogoAjaton from '../../../../assets/logos/ajaton/logo-ajaton.svg';
+import Logo2021 from '../../../../assets/logos/2021/logo-2021-musta.png';
 import {
   NavContainer,
   LogoNav,
@@ -13,7 +13,7 @@ import {
 } from './index.css';
 
 const NormalNav = ({ items }) => {
-  const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
+  const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2021;
 
   const transitions = useTransition(items, {
     from: { transform: 'translate3d(0,-40px,0)' },

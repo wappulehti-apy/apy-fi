@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   ModalContainer,
@@ -9,23 +9,18 @@ import {
   ModalToggle,
 } from './index.css';
 
-function useLockBodyScroll() {
-  useLayoutEffect(() => {
-    const originalStyle = window.getComputedStyle(document.body).overflow;
-
-    // Prevent scrolling on mount
-    document.documentElement.style.overflow = 'hidden';
-
-    // Re-enable scrolling when component unmounts
-    return () => {
-      document.documentElement.style.overflow = originalStyle;
-    };
-  }, []);
-}
-
-const Modal = ({ children, title, open, hideModal }) => {
-  useLockBodyScroll();
+const Modal = ({ children, title, open, setIsOpen }) => {
+  // useLockBodyScroll(open);
   const modalRef = useRef(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const hideModal = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      setIsOpen(false);
+    }, 200);
+  }, [setIsOpen, setIsClosing]);
 
   const handleUserKeyPress = useCallback(
     (e) => {
@@ -44,11 +39,11 @@ const Modal = ({ children, title, open, hideModal }) => {
       const x = clientX > bRect.right || clientX < bRect.left;
       const y = clientY < bRect.top || clientY > bRect.bottom;
 
-      if (x || y) {
+      if ((x || y) && open) {
         hideModal();
       }
     },
-    [hideModal]
+    [hideModal, open]
   );
 
   useEffect(() => {
@@ -63,8 +58,8 @@ const Modal = ({ children, title, open, hideModal }) => {
 
   return (
     <>
-      <ModalContainer ref={modalRef} open={open}>
-        <ModalMain open={open}>
+      <ModalContainer ref={modalRef} open={open} isClosing={isClosing}>
+        <ModalMain>
           <ModalHeader>
             <ModalToggle onClick={hideModal} />
             {title}
@@ -72,7 +67,7 @@ const Modal = ({ children, title, open, hideModal }) => {
           <ModalBody>{children}</ModalBody>
         </ModalMain>
       </ModalContainer>
-      <ModalBackground open={open} />
+      <ModalBackground open={open} isClosing={isClosing} />
     </>
   );
 };
@@ -82,6 +77,6 @@ export default Modal;
 Modal.propTypes = {
   children: PropTypes.node,
   open: PropTypes.bool.isRequired,
-  hideModal: PropTypes.func.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };

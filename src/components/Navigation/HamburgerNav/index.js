@@ -11,8 +11,9 @@ import {
   cssNavMain,
   activeNavElement,
 } from './index.css';
-import LogoAjaton from '../../../../assets/logos/logo-ajaton.svg';
-import Logo2019 from '../../../../assets/logos/logo-2019.svg';
+
+import LogoAjaton from '../../../../assets/logos/ajaton/logo-ajaton.svg';
+import Logo2021 from '../../../../assets/logos/2021/logo-2021-musta.png';
 
 const HamburgerNav = (props) => {
   const { items } = props;
@@ -40,7 +41,7 @@ const HamburgerNav = (props) => {
   };
 
   const classActive = isOpen ? 'is-active' : '';
-  const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2019;
+  const Logo = process.env.GATSBY_THEME === 'ajaton' ? LogoAjaton : Logo2021;
 
   return (
     <ContainerNav isOpen={isOpen}>
