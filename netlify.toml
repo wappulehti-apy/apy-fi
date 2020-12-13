@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "https://www.xn--py-uia.fi/*"
+  to = "https://www.apy.fi/:splat"
+  status = 301
+  force = true
+
+# [[redirects]]
+#   from = "/osta"
+#   to = "https://osta.apy.fi/"
+#   status = 301
+#   force = true
