@@ -1,6 +1,7 @@
 const withTM = require('next-transpile-modules')(['@react-three/drei', 'three'])
 
 module.exports = withTM({
+  target: 'serverless',
   env: {
     THEME: process.env.THEME,
     INDEX_ELEMENT: process.env.INDEX_ELEMENT,
