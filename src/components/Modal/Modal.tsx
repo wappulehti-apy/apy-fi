@@ -10,6 +10,8 @@ import React, {
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import ClientOnlyPortal from 'components/Modal/ClientOnlyPortal'
+
 import { mq } from 'styles/breakpoints'
 import { Subtitle } from 'styles/typography'
 
@@ -72,16 +74,20 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
 
   return (
     <>
-      <ModalContainer ref={modalRef} open={open} isClosing={isClosing}>
-        <ModalMain>
-          <ModalHeader weight={800}>
-            <ModalToggle onClick={hideModal} />
-            {title}
-          </ModalHeader>
-          <ModalBody>{children}</ModalBody>
-        </ModalMain>
-      </ModalContainer>
-      <ModalBackground open={open} isClosing={isClosing} />
+    {open && (
+      <ClientOnlyPortal selector="#modal">
+        <ModalContainer ref={modalRef} open={open} isClosing={isClosing}>
+          <ModalMain>
+            <ModalHeader weight={800}>
+              <ModalToggle onClick={hideModal} />
+              {title}
+            </ModalHeader>
+            <ModalBody>{children}</ModalBody>
+          </ModalMain>
+        </ModalContainer>
+        <ModalBackground open={open} isClosing={isClosing} />
+      </ClientOnlyPortal>
+    )}
     </>
   )
 }
@@ -169,17 +175,27 @@ const ModalMain = styled.div`
   top: 50%;
   left: 50%;
   display: flex;
-  overflow: scroll;
   width: 95vw;
   max-height: 95vh;
   flex-direction: column;
   margin: 0 auto;
   background: white;
   border-radius: ${(p) => p.theme.borderRadius.small};
+  overflow-y: scroll;
+  scrollbar-width: none;
   transform: translate(-50%, -50%);
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* Chrome/Safari/Webkit */
+  }
 
   ${mq('desktop')} {
     width: 65vw;
+  }
+
+  ${mq('overdesktop')} {
+    width: 40vw;
   }
 `
 
