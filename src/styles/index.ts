@@ -1,0 +1,88 @@
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
+
+import { breakpoints, mq } from 'styles/breakpoints'
+import { Theme } from 'styles/theme'
+
+export const PageWrapper = styled.div`
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: ${(p) => p.theme.page.backgroundColor};
+  background-image: ${(p) => p.theme.page.backgroundImage};
+  background-size: ${(p) => p.theme.page.backgroundSize};
+`
+
+export const Content = styled.div`
+  display: flex;
+  max-width: ${breakpoints.tablet}px;
+  flex-direction: column;
+  align-self: center;
+  margin: 0 ${(p) => p.theme.spacing.small} auto ${(p) => p.theme.spacing.small};
+
+  ${mq('tablet')} {
+    margin: 0 ${(p) => p.theme.spacing.xxlarge} auto
+      ${(p) => p.theme.spacing.xxlarge};
+  }
+
+  ${mq('desktop')} {
+    max-width: ${breakpoints.desktop}px;
+  }
+`
+
+export const PageCard = styled.div`
+  padding: ${(p) => p.theme.spacing.default};
+  background-color: ${(p) => p.theme.colors.white};
+  border-bottom-left-radius: ${(p) => p.theme.borderRadius.small};
+  border-bottom-right-radius: ${(p) => p.theme.borderRadius.small};
+  box-shadow: ${(p) => p.theme.shadow.light};
+
+  ${mq('tablet')} {
+    padding: ${(p) => p.theme.spacing.large} ${(p) => p.theme.spacing.xxlarge};
+  }
+`
+
+interface ImageProps {
+  objectFit?: string
+}
+// Replacements for next/image since next-on-netlify doesn't it yet.
+// Remove if the following issue gets resolved:
+// https://github.com/netlify/next-on-netlify/issues/70
+export const Image = styled.img<ImageProps>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  min-width: 100%;
+  max-width: 100%;
+  height: 0;
+  min-height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  background-size: ${(p) => p.objectFit || 'fill'};
+  border-radius: ${(p) => p.theme.borderRadius.small};
+  object-fit: ${(p) => p.objectFit || 'fill'};
+  visibility: visible;
+`
+
+export const styleInstructions = (p: Theme) => css`
+  .instructions {
+    padding: ${p.spacing.small};
+    border: 3px solid ${p.mode === 'ajaton' ? 'black' : p.colors.highlight};
+    margin: 1.5em 0;
+    border-radius: ${p.borderRadius.small};
+    color: black;
+
+    ${mq('desktop')} {
+      padding: ${p.spacing.default};
+    }
+  }
+`

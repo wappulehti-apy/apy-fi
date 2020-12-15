@@ -26,18 +26,18 @@ Nettisivujen ilmettä on mahdollista muuttaa .env tiedoston muuttujien avulla. `
 Sivujen ulkonäkö eri `.env` tiedoston konfiguraatioilla:
 ```
 # Used throughout different components to use a yearly logo/textures
-GATSBY_THEME='ajaton'
+THEME='ajaton'
 # Supported values: 'logo', 'video', 'diilikone' or 'wappu'
-GATSBY_INDEX_ELEMENT='video
+INDEX_ELEMENT='video
 ```
 
 ![.env tiedosto esimerkkikuva](docs/env-example-ajaton-1.png)
 
 ```
 # Used throughout different components to use a yearly logo/textures
-GATSBY_THEME='2019'
+THEME='2019'
 # Supported values: 'logo', 'video', 'diilikone' or 'wappu'
-GATSBY_INDEX_ELEMENT='video
+INDEX_ELEMENT='video
 ```
 
 ![.env tiedosto esimerkkikuva](docs/env-example-2019-1.png)
