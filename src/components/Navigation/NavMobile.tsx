@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
-import { useSpring, useTransition, animated } from 'react-spring'
+import { useSpring, useTransition, a } from 'react-spring'
 
 import { mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
@@ -16,14 +16,14 @@ interface Props {
 }
 
 const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
-  const transitions = useTransition(isOpen ? items : [], {
-    from: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
+  const transitions = useTransition(items, {
+    from: { transform: isOpen ? 'translate3d(-40px,0,0)' : '' },
     enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
-    trail: 40,
+    trail: 30,
   })
   const { opacity } = useSpring({
     opacity: isOpen ? 1 : 0,
-    config: { tension: 90, friction: 14, overshootClamping: true },
+    config: { tension: 60, friction: 10, overshootClamping: true },
   })
 
   const logoUrl =
@@ -37,9 +37,14 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
         <Img src={logoUrl} isOpen={isOpen} />
       </Link>
       <ToggleContainer isOpen={isOpen}>
-        <Hamburger toggled={isOpen} toggle={setOpen} duration={0.2} />
+        <Hamburger
+          color={isOpen ? 'black' : 'white'}
+          toggled={isOpen}
+          toggle={setOpen}
+          duration={0.2}
+        />
       </ToggleContainer>
-      <animated.div
+      <a.div
         // @ts-ignore
         style={{
           display: isOpen ? 'block' : 'none',
@@ -48,12 +53,12 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
       >
         <TrailContainer>
           {transitions((style, item) => (
-            <animated.div css={cssNavMain} style={style}>
+            <a.div css={cssNavMain} style={style}>
               {item}
-            </animated.div>
+            </a.div>
           ))}
         </TrailContainer>
-      </animated.div>
+      </a.div>
     </ContainerNav>
   )
 }
@@ -62,7 +67,6 @@ const ToggleContainer = styled.div<NavContainerProps>`
   position: absolute;
   top: ${(p) => p.theme.rem(10)};
   right: ${(p) => p.theme.rem(10)};
-  color: ${({ isOpen }) => (isOpen ? 'black' : 'white')};
 `
 
 const TrailContainer = styled.div`

@@ -3,7 +3,6 @@ import React from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import { useTransition, animated } from 'react-spring'
 
 import theme, { Theme } from 'styles/theme'
 
@@ -17,12 +16,6 @@ const NormalNav: React.FC<Props> = ({ items }) => {
       ? 'logos/ajaton/logo-ajaton.svg'
       : 'logos/2021/logo-2021-musta.png'
 
-  const transitions = useTransition(items, {
-    from: { transform: 'translate3d(0,-40,0)' },
-    enter: { transform: 'translate3d(0,0,0)' },
-    trail: 40,
-  })
-
   return (
     <NavContainer>
       <LogoNav key="logo">
@@ -30,11 +23,11 @@ const NormalNav: React.FC<Props> = ({ items }) => {
           <Img src={logoUrl} />
         </Link>
       </LogoNav>
-      {transitions((style, item) => (
+      {items.map((item, i) => (
         // @ts-ignore
-        <animated.div css={cssNavMain} style={style}>
+        <div key={i} css={cssNavMain}>
           {item}
-        </animated.div>
+        </div>
       ))}
     </NavContainer>
   )
