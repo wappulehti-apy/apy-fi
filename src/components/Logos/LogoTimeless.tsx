@@ -16,7 +16,13 @@ const Logo = () => {
   const object = useLoader(OBJLoader, logo3d)
   const width = window.innerWidth
   const s = width < breakpoints.desktop ? 0.65 : 0.6
-  return <primitive object={object} rotation={[Math.PI / 2, 0, 0]} scale={[s, s, s]} />
+  return (
+    <primitive
+      object={object}
+      rotation={[Math.PI / 2, 0, 0]}
+      scale={[s, s, s]}
+    />
+  )
 }
 
 const CameraControls = () => {

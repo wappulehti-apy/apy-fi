@@ -11,7 +11,6 @@ import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import ClientOnlyPortal from 'components/Modal/ClientOnlyPortal'
-
 import { mq } from 'styles/breakpoints'
 import { Subtitle } from 'styles/typography'
 
@@ -74,20 +73,20 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
 
   return (
     <>
-    {open && (
-      <ClientOnlyPortal selector="#modal">
-        <ModalContainer ref={modalRef} open={open} isClosing={isClosing}>
-          <ModalMain>
-            <ModalHeader weight={800}>
-              <ModalToggle onClick={hideModal} />
-              {title}
-            </ModalHeader>
-            <ModalBody>{children}</ModalBody>
-          </ModalMain>
-        </ModalContainer>
-        <ModalBackground open={open} isClosing={isClosing} />
-      </ClientOnlyPortal>
-    )}
+      {open && (
+        <ClientOnlyPortal selector="#modal">
+          <ModalContainer ref={modalRef} open={open} isClosing={isClosing}>
+            <ModalMain>
+              <ModalHeader weight={800}>
+                <ModalToggle onClick={hideModal} />
+                {title}
+              </ModalHeader>
+              <ModalBody>{children}</ModalBody>
+            </ModalMain>
+          </ModalContainer>
+          <ModalBackground open={open} isClosing={isClosing} />
+        </ClientOnlyPortal>
+      )}
     </>
   )
 }
