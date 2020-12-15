@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 import styled from '@emotion/styled'
-import Image from 'next/image'
 
 import ÄpyModal from './ÄpyModal'
 
+import { Image } from 'styles/index'
 import { Detail } from 'styles/typography'
 import { ÄpyItem } from 'types/index.d.ts'
 
@@ -38,12 +38,9 @@ const ÄpyComponent: React.FC<Props> = ({ item }) => {
             <ÄpyNameGradientBackground />
           </>
         )}
-        <Image
-          src={imgGrid}
-          layout="fill"
-          objectFit="contain"
-          loading="eager"
-        />
+        <ImageContainer>
+          <Image src={imgGrid} objectFit="cover" />
+        </ImageContainer>
       </ÄpyContainer>
       <ÄpyModal item={item} modalProps={modalProps} />
     </>
@@ -87,10 +84,16 @@ const ÄpyContainer = styled.div`
   &:hover ${ÄpyNameGradientBackground} {
     opacity: 1;
   }
+`
 
-  img {
-    border-radius: ${(p) => p.theme.borderRadius.small};
-  }
+const ImageContainer = styled.div`
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  margin: 0;
 `
 
 export default ÄpyComponent

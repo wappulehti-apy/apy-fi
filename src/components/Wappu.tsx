@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styled from '@emotion/styled'
-import Image from 'next/image'
 
 import { mq } from 'styles/breakpoints'
+import { Image } from 'styles/index'
 import { Title } from 'styles/typography'
 
 interface Props {
@@ -20,12 +20,7 @@ const Wappu: React.FC<Props> = (props) => {
       <WappuContainer>
         {images.map((img, i) => (
           <ImgContainer key={i}>
-            <Image
-              src={img}
-              layout="fill"
-              objectFit="contain"
-              loading="eager"
-            />
+            <Image src={img} objectFit="contain" />
           </ImgContainer>
         ))}
       </WappuContainer>

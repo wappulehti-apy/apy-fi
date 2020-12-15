@@ -1,9 +1,8 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
-import { mq } from 'styles/breakpoints'
+import { breakpoints, mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
-import { CONTENT_WIDTH } from 'utils/constants'
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -17,20 +16,19 @@ export const PageWrapper = styled.div`
 `
 
 export const Content = styled.div`
-  position: relative;
-  z-index: 1;
   display: flex;
-  max-width: 768px;
+  max-width: ${breakpoints.tablet}px;
   flex-direction: column;
   align-self: center;
   margin: 0 ${(p) => p.theme.spacing.small} auto ${(p) => p.theme.spacing.small};
 
   ${mq('tablet')} {
-    margin: 0 ${(p) => p.theme.spacing.xxlarge} auto ${(p) => p.theme.spacing.xxlarge};
+    margin: 0 ${(p) => p.theme.spacing.xxlarge} auto
+      ${(p) => p.theme.spacing.xxlarge};
   }
 
   ${mq('desktop')} {
-    max-width: ${CONTENT_WIDTH};
+    max-width: ${breakpoints.desktop}px;
   }
 `
 
@@ -44,6 +42,35 @@ export const PageCard = styled.div`
   ${mq('tablet')} {
     padding: ${(p) => p.theme.spacing.large} ${(p) => p.theme.spacing.xxlarge};
   }
+`
+
+interface ImageProps {
+  objectFit?: string
+}
+// Replacements for next/image since next-on-netlify doesn't it yet.
+// Remove if the following issue gets resolved:
+// https://github.com/netlify/next-on-netlify/issues/70
+export const Image = styled.img<ImageProps>`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 0;
+  min-width: 100%;
+  max-width: 100%;
+  height: 0;
+  min-height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  margin: auto;
+  background-size: ${(p) => p.objectFit || 'fill'};
+  border-radius: ${(p) => p.theme.borderRadius.small};
+  object-fit: ${(p) => p.objectFit || 'fill'};
+  visibility: visible;
 `
 
 export const styleInstructions = (p: Theme) => css`

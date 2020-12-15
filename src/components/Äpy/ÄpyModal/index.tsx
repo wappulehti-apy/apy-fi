@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import ImageCarousel from 'components/ImageCarousel'
-import Modal, { ModalProps } from 'components/Modal'
+import Modal, { ModalProps } from 'components/Modal/Modal'
 import { ÄpyItem } from 'types/index.d.ts'
 
 interface Props {
@@ -41,7 +41,7 @@ const ModalContentGrid = styled.div`
     'image'
     'text';
 
-  @media (min-aspect-ratio: 2/1) {
+  @media (max-width: 1025px) and (min-aspect-ratio: 2/1) {
     grid-template-areas: 'image text';
   }
 

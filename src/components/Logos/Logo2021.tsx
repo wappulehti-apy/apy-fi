@@ -1,21 +1,19 @@
 import React, { useRef, Suspense } from 'react'
 
 import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
-import Image from 'next/image'
 import { Canvas, useThree, useFrame, useLoader } from 'react-three-fiber'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { useHasWebGL, useWindowSize } from 'hooks/index'
 import { breakpoints, mq } from 'styles/breakpoints'
-import { Theme } from 'styles/theme'
 
 const logo3d = '/logos/2021/3d/2021-2.obj'
 const logoNormal = '/logos/2021/logo-2021-valko.png'
 
 const Logo = () => {
   const object = useLoader(OBJLoader, logo3d)
-  const width = window.innerWidth
   const s = 1.2
   return <primitive object={object} scale={[s, s, s]} />
 }
@@ -42,7 +40,7 @@ const CameraControls = () => {
 
 const Logo2021 = () => {
   const hasWebGl = useHasWebGL()
-  const [width, height] = useWindowSize()
+  const [width, _] = useWindowSize()
 
   return (
     <>
@@ -64,25 +62,25 @@ const Logo2021 = () => {
           </Suspense>
         </Canvas>
       ) : (
-        <div css={imageCss}>
-          <Image
-            src={logoNormal}
-            height={225}
-            width={250}
-            layout="responsive"
-            loading="eager"
-          />
-        </div>
+        <ImageContainer>
+          <img css={imageCss} src={logoNormal} />
+        </ImageContainer>
       )}
     </>
   )
 }
 
-const imageCss = (p: Theme) => css`
-  margin: ${p.rem(100)};
+const ImageContainer = styled.div`
+  align-items: center;
+  padding: ${(p) => p.theme.rem(100)} 0;
+  margin: 0 auto;
+`
+
+const imageCss = css`
+  max-width: 250px;
 
   ${mq('desktop')} {
-    margin: ${p.rem(200)} ${p.rem(400)};
+    max-width: 350px;
   }
 `
 

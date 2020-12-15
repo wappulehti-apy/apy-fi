@@ -1,14 +1,13 @@
 import React, { useRef, Suspense } from 'react'
 
 import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
-import Image from 'next/image'
 import { Canvas, useThree, useFrame, useLoader } from 'react-three-fiber'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { useHasWebGL, useWindowSize } from 'hooks/index'
 import { breakpoints, mq } from 'styles/breakpoints'
-import { Theme } from 'styles/theme'
 
 const logo3d = '/logos/ajaton/3d/ajaton.obj'
 const logoNormal = '/logos/ajaton/logo-ajaton.png'
@@ -16,8 +15,8 @@ const logoNormal = '/logos/ajaton/logo-ajaton.png'
 const Logo = () => {
   const object = useLoader(OBJLoader, logo3d)
   const width = window.innerWidth
-  const s = width < breakpoints.desktop ? 1.2 : 1.2
-  return <primitive object={object} scale={[s, s, s]} />
+  const s = width < breakpoints.desktop ? 0.65 : 0.6
+  return <primitive object={object} rotation={[Math.PI / 2, 0, 0]} scale={[s, s, s]} />
 }
 
 const CameraControls = () => {
@@ -42,7 +41,7 @@ const CameraControls = () => {
 
 const LogoTimeless = () => {
   const hasWebGl = useHasWebGL()
-  const [width, height] = useWindowSize()
+  const [width, _] = useWindowSize()
 
   return (
     <>
@@ -64,29 +63,29 @@ const LogoTimeless = () => {
           </Suspense>
         </Canvas>
       ) : (
-        <div css={imageCss}>
-          <Image
-            src={logoNormal}
-            height={125}
-            width={250}
-            layout="responsive"
-            loading="eager"
-          />
-        </div>
+        <ImageContainer>
+          <img css={imageCss} src={logoNormal} />
+        </ImageContainer>
       )}
     </>
   )
 }
 
-const imageCss = (p: Theme) => css`
+const ImageContainer = styled.div`
+  align-items: center;
+  padding: ${(p) => p.theme.rem(100)} 0;
+  margin: 0 auto;
+`
+
+const imageCss = css`
   --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
     brightness(119%) contrast(100%);
 
-  margin: ${p.rem(100)};
+  max-width: 250px;
   filter: var(--filter-to-white);
 
   ${mq('desktop')} {
-    margin: ${p.rem(200)} ${p.rem(400)};
+    max-width: 350px;
   }
 `
 
