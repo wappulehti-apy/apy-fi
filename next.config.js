@@ -2,7 +2,7 @@ const withPlugins = require('next-compose-plugins')
 const withTM = require('next-transpile-modules')(['@react-three/drei', 'three'])
 
 module.exports = withPlugins([[withTM]], {
-  target: 'experimental-serverless-trace',
+  target: 'serverless',
   env: {
     THEME: process.env.THEME,
     INDEX_ELEMENT: process.env.INDEX_ELEMENT,
