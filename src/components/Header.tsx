@@ -21,7 +21,6 @@ const Header = () => {
   return (
     <Head>
       {/* General tags */}
-      <html lang={config.siteLanguage} />
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
