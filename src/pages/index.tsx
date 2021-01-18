@@ -41,7 +41,7 @@ const IndexInfo = styled.div`
   display: inline-block;
   overflow: auto;
   max-width: 95%;
-  margin: ${(p) => p.theme.spacing.medium} auto 0 auto;
+  margin: 0 auto;
   text-align: center;
 
   ${mq('desktop')} {

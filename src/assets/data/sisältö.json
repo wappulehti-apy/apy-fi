@@ -2,37 +2,26 @@
   {
     "type": "Pilapiirros",
     "description": "“Pilapiirros tai pilakuva on huvittavaksi tarkoitettu, usein karrikoitu piirros, joka voi olla visuaalista satiiria, kritiikkiä, huumoria ja ivaa.” (Wikipedia)",
-    "imgGrid": "/images/sisalto/grid/kkk.png",
-    "imgModal": "/images/sisalto/modal/kkk.png"
+    "imgGrid": "/images/sisalto/grid/pilapiirros.jpg"
   },
   {
     "type": "Kuvavitsi",
     "description": "Äpyn tapauksessa usein sanaleikki, joka esitetään kuvallisesti.",
-    "imgGrid": "/images/sisalto/grid/vaikuttaja.png",
-    "imgModal": "/images/sisalto/modal/vaikuttaja.png"
+    "imgGrid": "/images/sisalto/grid/kuvavitsi.jpg"
   },
   {
-    "type": "Erikoinen tarina",
-    "description": "Tietyn teeman ympärille rakennettu juttu, joka hyödyntää aiheesta löytyvää huumoria.",
-    "imgGrid": "/images/sisalto/grid/maita.png",
-    "imgModal": "/images/sisalto/modal/maita.png"
+    "type": "Lyhärikokoelma",
+    "description": "Kokoelma lyhyitä vitsejä jo perustuvat usein tiettyyn iskulauseeseen.",
+    "imgGrid": "/images/sisalto/grid/lyharikokoelma.jpg"
   },
   {
     "type": "Kokoelma",
     "description": "Teeman tai aiheen ympärille rakennettu kokonaisuus, joka on enemmän kuin osiensa summa.",
-    "imgGrid": "/images/sisalto/grid/turvavali.png",
-    "imgModal": "/images/sisalto/modal/turvavali.png"
+    "imgGrid": "/images/sisalto/grid/kokoelma.jpg"
   },
   {
-    "type": "Parodia",
-    "description": "“Parodia eli ivamukaelma on ivallinen, piikittelevä, liioitteleva tai koominen toisen (yleisön tunteman) teoksen jäljitelmä (myös pienet viittaukset kohteeseen riittävät).” (Wikipedia) Esimerkissä parodioidaan valokuva-albumia.",
-    "imgGrid": "/images/sisalto/grid/pressat.png",
-    "imgModal": "/images/sisalto/modal/pressat.png"
-  },
-  {
-    "type": "Taideteos",
-    "description": "Kuvaa muokkaamalla tai piirtämällä tehty teos. Äpyn kohdalla usein sisältää vitsin. Esimerkki käy myös parodiasta.",
-    "imgGrid": "/images/sisalto/grid/jussi.png",
-    "imgModal": "/images/sisalto/modal/jussi.png"
+    "type": "Pitkä tarina",
+    "description": "Lennokas tekstipohjainen pidempi kokonaisuus. Rakentuu usein jonkin teeman ympärille.",
+    "imgGrid": "/images/sisalto/grid/pitka_tarina.jpg"
   }
 ]

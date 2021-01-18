@@ -24,7 +24,6 @@ const NormalNav: React.FC<Props> = ({ items }) => {
         </Link>
       </LogoNav>
       {items.map((item, i) => (
-        // @ts-ignore
         <div key={i} css={cssNavMain}>
           {item}
         </div>
@@ -39,7 +38,8 @@ const NavContainer = styled.div`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  padding: ${(p) => p.theme.spacing.large};
+  margin: ${(p) => p.theme.spacing.small} 0 0 ${(p) => p.theme.spacing.small};
+  white-space: nowrap;
 `
 
 const LogoNav = styled.div`

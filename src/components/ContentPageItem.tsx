@@ -14,7 +14,7 @@ const ContentPageItem: React.FC<Props> = ({ item }) => {
   return (
     <Container>
       <ImageContainer>
-        <Image src={item.imgModal} objectFit="cover" />
+        <Image src={item.imgGrid} objectFit="cover" />
       </ImageContainer>
       <Subtitle>{item.type}</Subtitle>
       <Detail fontStyle="italic" weight={300}>

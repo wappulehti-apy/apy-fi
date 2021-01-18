@@ -48,7 +48,7 @@ const Logo2021 = () => {
         <Canvas
           style={{
             minHeight:
-              width > 0 && width < breakpoints.tablet ? '300px' : '700px',
+              width > 0 && width < breakpoints.tablet ? '250px' : '400px',
           }}
         >
           <directionalLight intensity={1} position={[0, 0, 1]} />

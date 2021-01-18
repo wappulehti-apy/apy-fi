@@ -10,5 +10,4 @@ export type ContentItem = {
   type: string
   description: string
   imgGrid: string
-  imgModal: string
 }
