@@ -51,15 +51,6 @@ const Navigation = () => {
         Yhteystiedot
       </A>
     </Link>,
-    <Link key="sisalto" href="/sisalto">
-      <A
-        isActive={router.pathname == '/sisalto'}
-        onClick={() => setOpen(false)}
-        isMobile={navType === 'mobile'}
-      >
-        Äpyä äpyä!
-      </A>
-    </Link>,
   ]
 
   const handleWindowResize = useCallback(() => {
