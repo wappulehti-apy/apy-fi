@@ -1,4 +1,4 @@
-import React from 'react'
+React from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
@@ -28,7 +28,7 @@ const IndexText = () => (
     </Title>
     <Subtitle css={margin} color="white" weight={600} shadow>
       Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      mahdollisena Wappuna 2021.
+      Wappuna 2021.
     </Subtitle>
   </IndexInfo>
 )
