@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 import { Image } from 'styles/index'
 import { Detail, Subtitle } from 'styles/typography'
-import { ContentItem } from 'types/index.d.ts'
+import { ContentItem } from 'types/index'
 
 interface Props {
   item: ContentItem

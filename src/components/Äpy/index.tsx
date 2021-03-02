@@ -6,7 +6,7 @@ import ÄpyModal from './ÄpyModal'
 
 import { Image } from 'styles/index'
 import { Detail } from 'styles/typography'
-import { ÄpyItem } from 'types/index.d.ts'
+import { ÄpyItem } from 'types/index'
 
 interface Props {
   item: ÄpyItem

@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 import ImageCarousel from 'components/ImageCarousel'
 import Modal, { ModalProps } from 'components/Modal/Modal'
-import { ÄpyItem } from 'types/index.d.ts'
+import { ÄpyItem } from 'types/index'
 
 interface Props {
   item: ÄpyItem
