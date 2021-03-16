@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import * as gtag from '../lib/gtag'
+
 import { mq, breakpoints } from 'styles/breakpoints'
 
 interface ValidationState {
@@ -77,6 +79,11 @@ const ContactForm = () => {
 
     const formData = new FormData(form)
     setValidationState((prev) => ({ ...prev, formSubmitting: true }))
+
+    gtag.event({
+      action: 'submit_form',
+      category: 'Contact',
+    })
 
     fetch('/', {
       method: 'POST',
