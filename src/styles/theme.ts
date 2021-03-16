@@ -140,11 +140,8 @@ const theme = {
 }
 
 export type Theme = typeof theme
-
 export type Color = keyof Theme['colors']
-
 export type Spacing = keyof Theme['spacing']
-
 export type Typography = keyof Theme['typography']
 
 export default theme

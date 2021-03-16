@@ -5,7 +5,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 import Layout from 'layouts/Layout'
 import Page404 from 'pages/404'
 import Fonts from 'styles/fonts'
-import 'styles/index.css'
+import 'styles/index.scss'
 import theme from 'styles/theme'
 
 const App = ({ Component, pageProps }: AppProps) => (
