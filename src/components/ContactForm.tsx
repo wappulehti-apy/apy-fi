@@ -188,7 +188,9 @@ const ContactForm = () => {
           </li>
         )}
         <li>
-          <A href="/tietosuojaseloste.pdf">Tietosuojaseloste</A>
+          <A target="_blank" href="/tietosuojaseloste.pdf">
+            Tietosuojaseloste
+          </A>
         </li>
         <li>
           <ButtonBackground disabled={formValid === false || formSubmitSuccess}>
@@ -271,7 +273,7 @@ const ButtonBackground = styled.button`
   float: left;
   letter-spacing: 0.09em;
 
-  ${mq('desktop')} {
+  ${mq('tablet')} {
     margin-top: 0;
     margin-left: 150px;
     float: right;
@@ -320,7 +322,7 @@ const A = styled.a`
   margin-bottom: 10px;
   color: ${(p) => p.theme.colors.highlight};
 
-  ${mq('desktop')} {
+  ${mq('tablet')} {
     margin-left: 150px;
   }
 `

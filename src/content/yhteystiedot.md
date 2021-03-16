@@ -14,4 +14,6 @@ Yhteyden Suomen Äpy-lehtien liittoon saat parhaiten osoitteesta **sallit [ät] 
 
 ## Mukaan toimittamaan Äpyä?
 
-Kiinnostunut Äpystä? Ilmoita kiinnostuksesi Äpyyn 2023
+Wappulehti Äpy metsästää jatkuvasti uusia toimittajia Äpy-projekteihin! 2021 Äpyn toimitus on kasattu jo, mutta tuleviin Äpyihin kiinnostuksensa voi ilmoittaa alla olevan lomakkeen kautta. Lomakkeen ei ole tarkoitus olla hakemus, vaan lyhyt kiinnostuksen osoitus. Älä siis käytä liikaa aikaa sen täyttämiseen.
+
+Täydennämme toimitusta syksyisin ja keväisin (pl. Äpy-keväät), joten ethän odota vastausta ennen näitä ajankohtia. Vaikka valintamme ei heti kohdistuisi sinuun, se ei estä sinua osoittamasta kiinnostusta toimitukseen uudestaan; suorastaan kannustamme siihen!
