@@ -28,7 +28,7 @@ export const Content = styled.div`
   }
 
   ${mq('desktop')} {
-    max-width: ${breakpoints.desktop}px;
+    max-width: calc(${breakpoints.desktop}px - 250px);
   }
 `
 

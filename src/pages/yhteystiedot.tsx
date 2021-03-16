@@ -2,6 +2,7 @@ import React from 'react'
 
 import { InferGetStaticPropsType, GetStaticProps } from 'next'
 
+import ContactForm from 'components/ContactForm'
 import PageImage from 'components/PageImage'
 import { PageCard } from 'styles/index'
 import { getPageData } from 'utils/content'
@@ -16,6 +17,7 @@ const YhteystiedotPage = (
       <PageImage images={images} />
       <PageCard>
         <div dangerouslySetInnerHTML={{ __html: content }} />
+        <ContactForm />
       </PageCard>
     </>
   )
