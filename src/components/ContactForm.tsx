@@ -128,23 +128,23 @@ const ContactForm = () => {
           <input type="hidden" name="form-name" value="contact" />
         </li>
         <li>
-          <label htmlFor="otsikko">Otsikko</label>
+          <label htmlFor="name">Nimi</label>
           <div>
             <input
               type="text"
-              id="title"
+              id="name"
               name="subject"
               placeholder=""
               onBlur={validateField}
               required
             />
             {subjectValid === false && (
-              <ValidationError>Viestissäsi on oltava otsikko.</ValidationError>
+              <ValidationError>Viestissäsi on oltava nimi.</ValidationError>
             )}
           </div>
         </li>
         <li>
-          <label htmlFor="phone">Sähköposti</label>
+          <label htmlFor="email">Sähköposti</label>
           <div>
             <input
               type="text"
