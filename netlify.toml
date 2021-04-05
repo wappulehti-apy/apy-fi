@@ -10,6 +10,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/gaala"
+  to = "https://www.facebook.com/events/2877814332536026"
+  status = 301
+  force = true
+
 # [[redirects]]
 #   from = "/osta"
 #   to = "https://osta.apy.fi/"
