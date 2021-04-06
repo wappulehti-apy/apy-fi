@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "https://www.xn--py-uia.fi/*"
-  to = "https://www.apy.fi/:splat"
+  to = "https://apy.fi/:splat"
   status = 301
   force = true
 
