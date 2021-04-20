@@ -16,8 +16,8 @@
   status = 301
   force = true
 
-# [[redirects]]
-#   from = "/osta"
-#   to = "https://osta.apy.fi/"
-#   status = 301
-#   force = true
+[[redirects]]
+  from = "/osta"
+  to = "https://osta.apy.fi/"
+  status = 301
+  force = true
