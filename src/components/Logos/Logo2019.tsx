@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useRef, Suspense } from 'react'
 
 import { css } from '@emotion/react'
