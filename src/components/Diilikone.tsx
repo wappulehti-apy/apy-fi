@@ -9,8 +9,8 @@ const Diilikone = () => {
   return (
     <>
       <ImgContainer>
-        <a href="https://diili.apy.fi">
-          <img src="/images/diilikone/diilikone-logo.svg" />
+        <a href="https://apy.fi/gaala">
+          <img src="/images/diilikone/gaala-logo.svg" />
         </a>
       </ImgContainer>
       <Title align="center" color="white" weight={900} shadow>
@@ -18,8 +18,8 @@ const Diilikone = () => {
       </Title>
       <hr />
       <Subtitle align="center" color="white" weight={600} shadow>
-        Lähde Äpy-myyjäksi ja tee Äpy-diili osoitteessa{' '}
-        <a href="https://diili.apy.fi">diili.apy.fi</a>
+        Tilaa uunituore Äpy 22.4. 19:30 alkaen osoitteesta{' '}
+        <a href="https://osta.apy.fi">osta.äpy.fi</a>
       </Subtitle>
     </>
   )
