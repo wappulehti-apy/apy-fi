@@ -1,5 +1,15 @@
 [
   {
+    "year": 2021,
+    "name": "Arpa-Äpy",
+    "description": "Arveluttavan vuoden päätteeksi Arpa-Äpy tarjosi kaivattua vaihtelua pandemiaan. 25:n kortin kokoelma raaputusarpoja kätki sisäänsä enemmän kuin ensisilmäys antoi ymmärtää.",
+    "imgGrid": "/images/apyt/grid/2021.jpg",
+    "imgCarousel": [
+      "/images/apyt/carousel/2021_1.jpg",
+      "/images/apyt/carousel/2021_2.jpg"
+    ]
+  },
+  {
     "year": 2019,
     "name": "Luontoäpy",
     "description": "Luontoäpy johdatteli lukijansa suomalaisen luontomaiseman kautta paperitaiteen ihmeellisen taitteelliseen maailmaan! Wappuisista arkeista muodostuvat norppa, joutsen ja kettu herättävät Äpyn eloon ennennäkemättömällä tavalla ja tarjoavat luonnollisesti loistavaa Wappu- ja arkkilukemista.",

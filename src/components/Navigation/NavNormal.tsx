@@ -38,7 +38,8 @@ const NavContainer = styled.div`
   width: 100%;
   flex-direction: row;
   align-items: center;
-  margin: ${(p) => p.theme.spacing.small} 0 0 ${(p) => p.theme.spacing.small};
+  margin: ${(p) => p.theme.spacing.small} 0;
+  margin-bottom: ${(p) => p.theme.spacing.large};
   white-space: nowrap;
 `
 

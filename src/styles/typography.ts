@@ -10,8 +10,6 @@ const BaseText = styled.span<{
   fontStyle?: 'italic' | 'bold'
   shadow?: boolean
 }>`
-  padding: 0;
-  margin: 0;
   color: ${(p) => (p.color ? p.theme.colors[p.color] : 'inherit')};
   font-style: ${(p) => p.fontStyle || 'inherit'};
   font-weight: ${(p) => p.weight || 'inherit'};
@@ -21,7 +19,7 @@ const BaseText = styled.span<{
 `
 
 export const Title = styled(BaseText.withComponent('h2'))`
-  ${(p) => p.theme.typography['title-2']}
+  ${(p) => p.theme.typography.title}
 `
 
 export const Subtitle = styled(BaseText.withComponent('h3'))`

@@ -6,47 +6,40 @@ import { mq } from 'styles/breakpoints'
 import { Image } from 'styles/index'
 import { Title } from 'styles/typography'
 
-interface Props {
-  images: string[]
-}
-
-const Wappu: React.FC<Props> = (props) => {
-  const { images } = props
+const Wappu: React.FC = () => {
   return (
     <>
-      <Title align="center" color="white">
-        Äpy 2019 on julkaistu!
-      </Title>
       <WappuContainer>
-        {images.map((img, i) => (
-          <ImgContainer key={i}>
-            <Image src={img} objectFit="contain" />
-          </ImgContainer>
-        ))}
+        <ImgContainer>
+          <Image src="/images/wappu/arpa-apy.png" objectFit="contain" />
+        </ImgContainer>
       </WappuContainer>
+      <TitleContainer>
+        <Title align="center" color="white" shadow>
+          Arpa-Äpy 2021 on julkaistu! Osta Äpy osoitteesta{' '}
+          <a href="https://osta.apy.fi">osta.äpy.fi</a>
+        </Title>
+      </TitleContainer>
     </>
   )
 }
 
+const TitleContainer = styled.div`
+  margin: ${(p) => p.theme.spacing.large} 0;
+`
+
 const WappuContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-
-  ${mq('desktop')} {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
+  justify-content: start;
 `
 
 const ImgContainer = styled.div`
   overflow: hidden;
-  width: 80vw;
-  padding-top: 100%;
+  border-radius: ${(p) => p.theme.borderRadius.default};
 
   ${mq('desktop')} {
-    width: 60vw;
+    max-width: 50vw;
   }
 `
 

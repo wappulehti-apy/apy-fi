@@ -51,26 +51,12 @@ interface ImageProps {
 // Remove if the following issue gets resolved:
 // https://github.com/netlify/next-on-netlify/issues/70
 export const Image = styled.img<ImageProps>`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: block;
-  width: 0;
-  min-width: 100%;
-  max-width: 100%;
-  height: 0;
-  min-height: 100%;
-  max-height: 100%;
-  box-sizing: border-box;
-  padding: 0;
-  border: none;
-  margin: auto;
+  width: 100%;
+  height: 100%;
   background-size: ${(p) => p.objectFit || 'fill'};
   border-radius: ${(p) => p.theme.borderRadius.small};
   object-fit: ${(p) => p.objectFit || 'fill'};
-  visibility: visible;
 `
 
 export const styleInstructions = (p: Theme) => css`

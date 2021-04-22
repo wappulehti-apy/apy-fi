@@ -2,7 +2,6 @@ import React from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import dynamic from 'next/dynamic'
 
 import Diilikone from 'components/Diilikone'
@@ -11,7 +10,6 @@ import Wappu from 'components/Wappu'
 import { mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 import { Title, Subtitle } from 'styles/typography'
-import { getPageData } from 'utils/content'
 
 const LogoTimeless = dynamic(() => import('components/Logos/LogoTimeless'), {
   ssr: false,
@@ -49,7 +47,7 @@ const IndexInfo = styled.div`
   }
 `
 
-const IndexPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+const IndexPage = () => {
   const Logo = process.env.THEME === 'ajaton' ? <LogoTimeless /> : <Logo2021 />
 
   const mainElement = () => {
@@ -71,32 +69,13 @@ const IndexPage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
       case 'diilikone':
         return <Diilikone />
       case 'wappu':
-        const { images } = props
-        return <Wappu images={images} />
+        return <Wappu />
       default:
         return Logo
     }
   }
 
   return mainElement()
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  if (process.env.INDEX_ELEMENT === 'wappu') {
-    const { content, images } = await getPageData('wappu')
-    return {
-      props: {
-        images,
-        content,
-      },
-    }
-  }
-  return {
-    props: {
-      images: [''],
-      content: [''],
-    },
-  }
 }
 
 export default IndexPage

@@ -84,6 +84,7 @@ interface NavContainerProps {
 const ContainerNav = styled.div<NavContainerProps>`
   min-height: ${({ isOpen }) => (isOpen ? '100vh' : 0)};
   background: ${({ isOpen }) => (isOpen ? 'white' : 'none')};
+  margin-bottom: ${(p) => p.theme.spacing.large};
 `
 
 const Img = styled.img<NavContainerProps>`
