@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 import { mq } from 'styles/breakpoints'
 import { Image } from 'styles/index'
-import { Title } from 'styles/typography'
+import { Subtitle, Title } from 'styles/typography'
 
 const Wappu: React.FC = () => {
   return (
@@ -19,6 +19,9 @@ const Wappu: React.FC = () => {
           Arpa-Äpy 2021 on julkaistu! Osta Äpy osoitteesta{' '}
           <a href="https://osta.apy.fi">osta.äpy.fi</a>
         </Title>
+        <Subtitle align="center" color="white" shadow>
+          10€ hintaan sisältyy ilmainen postitus koko Suomeen.
+        </Subtitle>
       </TitleContainer>
     </>
   )
@@ -31,7 +34,7 @@ const TitleContainer = styled.div`
 const WappuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  align-items: center;
 `
 
 const ImgContainer = styled.div`
@@ -39,7 +42,7 @@ const ImgContainer = styled.div`
   border-radius: ${(p) => p.theme.borderRadius.default};
 
   ${mq('desktop')} {
-    max-width: 50vw;
+    max-width: 40vw;
   }
 `
 

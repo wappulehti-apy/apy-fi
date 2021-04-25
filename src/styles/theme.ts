@@ -69,7 +69,7 @@ const theme = {
     'title-2': css`
       font-family: ${font};
       font-size: 1.8rem;
-      font-weight: bold;
+      font-weight: black;
       letter-spacing: 0.1rem;
       line-height: 1.3;
 
@@ -80,7 +80,7 @@ const theme = {
     subtitle: css`
       font-family: ${font};
       font-size: 1.4rem;
-      font-weight: semibold;
+      font-weight: bold;
       letter-spacing: 0.1rem;
       line-height: 1.5;
 
