@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 import { mq } from 'styles/breakpoints'
 import { Image } from 'styles/index'
-import { Subtitle, Title } from 'styles/typography'
+import { Title } from 'styles/typography'
 
 const Wappu: React.FC = () => {
   return (
@@ -16,12 +16,8 @@ const Wappu: React.FC = () => {
       </WappuContainer>
       <TitleContainer>
         <Title align="center" color="white" shadow>
-          Arpa-Äpy 2021 on julkaistu! Osta Äpy osoitteesta{' '}
-          <a href="https://osta.apy.fi">osta.äpy.fi</a>
+          Arpa-Äpy 2021 on julkaistu!
         </Title>
-        <Subtitle align="center" color="white" shadow>
-          10€ hintaan sisältyy ilmainen postitus koko Suomeen.
-        </Subtitle>
       </TitleContainer>
     </>
   )
