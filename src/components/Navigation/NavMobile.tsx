@@ -29,7 +29,7 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
   const logoUrl =
     process.env.THEME === 'ajaton'
       ? '/logos/ajaton/logo-ajaton.svg'
-      : '/logos/2021/logo-2021-musta.png'
+      : '/logos/2021/logo-2021-valko.png'
 
   return (
     <ContainerNav isOpen={isOpen}>
@@ -88,13 +88,12 @@ const ContainerNav = styled.div<NavContainerProps>`
 `
 
 const Img = styled.img<NavContainerProps>`
-  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
-    brightness(119%) contrast(100%);
+  --filter-to-white: grayscale(1) invert(1);
 
   width: ${(p) => p.theme.rem(60)};
   margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.small};
   /* stylelint-disable-line value-keyword-case */
-  filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
+  filter: ${({ isOpen }) => (isOpen ? 'var(--filter-to-white)' : 'invert(0)')};
 
   ${mq('desktop')} {
     margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.large};

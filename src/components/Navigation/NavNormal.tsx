@@ -14,7 +14,7 @@ const NormalNav: React.FC<Props> = ({ items }) => {
   const logoUrl =
     process.env.THEME === 'ajaton'
       ? 'logos/ajaton/logo-ajaton.svg'
-      : 'logos/2021/logo-2021-musta.png'
+      : 'logos/2021/logo-2021-valko.png'
 
   return (
     <NavContainer>
@@ -46,16 +46,17 @@ const NavContainer = styled.div`
 const LogoNav = styled.div`
   width: ${(p) => p.theme.rem(60)};
   margin-right: auto;
+  margin-left: ${(p) => p.theme.spacing.default};
 `
 
 const Img = styled.img`
   // In ajaton theme the logo is a black svg which is why
   // a filter is used here.
-  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
-    brightness(119%) contrast(100%);
+  /* --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
+    brightness(119%) contrast(100%); */
 
   width: ${(p) => p.theme.rem(70)};
-  filter: var(--filter-to-white);
+  /* filter: var(--filter-to-white); */
 `
 
 const cssNavMain = (p: Theme) => css`
