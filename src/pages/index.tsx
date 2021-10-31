@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
@@ -7,7 +7,8 @@ import dynamic from 'next/dynamic'
 import Diilikone from 'components/Diilikone'
 import Video from 'components/Video'
 import Wappu from 'components/Wappu'
-import { mq } from 'styles/breakpoints'
+import { useWindowSize } from 'hooks/index'
+import { mq, breakpoints } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 import { Title, Subtitle } from 'styles/typography'
 
@@ -47,15 +48,31 @@ const IndexInfo = styled.div`
   }
 `
 
+const IndexLogoWrapper = styled.div<{
+  height: string
+}>`
+  min-height: ${(p) => p.height};
+`
+
 const IndexPage = () => {
-  const Logo = process.env.THEME === 'ajaton' ? <LogoTimeless /> : <Logo2021 />
+  const [width, _] = useWindowSize()
+  const logoHeight = useMemo(
+    () => (width > 0 && width < breakpoints.tablet ? '250px' : '400px'),
+    [width]
+  )
+  const Logo =
+    process.env.THEME === 'ajaton' ? (
+      <LogoTimeless height={logoHeight} />
+    ) : (
+      <Logo2021 />
+    )
 
   const mainElement = () => {
     switch (process.env.INDEX_ELEMENT) {
       case 'logo':
         return (
           <>
-            {Logo}
+            <IndexLogoWrapper height={logoHeight}>{Logo}</IndexLogoWrapper>
             <IndexText />
           </>
         )

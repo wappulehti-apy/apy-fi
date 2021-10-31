@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import remark from 'remark'
+import { remark } from 'remark'
 import html from 'remark-html'
 
 const contentDirectory = path.join(process.cwd(), 'src', 'content')

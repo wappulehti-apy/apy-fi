@@ -16,9 +16,7 @@ const ÄpyModal: React.FC<Props> = ({ item, modalProps }) => (
     <ModalContentGrid>
       <ImageCarousel>
         {item.imgCarousel.map((img, i) => (
-          <div key={i}>
-            <img src={img} />
-          </div>
+          <img key={i} src={img} />
         ))}
       </ImageCarousel>
       <ModalDescription>{item.description}</ModalDescription>

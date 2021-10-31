@@ -9,61 +9,36 @@ import NavNormal from './NavNormal'
 
 import { breakpoints } from 'styles/breakpoints'
 
+const navItems = [
+  { link: '/', text: 'Etusivu' },
+  { link: '/apyt', text: 'Äpyt' },
+  { link: '/avystykset', text: 'Ävystykset' },
+  { link: '/yhteystiedot', text: 'Yhteystiedot' },
+]
+
 const Navigation = () => {
   const [navType, setNavType] = useState('')
   const [isOpen, setOpen] = useState(false)
   const router = useRouter()
 
-  const items = [
-    <Link key="etusivu" href="/">
+  const items = navItems.map(({ link, text }) => (
+    <Link key={text} href={link}>
       <A
-        isActive={router.pathname == '/'}
+        isActive={router.pathname == link}
         onClick={() => setOpen(false)}
         isMobile={navType === 'mobile'}
       >
-        Etusivu
+        {text}
       </A>
-    </Link>,
-    <Link key="äpyt" href="/apyt">
-      <A
-        isActive={router.pathname == '/apyt'}
-        onClick={() => setOpen(false)}
-        isMobile={navType === 'mobile'}
-      >
-        Äpyt
-      </A>
-    </Link>,
-    <Link key="ävystykset" href="/avystykset">
-      <A
-        isActive={router.pathname == '/avystykset'}
-        onClick={() => setOpen(false)}
-        isMobile={navType === 'mobile'}
-      >
-        Ävystykset
-      </A>
-    </Link>,
-    <Link key="yhteystiedot" href="/yhteystiedot">
-      <A
-        isActive={router.pathname == '/yhteystiedot'}
-        onClick={() => setOpen(false)}
-        isMobile={navType === 'mobile'}
-      >
-        Yhteystiedot
-      </A>
-    </Link>,
-  ]
+    </Link>
+  ))
 
   const handleWindowResize = useCallback(() => {
     setNavTypeFunction()
   }, [])
 
   function setNavTypeFunction() {
-    const width = window.innerWidth
-    if (width < breakpoints.tablet) {
-      setNavType('mobile')
-    } else {
-      setNavType('normal')
-    }
+    setNavType(window.innerWidth < breakpoints.tablet ? 'mobile' : 'normal')
   }
 
   useEffect(() => {

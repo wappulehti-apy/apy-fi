@@ -49,7 +49,9 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
       const htmlNode = modalRef?.current
 
       if (htmlNode) {
-        const bRect = (htmlNode.firstChild as HTMLDivElement)?.getBoundingClientRect()
+        const bRect = (
+          htmlNode.firstChild as HTMLDivElement
+        )?.getBoundingClientRect()
         const x = clientX > bRect.right || clientX < bRect.left
         const y = clientY < bRect.top || clientY > bRect.bottom
 
@@ -199,6 +201,7 @@ const ModalMain = styled.div`
 `
 
 const ModalHeader = styled(Subtitle)`
+  margin: 0;
   padding: ${(p) => p.theme.spacing.default};
 
   ${mq('tablet')} {
@@ -210,10 +213,13 @@ const ModalHeader = styled(Subtitle)`
 
 const ModalBody = styled.div`
   padding: ${(p) => p.theme.spacing.default};
+  padding-top: 0;
+
   font-size: ${(p) => p.theme.rem(14)};
 
   ${mq('tablet')} {
     padding: ${(p) => p.theme.spacing.large};
+    padding-top: 0;
     font-size: ${(p) => p.theme.rem(15)};
   }
 `

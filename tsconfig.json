@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "baseUrl": "./",
     "allowJs": true,
     "skipLibCheck": true,
@@ -15,20 +19,47 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["@emotion/react/types/css-prop"],
+    "types": [
+      "@emotion/react/types/css-prop"
+    ],
     "paths": {
-      "assets/*": ["./src/assets/*"],
-      "components/*": ["./src/components/*"],
-      "hooks/*": ["./src/hooks/*"],
-      "layouts/*": ["./src/layouts/*"],
-      "pages/*": ["./src/pages/*"],
-      "public/*": ["./public/*"],
-      "styles/*": ["./src/styles/*"],
-      "types/*": ["./src/types/*"],
-      "utils/*": ["./src/utils/*"],
-    }
+      "assets/*": [
+        "./src/assets/*"
+      ],
+      "components/*": [
+        "./src/components/*"
+      ],
+      "hooks/*": [
+        "./src/hooks/*"
+      ],
+      "layouts/*": [
+        "./src/layouts/*"
+      ],
+      "pages/*": [
+        "./src/pages/*"
+      ],
+      "public/*": [
+        "./public/*"
+      ],
+      "styles/*": [
+        "./src/styles/*"
+      ],
+      "types/*": [
+        "./src/types/*"
+      ],
+      "utils/*": [
+        "./src/utils/*"
+      ]
+    },
+    "incremental": true
   },
   "baseUrl": "src",
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

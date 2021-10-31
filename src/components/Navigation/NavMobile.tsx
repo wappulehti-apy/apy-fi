@@ -91,9 +91,9 @@ const Img = styled.img<NavContainerProps>`
   --filter-to-white: grayscale(1) invert(1);
 
   width: ${(p) => p.theme.rem(60)};
-  margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.small};
+  margin: ${(p) => p.theme.spacing.default} ${(p) => p.theme.spacing.default};
   /* stylelint-disable-line value-keyword-case */
-  filter: ${({ isOpen }) => (isOpen ? 'var(--filter-to-white)' : 'invert(0)')};
+  filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
 
   ${mq('desktop')} {
     margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.large};

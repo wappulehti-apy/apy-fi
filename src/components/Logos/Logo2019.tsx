@@ -1,10 +1,9 @@
-// @ts-nocheck
 import React, { useRef, Suspense } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
-import { Canvas, useThree, useFrame, useLoader } from 'react-three-fiber'
+import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { useHasWebGL, useWindowSize } from 'hooks/index'
@@ -28,6 +27,7 @@ const CameraControls = () => {
 
   return (
     <OrbitControls
+      // @ts-ignore
       ref={ref}
       args={[camera, gl.domElement]}
       minPolarAngle={Math.PI / 2}

@@ -12,12 +12,12 @@ const manifest = `/${theme}/site.webmanifest`
 const browserconfig = `/${theme}/browserconfig.xml`
 
 export default {
-  siteTitle: 'Arpa-Äpy 2021 on nyt julkaistu!',
+  siteTitle: 'Äpy',
   siteTitleAlt: 'Wappulehti Äpy',
   siteUrl: 'https://apy.fi',
   siteLanguage: 'fi',
   siteLogo: logo,
-  siteDescription: 'Tilaa itsellesi hetkessä Äpy-myyjä verkosta',
+  siteDescription: 'Äpy - Neljä kirjainta joihin voit luottaa!',
   siteFavicon16x16: favicon16x16,
   siteFavicon32x32: favicon32x32,
   siteFavicon: favicon,

@@ -52,11 +52,11 @@ const LogoNav = styled.div`
 const Img = styled.img`
   // In ajaton theme the logo is a black svg which is why
   // a filter is used here.
-  /* --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
-    brightness(119%) contrast(100%); */
+  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
+    brightness(119%) contrast(100%);
 
   width: ${(p) => p.theme.rem(70)};
-  /* filter: var(--filter-to-white); */
+  filter: var(--filter-to-white);
 `
 
 const cssNavMain = (p: Theme) => css`

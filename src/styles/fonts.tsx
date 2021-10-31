@@ -3,6 +3,8 @@ import { Global, css } from '@emotion/react'
 import MontserratBlack from 'public/fonts/2021/montserrat-black.woff2'
 import MontserratBold from 'public/fonts/2021/montserrat-bold.woff2'
 import MontserratRegular from 'public/fonts/2021/montserrat-regular.woff2'
+import LibreBaskervilleBold from 'public/fonts/ajaton/librebaskerville-bold.woff2'
+import LibreBaskervilleItalic from 'public/fonts/ajaton/librebaskerville-italic.woff2'
 import LibreBaskervilleRegular from 'public/fonts/ajaton/librebaskerville-regular.woff2'
 
 const Fonts = () => (
@@ -13,6 +15,20 @@ const Fonts = () => (
         font-style: normal;
         font-weight: normal;
         src: url(${LibreBaskervilleRegular}) format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Libre Baskerville';
+        font-style: italic;
+        font-weight: normal;
+        src: url(${LibreBaskervilleItalic}) format('woff2');
+      }
+
+      @font-face {
+        font-family: 'Libre Baskerville';
+        font-style: normal;
+        font-weight: bold;
+        src: url(${LibreBaskervilleBold}) format('woff2');
       }
 
       @font-face {

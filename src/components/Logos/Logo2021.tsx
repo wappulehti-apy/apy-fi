@@ -1,10 +1,9 @@
-// @ts-nocheck
-import React, { useRef, Suspense } from 'react'
+import React, { useRef, Suspense, useMemo } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
-import { Canvas, useThree, useFrame, useLoader } from 'react-three-fiber'
+import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { useHasWebGL, useWindowSize } from 'hooks/index'
@@ -27,6 +26,7 @@ const CameraControls = () => {
 
   return (
     <OrbitControls
+      // @ts-ignore
       ref={ref}
       args={[camera, gl.domElement]}
       minPolarAngle={Math.PI / 2}
@@ -42,16 +42,15 @@ const CameraControls = () => {
 const Logo2021 = () => {
   const hasWebGl = useHasWebGL()
   const [width, _] = useWindowSize()
+  const canvasHeight = useMemo(
+    () => (width > 0 && width < breakpoints.tablet ? '250px' : '400px'),
+    [width]
+  )
 
   return (
     <>
       {hasWebGl ? (
-        <Canvas
-          style={{
-            minHeight:
-              width > 0 && width < breakpoints.tablet ? '250px' : '400px',
-          }}
-        >
+        <Canvas style={{ minHeight: canvasHeight }}>
           <directionalLight intensity={1} position={[0, 0, 1]} />
           <directionalLight intensity={1} position={[0, 0, -1]} />
           <directionalLight intensity={0.8} position={[1, 0, 0]} />

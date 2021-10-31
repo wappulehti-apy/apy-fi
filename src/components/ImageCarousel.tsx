@@ -1,8 +1,9 @@
-// @ts-nocheck
 import React, { ReactChild } from 'react'
 
 import styled from '@emotion/styled'
 import { Carousel } from 'react-responsive-carousel'
+
+import { mq } from 'styles/breakpoints'
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
@@ -26,6 +27,15 @@ const ImageCarousel: React.FC<Props> = ({ children }) => (
 )
 
 export const CarouselContainer = styled.div`
+  ${mq('phone')} {
+    margin: 0;
+  }
+
+  ${mq('tablet')} {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+
   & .carousel * {
     background: none;
     user-select: none;

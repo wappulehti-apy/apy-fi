@@ -1,13 +1,12 @@
-// @ts-nocheck
 import React, { useRef, Suspense } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
-import { Canvas, useThree, useFrame, useLoader } from 'react-three-fiber'
+import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
-import { useHasWebGL, useWindowSize } from 'hooks/index'
+import { useHasWebGL } from 'hooks/index'
 import { breakpoints, mq } from 'styles/breakpoints'
 
 const logo3d = '/logos/ajaton/3d/ajaton.obj'
@@ -28,12 +27,13 @@ const Logo = () => {
 
 const CameraControls = () => {
   const { camera, gl } = useThree()
-  const ref = useRef()
+  const ref = useRef<typeof OrbitControls>()
   // @ts-ignore
-  useFrame(() => ref.current.update())
+  useFrame(() => ref?.current?.update())
 
   return (
     <OrbitControls
+      // @ts-ignore
       ref={ref}
       args={[camera, gl.domElement]}
       minPolarAngle={Math.PI / 2}
@@ -46,17 +46,18 @@ const CameraControls = () => {
   )
 }
 
-const LogoTimeless = () => {
-  const hasWebGl = useHasWebGL()
-  const [width, _] = useWindowSize()
+type Props = {
+  height: string
+}
 
+const LogoTimeless: React.FC<Props> = ({ height }) => {
+  const hasWebGl = useHasWebGL()
   return (
     <>
       {hasWebGl ? (
         <Canvas
           style={{
-            minHeight:
-              width > 0 && width < breakpoints.tablet ? '300px' : '700px',
+            minHeight: height,
           }}
         >
           <directionalLight intensity={1} position={[0, 0, 1]} />
