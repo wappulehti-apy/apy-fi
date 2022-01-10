@@ -27,7 +27,7 @@ const IndexText = () => (
     </Title>
     <Subtitle css={margin} color="white" weight={600} shadow>
       Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      Wappuna 2021.
+      Wappuna 2023.
     </Subtitle>
   </IndexInfo>
 )
