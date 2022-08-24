@@ -1,7 +1,10 @@
-const withPlugins = require('next-compose-plugins')
-const withTM = require('next-transpile-modules')(['three'])
+import withPlugins from 'next-compose-plugins'
+import withTM from 'next-transpile-modules'
 
-module.exports = withPlugins([[withTM]], {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
   env: {
     THEME: process.env.THEME,
     INDEX_ELEMENT: process.env.INDEX_ELEMENT,
@@ -15,17 +18,17 @@ module.exports = withPlugins([[withTM]], {
       },
       {
         test: /\.(png|woff|woff2|eot|ttf)$/,
-        type: 'asset/inline'
+        type: 'asset',
       },
       {
         test: /\.(obj|glb|gltf)$/,
         exclude: /node_modules/,
-        type: 'asset/inline'
+        type: 'asset',
       },
       {
         test: /\.(fs|vs)$/,
         exclude: /node_modules/,
-        type: 'asset/resource'
+        type: 'asset/resource',
       },
       {
         test: /\.svg$/,
@@ -35,4 +38,6 @@ module.exports = withPlugins([[withTM]], {
 
     return config
   },
-})
+}
+
+export default nextConfig
