@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react'
+import React from 'react'
 
 import styled from '@emotion/styled'
 import { Carousel } from 'react-responsive-carousel'
@@ -10,7 +10,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 // Ovverwrite children prop because react-responsive-carousel
 // has incorrect children type
 interface Props {
-  children?: ReactChild[]
+  children?: React.ReactChild[]
 }
 
 const ImageCarousel: React.FC<Props> = ({ children }) => (

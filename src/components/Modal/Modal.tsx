@@ -5,6 +5,7 @@ import React, {
   useRef,
   Dispatch,
   SetStateAction,
+  PropsWithChildren
 } from 'react'
 
 import { keyframes } from '@emotion/react'
@@ -20,7 +21,7 @@ export interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
+const Modal: React.FC<PropsWithChildren<ModalProps>> = ({ children, title, open, setIsOpen }) => {
   // useLockBodyScroll(open);
   const modalRef = useRef<HTMLDivElement>(null)
   const [isClosing, setIsClosing] = useState(false)
@@ -34,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
   }, [setIsOpen, setIsClosing])
 
   const handleUserKeyPress = useCallback(
-    (e) => {
+    (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         open && hideModal()
       }
@@ -43,7 +44,7 @@ const Modal: React.FC<ModalProps> = ({ children, title, open, setIsOpen }) => {
   )
 
   const handleUserMouseClick = useCallback(
-    (e) => {
+    (e: MouseEvent) => {
       const clientX = e.clientX
       const clientY = e.clientY
       const htmlNode = modalRef?.current
