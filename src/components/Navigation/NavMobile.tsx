@@ -17,7 +17,7 @@ interface Props {
 
 const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
   const transitions = useTransition(items, {
-    from: { transform: isOpen ? 'translate3d(-40px,0,0)' : '' },
+    from: { transform: isOpen ? 'translate3d(-10px,0,0)' : '' },
     enter: { transform: isOpen ? 'translate3d(0,0,0)' : '' },
     trail: 30,
   })
@@ -29,7 +29,7 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
   const logoUrl =
     process.env.THEME === 'ajaton'
       ? '/logos/ajaton/logo-ajaton.svg'
-      : '/logos/2021/logo-2021-valko.png'
+      : '/logos/2023/logo-2023-a-stroke.svg'
 
   return (
     <ContainerNav isOpen={isOpen}>
@@ -38,7 +38,7 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
       </Link>
       <ToggleContainer isOpen={isOpen}>
         <Hamburger
-          color={isOpen ? 'black' : 'white'}
+          color={isOpen ? 'black' : 'black'}
           toggled={isOpen}
           toggle={setOpen}
           duration={0.2}
@@ -88,9 +88,7 @@ const ContainerNav = styled.div<NavContainerProps>`
 `
 
 const Img = styled.img<NavContainerProps>`
-  --filter-to-white: grayscale(1) invert(1);
-
-  width: ${(p) => p.theme.rem(60)};
+  width: ${(p) => p.theme.rem(32)};
   margin: ${(p) => p.theme.spacing.default} ${(p) => p.theme.spacing.default};
   /* stylelint-disable-line value-keyword-case */
   filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};

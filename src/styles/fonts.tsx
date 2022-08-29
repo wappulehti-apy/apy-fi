@@ -56,7 +56,7 @@ const Fonts = () => (
       body {
         font-family: ${process.env.THEME === 'ajaton'
           ? 'Libre Baskerville'
-          : 'Montserrat'};
+          : 'futura-pt'};
       }
     `}
   />

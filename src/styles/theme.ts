@@ -1,18 +1,17 @@
 import { css } from '@emotion/react'
+import { RepeatWrapping } from 'three'
 
 const pxToRem = (px: number) => `${px / 16}rem`
 
 const mode = process.env.THEME
-const pageBackground = '/images/kuosi-2021.png'
-const font = 'Montserrat'
+const pageBackground = '/images/tausta-2023.jpg'
+const font = 'futura-pt, sans-serif'
 const themeColors = [
-  '#ee8da2',
-  '#009473',
-  '#00a6a3',
-  '#8ec7ed',
-  '#0b519e',
-  '#4e50b3',
+  '#f15853',
 ]
+
+const apyRed = '#f15853'
+const apyYellow = '#fbf267'
 
 const highlightColor =
   themeColors[Math.floor(Math.random() * themeColors.length)]
@@ -21,13 +20,15 @@ const theme = {
   mode: mode,
   rem: pxToRem,
   page: {
-    backgroundColor: mode === 'ajaton' ? 'rgb(22, 23, 25)' : highlightColor,
+    backgroundColor: mode === 'ajaton' ? 'rgb(22, 23, 25)' : apyRed,
     backgroundImage: mode === 'ajaton' ? 'none' : `url('${pageBackground}')`,
-    backgroundSize: '50%',
+    backgroundRepeat: 'repeat-y',
+    backgroundPosition: 'top center',
   },
   colors: {
     '2021': themeColors,
     highlight: highlightColor,
+    trueBlack: '#000',
     black: '#555',
     white: '#fff',
     grey: '#858585',
@@ -57,7 +58,7 @@ const theme = {
   typography: {
     title: css`
       font-family: ${font};
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       font-weight: bold;
       letter-spacing: 0.1rem;
       line-height: 1.3;
@@ -130,7 +131,7 @@ const theme = {
     light: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.1)',
     default: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.2)',
     strong: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.5)',
-    text: '2px 2px rgba(0, 0, 0, 0.5)',
+    text: '3px 3px rgba(241, 89, 84, 1.0)',
   },
   borderRadius: {
     small: pxToRem(3),

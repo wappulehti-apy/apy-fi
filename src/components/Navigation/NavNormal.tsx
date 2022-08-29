@@ -14,15 +14,11 @@ const NormalNav: React.FC<Props> = ({ items }) => {
   const logoUrl =
     process.env.THEME === 'ajaton'
       ? 'logos/ajaton/logo-ajaton.svg'
-      : 'logos/2021/logo-2021-valko.png'
+      : 'logos/2023/logo-2023-a-stroke.svg'
 
   return (
     <NavContainer>
-      <LogoNav key="logo">
-        <Link key="etusivu" href="/">
-          <Img src={logoUrl} />
-        </Link>
-      </LogoNav>
+      <LogoNav />
       {items.map((item, i) => (
         <div key={i} css={cssNavMain}>
           {item}
@@ -44,7 +40,7 @@ const NavContainer = styled.div`
 `
 
 const LogoNav = styled.div`
-  width: ${(p) => p.theme.rem(60)};
+  width: 0;
   margin-right: auto;
   margin-left: ${(p) => p.theme.spacing.default};
 `
@@ -65,7 +61,7 @@ const cssNavMain = (p: Theme) => css`
   text-shadow: ${theme.shadow.text};
 
   & > a {
-    color: ${theme.colors.white};
+    color: ${theme.colors.trueBlack};
   }
 
   &:last-child {
