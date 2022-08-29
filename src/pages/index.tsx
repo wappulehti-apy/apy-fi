@@ -16,10 +16,6 @@ const LogoTimeless = dynamic(() => import('components/Logos/LogoTimeless'), {
   ssr: false,
 })
 
-const Logo2021 = dynamic(() => import('components/Logos/Logo2021'), {
-  ssr: false,
-})
-
 const Logo2023 = dynamic(() => import('components/Logos/Logo2023'), {
   ssr: false,
 })

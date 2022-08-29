@@ -2,7 +2,6 @@ import React from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import Link from 'next/link'
 
 import theme, { Theme } from 'styles/theme'
 
@@ -11,11 +10,6 @@ interface Props {
 }
 
 const NormalNav: React.FC<Props> = ({ items }) => {
-  const logoUrl =
-    process.env.THEME === 'ajaton'
-      ? 'logos/ajaton/logo-ajaton.svg'
-      : 'logos/2023/logo-2023-a-stroke.svg'
-
   return (
     <NavContainer>
       <LogoNav />
@@ -43,16 +37,6 @@ const LogoNav = styled.div`
   width: 0;
   margin-right: auto;
   margin-left: ${(p) => p.theme.spacing.default};
-`
-
-const Img = styled.img`
-  // In ajaton theme the logo is a black svg which is why
-  // a filter is used here.
-  --filter-to-white: invert(100%) sepia(4%) saturate(790%) hue-rotate(280deg)
-    brightness(119%) contrast(100%);
-
-  width: ${(p) => p.theme.rem(70)};
-  filter: var(--filter-to-white);
 `
 
 const cssNavMain = (p: Theme) => css`

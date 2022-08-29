@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { RepeatWrapping } from 'three'
 
 const pxToRem = (px: number) => `${px / 16}rem`
 
@@ -9,7 +8,6 @@ const font = 'futura-pt, sans-serif'
 const themeColors = ['#f15853']
 
 const apyRed = '#f15853'
-const apyYellow = '#fbf267'
 
 const highlightColor =
   themeColors[Math.floor(Math.random() * themeColors.length)]
