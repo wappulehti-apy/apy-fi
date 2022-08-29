@@ -2,6 +2,9 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  compiler: {
+    emotion: true,
+  },
   env: {
     THEME: process.env.THEME,
     INDEX_ELEMENT: process.env.INDEX_ELEMENT,
