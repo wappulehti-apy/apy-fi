@@ -207,8 +207,8 @@ const ModalMain = styled.div`
 `
 
 const ModalHeader = styled(Subtitle)`
-  margin: 0;
   padding: ${(p) => p.theme.spacing.default};
+  margin: 0;
 
   ${mq('tablet')} {
     padding: ${(p) => p.theme.spacing.medium};

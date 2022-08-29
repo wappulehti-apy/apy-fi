@@ -18,10 +18,10 @@ const Logo2023 = () => {
 }
 
 const ImageContainer = styled.div`
-  text-align: center;
   align-items: center;
   padding: ${(p) => p.theme.rem(100)} 0;
   margin: 0 auto;
+  text-align: center;
 `
 
 const imageCss = css`

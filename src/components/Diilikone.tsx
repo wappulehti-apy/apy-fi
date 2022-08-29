@@ -31,8 +31,8 @@ const ImgContainer = styled.div`
   transition: 0.1s ease-in;
 
   img {
-    margin: 50px 0;
     height: ${(p) => p.theme.rem(250)};
+    margin: 50px 0;
 
     ${mq('phone')} {
       height: ${(p) => p.theme.rem(350)};
