@@ -6,9 +6,7 @@ const pxToRem = (px: number) => `${px / 16}rem`
 const mode = process.env.THEME
 const pageBackground = '/images/tausta-2023.jpg'
 const font = 'futura-pt, sans-serif'
-const themeColors = [
-  '#f15853',
-]
+const themeColors = ['#f15853']
 
 const apyRed = '#f15853'
 const apyYellow = '#fbf267'

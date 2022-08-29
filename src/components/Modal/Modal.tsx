@@ -5,7 +5,7 @@ import React, {
   useRef,
   Dispatch,
   SetStateAction,
-  PropsWithChildren
+  PropsWithChildren,
 } from 'react'
 
 import { keyframes } from '@emotion/react'
@@ -21,7 +21,12 @@ export interface ModalProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const Modal: React.FC<PropsWithChildren<ModalProps>> = ({ children, title, open, setIsOpen }) => {
+const Modal: React.FC<PropsWithChildren<ModalProps>> = ({
+  children,
+  title,
+  open,
+  setIsOpen,
+}) => {
   // useLockBodyScroll(open);
   const modalRef = useRef<HTMLDivElement>(null)
   const [isClosing, setIsClosing] = useState(false)

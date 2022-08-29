@@ -30,8 +30,8 @@ const IndexText = () => (
       Neljä kirjainta, joihin voit luottaa.
     </Title>
     <Subtitle css={margin} color="trueBlack" weight={600} shadow>
-      Otaniemeläistä wappuhuumoria vuodesta 1948.
-      Seuraavan kerran Äpy ilmestyy mahdollisena Wappuna 2023.
+      Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
+      mahdollisena Wappuna 2023.
     </Subtitle>
   </IndexInfo>
 )
