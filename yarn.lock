@@ -40,7 +40,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.16.0, @babel/core@npm:^7.18.5":
+"@babel/core@npm:^7.16.0, @babel/core@npm:^7.17.9, @babel/core@npm:^7.18.5":
   version: 7.18.13
   resolution: "@babel/core@npm:7.18.13"
   dependencies:
@@ -2784,6 +2784,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylelint/postcss-css-in-js@npm:^0.38.0":
+  version: 0.38.0
+  resolution: "@stylelint/postcss-css-in-js@npm:0.38.0"
+  dependencies:
+    "@babel/core": ^7.17.9
+  peerDependencies:
+    postcss: ">=7.0.0"
+    postcss-syntax: ">=0.36.2"
+  checksum: efb32b4aab38a8fcebc07a26bc49afe92e3d9dea63547fd4bb7e2a4a42c4f7534173e696ba61f5e4030961081f210ae52aea3b4829a2fe67acd3c9dc14c91b0f
+  languageName: node
+  linkType: hard
+
 "@svgr/babel-plugin-add-jsx-attribute@npm:^6.3.1":
   version: 6.3.1
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.3.1"
@@ -3453,6 +3465,7 @@ __metadata:
     "@next/eslint-plugin-next": ^12.2.5
     "@react-three/drei": ^9.23.5
     "@react-three/fiber": ^8.6.0
+    "@stylelint/postcss-css-in-js": ^0.38.0
     "@svgr/webpack": ^6.3.1
     "@types/node": ^18.7.13
     "@types/react": ^18.0.17
@@ -3484,6 +3497,7 @@ __metadata:
     next: ^12.2.5
     next-compose-plugins: ^2.2.1
     next-transpile-modules: ^9.0.0
+    postcss-syntax: ^0.36.2
     prettier: ^2.7.1
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8489,6 +8503,15 @@ __metadata:
   peerDependencies:
     postcss: ^8.3.9
   checksum: 79cca6703ef7c60ea913c3bfb91f85bd7adce35e60b834a40cadd1c7e18f37961d63f0e641387651ee3bf1df1996e952d8fe443f93a271aa2d23f239ea3145bc
+  languageName: node
+  linkType: hard
+
+"postcss-syntax@npm:^0.36.2":
+  version: 0.36.2
+  resolution: "postcss-syntax@npm:0.36.2"
+  peerDependencies:
+    postcss: ">=5.0.0"
+  checksum: 812baee602910903b8b77391583721613951d87dbc8baff140879069ff98423392675c4ddfdf073418f4a699ee5d4dd020914bad07504c62f9f333211bf979b8
   languageName: node
   linkType: hard
 

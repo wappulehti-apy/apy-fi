@@ -1,6 +1,7 @@
 {
+    "customSyntax": "@stylelint/postcss-css-in-js",
 	"plugins": [
 		"stylelint-order"
 	],
-  "extends": "stylelint-config-idiomatic-order"
+    "extends": "stylelint-config-idiomatic-order"
 }
