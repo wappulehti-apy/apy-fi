@@ -19,6 +19,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'plugin:@next/next/recommended',
     'prettier',
   ],
   plugins: ['react', '@typescript-eslint', 'prettier', 'react-hooks'],
