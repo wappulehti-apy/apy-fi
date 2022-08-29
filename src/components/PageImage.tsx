@@ -1,9 +1,9 @@
 import React from 'react'
 
 import styled from '@emotion/styled'
+import Image from 'next/image'
 
 import { mq } from 'styles/breakpoints'
-import { Image } from 'styles/index'
 
 interface Props {
   images: string[]
@@ -14,7 +14,7 @@ const PageImage: React.FC<Props> = ({ images }) => {
 
   return (
     <ImageContainer>
-      <Image src={image} objectFit="cover" />
+      <Image src={image} objectFit="cover" layout="fill" />
     </ImageContainer>
   )
 }

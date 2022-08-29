@@ -16,6 +16,7 @@ const ÄpyModal: React.FC<Props> = ({ item, modalProps }) => (
     <ModalContentGrid>
       <ImageCarousel>
         {item.imgCarousel.map((img, i) => (
+          // eslint-disable-next-line @next/next/no-img-element
           <img key={i} src={img} />
         ))}
       </ImageCarousel>

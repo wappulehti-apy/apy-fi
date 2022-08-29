@@ -48,12 +48,6 @@ const IndexInfo = styled.div`
   }
 `
 
-const IndexLogoWrapper = styled.div<{
-  height: string
-}>`
-  min-height: ${(p) => p.height};
-`
-
 const IndexPage = () => {
   const [width, _] = useWindowSize()
   const logoHeight = useMemo(
@@ -72,7 +66,7 @@ const IndexPage = () => {
       case 'logo':
         return (
           <>
-            <IndexLogoWrapper height={logoHeight}>{Logo}</IndexLogoWrapper>
+            {Logo}
             <IndexText />
           </>
         )

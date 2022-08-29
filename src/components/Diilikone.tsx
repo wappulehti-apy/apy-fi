@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from '@emotion/styled'
+import Image from 'next/image'
 
 import { mq } from 'styles/breakpoints'
 import { Title, Subtitle } from 'styles/typography'
@@ -10,7 +11,7 @@ const Diilikone = () => {
     <>
       <ImgContainer>
         <a href="https://apy.fi/gaala">
-          <img src="/images/diilikone/gaala-logo.svg" />
+          <Image src="/images/diilikone/gaala-logo.svg" />
         </a>
       </ImgContainer>
       <Title align="center" color="white" weight={900} shadow>

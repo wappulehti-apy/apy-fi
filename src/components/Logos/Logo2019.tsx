@@ -4,6 +4,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber'
+import Image from 'next/image'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 import { useHasWebGL, useWindowSize } from 'hooks/index'
@@ -65,7 +66,7 @@ const Logo2019 = () => {
         </Canvas>
       ) : (
         <ImageContainer>
-          <img css={imageCss} src={logoNormal} />
+          <Image css={imageCss} src={logoNormal} />
         </ImageContainer>
       )}
     </>
