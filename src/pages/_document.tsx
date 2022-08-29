@@ -35,6 +35,7 @@ class MyDocument extends Document {
           `,
             }}
           />
+          <link rel="stylesheet" href="https://use.typekit.net/oeo1stw.css"></link>
         </Head>
         <body>
           <Main />

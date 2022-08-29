@@ -20,14 +20,18 @@ const Logo2021 = dynamic(() => import('components/Logos/Logo2021'), {
   ssr: false,
 })
 
+const Logo2023 = dynamic(() => import('components/Logos/Logo2023'), {
+  ssr: false,
+})
+
 const IndexText = () => (
   <IndexInfo>
-    <Title color="white" weight={900} shadow>
-      Äpy - Neljä kirjainta, joihin voit luottaa.
+    <Title color="trueBlack" weight={900} shadow>
+      Neljä kirjainta, joihin voit luottaa.
     </Title>
-    <Subtitle css={margin} color="white" weight={600} shadow>
-      Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      Wappuna 2023.
+    <Subtitle css={margin} color="trueBlack" weight={600} shadow>
+      Otaniemeläistä wappuhuumoria vuodesta 1948.
+      Seuraavan kerran Äpy ilmestyy mahdollisena Wappuna 2023.
     </Subtitle>
   </IndexInfo>
 )
@@ -39,7 +43,7 @@ const margin = (p: Theme) => css`
 const IndexInfo = styled.div`
   display: inline-block;
   overflow: auto;
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
 
@@ -64,7 +68,7 @@ const IndexPage = () => {
     process.env.THEME === 'ajaton' ? (
       <LogoTimeless height={logoHeight} />
     ) : (
-      <Logo2021 />
+      <Logo2023 />
     )
 
   const mainElement = () => {

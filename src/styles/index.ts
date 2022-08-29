@@ -12,7 +12,12 @@ export const PageWrapper = styled.div`
   flex-direction: column;
   background-color: ${(p) => p.theme.page.backgroundColor};
   background-image: ${(p) => p.theme.page.backgroundImage};
-  background-size: ${(p) => p.theme.page.backgroundSize};
+  background-size: 250%;
+  ${mq('tablet')} {
+    background-size: 100%;
+  }
+  background-repeat: ${(p) => p.theme.page.backgroundRepeat};
+  background-position: ${(p) => p.theme.page.backgroundPosition};
 `
 
 export const Content = styled.div`
