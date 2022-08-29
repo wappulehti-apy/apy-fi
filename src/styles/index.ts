@@ -4,20 +4,31 @@ import styled from '@emotion/styled'
 import { breakpoints, mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 
+export const Background = styled.div`
+  position: fixed;
+  z-index: -999;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-color: ${(p) => p.theme.page.backgroundColor};
+  background-image: ${(p) => p.theme.page.backgroundImage};
+  background-position: ${(p) => p.theme.page.backgroundPosition};
+  background-repeat: ${(p) => p.theme.page.backgroundRepeat};
+  background-size: 250%;
+  filter: contrast(90%);
+  ${mq('tablet')} {
+    background-size: 110%;
+  }
+`
+
 export const PageWrapper = styled.div`
   display: flex;
   overflow: hidden;
   width: 100vw;
   min-height: 100vh;
   flex-direction: column;
-  background-color: ${(p) => p.theme.page.backgroundColor};
-  background-image: ${(p) => p.theme.page.backgroundImage};
-  background-position: ${(p) => p.theme.page.backgroundPosition};
-  background-repeat: ${(p) => p.theme.page.backgroundRepeat};
-  background-size: 250%;
-  ${mq('tablet')} {
-    background-size: 100%;
-  }
+  background-color: transparent;
 `
 
 export const Content = styled.div`
