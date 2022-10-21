@@ -36,10 +36,11 @@ export const Content = styled.div`
   max-width: ${breakpoints.tablet}px;
   flex-direction: column;
   align-self: center;
-  margin: 0 ${(p) => p.theme.spacing.small} auto ${(p) => p.theme.spacing.small};
+  justify-content: center;
+  margin: auto ${(p) => p.theme.spacing.small} 0 ${(p) => p.theme.spacing.small};
 
   ${mq('tablet')} {
-    margin: 0 ${(p) => p.theme.spacing.xxlarge} auto
+    margin: auto ${(p) => p.theme.spacing.xxlarge} auto
       ${(p) => p.theme.spacing.xxlarge};
   }
 
