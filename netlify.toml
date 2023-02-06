@@ -10,15 +10,3 @@
   to = "https://apy.fi/:splat"
   status = 301
   force = true
-
-[[redirects]]
-  from = "/gaala"
-  to = "https://stream.wappu.fi/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/osta"
-  to = "https://osta.apy.fi/"
-  status = 301
-  force = true
