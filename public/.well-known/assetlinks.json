@@ -1,0 +1,23 @@
+[
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": {
+      "namespace": "web",
+      "site": "https://apy.fi"
+    }
+  },
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": {
+      "namespace": "web",
+      "site": "https://www.xn--py-uia.fi"
+    }
+  },
+  {
+    "relation": ["lookalikes/allowlist"],
+    "target": {
+      "namespace": "web",
+      "site": "https://xn--py-uia.fi"
+    }
+  }
+]
