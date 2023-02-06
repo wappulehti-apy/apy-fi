@@ -12,7 +12,7 @@ Paikallinen kehittäminen onnistuu seuraavilla komennoilla:
 
 ```
 npm install
-npm develop
+npm run dev
 ```
 
 ### Koodityyli
@@ -21,7 +21,7 @@ Tiedostot .eslintrc ja .prettierrc sisältävät koodin tyylimäärittelyjä. K�
 
 ## Konfigurointi
 
-Nettisivujen ilmettä on mahdollista muuttaa .env tiedoston muuttujien avulla. `GATSBY_THEME` muuttuja kontrolloi etusin logokomponenttia (<Logo /> vs <Logo2019 />) sekä modalin ja navbarin logoa.
+Nettisivujen ilmettä on mahdollista muuttaa .env tiedoston muuttujien avulla. `THEME` muuttuja kontrolloi etusin logokomponenttia (<Logo /> vs <Logo2019 />) sekä modalin ja navbarin logoa.
 
 Sivujen ulkonäkö eri `.env` tiedoston konfiguraatioilla:
 ```
@@ -45,16 +45,16 @@ INDEX_ELEMENT='video
 
 ## Käyttöönotto
 
-Gatsby production build ja servaus
+Next.js production build ja servaus
 
 ```
-gatsby build && gatsby serve
+npm run build && npm run start
 ```
 
 ## Rakennuspalikat
 
-* [React](https://reactjs.org/) - Javascript UI-kirjasto
-* [Gatsby](https://www.gatsbyjs.org/) - Generoi Reactin staattisia sivuja
+* [React](https://reactjs.org/)
+* [Next.js](https://nextjs.org/)
 
 ## Kehittäjät
 
