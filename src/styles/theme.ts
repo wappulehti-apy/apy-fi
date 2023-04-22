@@ -3,7 +3,7 @@ import { css } from '@emotion/react'
 const pxToRem = (px: number) => `${px / 16}rem`
 
 const mode = process.env.THEME
-const pageBackground = '/images/kuosi-2023.jpg'
+// const pageBackground = '/images/kuosi-2023.jpg'
 const font = 'futura-pt, sans-serif'
 const themeColors = ['#f15853']
 
