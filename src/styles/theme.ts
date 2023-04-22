@@ -7,7 +7,7 @@ const pageBackground = '/images/kuosi-2023.jpg'
 const font = 'futura-pt, sans-serif'
 const themeColors = ['#f15853']
 
-const apyRed = '#f15853'
+const apyWhite = '#f8f2ed'
 
 const highlightColor =
   themeColors[Math.floor(Math.random() * themeColors.length)]
@@ -16,14 +16,15 @@ const theme = {
   mode: mode,
   rem: pxToRem,
   page: {
-    backgroundColor: mode === 'ajaton' ? 'rgb(22, 23, 25)' : apyRed,
-    backgroundImage: mode === 'ajaton' ? 'none' : `url('${pageBackground}')`,
+    backgroundColor: mode === 'ajaton' ? 'rgb(22, 23, 25)' : apyWhite,
+    backgroundImage: mode === 'ajaton' ? 'none' : 'none',
     backgroundRepeat: 'repeat-y',
     backgroundPosition: 'top center',
   },
   colors: {
     '2021': themeColors,
     highlight: highlightColor,
+    pink: '#f9c6c3',
     trueBlack: '#000',
     black: '#555',
     white: '#fff',
@@ -127,7 +128,7 @@ const theme = {
     light: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.1)',
     default: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.2)',
     strong: '0 0.125rem 0.5rem rgba(0, 0, 0, 0.5)',
-    text: '3px 3px rgba(241, 89, 84, 1.0)',
+    text: '3px 3px rgba(241, 88, 83, 0.5)',
   },
   borderRadius: {
     small: pxToRem(3),

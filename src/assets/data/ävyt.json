@@ -1,5 +1,17 @@
 [
   {
+    "year": 2023,
+    "name": "Kartta-Äpy",
+    "description": "Kartta-Äpy piti huolen, että Wappuna 2023 suunta oli lukijalla aina hukassa. Tyvekistä valmistettu Äpy on kevyt, repeämätön ja sateenkestävä. Toimitus ei kuitenkaan vastaa repeilyistä lukemisen aikana.",
+    "imgGrid": "/images/apyt/grid/2023.jpg",
+    "imgCarousel": [
+      "/images/apyt/carousel/2023_1.jpg",
+      "/images/apyt/carousel/2023_2.jpg",
+      "/images/apyt/carousel/2023_3.jpg",
+      "/images/apyt/carousel/2023_4.jpg"
+    ]
+  },
+  {
     "year": 2021,
     "name": "Arpa-Äpy",
     "description": "Arveluttavan vuoden päätteeksi Arpa-Äpy tarjosi kaivattua vaihtelua pandemiaan. 25:n kortin kokoelma raaputusarpoja kätki sisäänsä enemmän kuin ensisilmäys antoi ymmärtää.",
