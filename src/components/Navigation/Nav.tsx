@@ -70,6 +70,7 @@ const A = styled.a<LinkProps>`
   font-size: ${(p) => p.theme.rem(24)};
   font-weight: 900;
   text-decoration: none;
+  cursor: pointer;
 
   &::before {
     position: absolute;

@@ -46,6 +46,10 @@ export const CarouselContainer = styled.div`
     padding: 5px 5px 0 0;
     margin: 0 !important;
 
+    .thumb {
+      cursor: pointer;
+    }
+
     @media (max-width: 1025px) and (orientation: landscape) {
       .thumb {
         width: 50px;

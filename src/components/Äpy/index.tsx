@@ -74,6 +74,7 @@ const ÄpyName = styled(Detail)`
 const ÄpyContainer = styled.div`
   position: relative;
   box-shadow: ${(p) => p.theme.shadow.light};
+  cursor: pointer;
 
   &:hover ${ÄpyName} {
     opacity: 1;

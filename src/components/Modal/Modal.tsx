@@ -236,6 +236,7 @@ const ModalToggle = styled.div`
   right: ${(p) => p.theme.rem(10)};
   width: ${(p) => p.theme.rem(20)};
   height: ${(p) => p.theme.rem(20)};
+  cursor: pointer;
 
   &::before,
   &::after {
