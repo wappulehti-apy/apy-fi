@@ -15,7 +15,6 @@ const BaseText = styled.span<{
   font-weight: ${(p) => p.weight || 'inherit'};
   line-height: ${(p) => p.lineHeight || 'inherit'};
   text-align: ${(p) => p.align || 'inherit'};
-  text-shadow: ${(p) => (p.shadow ? p.theme.shadow.text : 'inherit')};
 `
 
 export const Title = styled(BaseText.withComponent('h2'))`

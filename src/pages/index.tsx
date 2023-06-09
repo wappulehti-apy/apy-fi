@@ -2,12 +2,11 @@ import React, { useMemo } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import dynamic from 'next/dynamic'
-
 import Diilikone from 'components/Diilikone'
 import Video from 'components/Video'
 import Wappu from 'components/Wappu'
 import { useWindowSize } from 'hooks/index'
+import dynamic from 'next/dynamic'
 import { mq, breakpoints } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 import { Title, Subtitle } from 'styles/typography'
@@ -22,12 +21,13 @@ const Logo2023 = dynamic(() => import('components/Logos/Logo2023'), {
 
 const IndexText = () => (
   <IndexInfo>
-    <Title color="trueBlack" weight={900} shadow>
+    <Title color="white" weight={900} shadow>
       Neljä kirjainta, joihin voit luottaa.
     </Title>
-    <Subtitle css={margin} color="trueBlack" weight={600} shadow>
+
+    <Subtitle css={margin} color="white" weight={600} shadow>
       Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      mahdollisena Wappuna 2023.
+      mahdollisena Wappuna 2025.
     </Subtitle>
   </IndexInfo>
 )

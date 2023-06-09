@@ -3,8 +3,9 @@ import { css } from '@emotion/react'
 const pxToRem = (px: number) => `${px / 16}rem`
 
 const mode = process.env.THEME
+
 // const pageBackground = '/images/kuosi-2023.jpg'
-const font = 'futura-pt, sans-serif'
+const font = 'Libre Baskerville, sans-serif'
 const themeColors = ['#f15853']
 
 const apyWhite = '#f8f2ed'

@@ -4,11 +4,10 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, useThree, useFrame, useLoader } from '@react-three/fiber'
-import Image from 'next/image'
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
-
 import { useHasWebGL } from 'hooks/index'
+import Image from 'next/image'
 import { breakpoints, mq } from 'styles/breakpoints'
+import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 
 const logo3d = '/logos/ajaton/3d/ajaton.obj'
 const logoNormal = '/logos/ajaton/logo-ajaton.png'

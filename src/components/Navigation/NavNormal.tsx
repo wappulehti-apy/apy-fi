@@ -2,7 +2,6 @@ import React from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-
 import theme, { Theme } from 'styles/theme'
 
 interface Props {
@@ -30,6 +29,7 @@ const NavContainer = styled.div`
   align-items: center;
   margin: ${(p) => p.theme.spacing.small} 0;
   margin-bottom: ${(p) => p.theme.spacing.large};
+  margin-top: ${(p) => p.theme.spacing.medium};
   white-space: nowrap;
 `
 
@@ -42,10 +42,9 @@ const LogoNav = styled.div`
 const cssNavMain = (p: Theme) => css`
   display: inline-flex;
   margin-right: ${p.spacing.large};
-  text-shadow: ${theme.shadow.text};
 
   & > a {
-    color: ${theme.colors.trueBlack};
+    color: ${theme.colors.white};
   }
 
   &:last-child {

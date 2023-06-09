@@ -3,11 +3,10 @@ import React, { useState, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { breakpoints } from 'styles/breakpoints'
 
 import NavMobile from './NavMobile'
 import NavNormal from './NavNormal'
-
-import { breakpoints } from 'styles/breakpoints'
 
 const navItems = [
   { link: '/', text: 'Etusivu' },
@@ -81,8 +80,8 @@ const A = styled.a<LinkProps>`
     background: ${(p) =>
       p.isActive
         ? p.isMobile
-          ? p.theme.colors.black
-          : p.theme.colors.black
+          ? p.theme.colors.white
+          : p.theme.colors.white
         : ''};
     border-radius: 5px;
     content: '';
@@ -94,7 +93,7 @@ const A = styled.a<LinkProps>`
     left: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background: white;
     border-radius: 5px;
     content: '';
     transform: scaleX(0);

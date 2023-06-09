@@ -26,3 +26,13 @@ a {
 *:after {
   box-sizing: border-box;
 }
+
+canvas {
+  height: 400px;
+}
+
+@media screen and (max-width: 768px) {
+  canvas {
+    height: 150px;
+  }
+}

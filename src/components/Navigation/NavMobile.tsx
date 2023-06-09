@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 import { Squeeze as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
 import { useSpring, useTransition, a } from 'react-spring'
-
 import { mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 
@@ -26,19 +25,20 @@ const NavMobile: React.FC<Props> = ({ items, isOpen, setOpen }) => {
     config: { tension: 60, friction: 10, overshootClamping: true },
   })
 
-  const logoUrl =
-    process.env.THEME === 'ajaton'
-      ? '/logos/ajaton/logo-ajaton.svg'
-      : '/logos/2023/logo-2023-a-stroke.svg'
+  // const logoUrl =
+  //   process.env.THEME === 'ajaton'
+  //     ? '/logos/ajaton/logo-ajaton.svg'
+  //     : '/logos/2023/logo-2023-a-stroke.svg'
 
   return (
     <ContainerNav isOpen={isOpen}>
-      <Link key="etusivu" href="/">
+      {/* <Link key="etusivu" href="/">
         <Img src={logoUrl} isOpen={isOpen} />
-      </Link>
+      </Link> */}
+
       <ToggleContainer isOpen={isOpen}>
         <Hamburger
-          color={isOpen ? 'black' : 'black'}
+          color={isOpen ? 'black' : 'white'}
           toggled={isOpen}
           toggle={setOpen}
           duration={0.2}
@@ -84,19 +84,20 @@ interface NavContainerProps {
 const ContainerNav = styled.div<NavContainerProps>`
   min-height: ${({ isOpen }) => (isOpen ? '100vh' : 0)};
   margin-bottom: ${(p) => p.theme.spacing.large};
+  padding-top: 4rem;
   background: ${({ isOpen }) => (isOpen ? 'white' : 'none')};
 `
 
-const Img = styled.img<NavContainerProps>`
-  width: ${(p) => p.theme.rem(32)};
-  margin: ${(p) => p.theme.spacing.default} ${(p) => p.theme.spacing.default};
-  /* stylelint-disable-line value-keyword-case */
-  filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
+// const Img = styled.img<NavContainerProps>`
+//   width: ${(p) => p.theme.rem(32)};
+//   margin: ${(p) => p.theme.spacing.default} ${(p) => p.theme.spacing.default};
+//   /* stylelint-disable-line value-keyword-case */
+//   filter: ${({ isOpen }) => (isOpen ? 'invert(0)' : 'var(--filter-to-white)')};
 
-  ${mq('desktop')} {
-    margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.large};
-  }
-`
+//   ${mq('desktop')} {
+//     margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.large};
+//   }
+// `
 
 const cssNavMain = (p: Theme) => css`
   display: inline-flex;

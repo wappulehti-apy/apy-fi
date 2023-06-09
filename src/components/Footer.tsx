@@ -41,7 +41,7 @@ export const Ul = styled.ul`
 `
 
 export const A = styled.a`
-  color: ${(p) => p.theme.colors.trueBlack};
+  color: ${(p) => p.theme.colors.white};
   outline: none;
   text-decoration: none;
   transition: all 0.22s ease-in-out;
