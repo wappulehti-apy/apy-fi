@@ -34,32 +34,13 @@ module.exports = {
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
-        args: "after-used",
-        ignoreRestSiblings: true,
-      },
-    ],
-    'import/order': [
+    '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-        'newlines-between': 'always',
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index'],
-        pathGroups: [
-          {
-            pattern: 'react',
-            group: 'external',
-            position: 'before',
-          },
-        ],
-        pathGroupsExcludedImportTypes: ['builtin'],
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        ignoreRestSiblings: true,
       },
     ],
   },

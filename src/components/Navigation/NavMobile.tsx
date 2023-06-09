@@ -3,9 +3,7 @@ import React, { Dispatch, SetStateAction } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Squeeze as Hamburger } from 'hamburger-react'
-import Link from 'next/link'
 import { useSpring, useTransition, a } from 'react-spring'
-import { mq } from 'styles/breakpoints'
 import { Theme } from 'styles/theme'
 
 interface Props {
