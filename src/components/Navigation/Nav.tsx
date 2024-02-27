@@ -13,6 +13,7 @@ const navItems = [
   { link: '/apyt', text: 'Äpyt' },
   { link: '/avystykset', text: 'Ävystykset' },
   { link: '/yhteystiedot', text: 'Yhteystiedot' },
+  { link: '/mukaan', text: 'Mukaan?' },
 ]
 
 const Navigation = () => {
