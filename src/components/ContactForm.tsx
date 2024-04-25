@@ -15,6 +15,8 @@ interface ValidationState {
 }
 
 const ContactForm = () => {
+  const [bodyLength, setBodyLength] = useState(0)
+
   const [validationState, setValidationState] = useState<ValidationState>({
     subjectValid: undefined,
     emailValid: undefined,
@@ -55,6 +57,7 @@ const ContactForm = () => {
       }
       case 'body': {
         const messageValid = value ? true : false
+        setBodyLength(value.length)
         setValidationState((prev) => ({ ...prev, messageValid }))
         break
       }
@@ -136,6 +139,7 @@ const ContactForm = () => {
             )}
           </div>
         </li>
+
         <li>
           <label htmlFor="email">Sähköposti</label>
           <div>
@@ -153,7 +157,8 @@ const ContactForm = () => {
           </div>
         </li>
         <li>
-          <label htmlFor="message">Viesti</label>
+          <label htmlFor="message">Terveiset toimitukselle</label>
+
           <div>
             <textarea
               rows={6}
@@ -162,29 +167,41 @@ const ContactForm = () => {
               name="body"
               onChange={validateField}
               required
+              maxLength={500}
             />
             {messageValid === false && (
               <ValidationError>Viestissäsi on oltava viesti.</ValidationError>
             )}
           </div>
         </li>
+
         {formSubmitSuccess && (
           <li>
             <label htmlFor="dummy" />
             <SuccessMessage>Viesti lähetetty onnistuneesti!</SuccessMessage>
           </li>
         )}
+
         {formSubmitSuccess === false && (
           <li>
             <label htmlFor="dummy" />
             <ErrorMessage>Jotain meni pieleen - yritä uudestaan.</ErrorMessage>
           </li>
         )}
+
+        <li>
+          <label htmlFor="dummy" />
+          <p style={{ fontSize: '0.75rem' }}>
+            Merkkejä jäljellä: {500 - bodyLength}
+          </p>
+        </li>
+
         <li>
           <A target="_blank" href="/tietosuojaseloste.pdf">
             Tietosuojaseloste
           </A>
         </li>
+
         <li>
           <ButtonBackground disabled={formValid === false || formSubmitSuccess}>
             {formSubmitting ? (
