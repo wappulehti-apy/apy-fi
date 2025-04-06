@@ -1,18 +1,18 @@
 [build]
-  command = "npm run build"
-  publish = ".next"
+command = "npm run build"
+publish = ".next"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+package = "@netlify/plugin-nextjs"
 
 [[redirects]]
-  from = "https://www.xn--py-uia.fi/*"
-  to = "https://apy.fi/:splat"
-  status = 301
-  force = true
+from = "https://www.xn--py-uia.fi/*"
+to = "https://apy.fi/:splat"
+status = 301
+force = true
 
 [[redirects]]
-  from = "/gaala"
-  to = "https://stream.whappu.fi/"
-  status = 302
-  force = true
+from = "/gaala"
+to = "https://youtube.com/live/q-ebaNHZaDo?feature=share"
+status = 302
+force = true
