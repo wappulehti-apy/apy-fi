@@ -10,20 +10,18 @@ const Wappu: React.FC = () => {
     <>
       <WappuContainer>
         <Image
-          src="/images/wappu/kartta-apy.png"
+          src="/images/wappu/lappa-apyy.png"
           objectFit="contain"
           layout="fill"
         />
       </WappuContainer>
       <TitleContainer>
         <Title align="center" color="trueBlack" shadow>
-          Kartta-Äpy on julkaistu!
+          Läppä-Äpy on julkaistu!
         </Title>
         <Description>
-          Kartta-Äpy pitää huolen, että Wappuna 2023 suunta on lukijalla aina
-          hukassa. Tyvekistä valmistettu Äpy on kevyt, repeämätön ja
-          sateenkestävä. Toimitus ei kuitenkaan vastaa repeilyistä lukemisen
-          aikana.
+          Läppä-Äpy pitää huolen, että jokainen kohtaamasi läppä varmasti
+          aukeaa. Kaksin aina parempi.
         </Description>
         <a href="https://osta.apy.fi/">
           <ButtonBackground>
@@ -62,7 +60,6 @@ const ButtonBackground = styled.button`
   transition: 0.2s all ease;
 
   &:hover {
-    background: ${(p) => p.theme.colors.pink};
     color: #000;
     cursor: pointer;
   }

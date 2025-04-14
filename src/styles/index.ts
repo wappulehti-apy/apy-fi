@@ -28,7 +28,7 @@ export const PageWrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #101010;
+  background-color: #f7f7f7;
 `
 
 export const Content = styled.div`

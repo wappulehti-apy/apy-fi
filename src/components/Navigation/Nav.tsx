@@ -81,8 +81,8 @@ const A = styled.a<LinkProps>`
     background: ${(p) =>
       p.isActive
         ? p.isMobile
-          ? p.theme.colors.white
-          : p.theme.colors.white
+          ? p.theme.colors.black
+          : p.theme.colors.black
         : ''};
     border-radius: 5px;
     content: '';
@@ -94,7 +94,7 @@ const A = styled.a<LinkProps>`
     left: 0;
     width: 100%;
     height: 2px;
-    background: white;
+    background: black;
     border-radius: 5px;
     content: '';
     transform: scaleX(0);
