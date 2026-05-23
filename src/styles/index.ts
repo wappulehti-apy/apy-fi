@@ -28,7 +28,7 @@ export const PageWrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: ${(p) => p.theme.page.backgroundColor};
 `
 
 export const Content = styled.div`
@@ -37,11 +37,12 @@ export const Content = styled.div`
   flex-direction: column;
   align-self: center;
   justify-content: center;
-  margin: auto ${(p) => p.theme.spacing.small} 0 ${(p) => p.theme.spacing.small};
+  margin: ${(p) => p.theme.spacing.small} ${(p) => p.theme.spacing.large} 0
+    ${(p) => p.theme.spacing.large};
 
   ${mq('tablet')} {
-    margin: auto ${(p) => p.theme.spacing.xxlarge} auto
-      ${(p) => p.theme.spacing.xxlarge};
+    margin: ${(p) => p.theme.spacing.large} ${(p) => p.theme.spacing.xxlarge}
+      auto ${(p) => p.theme.spacing.xxlarge};
   }
 
   ${mq('desktop')} {

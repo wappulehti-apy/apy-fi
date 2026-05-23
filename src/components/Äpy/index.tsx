@@ -75,6 +75,7 @@ const ÄpyContainer = styled.div`
   position: relative;
   box-shadow: ${(p) => p.theme.shadow.light};
   cursor: pointer;
+  aspect-ratio: 1;
 
   &:hover ${ÄpyName} {
     opacity: 1;
@@ -87,10 +88,8 @@ const ÄpyContainer = styled.div`
 `
 
 const ImageContainer = styled.div`
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: absolute;
+  inset: 0;
   display: block;
   overflow: hidden;
   margin: 0;

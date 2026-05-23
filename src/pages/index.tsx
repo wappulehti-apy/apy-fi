@@ -27,7 +27,7 @@ const IndexText = () => (
 
     <Subtitle css={margin} color="white" weight={600} shadow>
       Otaniemeläistä wappuhuumoria vuodesta 1948. Seuraavan kerran Äpy ilmestyy
-      mahdollisena Wappuna 2025.
+      mahdollisena Wappuna 2027.
     </Subtitle>
   </IndexInfo>
 )
@@ -51,7 +51,7 @@ const IndexInfo = styled.div`
 const IndexPage = () => {
   const [width, _] = useWindowSize()
   const logoHeight = useMemo(
-    () => (width > 0 && width < breakpoints.tablet ? '250px' : '400px'),
+    () => (width > 0 && width < breakpoints.tablet ? '150px' : '300px'),
     [width]
   )
   const Logo =

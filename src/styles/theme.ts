@@ -17,7 +17,7 @@ const theme = {
   mode: mode,
   rem: pxToRem,
   page: {
-    backgroundColor: mode === 'ajaton' ? 'rgb(22, 23, 25)' : apyWhite,
+    backgroundColor: mode === 'ajaton' ? '#000' : apyWhite,
     backgroundImage: mode === 'ajaton' ? 'none' : 'none',
     backgroundRepeat: 'repeat-y',
     backgroundPosition: 'top center',

@@ -66,7 +66,7 @@ interface LinkProps {
 
 const A = styled.a<LinkProps>`
   position: relative;
-  color: black;
+  color: ${(p) => (p.isMobile ? 'black' : 'white')};
   font-size: ${(p) => p.theme.rem(24)};
   font-weight: 900;
   text-decoration: none;
@@ -79,11 +79,7 @@ const A = styled.a<LinkProps>`
     width: 100%;
     height: 2px;
     background: ${(p) =>
-      p.isActive
-        ? p.isMobile
-          ? p.theme.colors.black
-          : p.theme.colors.black
-        : ''};
+      p.isActive ? (p.isMobile ? p.theme.colors.black : 'white') : ''};
     border-radius: 5px;
     content: '';
   }
@@ -94,7 +90,7 @@ const A = styled.a<LinkProps>`
     left: 0;
     width: 100%;
     height: 2px;
-    background: black;
+    background: ${(p) => (p.isMobile ? 'black' : 'white')};
     border-radius: 5px;
     content: '';
     transform: scaleX(0);

@@ -44,7 +44,7 @@ const cssNavMain = (p: Theme) => css`
   margin-right: ${p.spacing.large};
 
   & > a {
-    color: ${theme.colors.trueBlack};
+    color: ${theme.colors.white};
   }
 
   &:last-child {

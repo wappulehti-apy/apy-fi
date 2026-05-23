@@ -14,10 +14,19 @@ const logoNormal = '/logos/ajaton/logo-ajaton.png'
 
 const Logo = () => {
   const object = useLoader(OBJLoader, logo3d)
+  const ref = useRef<any>()
   const width = window.innerWidth
   const s = width < breakpoints.desktop ? 0.65 : 0.6
+
+  useFrame((_, delta) => {
+    if (ref.current) {
+      ref.current.rotation.z += delta * 0.5
+    }
+  })
+
   return (
     <primitive
+      ref={ref}
       object={object}
       rotation={[Math.PI / 2, 0, 0]}
       scale={[s, s, s]}
