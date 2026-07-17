@@ -1,6 +1,6 @@
 # Mukaan toimittamaan Äpyä?
 
-Wappulehti Äpy metsästää jatkuvasti uusia toimittajia Äpy-projekteihin! Seuraava Äpy julkaistaan wappuna 2025. Voit ilmaista kiinnostuksesi alla olevan lomakkeen kautta, mikäli haluaisit olla mukana tulevissa projekteissamme. Lomakkeen ei ole tarkoitus olla hakemus, vaan lyhyt kiinnostuksen osoitus. Älä siis käytä liikaa aikaa sen täyttämiseen.
+Wappulehti Äpy metsästää jatkuvasti uusia toimittajia Äpy-projekteihin! Seuraava Äpy julkaistaan wappuna 2027. Voit ilmaista kiinnostuksesi alla olevan lomakkeen kautta, mikäli haluaisit olla mukana tulevissa projekteissamme. Lomakkeen ei ole tarkoitus olla hakemus, vaan lyhyt kiinnostuksen osoitus. Älä siis käytä liikaa aikaa sen täyttämiseen.
 
 Äpyn toimittaminen on hullunkurista, mukaansatempaavaa ja kunkin toimittajan itsensä näköistä. Jokainen Äpy on oma ainutlaatuinen ja ikimuistoinen projektinsa, johon saa halutessaan upotettua vaikka kuinka paljon aikaa, mikäli siltä tuntuu. Tekemistä löytyy joka lähtöön, eikä toimittaminen vaadi erityistaitoja – tekemällä oppii! Tyypillisesti toimittajamme ovat Aalto-yliopiston opiskelijoita ja vähintään toista vuosikurssia.
 
